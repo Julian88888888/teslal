@@ -134,39 +134,7 @@
 
                 <section class="inventory-header-wrapper sticky-content tds-scrim--white mobile-none">
                     <h1 class="inventory-app-title">Inventory</h1>
-                    <div class="view-options basic-grid">
-                        <form class="filter-sort-by-form" novalidate="">
-                            <div class="tds-form-item tds-form-item--select">
-                                <div class="tds-form-label-wrap">
-                                    <label class="tds-form-label" for="filter_lbl"><span class="tds-form-label-text">Sort By</span></label>
-                                </div>
-                                <div class="tds-form-input-wrap tds-o-outline">
-                                    <select class="tds-form-input" id="filter_lbl" name="filter-sort-by" type="select" title="filter-sort-by-select">
-                                        <option value="plh">Price : low to high</option>
-                                        <option value="phl">Price : high to low</option>
-                                        <option value="mlh">Mileage : low to high</option>
-                                        <option value="mhl">Mileage : high to low</option>
-                                        <option value="ylh">Year : new to old</option>
-                                        <option value="yhl">Year : old to new</option>
-                                        <option value="distance">Distance : nearest</option>
-                                    </select>
-                                    <div class="tds-form-input-trailing">
-                                        <svg class="tds-icon tds-icon--inline tds-icon--small tds-icon-chevron-small--180" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M2.75 11.025a.748.748 0 0 1-.53-1.281l5.264-5.25a.75.75 0 0 1 1.06 0l5.236 5.223a.75.75 0 1 1-1.06 1.062L8.014 6.084 3.28 10.806a.748.748 0 0 1-.53.219z"
-                                                fill="currentColor"
-                                                transform="rotate(180 8 8)"
-                                            ></path>
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                        <div class="view-option view-option-switch-view">
-                            <div class="tds-form-item-label tds--is_visually_hidden">View</div>
-                             
-                        </div>
-                    </div>
+                     
                 </section>
 
                 <div class="sticky-content basic-grid tds-scrim--white destop-none">
@@ -271,43 +239,7 @@
                                         </div>
                                     </fieldset>
                                 </div>
-                                <div class="filter filter-TRIM full-width">
-                                    <fieldset class="tds-fieldset">
-                                        <legend class="tds-form-item-label tds-form-legend">Trim</legend>
-                                        <div class="tds-checkboxes">
-                                            <div class="tds-form-item tds-form-item--choice">
-                                                <input class="tds-form-input tds-o-outline" id="TRIM:PAWD" name="PAWD" type="checkbox" />
-                                                <div class="tds-form-label-wrap">
-                                                    <label class="tds-form-label" name="PAWD" for="TRIM:PAWD"><span class="tds-form-label-text">Performance All-Wheel Drive</span></label>
-                                                </div>
-                                            </div>
-                                            <div class="tds-form-item tds-form-item--choice">
-                                                <input class="tds-form-input tds-o-outline" id="TRIM:LRAWD" name="LRAWD" type="checkbox" />
-                                                <div class="tds-form-label-wrap">
-                                                    <label class="tds-form-label" name="LRAWD" for="TRIM:LRAWD"><span class="tds-form-label-text">Long Range All-Wheel Drive</span></label>
-                                                </div>
-                                            </div>
-                                            <div class="tds-form-item tds-form-item--choice">
-                                                <input class="tds-form-input tds-o-outline" id="TRIM:LRRWD" name="LRRWD" type="checkbox" />
-                                                <div class="tds-form-label-wrap">
-                                                    <label class="tds-form-label" name="LRRWD" for="TRIM:LRRWD"><span class="tds-form-label-text">Long Range Rear-Wheel Drive</span></label>
-                                                </div>
-                                            </div>
-                                            <div class="tds-form-item tds-form-item--choice">
-                                                <input class="tds-form-input tds-o-outline" id="TRIM:MRRWD" name="MRRWD" type="checkbox" />
-                                                <div class="tds-form-label-wrap">
-                                                    <label class="tds-form-label" name="MRRWD" for="TRIM:MRRWD"><span class="tds-form-label-text">Mid Range Rear-Wheel Drive</span></label>
-                                                </div>
-                                            </div>
-                                            <div class="tds-form-item tds-form-item--choice">
-                                                <input class="tds-form-input tds-o-outline" id="TRIM:M3RWD" name="M3RWD" type="checkbox" />
-                                                <div class="tds-form-label-wrap">
-                                                    <label class="tds-form-label" name="M3RWD" for="TRIM:M3RWD"><span class="tds-form-label-text">Model 3 Rear-Wheel Drive</span></label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </fieldset>
-                                </div>
+                                 
                                 <div class="filter filter-PAINT full-width">
                                     <fieldset class="tds-fieldset color-fieldset">
                                         <legend class="tds-form-item-label tds-form-legend">Exterior Paint</legend>
@@ -450,104 +382,20 @@
                                         </div>
                                     </fieldset>
                                 </div>
-                                <div class="filter filter-WHEELS full-width">
-                                    <fieldset class="tds-fieldset">
-                                        <legend class="tds-form-item-label tds-form-legend">Wheels</legend>
-                                        <div class="tds-checkboxes">
-                                            <div class="tds-form-item tds-form-item--choice">
-                                                <input class="tds-form-input tds-o-outline" id="WHEELS:EIGHTEEN" name="EIGHTEEN" type="checkbox" />
-                                                <div class="tds-form-label-wrap">
-                                                    <label class="tds-form-label" name="EIGHTEEN" for="WHEELS:EIGHTEEN"><span class="tds-form-label-text">18" Wheels</span></label>
-                                                </div>
-                                            </div>
-                                            <div class="tds-form-item tds-form-item--choice">
-                                                <input class="tds-form-input tds-o-outline" id="WHEELS:NINETEEN" name="NINETEEN" type="checkbox" />
-                                                <div class="tds-form-label-wrap">
-                                                    <label class="tds-form-label" name="NINETEEN" for="WHEELS:NINETEEN"><span class="tds-form-label-text">19" Wheels</span></label>
-                                                </div>
-                                            </div>
-                                            <div class="tds-form-item tds-form-item--choice">
-                                                <input class="tds-form-input tds-o-outline" id="WHEELS:TWENTY" name="TWENTY" type="checkbox" />
-                                                <div class="tds-form-label-wrap">
-                                                    <label class="tds-form-label" name="TWENTY" for="WHEELS:TWENTY"><span class="tds-form-label-text">20" Wheels</span></label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </fieldset>
-                                </div>
-                                <div class="filter filter-VehicleHistory full-width">
-                                    <fieldset class="tds-fieldset">
-                                        <legend class="tds-form-item-label tds-form-legend">Vehicle History</legend>
-                                        <div class="tds-checkboxes">
-                                            <div class="tds-form-item tds-form-item--choice">
-                                                <input class="tds-form-input tds-o-outline" id="VehicleHistory:CLEAN" name="CLEAN" type="checkbox" />
-                                                <div class="tds-form-label-wrap">
-                                                    <label class="tds-form-label" name="CLEAN" for="VehicleHistory:CLEAN"><span class="tds-form-label-text">No Reported Accidents/Damage</span></label>
-                                                </div>
-                                            </div>
-                                            <div class="tds-form-item tds-form-item--choice">
-                                                <input class="tds-form-input tds-o-outline" id="VehicleHistory:PREVIOUS ACCIDENT(S)" name="PREVIOUS ACCIDENT(S)" type="checkbox" />
-                                                <div class="tds-form-label-wrap">
-                                                    <label class="tds-form-label" name="PREVIOUS ACCIDENT(S)" for="VehicleHistory:PREVIOUS ACCIDENT(S)"><span class="tds-form-label-text">Previously Repaired</span></label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </fieldset>
-                                </div>
-                                <div class="filter filter-AUTOPILOT full-width">
-                                    <fieldset class="tds-fieldset">
-                                        <legend class="tds-form-item-label tds-form-legend">Autopilot</legend>
-                                        <div class="tds-checkboxes">
-                                            <div class="tds-form-item tds-form-item--choice">
-                                                <input class="tds-form-input tds-o-outline" id="AUTOPILOT:AUTOPILOT" name="AUTOPILOT" type="checkbox" />
-                                                <div class="tds-form-label-wrap">
-                                                    <label class="tds-form-label" name="AUTOPILOT" for="AUTOPILOT:AUTOPILOT"><span class="tds-form-label-text">Autopilot</span></label>
-                                                </div>
-                                            </div>
-                                            <div class="tds-form-item tds-form-item--choice">
-                                                <input class="tds-form-input tds-o-outline" id="AUTOPILOT:ENHANCED_AUTOPILOT" name="ENHANCED_AUTOPILOT" type="checkbox" />
-                                                <div class="tds-form-label-wrap">
-                                                    <label class="tds-form-label" name="ENHANCED_AUTOPILOT" for="AUTOPILOT:ENHANCED_AUTOPILOT"><span class="tds-form-label-text">Enhanced Autopilot</span></label>
-                                                </div>
-                                            </div>
-                                            <div class="tds-form-item tds-form-item--choice">
-                                                <input class="tds-form-input tds-o-outline" id="AUTOPILOT:AUTOPILOT_FULL_SELF_DRIVING" name="AUTOPILOT_FULL_SELF_DRIVING" type="checkbox" />
-                                                <div class="tds-form-label-wrap">
-                                                    <label class="tds-form-label" name="AUTOPILOT_FULL_SELF_DRIVING" for="AUTOPILOT:AUTOPILOT_FULL_SELF_DRIVING"><span class="tds-form-label-text">Full Self Driving </span></label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </fieldset>
-                                </div>
-                                <div class="filter filter-ADL_OPTS full-width">
-                                    <fieldset class="tds-fieldset">
-                                        <legend class="tds-form-item-label tds-form-legend">Additional Options</legend>
-                                        <div class="tds-checkboxes">
-                                            <div class="tds-form-item tds-form-item--choice">
-                                                <input class="tds-form-input tds-o-outline" id="ADL_OPTS:PERFORMANCE_UPGRADE" name="PERFORMANCE_UPGRADE" type="checkbox" />
-                                                <div class="tds-form-label-wrap">
-                                                    <label class="tds-form-label" name="PERFORMANCE_UPGRADE" for="ADL_OPTS:PERFORMANCE_UPGRADE"><span class="tds-form-label-text">Performance Upgrade</span></label>
-                                                </div>
-                                            </div>
-                                            <div class="tds-form-item tds-form-item--choice">
-                                                <input class="tds-form-input tds-o-outline" id="ADL_OPTS:ACCELERATION_BOOST" name="ACCELERATION_BOOST" type="checkbox" />
-                                                <div class="tds-form-label-wrap">
-                                                    <label class="tds-form-label" name="ACCELERATION_BOOST" for="ADL_OPTS:ACCELERATION_BOOST"><span class="tds-form-label-text">Acceleration Boost</span></label>
-                                                </div>
-                                            </div>
-                                            <div class="tds-form-item tds-form-item--choice">
-                                                <input class="tds-form-input tds-o-outline" id="ADL_OPTS:REAR_HEATED_SEATS" name="REAR_HEATED_SEATS" type="checkbox" />
-                                                <div class="tds-form-label-wrap">
-                                                    <label class="tds-form-label" name="REAR_HEATED_SEATS" for="ADL_OPTS:REAR_HEATED_SEATS"><span class="tds-form-label-text">Rear Heated Seats</span></label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </fieldset>
-                                </div>
+                                
+                                 
+                                 
+                                 
                                 <div class="filter filter-Year full-width">
                                     <fieldset class="tds-fieldset">
                                         <legend class="tds-form-item-label tds-form-legend">Model Year</legend>
                                         <div class="tds-checkboxes">
+                                            <div class="tds-form-item tds-form-item--choice">
+                                                <input class="tds-form-input tds-o-outline" id="Year:2023" name="2023" type="checkbox" />
+                                                <div class="tds-form-label-wrap">
+                                                    <label class="tds-form-label" name="2023" for="Year:2023"><span class="tds-form-label-text">2023</span></label>
+                                                </div>
+                                            </div>
                                             <div class="tds-form-item tds-form-item--choice">
                                                 <input class="tds-form-input tds-o-outline" id="Year:2022" name="2022" type="checkbox" />
                                                 <div class="tds-form-label-wrap">
@@ -634,6 +482,19 @@
                                                 <label class="tds-form-label" for="0912b25b-11ee-4eb0-ac86-09a72bcf7bc0_my"><span class="tds-form-label-text">Model Y</span></label>
                                             </div>
                                         </div>
+
+                                        <div class="tds-form-item tds-form-item--choice">
+                                            <input class="tds-form-input tds-o-outline" id="Cybertruck" type="radio" name="Models" title="Cybertruck" value="my" />
+                                            <div class="tds-form-label-wrap">
+                                                <label class="tds-form-label" for="Cybertruck"><span class="tds-form-label-text">Cybertruck</span></label>
+                                            </div>
+                                        </div>
+                                        <div class="tds-form-item tds-form-item--choice">
+                                            <input class="tds-form-input tds-o-outline" id="Roadster" type="radio" name="Models" title="Roadster" value="my" />
+                                            <div class="tds-form-label-wrap">
+                                                <label class="tds-form-label" for="Roadster"><span class="tds-form-label-text">Roadster</span></label>
+                                            </div>
+                                        </div>
                                     </div>
                                 </fieldset>
                             </div>
@@ -656,43 +517,7 @@
                                     </div>
                                 </fieldset>
                             </div>
-                            <div class="filter filter-TRIM full-width">
-                                <fieldset class="tds-fieldset">
-                                    <legend class="tds-form-item-label tds-form-legend">Trim</legend>
-                                    <div class="tds-checkboxes">
-                                        <div class="tds-form-item tds-form-item--choice">
-                                            <input class="tds-form-input tds-o-outline" id="TRIM:PAWD" name="PAWD" type="checkbox" />
-                                            <div class="tds-form-label-wrap">
-                                                <label class="tds-form-label" name="PAWD" for="TRIM:PAWD"><span class="tds-form-label-text">Performance All-Wheel Drive</span></label>
-                                            </div>
-                                        </div>
-                                        <div class="tds-form-item tds-form-item--choice">
-                                            <input class="tds-form-input tds-o-outline" id="TRIM:LRAWD" name="LRAWD" type="checkbox" />
-                                            <div class="tds-form-label-wrap">
-                                                <label class="tds-form-label" name="LRAWD" for="TRIM:LRAWD"><span class="tds-form-label-text">Long Range All-Wheel Drive</span></label>
-                                            </div>
-                                        </div>
-                                        <div class="tds-form-item tds-form-item--choice">
-                                            <input class="tds-form-input tds-o-outline" id="TRIM:LRRWD" name="LRRWD" type="checkbox" />
-                                            <div class="tds-form-label-wrap">
-                                                <label class="tds-form-label" name="LRRWD" for="TRIM:LRRWD"><span class="tds-form-label-text">Long Range Rear-Wheel Drive</span></label>
-                                            </div>
-                                        </div>
-                                        <div class="tds-form-item tds-form-item--choice">
-                                            <input class="tds-form-input tds-o-outline" id="TRIM:MRRWD" name="MRRWD" type="checkbox" />
-                                            <div class="tds-form-label-wrap">
-                                                <label class="tds-form-label" name="MRRWD" for="TRIM:MRRWD"><span class="tds-form-label-text">Mid Range Rear-Wheel Drive</span></label>
-                                            </div>
-                                        </div>
-                                        <div class="tds-form-item tds-form-item--choice">
-                                            <input class="tds-form-input tds-o-outline" id="TRIM:M3RWD" name="M3RWD" type="checkbox" />
-                                            <div class="tds-form-label-wrap">
-                                                <label class="tds-form-label" name="M3RWD" for="TRIM:M3RWD"><span class="tds-form-label-text">Model 3 Rear-Wheel Drive</span></label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </fieldset>
-                            </div>
+                             
                             <div class="filter filter-PAINT full-width">
                                 <fieldset class="tds-fieldset color-fieldset">
                                     <legend class="tds-form-item-label tds-form-legend">Exterior Paint</legend>
@@ -835,104 +660,20 @@
                                     </div>
                                 </fieldset>
                             </div>
-                            <div class="filter filter-WHEELS full-width">
-                                <fieldset class="tds-fieldset">
-                                    <legend class="tds-form-item-label tds-form-legend">Wheels</legend>
-                                    <div class="tds-checkboxes">
-                                        <div class="tds-form-item tds-form-item--choice">
-                                            <input class="tds-form-input tds-o-outline" id="WHEELS:EIGHTEEN" name="EIGHTEEN" type="checkbox" />
-                                            <div class="tds-form-label-wrap">
-                                                <label class="tds-form-label" name="EIGHTEEN" for="WHEELS:EIGHTEEN"><span class="tds-form-label-text">18" Wheels</span></label>
-                                            </div>
-                                        </div>
-                                        <div class="tds-form-item tds-form-item--choice">
-                                            <input class="tds-form-input tds-o-outline" id="WHEELS:NINETEEN" name="NINETEEN" type="checkbox" />
-                                            <div class="tds-form-label-wrap">
-                                                <label class="tds-form-label" name="NINETEEN" for="WHEELS:NINETEEN"><span class="tds-form-label-text">19" Wheels</span></label>
-                                            </div>
-                                        </div>
-                                        <div class="tds-form-item tds-form-item--choice">
-                                            <input class="tds-form-input tds-o-outline" id="WHEELS:TWENTY" name="TWENTY" type="checkbox" />
-                                            <div class="tds-form-label-wrap">
-                                                <label class="tds-form-label" name="TWENTY" for="WHEELS:TWENTY"><span class="tds-form-label-text">20" Wheels</span></label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </fieldset>
-                            </div>
-                            <div class="filter filter-VehicleHistory full-width">
-                                <fieldset class="tds-fieldset">
-                                    <legend class="tds-form-item-label tds-form-legend">Vehicle History</legend>
-                                    <div class="tds-checkboxes">
-                                        <div class="tds-form-item tds-form-item--choice">
-                                            <input class="tds-form-input tds-o-outline" id="VehicleHistory:CLEAN" name="CLEAN" type="checkbox" />
-                                            <div class="tds-form-label-wrap">
-                                                <label class="tds-form-label" name="CLEAN" for="VehicleHistory:CLEAN"><span class="tds-form-label-text">No Reported Accidents/Damage</span></label>
-                                            </div>
-                                        </div>
-                                        <div class="tds-form-item tds-form-item--choice">
-                                            <input class="tds-form-input tds-o-outline" id="VehicleHistory:PREVIOUS ACCIDENT(S)" name="PREVIOUS ACCIDENT(S)" type="checkbox" />
-                                            <div class="tds-form-label-wrap">
-                                                <label class="tds-form-label" name="PREVIOUS ACCIDENT(S)" for="VehicleHistory:PREVIOUS ACCIDENT(S)"><span class="tds-form-label-text">Previously Repaired</span></label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </fieldset>
-                            </div>
-                            <div class="filter filter-AUTOPILOT full-width">
-                                <fieldset class="tds-fieldset">
-                                    <legend class="tds-form-item-label tds-form-legend">Autopilot</legend>
-                                    <div class="tds-checkboxes">
-                                        <div class="tds-form-item tds-form-item--choice">
-                                            <input class="tds-form-input tds-o-outline" id="AUTOPILOT:AUTOPILOT" name="AUTOPILOT" type="checkbox" />
-                                            <div class="tds-form-label-wrap">
-                                                <label class="tds-form-label" name="AUTOPILOT" for="AUTOPILOT:AUTOPILOT"><span class="tds-form-label-text">Autopilot</span></label>
-                                            </div>
-                                        </div>
-                                        <div class="tds-form-item tds-form-item--choice">
-                                            <input class="tds-form-input tds-o-outline" id="AUTOPILOT:ENHANCED_AUTOPILOT" name="ENHANCED_AUTOPILOT" type="checkbox" />
-                                            <div class="tds-form-label-wrap">
-                                                <label class="tds-form-label" name="ENHANCED_AUTOPILOT" for="AUTOPILOT:ENHANCED_AUTOPILOT"><span class="tds-form-label-text">Enhanced Autopilot</span></label>
-                                            </div>
-                                        </div>
-                                        <div class="tds-form-item tds-form-item--choice">
-                                            <input class="tds-form-input tds-o-outline" id="AUTOPILOT:AUTOPILOT_FULL_SELF_DRIVING" name="AUTOPILOT_FULL_SELF_DRIVING" type="checkbox" />
-                                            <div class="tds-form-label-wrap">
-                                                <label class="tds-form-label" name="AUTOPILOT_FULL_SELF_DRIVING" for="AUTOPILOT:AUTOPILOT_FULL_SELF_DRIVING"><span class="tds-form-label-text">Full Self Driving </span></label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </fieldset>
-                            </div>
-                            <div class="filter filter-ADL_OPTS full-width">
-                                <fieldset class="tds-fieldset">
-                                    <legend class="tds-form-item-label tds-form-legend">Additional Options</legend>
-                                    <div class="tds-checkboxes">
-                                        <div class="tds-form-item tds-form-item--choice">
-                                            <input class="tds-form-input tds-o-outline" id="ADL_OPTS:PERFORMANCE_UPGRADE" name="PERFORMANCE_UPGRADE" type="checkbox" />
-                                            <div class="tds-form-label-wrap">
-                                                <label class="tds-form-label" name="PERFORMANCE_UPGRADE" for="ADL_OPTS:PERFORMANCE_UPGRADE"><span class="tds-form-label-text">Performance Upgrade</span></label>
-                                            </div>
-                                        </div>
-                                        <div class="tds-form-item tds-form-item--choice">
-                                            <input class="tds-form-input tds-o-outline" id="ADL_OPTS:ACCELERATION_BOOST" name="ACCELERATION_BOOST" type="checkbox" />
-                                            <div class="tds-form-label-wrap">
-                                                <label class="tds-form-label" name="ACCELERATION_BOOST" for="ADL_OPTS:ACCELERATION_BOOST"><span class="tds-form-label-text">Acceleration Boost</span></label>
-                                            </div>
-                                        </div>
-                                        <div class="tds-form-item tds-form-item--choice">
-                                            <input class="tds-form-input tds-o-outline" id="ADL_OPTS:REAR_HEATED_SEATS" name="REAR_HEATED_SEATS" type="checkbox" />
-                                            <div class="tds-form-label-wrap">
-                                                <label class="tds-form-label" name="REAR_HEATED_SEATS" for="ADL_OPTS:REAR_HEATED_SEATS"><span class="tds-form-label-text">Rear Heated Seats</span></label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </fieldset>
-                            </div>
+                             
+                             
+                            
+                           
                             <div class="filter filter-Year full-width">
                                 <fieldset class="tds-fieldset">
                                     <legend class="tds-form-item-label tds-form-legend">Model Year</legend>
                                     <div class="tds-checkboxes">
+                                        <div class="tds-form-item tds-form-item--choice">
+                                            <input class="tds-form-input tds-o-outline" id="Year:2023" name="2023" type="checkbox" />
+                                            <div class="tds-form-label-wrap">
+                                                <label class="tds-form-label" name="2023" for="Year:2023"><span class="tds-form-label-text">2023</span></label>
+                                            </div>
+                                        </div>
                                         <div class="tds-form-item tds-form-item--choice">
                                             <input class="tds-form-input tds-o-outline" id="Year:2022" name="2022" type="checkbox" />
                                             <div class="tds-form-label-wrap">
@@ -981,23 +722,8 @@
                             <h2>Results</h2>
                             <a id="inventory-results" href="#filters" class="tds-skip-nav">Skip to Filters</a>
                         </div>
-                        <div class="alertbox full-width">
-                            <i class="alertbox-icon inventory-icon inventory-icon--info"></i>
-                            <div class="alertbox-content">
-                                <strong class="alertbox-title tds-text--medium">
-                                    <span>Order online for touchless delivery. <a href="/support/delivery-options?redirect=no" class="tds-link" target="_blank" rel="noopener noreferrer">Learn more</a></span>
-                                </strong>
-                            </div>
-                        </div>
-                        <div class="alertbox full-width">
-                            <i class="alertbox-icon inventory-icon inventory-icon--info"></i>
-                            <div class="alertbox-content">
-                                <strong class="alertbox-title tds-text--medium"><span>Results below may be far away</span></strong>
-                                <div class="alertbox-body">
-                                    <span>Deliver to any Tesla delivery location of your choice in the continental US for up to $2,500. Listed transportation fees are estimates and will be confirmed once an order is placed.</span>
-                                </div>
-                            </div>
-                        </div>
+                         
+                         
                         <article class="result card">
                             <section class="result-header">
                                 <div class="result-basic-info">
