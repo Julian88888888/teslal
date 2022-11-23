@@ -25,3 +25,17 @@
   background: rgba(0,0,0,0.3);
   content: '';
 }
+
+.fallback-image-container img {
+  display: block;
+  height: auto;
+  transition: opacity 1s ease;
+  width: 100%;
+}
+
+.model-selector__input optgroup {
+  text-align: center;
+}
+.model-selector__input optgroup option {
+  text-align: left;
+}
