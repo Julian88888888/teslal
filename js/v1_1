@@ -9,8 +9,8 @@
       { "title": "Roadster", "href": "/roadster.html" }
   ],
   "primaryNavigationRightItems": [
-      { "title": "+7(905)-428-0000", "href": "tel:+79054280000" },
-      { "title": "Menu", "action": ["secondaryNavigationItems"] }
+      { "title": "+7 905 428 0000", "href": "tel:+79054280000" },
+      { "title": "Меню", "action": ["secondaryNavigationItems"] }
   ],
   "primaryMobileNavigationItems": [
       { "title": "Model S", "href": "/model.html" },
@@ -18,9 +18,12 @@
       { "title": "Model X", "href": "/modelx.html" },
       { "title": "Model Y", "href": "/modely.html" },
       { "title": "Cybertruck", "href": "/cybertruck.html" },
-      { "title": "Roadster", "href": "/roadster.html" }
+      { "title": "Roadster", "href": "/roadster.html" },
+      { "title": "Semi", "href": "#" },
+      { "title": "Каталог авто", "href": "#" },
+      { "title": "О нас", "href": "#" }
   ],
-  "primaryMobileNavigationRightItems": [{ "title": "Menu", "action": ["primaryMobileNavigationItems"], "special": "menuNavItem" }],
+  "primaryMobileNavigationRightItems": [{ "title": "Меню", "action": ["primaryMobileNavigationItems"], "special": "menuNavItem" }],
   "secondaryNavigationItems": [
       { "title": "Каталог авто", "href": "#" },
       { "title": "Зарядные устройства", "href": "#" },
@@ -34,6 +37,8 @@
       { "title": "Roadster", "href": "/roadster" },
       { "title": "Semi", "href": "/semi" },
       { "title": "News", "href": "/blog" },
+      { "title": "Каталог авто", "href": "#" },
+      { "title": "О нас", "href": "#" },
       { "title": "Locale Selector", "action": ["localeSelector"], "special": "localeSelectorTrigger" }
   ],
   "localeSelector": [

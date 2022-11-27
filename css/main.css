@@ -39,3 +39,21 @@
 .model-selector__input optgroup option {
   text-align: left;
 }
+
+.con-modelx {
+  width: var(--tcl-button-inline-size);
+  display: block;
+}
+
+@media screen and (max-width: 700px) {
+  [id='hero'] .stats li .top .range-numbers {
+      font-size: 26px;
+  }
+
+}
+
+@media (max-width: 500px) {
+  .tcl-homepage-hero-heading-font-size-mobile {
+    font-size: 24px;
+  }
+}
