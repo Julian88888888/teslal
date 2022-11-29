@@ -1,7 +1,7 @@
 {
   "sl_translate": "drawerTitle,title,titleMobile,drawerImageAltText,region,siteHeader,closeButtonText,moreLinkText,skipToMainContentText,backLinkText,menuLinkText,logoLabel",
   "primaryNavigationItems": [
-      { "title": "Model S", "href": "/model" },
+      { "title": "Model S", "href": "/models" },
       { "title": "Model 3", "href": "/model3" },
       { "title": "Model X", "href": "/modelx" },
       { "title": "Model Y", "href": "/modely" },
@@ -13,7 +13,7 @@
       { "title": "Меню", "action": ["secondaryNavigationItems"] }
   ],
   "primaryMobileNavigationItems": [
-      { "title": "Model S", "href": "/model" },
+      { "title": "Model S", "href": "/models" },
       { "title": "Model 3", "href": "/model3" },
       { "title": "Model X", "href": "/modelx" },
       { "title": "Model Y", "href": "/modely" },
