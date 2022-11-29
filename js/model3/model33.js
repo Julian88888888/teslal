@@ -22677,7 +22677,7 @@ window.addEventListener("load", () => {
                           Object.assign({ className: A()("tds-site-nav-items", ((t = {}), o(t, "tds-align--".concat(n), n), o(t, "tds-site-nav-items--".concat(c), c), t), l), ref: d }, s),
                           r && a.createElement("div", { className: "tds-animate--backdrop-backdrop" }),
                           a.Children.map(i, function (e) {
-                              return e && a.createElement("li", null, e);
+                            return e && a.createElement('li', { className: `ju-item` }, null, e);
                           })
                       )
                   );
@@ -24242,4 +24242,15 @@ window.addEventListener("load", () => {
                       Ae
                   );
       })();
+
+      window.onload = function() { // можно также использовать window.addEventListener('load', (event) => {
+        let nanMenu  = document.getElementsByClassName("ju-item")[6];
+    console.log(nanMenu);
+    
+    nanMenu.innerHTML = '<a title="+7 905 428 0000" href="tel:+79054280000" class="tds-site-nav-item tds-animate--backdrop tds--product-name"><span class="tds-site-nav-item-text">+7 905 428 0000</span></a><div class="wr"><div class="item">Позвонить <img src="img/naw/icon1.png"></div><div class="item">WhatsApp <img src="img/naw/icon2.png"></div><div class="item">Telegram <img src="img/naw/icon3.png"></div><div class="item color">Скопировать номер <img src="img/naw/icon4.png"></div></div>';
+    nanMenu.classList.add("phone-header");
+    let nanLogo = document.getElementsByClassName("tds-site-logo-link")[0];
+        console.log(nanLogo);
+        nanLogo.innerHTML = '<img src="img/logo.svg">';
+      };
 })();
