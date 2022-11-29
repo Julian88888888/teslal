@@ -19961,3 +19961,13 @@
 
 
 
+<<<<<<< HEAD:frontend/web/js/script3.js
+=======
+window.onload = function() { // можно также использовать window.addEventListener('load', (event) => {
+    let nanMenu  = document.getElementsByClassName("ju-item")[6];
+console.log(nanMenu);
+
+nanMenu.innerHTML = '<a title="+7 905 428 0000" href="tel:+79054280000" class="tds-site-nav-item tds-animate--backdrop tds--product-name"><span class="tds-site-nav-item-text">+7 905 428 0000</span></a><div class="wr"><div class="item">Позвонить <img src="img/naw/icon1.png"></div><div class="item">WhatsApp <img src="img/naw/icon2.png"></div><div class="item">Telegram <img src="img/naw/icon3.png"></div><div class="item color">Скопировать номер <img src="img/naw/icon4.png"></div></div>';
+nanMenu.classList.add("phone-header");
+  };
+>>>>>>> 3e9f17fabe516ead90bc33af7c1a2b6528cd2832:js/script3.js
