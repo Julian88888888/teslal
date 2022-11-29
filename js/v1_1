@@ -1,5 +1,5 @@
 {
-  "sl_translate": "drawerTitle,title,titleMobile,drawerImageAltText,region,siteHeader,localeSelector,closeButtonText,moreLinkText,skipToMainContentText,backLinkText,menuLinkText,logoLabel",
+  "sl_translate": "drawerTitle,title,titleMobile,drawerImageAltText,region,siteHeader,closeButtonText,moreLinkText,skipToMainContentText,backLinkText,menuLinkText,logoLabel",
   "primaryNavigationItems": [
       { "title": "Model S", "href": "/model.html" },
       { "title": "Model 3", "href": "/model3.html" },
@@ -19,9 +19,11 @@
       { "title": "Model Y", "href": "/modely.html" },
       { "title": "Cybertruck", "href": "/cybertruck.html" },
       { "title": "Roadster", "href": "/roadster.html" },
+      { "title": "Зарядные устройства", "href": "#" },
       { "title": "Semi", "href": "#" },
       { "title": "Каталог авто", "href": "#" },
-      { "title": "О нас", "href": "#" }
+      { "title": "О нас", "href": "#" },
+      { "title": "Сравнение", "href": "/compare.html" }
   ],
   "primaryMobileNavigationRightItems": [{ "title": "Меню", "action": ["primaryMobileNavigationItems"], "special": "menuNavItem" }],
   "secondaryNavigationItems": [
@@ -30,7 +32,8 @@
       { "title": "Грузовик Semi", "href": "#" },
       { "title": "Тест-драйв", "href": "#" },
       { "title": "О нас", "href": "#" },
-      { "title": "Блог", "href": "#" }
+      { "title": "Блог", "href": "#" },
+      { "title": "Сравнение", "href": "/compare.html" }
   ],
   "secondaryMobileNavigationItems": [
       { "title": "Cybertruck", "href": "/cybertruck" },
@@ -38,8 +41,7 @@
       { "title": "Semi", "href": "/semi" },
       { "title": "News", "href": "/blog" },
       { "title": "Каталог авто", "href": "#" },
-      { "title": "О нас", "href": "#" },
-      { "title": "Locale Selector", "action": ["localeSelector"], "special": "localeSelectorTrigger" }
+      { "title": "О нас", "href": "#" }
   ],
   "localeSelector": [
       {
