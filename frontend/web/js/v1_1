@@ -1,0 +1,59 @@
+{
+  "sl_translate": "drawerTitle,title,titleMobile,drawerImageAltText,region,siteHeader,closeButtonText,moreLinkText,skipToMainContentText,backLinkText,menuLinkText,logoLabel",
+  "primaryNavigationItems": [
+      { "title": "Model S", "href": "/model" },
+      { "title": "Model 3", "href": "/model3" },
+      { "title": "Model X", "href": "/modelx" },
+      { "title": "Model Y", "href": "/modely" },
+      { "title": "Cybertruck", "href": "/cybertruck" },
+      { "title": "Roadster", "href": "/roadster" }
+  ],
+  "primaryNavigationRightItems": [
+      { "title": "+7 905 428 0000", "href": "tel:+79054280000" },
+      { "title": "Меню", "action": ["secondaryNavigationItems"] }
+  ],
+  "primaryMobileNavigationItems": [
+      { "title": "Model S", "href": "/model" },
+      { "title": "Model 3", "href": "/model3" },
+      { "title": "Model X", "href": "/modelx" },
+      { "title": "Model Y", "href": "/modely" },
+      { "title": "Cybertruck", "href": "/cybertruck" },
+      { "title": "Roadster", "href": "/roadster" },
+      { "title": "Зарядные устройства", "href": "/zaryadki" },
+      { "title": "Semi", "href": "/semi" },
+      { "title": "Каталог авто", "href": "#" },
+      { "title": "О нас", "href": "#" },
+      { "title": "Сравнение", "href": "/compare" }
+  ],
+  "primaryMobileNavigationRightItems": [{ "title": "Меню", "action": ["primaryMobileNavigationItems"], "special": "menuNavItem" }],
+  "secondaryNavigationItems": [
+      { "title": "Каталог авто", "href": "#" },
+      { "title": "Зарядные устройства", "href": "/zaryadki" },
+      { "title": "Грузовик Semi", "href": "/semi" },
+      { "title": "Тест-драйв", "href": "/testdrive" },
+      { "title": "О нас", "href": "#" },
+      { "title": "Блог", "href": "#" },
+      { "title": "Сравнение", "href": "/compare" }
+  ],
+  "secondaryMobileNavigationItems": [
+      { "title": "Cybertruck", "href": "/cybertruck" },
+      { "title": "Roadster", "href": "/roadster" },
+      { "title": "Semi", "href": "/semi" },
+      { "title": "News", "href": "/blog" },
+      { "title": "Каталог авто", "href": "#" },
+      { "title": "О нас", "href": "#" }
+  ], 
+  "translatableText": {
+      "siteHeader": "Site header",
+      "localeSelector": "Locale selector",
+      "closeButtonText": "Close",
+      "moreLinkText": "More",
+      "skipToMainContentText": "Skip to main content",
+      "backLinkText": "Back",
+      "menuLinkText": "Menu",
+      "logoLabel": "Tesla homepage",
+      "localeSelectorTriggerCountry": "United States",
+      "localeSelectorTriggerLanguage": "English"
+  },
+  "logo": { "href": "/" }
+}
