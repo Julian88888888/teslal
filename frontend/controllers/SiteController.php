@@ -137,4 +137,9 @@ class SiteController extends Controller
     {
         return $this->render('compare.html');
     }
+
+    public function actionGetcars()
+    {
+        return $this->render('partials/catalogue');
+    }
 }
