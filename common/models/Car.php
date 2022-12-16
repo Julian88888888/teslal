@@ -48,8 +48,9 @@ class Car extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['condition', 'body_color', 'interior_color', 'status', 'created_at', 'updated_at'], 'integer'],
-            [['model', 'modification', 'distance', 'disks', 'year', 'price_usd', 'price_rub', 'cash_usd', 'cash_rub', 'leasing_usd', 'leasing_rub', 'seats', 'autopilot', 'drive', 'hundred_km', 'max_speed', 'milage'], 'string', 'max' => 255],
+            [['model'], 'required'],
+            [['created_at', 'updated_at'], 'integer'],
+            [['model', 'modification', 'distance', 'disks', 'year', 'price_usd', 'price_rub', 'cash_usd', 'cash_rub', 'leasing_usd', 'leasing_rub', 'seats', 'autopilot', 'drive', 'hundred_km', 'max_speed', 'milage', 'condition', 'body_color', 'interior_color', 'status'], 'string', 'max' => 255],
         ];
     }
 
@@ -84,5 +85,81 @@ class Car extends \yii\db\ActiveRecord
             'created_at' => Yii::t('app', 'Created At'),
             'updated_at' => Yii::t('app', 'Updated At'),
         ];
+    }
+
+    public function getModelName() {
+        $models = [
+            'model_s' => 'Model S',
+            'model_x' => 'Model X',
+            'model_y' => 'Model Y',
+            'model_3' => 'Model 3',
+            'cybertruck' => 'Cybertruck',
+            'roadster' => 'Roadster'
+        ];
+
+        return $models[$this->model];
+    }
+
+    public function getModificationName() {
+        $models = [
+            'model_s' => 'Long Range',
+            'model_x' => 'Long Range', 
+            'plaid' => 'Plaid',
+            'real_wheel_drive' => 'Rear-Wheel drive',
+            'long_range' => 'Long Range',
+            'long_range_awd' => 'Long Range AWD', 
+            'performance' => 'Performance',
+            'single_motor' => 'Single motor', 
+            'dual_motor' => 'Dual motor',
+            'tri_motor' => 'Tri motor',
+            'four_motor' => 'Four motor'
+        ];
+
+        return $models[$this->modification];
+    }
+
+    public function getConditionName() {
+        $models = [
+            'new' => 'новая',
+            'used' => 'с пробегом',
+        ];
+
+        return $models[$this->condition];
+    }
+
+    public function getBodyColorName() {
+        $models = [
+            'white' => 'белый', 
+            'black' => 'черный', 
+            'dark_grey' => 'темно-серый', 
+            'light_grey' => 'светло-серый', 
+            'red' => 'красный',
+            'blue' => 'синий',
+            'grey' => 'серый'
+        ];
+
+        return $models[$this->body_color];
+    }
+
+    public function getInteriorColorName() {
+        $models = [
+            'grey' => 'серый', 
+            'black' => 'черный', 
+            'white' => 'белый', 
+            'brown' => 'бежевый',
+            'tan' => 'коричневый'
+        ];
+
+        return $models[$this->interior_color];
+    }
+
+    public function getDriveName() {
+        $models = [
+            'full' => 'полный',
+            'forward' => 'передний',
+            'backward' => 'задний'
+        ];
+
+        return $models[$this->drive];
     }
 }

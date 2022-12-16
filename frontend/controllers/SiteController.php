@@ -11,6 +11,7 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
+use common\models\Car;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
@@ -140,6 +141,45 @@ class SiteController extends Controller
 
     public function actionGetcars()
     {
-        return $this->render('partials/catalogue');
+        $requestParams = \Yii::$app->getRequest()->getBodyParams(); // [1]
+        if (empty($requestParams)) {
+            $requestParams = \Yii::$app->getRequest()->getQueryParams(); // [2]
+        }
+        // $dataFilter = new \yii\data\ActiveDataFilter([
+        //     'searchModel' => Car::class // [3]
+        // ]);
+
+        // if ($dataFilter->load($requestParams)) {
+        //     $filter = $dataFilter->build(); // [4]
+            
+        //     if ($filter === false) { // [5]
+        //         $cars = Car::find()->where($requestParams['filter'])->all();
+        //         var_dump(Car::find()->where($requestParams['filter'])->createCommand()->rawSql);die;
+        //         return $this->render('partials/catalogue', ['cars' => $cars]);
+        //     }
+        // }
+
+        // $query = Car::find();
+
+        // if (!empty($filter)) {
+        //     $query->andWhere($filter); // [6]
+        // }
+
+        // $provider = new \yii\data\ActiveDataProvider([
+        //     'query' => $query,
+        //     // 'pagination' => [
+        //     //     'params' => $requestParams,
+        //     // ],
+        //     'sort' => [
+        //         'params' => $requestParams,
+        //     ],
+        // ]);
+        $cars = Car::find();
+        if(isset($requestParams['filter']))
+            $cars->andWhere($requestParams['filter']);
+
+        $cars = $cars->all();
+        
+        return $this->render('partials/catalogue', ['cars' => $cars]);
     }
 }

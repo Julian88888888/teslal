@@ -14,13 +14,13 @@ class m221210_110748_create_car_table extends Migration
     {
         $this->createTable('{{%car}}', [
             'id' => $this->primaryKey(),
-            'condition' => $this->smallInteger()->defaultValue(10),
+            'condition' => $this->string(),
             'model' => $this->string(),
             'modification' => $this->string(),
-            'body_color' => $this->smallInteger()->defaultValue(1),
-            'interior_color' => $this->smallInteger()->defaultValue(1),
+            'body_color' => $this->string(),
+            'interior_color' => $this->string(),
             'distance' => $this->string(),
-            'status' => $this->smallInteger()->defaultValue(30),
+            'status' => $this->string(),
             'disks' => $this->string(),
             'year' => $this->string(),
 

@@ -13,8 +13,8 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'condition')->dropDownList([
-        10 => 'New',
-        20 => 'Used'
+        'new' => 'Новая',
+        'used' => 'С пробегом'
     ], [
         'class' => 'form-select', 
     ]) ?>
@@ -25,7 +25,6 @@ use yii\widgets\ActiveForm;
         50 => 'Под заказ'
     ], [
         'class' => 'form-select', 
-        'prompt'=>''
     ]) ?>
 
     <?= $form->field($model, 'model')->dropDownList([
@@ -36,8 +35,8 @@ use yii\widgets\ActiveForm;
         'cybertruck' => 'Cybertruck',
         'roadster' => 'Roadster',
     ], [
-        'class' => 'form-select', 
-        'prompt'=>''
+        'class' => 'form-select',
+        'prompt' => '' 
     ]) ?>
 
     <?= $form->field($model, 'modification')->dropDownList([
@@ -45,7 +44,6 @@ use yii\widgets\ActiveForm;
     ], [
         'class' => 'form-select', 
         'disabled' => true,
-        'prompt'=>''
     ]) ?>
 
     <?= $form->field($model, 'body_color')->dropDownList([
@@ -53,7 +51,6 @@ use yii\widgets\ActiveForm;
     ], [
         'class' => 'form-select', 
         'disabled' => true,
-        'prompt'=>''
     ]) ?>
 
     <?= $form->field($model, 'interior_color')->dropDownList([
@@ -61,7 +58,6 @@ use yii\widgets\ActiveForm;
     ], [
         'class' => 'form-select', 
         'disabled' => true,
-        'prompt'=>''
     ]) ?>
 
     <?= $form->field($model, 'year')->dropDownList([
@@ -69,19 +65,18 @@ use yii\widgets\ActiveForm;
     ], [
         'class' => 'form-select', 
         'disabled' => true,
-        'prompt'=>''
     ]) ?>
 
     <hr>
     <h3>Цены</h3>
 
-    <?= $form->field($model, 'price_usd')->textInput(['maxlength' => true]) ?>
-    <?= $form->field($model, 'price_rub')->textInput(['maxlength' => true]) ?>
-    
-    <br>
-    
     <?= $form->field($model, 'cash_usd')->textInput(['maxlength' => true]) ?>
     <?= $form->field($model, 'cash_rub')->textInput(['maxlength' => true]) ?>
+    
+    <br>
+
+    <?= $form->field($model, 'price_usd')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'price_rub')->textInput(['maxlength' => true]) ?>
     
     <br>
 
@@ -96,7 +91,6 @@ use yii\widgets\ActiveForm;
     ], [
         'class' => 'form-select', 
         'disabled' => false,
-        'prompt'=>''
     ]) ?>
 
     <?= $form->field($model, 'seats')->dropDownList([
@@ -108,32 +102,30 @@ use yii\widgets\ActiveForm;
     ]) ?>
 
     <?= $form->field($model, 'autopilot')->dropDownList([
-        'basic' => '',
-        'advanced' => '',
-        'complete' => ''
+        'basic' => 'Базовый',
+        'advanced' => 'Продвинутый',
+        'complete' => 'Полный'
     ], [
         'class' => 'form-select', 
         'disabled' => false,
-        'prompt'=>''
     ]) ?>
 
     <?= $form->field($model, 'drive')->dropDownList([
-        'full' => '',
-        'forward' => '',
-        'backward' => ''
+        'full' => 'Полный',
+        'forward' => 'Передний',
+        'backward' => 'Задний'
     ], [
         'class' => 'form-select', 
         'disabled' => false,
-        'prompt'=>''
     ]) ?>
 
-    <?= $form->field($model, 'hundred_km')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'hundred_km')->textInput(['maxlength' => true])->label('0-100 км/ч (укажите количество секунд)') ?>
 
     <?= $form->field($model, 'max_speed')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'distance')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'distance')->textInput(['maxlength' => true])->label('Запас хода (км)')  ?>
 
-    <?= $form->field($model, 'milage')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'milage')->textInput(['maxlength' => true])->label('Пробег (км)')  ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>
