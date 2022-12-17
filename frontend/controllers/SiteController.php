@@ -124,10 +124,10 @@ class SiteController extends Controller
         return $this->render('charging.html');
     }
 
-    // public function actionConfigurator()
-    // {
-    //     return $this->render('overview.html');
-    // }
+    public function actionOverview()
+    {
+        return $this->render('overview.html');
+    }
 
     public function actionKatalogavto()
     {

@@ -680,7 +680,7 @@
    font-display: swap;
    font-style: normal;
    src:
-     url('/tds-fonts/3.x/woff2/GothamSSm-Bold_Web.woff2')
+     url('https://cdn-design.tesla.com/assets/GothamSSm-Bold_Web.woff2')
      format('woff2');
  }
  /* Medium */
@@ -690,7 +690,7 @@
    font-display: swap;
    font-style: normal;
    src:
-     url('/tds-fonts/3.x/woff2/GothamSSm-Medium_Web.woff2')
+     url('https://cdn-design.tesla.com/assets/GothamSSm-Medium_Web.woff2')
      format('woff2');
  }
  /* Book */
@@ -700,7 +700,7 @@
    font-display: swap;
    font-style: normal;
    src:
-     url('/tds-fonts/3.x/woff2/GothamSSm-Book_Web.woff2')
+     url('https://cdn-design.tesla.com/assets/GothamSSm-Book_Web.woff2')
      format('woff2');
  }
  /* Light */
@@ -710,7 +710,7 @@
    font-display: swap;
    font-style: normal;
    src:
-     url('/tds-fonts/3.x/woff2/GothamSSm-Light_Web.woff2')
+     url('https://cdn-design.tesla.com/assets/GothamSSm-Light_Web.woff2')
      format('woff2');
  }
  /* Extra Light */
@@ -720,7 +720,7 @@
    font-display: swap;
    font-style: normal;
    src:
-     url('/tds-fonts/3.x/woff2/GothamSSm-XLight_Web.woff2')
+     url('https://cdn-design.tesla.com/assets/GothamSSm-XLight_Web.woff2')
      format('woff2');
  }
  /* Chinese (Simplified, Traditional, Hong Kong):

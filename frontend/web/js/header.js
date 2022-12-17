@@ -1,5 +1,5 @@
 {
-  "sl_translate": "drawerTitle,title,titleMobile,drawerImageAltText,region,siteHeader,closeButtonText,moreLinkText,skipToMainContentText,backLinkText,menuLinkText,logoLabel",
+  "sl_translate": "drawerTitle,title,titleMobile,drawerImageAltText,region,siteHeader,localeSelector,closeButtonText,moreLinkText,skipToMainContentText,backLinkText,menuLinkText,logoLabel",
   "primaryNavigationItems": [
       { "title": "Model S", "href": "/models" },
       { "title": "Model 3", "href": "/model3" },
@@ -9,7 +9,6 @@
       { "title": "Solar Panels", "href": "/solarpanels" }
   ],
   "primaryNavigationRightItems": [
-<<<<<<< HEAD:frontend/web/js/header.js
       { "title": "Shop", "href": "https://shop.tesla.com" },
       { "title": "Account", "href": "/teslaaccount" },
       { "title": "Menu", "action": ["secondaryNavigationItems"] }
@@ -37,27 +36,9 @@
       { "title": "Account", "href": "/teslaaccount" },
       { "title": "More", "endIcon": "arrow--90", "action": ["secondaryMobileNavigationItems"] },
       { "title": "Locale Selector", "action": ["localeSelector"], "special": "localeSelectorTrigger" }
-=======
-      { "title": "+7 905 428 0000", "href": "tel:+79054280000" },
-      { "title": "Меню", "action": ["secondaryNavigationItems"] }
   ],
-  "primaryMobileNavigationItems": [
-      { "title": "Model S", "href": "/model.html" },
-      { "title": "Model 3", "href": "/model3.html" },
-      { "title": "Model X", "href": "/modelx.html" },
-      { "title": "Model Y", "href": "/modely.html" },
-      { "title": "Cybertruck", "href": "/cybertruck.html" },
-      { "title": "Roadster", "href": "/roadster.html" },
-      { "title": "Зарядные устройства", "href": "#" },
-      { "title": "Semi", "href": "#" },
-      { "title": "Каталог авто", "href": "#" },
-      { "title": "О нас", "href": "#" },
-      { "title": "Сравнение", "href": "/compare.html" }
->>>>>>> 3e9f17fabe516ead90bc33af7c1a2b6528cd2832:js/v1_1
-  ],
-  "primaryMobileNavigationRightItems": [{ "title": "Меню", "action": ["primaryMobileNavigationItems"], "special": "menuNavItem" }],
+  "primaryMobileNavigationRightItems": [{ "title": "Menu", "action": ["primaryMobileNavigationItems"], "special": "menuNavItem" }],
   "secondaryNavigationItems": [
-<<<<<<< HEAD:frontend/web/js/header.js
       { "title": "Existing Inventory", "href": "/inventory/new/m3" },
       { "title": "Used Inventory", "hideOn": ["phone-only"], "href": "/inventory/used/m3" },
       { "title": "Trade-In", "href": "/tradein" },
@@ -74,23 +55,13 @@
       { "title": "Support", "href": "/support" },
       { "title": "Investor Relations", "href": "https://ir.tesla.com" },
       { "title": "Locale Selector", "action": ["localeSelector"], "special": "localeSelectorTrigger" }
-=======
-      { "title": "Каталог авто", "href": "#" },
-      { "title": "Зарядные устройства", "href": "#" },
-      { "title": "Грузовик Semi", "href": "#" },
-      { "title": "Тест-драйв", "href": "#" },
-      { "title": "О нас", "href": "#" },
-      { "title": "Блог", "href": "#" },
-      { "title": "Сравнение", "href": "/compare.html" }
->>>>>>> 3e9f17fabe516ead90bc33af7c1a2b6528cd2832:js/v1_1
   ],
   "secondaryMobileNavigationItems": [
       { "title": "Cybertruck", "href": "/cybertruck" },
       { "title": "Roadster", "href": "/roadster" },
       { "title": "Semi", "href": "/semi" },
       { "title": "News", "href": "/blog" },
-      { "title": "Каталог авто", "href": "#" },
-      { "title": "О нас", "href": "#" }
+      { "title": "Locale Selector", "action": ["localeSelector"], "special": "localeSelectorTrigger" }
   ],
   "localeSelector": [
       {

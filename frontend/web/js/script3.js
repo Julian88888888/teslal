@@ -18005,7 +18005,7 @@
                           value: "",
                           attributes: {
                               d:
-                                  "M0 .1a9.7 9.7 0 0 0 7 7h11l.5.1v27.6h6.8V7.3L26 7h11a9.8 9.8 0 0 0 7-7H0zm238.6 0h-6.8v34.8H263a9.7 9.7 0 0 0 6-6.8h-30.3V0zm-52.3 6.8c3.6-1 6.6-3.8 7.4-6.9l-38.1.1v20.6h31.1v7.2h-24.4a13.6 13.6 0 0 0-8.7 7h39.9v-21h-31.2v-7h24zm116.2 28h6.7v-14h24.6v14h6.7v-21h-38zM85.3 7h26a9.6 9.6 0 0 0 7.1-7H78.3a9.6 9.6 0 0 0 7 7zm0 13.8h26a9.6 9.6 0 0 0 7.1-7H78.3a9.6 9.6 0 0 0 7 7zm0 14.1h26a9.6 9.6 0 0 0 7.1-7H78.3a9.6 9.6 0 0 0 7 7zM308.5 7h26a9.6 9.6 0 0 0 7-7h-40a9.6 9.6 0 0 0 7 7z",
+                                  "M0 .1a9.7 9.7 0 0 0 7 7h11l.5.1v27.6h6.8V7.3L26 7h11a9.8 9.8 0 0 0 7-7H0zm238.6 0h-6.8v34.8H263a9.7 9.7 0 0 0 6-6.8h-30.3V0zm-52.3 6.8c3.6-1 6.6-3.8 7.4-6.9l-38.1.1v20.6h31.1v7.2h-24.4a13.6 13.6 0 0 0-8.7 7h39.9v-21h-31.2v-7h24zm116.2 28h6.7v-14h24.6v14h6.7v-21h-38zM85.3 7h26a9.6 9.6 0 0 0 7.1-7H78.3a9.6 9.6 0 0 0 7 7zm0 13.8h26a9.6 9.6 0 0 0 7.1-7H78.3a9.6 9.6 0 0 0 7 7zm0 14.1h26a9.6 9.6 0 0 0 7.1-7H78.3a9.6 9.6 0 0 0 7 7zM308.5 7h26a9.6 9.6 0 0 0 7-7h-40a9.6 9.6 0 0 0 7 7z", 
                               fill: "currentColor",
                           },
                           children: [],
@@ -18495,14 +18495,14 @@
                       d = e.skipLinkTarget,
                       f = void 0 === d ? "main-content" : d,
                       m = u(e, ["appTitle", "appTitleHref", "className", "href", "label", "skipLink", "skipLinkTarget"]),
-                      g = f.startsWith("#") ? f : "#".concat(f);
+                      g = f.startsWith("#") ? f : "#".concat(f); 
                   return a.createElement(
                       "h1",
                       Object.assign({ className: A()("tds-site-logo", "tds-align--start", r) }, m),
                       a.createElement(
                           "a",
-                          { "aria-label": "Tesla Logo", className: "tds-site-logo-link", href: o },
-                          a.createElement(I, { className: "tds-site-logo-icon", data: p }),
+                          { "aria-label": "Tesla Logo", className: "tds-site-logo-link", href: i },
+                          a.createElement('img', { className: "tds-site-logo-icon", "src": "img/logo.svg" },  ),
                           l && a.createElement("span", { className: "tds--is_visually_hidden" }, l)
                       ),
                       t && a.createElement("a", { className: "tds-site-app-title tds-text--400 tds-text--h6", href: n }, t),
@@ -19944,16 +19944,7 @@
                       Ae
                   );
       })();
-      window.onload = function() {  
-        let nanMenu  = document.getElementsByClassName("ju-item")[6];
-        console.log(nanMenu);
-        
-        nanMenu.innerHTML = '<a title="+7 905 428 0000" href="tel:+79054280000" class="tds-site-nav-item tds-animate--backdrop tds--product-name"><span class="tds-site-nav-item-text">+7 905 428 0000</span></a><div class="wr"><div class="item">Позвонить <img src="img/naw/icon1.png"></div><div class="item">WhatsApp <img src="img/naw/icon2.png"></div><div class="item">Telegram <img src="img/naw/icon3.png"></div><div class="item color">Скопировать номер <img src="img/naw/icon4.png"></div></div>';
-        nanMenu.classList.add("phone-header");
-        let nanLogo = document.getElementsByClassName("tds-site-logo-link")[0];
-        console.log(nanLogo);
-        nanLogo.innerHTML = '<img src="img/logo.svg">';
-      };
+
 
 })();
 
@@ -19961,13 +19952,10 @@
 
 
 
-<<<<<<< HEAD:frontend/web/js/script3.js
-=======
-window.onload = function() { // можно также использовать window.addEventListener('load', (event) => {
+window.onload = function() {  
     let nanMenu  = document.getElementsByClassName("ju-item")[6];
-console.log(nanMenu);
+ 
 
-nanMenu.innerHTML = '<a title="+7 905 428 0000" href="tel:+79054280000" class="tds-site-nav-item tds-animate--backdrop tds--product-name"><span class="tds-site-nav-item-text">+7 905 428 0000</span></a><div class="wr"><div class="item">Позвонить <img src="img/naw/icon1.png"></div><div class="item">WhatsApp <img src="img/naw/icon2.png"></div><div class="item">Telegram <img src="img/naw/icon3.png"></div><div class="item color">Скопировать номер <img src="img/naw/icon4.png"></div></div>';
+nanMenu.innerHTML = '<a title="+7 905 428 0000" href="tel:+79054280000" class="tds-site-nav-item tds-animate--backdrop tds--product-name"><span class="tds-site-nav-item-text">+7 905 428 0000</span></a><div class="wr"><div class="item">Позвонить <img src="img/naw/phone-svgrepo-com.svg"></div><div class="item">WhatsApp <img src="img/naw/icon2.png"></div><div class="item">Telegram <img src="img/naw/icon3.png"></div><div class="item">Скопировать номер <img src="img/naw/copy-svgrepo-com.svg"></div></div>';
 nanMenu.classList.add("phone-header");
   };
->>>>>>> 3e9f17fabe516ead90bc33af7c1a2b6528cd2832:js/script3.js
