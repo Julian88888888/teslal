@@ -142,19 +142,19 @@
     <section class="result-features  ">
         <div class="result-features_wrap">
             <div class="result-features__item">
-                <div class="result-features__item_icon"><img src="img/inventory/icon-img1.png" alt=""></div>
+                <div class="result-features__item_icon"><img src="img/inventory/icon-img1.svg" alt=""></div>
                 <div class="result-features__item_text">Цвет салона: <?= $car['interiorColorName'] ?></div>
             </div>
             <div class="result-features__item">
-                <div class="result-features__item_icon"><img src="img/inventory/icon-img1.png" alt=""></div>
+                <div class="result-features__item_icon"><img src="img/inventory/icon-img1.svg" alt=""></div>
                 <div class="result-features__item_text">Цвет кузова: <?= $car['bodyColorName'] ?></div>
             </div>
             <div class="result-features__item">
-                <div class="result-features__item_icon"><img src="img/inventory/icon-img2.png" alt=""></div>
+                <div class="result-features__item_icon"><img src="img/inventory/icon-img2.svg" alt=""></div>
                 <div class="result-features__item_text">Состояние: <?= $car['conditionName'] ?></div>
             </div>
             <div class="result-features__item">
-                <div class="result-features__item_icon"><img src="img/inventory/icon-img3.png" alt=""></div>
+                <div class="result-features__item_icon"><img src="img/inventory/icon-img3.svg" alt=""></div>
                 <div class="result-features__item_text">Привод: <?= $car['driveName'] ?></div>
             </div>
         </div>
