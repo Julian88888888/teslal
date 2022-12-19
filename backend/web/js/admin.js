@@ -28,7 +28,8 @@ var data = {
 				'2021': 2021,
 				'2022': 2022,
 				'2023': 2023
-			}
+			},
+			'seats': 'disabled'
 		}
 	},
 	'model_x': {
@@ -61,6 +62,11 @@ var data = {
 				'2021': 2021,
 				'2022': 2022,
 				'2023': 2023
+			},
+			'seats': {
+				5: 5,
+				6: 6,
+				7: 7
 			}
 		}
 	},
@@ -86,7 +92,8 @@ var data = {
 				'2021': 2021,
 				'2022': 2022,
 				'2023': 2023
-			}
+			},
+			'seats': 'disabled'
 		}
 	},
 	'model_3': {
@@ -116,7 +123,8 @@ var data = {
 				'2021': 2021,
 				'2022': 2022,
 				'2023': 2023
-			}
+			},
+			'seats': 'disabled'
 		}
 	},
 	'cybertruck': {
@@ -136,7 +144,12 @@ var data = {
 			'year': {
 				'2022': 2022,
 				'2023': 2023
-			}
+			},
+			'drive': {
+				'full': 'Полный',
+				'backward': 'Задний'
+			},
+			'seats': {6: 6}
 		}
 	},
 	'roadster': {
@@ -151,6 +164,13 @@ var data = {
 			'year': {
 				'2022': 2022,
 				'2023': 2023
+			},
+			'drive': {
+				'full': 'Полный',
+			},
+			'seats': {
+				2: 2,
+				4: 4
 			}
 		}
 	}
@@ -163,6 +183,25 @@ if($('#car-model').val()) {
 $('#car-model').on('change', function() {
 	updateSelect($(this).val())
 });
+
+$('#car-modification').on('change', function() {
+	if($('#car-model').val() == 'model_y') {
+		if($(this).val() == 'performance') {
+			var opts = '';
+
+			$.each({5: 5, 7:7}, function(key, val) {
+				opts += '<option value="'+key+'">'+val+'</option>';
+			});
+
+			$('select#car-seats').html(opts);
+			$('select#car-seats').removeAttr('disabled');
+		} else {
+			$('select#car-seats').html('');
+			$('select#car-seats').val('');
+			$('select#car-seats').attr('disabled', true);
+		}
+	}
+})
 
 function updateSelect(model_val) {
 	$.each(data[model_val]['fields'], function(key, val) {
