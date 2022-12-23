@@ -133,4 +133,8 @@ use yii\widgets\ActiveForm;
 
     <?php ActiveForm::end(); ?>
 
+
+    <?php
+        Yii::$app->view->registerJs('var usd_course = "'. $usd_course.'"',  \yii\web\View::POS_HEAD);
+    ?>
 </div>

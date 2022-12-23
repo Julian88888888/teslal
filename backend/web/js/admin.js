@@ -203,6 +203,18 @@ $('#car-modification').on('change', function() {
 	}
 })
 
+$('#car-price_usd').on('change', function() {
+	$('#car-price_rub').val(Math.ceil(usd_course * $(this).val()));
+});
+
+$('#car-cash_usd').on('change', function() {
+	$('#car-cash_rub').val(Math.ceil(usd_course * $(this).val()));
+});
+
+$('#car-leasing_usd').on('change', function() {
+	$('#car-leasing_rub').val(Math.ceil(usd_course * $(this).val()));
+});
+
 function updateSelect(model_val) {
 	$.each(data[model_val]['fields'], function(key, val) {
 		var opts = '';

@@ -3,6 +3,7 @@
 namespace backend\controllers;
 
 use common\models\Car;
+use common\models\Options;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -85,6 +86,8 @@ class CarController extends Controller
     public function actionCreate()
     {
         $model = new Car();
+        $option = Options::findOne(['option_name' => 'usd_course']);
+        $usd_course = $option->option_value;
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
@@ -96,6 +99,7 @@ class CarController extends Controller
 
         return $this->render('create', [
             'model' => $model,
+            'usd_course' => $usd_course
         ]);
     }
 
@@ -109,6 +113,8 @@ class CarController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $option = Options::findOne(['option_name' => 'usd_course']);
+        $usd_course = $option->option_value;
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -116,6 +122,7 @@ class CarController extends Controller
 
         return $this->render('update', [
             'model' => $model,
+            'usd_course' => $usd_course
         ]);
     }
 
