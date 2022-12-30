@@ -162,4 +162,9 @@ class Car extends \yii\db\ActiveRecord
 
         return $models[$this->drive];
     }
+
+    public function getCarImages()
+    {
+        return $this->hasMany(CarImage::class, ['car_id' => 'id']);
+    }
 }

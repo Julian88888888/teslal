@@ -4,11 +4,14 @@ namespace backend\controllers;
 
 use common\models\Car;
 use common\models\Options;
+use common\models\CarImage;
+use backend\models\UploadForm;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use yii\web\UploadedFile;
 
 /**
  * CarController implements the CRUD actions for Car model.
@@ -86,11 +89,28 @@ class CarController extends Controller
     public function actionCreate()
     {
         $model = new Car();
+        $upload = new UploadForm();
         $option = Options::findOne(['option_name' => 'usd_course']);
         $usd_course = $option->option_value;
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
+
+                $upload->image = UploadedFile::getInstances($upload, 'image');
+
+                if(!empty($upload->image) && $upload->validate()) {
+                    foreach ($upload->image as $file) {
+                        $filename = sha1_file($file->tempName) . '.' . $file->extension;
+                        $path = str_replace('/admin', '', \Yii::getAlias('@webroot')) . '/uploads/' . $filename;
+                        $file->saveAs($path);
+                        $image = new CarImage();
+
+                        $image->car_id = $model->id;
+                        $image->filename = $filename;
+                        $image->save();
+                    }
+                }
+
                 return $this->redirect(['view', 'id' => $model->id]);
             }
         } else {
@@ -99,6 +119,7 @@ class CarController extends Controller
 
         return $this->render('create', [
             'model' => $model,
+            'upload' => $upload,
             'usd_course' => $usd_course
         ]);
     }
@@ -112,16 +133,43 @@ class CarController extends Controller
      */
     public function actionUpdate($id)
     {
+
         $model = $this->findModel($id);
+        $upload = new UploadForm();
         $option = Options::findOne(['option_name' => 'usd_course']);
         $usd_course = $option->option_value;
+        $images = CarImage::find()->where(['car_id' => $model->id])->all();
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
+            $upload->image = UploadedFile::getInstances($upload, 'image');
+
+            if(!empty($upload->image) && $upload->validate()) {
+
+                $images_to_delete = CarImage::findAll(['car_id' => $model->id]);
+
+                foreach ($images_to_delete as $deleted) {
+                    $deleted->delete();
+                }
+                
+                foreach ($upload->image as $file) {
+                    $filename = sha1_file($file->tempName) . '.' . $file->extension;
+                    $path = str_replace('/admin', '', \Yii::getAlias('@webroot')) . '/uploads/' . $filename;
+                    $file->saveAs($path);
+                    $image = new CarImage();
+
+                    $image->car_id = $model->id;
+                    $image->filename = $filename;
+                    $image->save();
+                }
+            }
+
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('update', [
             'model' => $model,
+            'upload' => $upload,
+            'images' => $images,
             'usd_course' => $usd_course
         ]);
     }
