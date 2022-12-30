@@ -35,6 +35,7 @@
       { "title": "Тест-драйв", "href": "/testdrive" },
       { "title": "Сравнение моделей", "href": "/sravnenie" },
       { "title": "Новости Tesla", "href": "#" },
+      { "title": "Tesla Semi", "href": "/semi" },
       { "title": "О нас", "href": "#" }
   ],
   "secondaryMobileNavigationItems": [

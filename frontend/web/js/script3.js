@@ -24522,7 +24522,7 @@
           var t = Ee();
           t.includes(e) || t.push(x(e).locale),
             "undefined" != typeof localStorage &&
-              localStorage.setItem(we, String(t));
+              localStorage.setItem(we, 'en-US');
         },
         Te = n(60),
         xe = n.n(Te),
