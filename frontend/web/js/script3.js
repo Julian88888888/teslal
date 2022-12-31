@@ -24497,33 +24497,33 @@
             return Object.assign(Object.assign({}, e), o({}, a, i.matches));
           }, {});
         },
-        we = "tdsUserApprovedLocales",
-        Ze = function (e) {
-          var t = x(e).locale,
-            n = !1;
-          return (
-            "undefined" != typeof window &&
-              window.navigator.languages.forEach(function (e) {
-                x(e).locale === t && (n = !0);
-              }),
-            Ee().forEach(function (e) {
-              e === t && (n = !0);
-            }),
-            { approveLocale: Se, isApprovedLocale: n }
-          );
-        },
-        Ee = function () {
-          var e =
-            ("undefined" != typeof localStorage && localStorage.getItem(we)) ||
-            "";
-          return e.length ? e.split(",") : [];
-        },
-        Se = function (e) {
-          var t = Ee();
-          t.includes(e) || t.push(x(e).locale),
-            "undefined" != typeof localStorage &&
-              localStorage.setItem(we, 'en-US');
-        },
+        // we = "tdsUserApprovedLocales",
+        // Ze = function (e) {
+        //   var t = x(e).locale,
+        //     n = !1;
+        //   return (
+        //     "undefined" != typeof window &&
+        //       window.navigator.languages.forEach(function (e) {
+        //         x(e).locale === t && (n = !0);
+        //       }),
+        //     Ee().forEach(function (e) {
+        //       e === t && (n = !0);
+        //     }),
+        //     { approveLocale: Se, isApprovedLocale: n }
+        //   );
+        // },
+        // Ee = function () {
+        //   var e =
+        //     ("undefined" != typeof localStorage && localStorage.getItem(we)) ||
+        //     "";
+        //   return e.length ? e.split(",") : [];
+        // },
+        // Se = function (e) {
+        //   var t = Ee();
+        //   t.includes(e) || t.push(x(e).locale),
+        //     "undefined" != typeof localStorage &&
+        //       localStorage.setItem(we, 'en-US');
+        // },
         Te = n(60),
         xe = n.n(Te),
         Ce = function (e) {
@@ -24700,20 +24700,20 @@
             },
             [re]
           );
-          var le = Ze(E),
-            ue = le.approveLocale,
-            de = le.isApprovedLocale;
-          (0, a.useEffect)(
-            function () {
-              var e = "CN" === W;
-              de ||
-                y ||
-                !(null == j ? void 0 : j.localeSelector) ||
-                e ||
-                (J(!0), ae(["localeSelector"]));
-            },
-            [de, j.loaded, W, y, null == j ? void 0 : j.localeSelector]
-          );
+          // var le = Ze(E),
+          //   ue = le.approveLocale,
+          //   de = le.isApprovedLocale;
+          // (0, a.useEffect)(
+          //   function () {
+          //     var e = "CN" === W;
+          //     de ||
+          //       y ||
+          //       !(null == j ? void 0 : j.localeSelector) ||
+          //       e ||
+          //       (J(!0), ae(["localeSelector"]));
+          //   },
+          //   [de, j.loaded, W, y, null == j ? void 0 : j.localeSelector]
+          // );
           var fe = (function () {
               var e = (function () {
                   var e =
