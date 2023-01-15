@@ -1970,3 +1970,262 @@ dialog.tds-modal::backdrop {
 .tds-site-header-wrapper .tds--no_padding {
   padding: 0 !important;
 }
+
+aside.inventory-sidebar-wrapper.tds-scrim--light.mobile-none {
+  position: sticky;
+  height: 100%;
+  top: 40px;
+}
+
+.tds-footer-nav .tds-footer-item span {
+  font-weight: bold;
+}
+
+
+.tds-component-preview {
+  --tds-gutter: var(--tds-size--3x);
+  --tds-gutter--half: calc(var(--tds-size--3x) / 2);
+  --tds-gutter--negative: calc(var(--tds-size--3x) * -1);
+  --tds-gutter--half_negative: calc(var(--tds-gutter--negative) / 2);
+}
+
+.tds-flex {
+  display: flex;
+  flex-flow: column wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (--tds-tablet-portrait-up) {
+  .tds-flex {
+    flex-flow: row wrap;
+  }
+}
+
+.tds-flex-gutters {
+  margin-block-end: var(--tds-size--3x);
+  margin-block-start: var(--tds-gutter--negative);
+  margin-inline-start: var(--tds-gutter--negative);
+}
+
+@media (--tds-phone-only) {
+  .tds-flex-small-gutters > * {
+    margin-block-start: var(--tds-size--1x);
+    margin-block-end: var(--tds-size--1x);
+  }
+
+  .tds-flex-small-gutters > :first-child {
+    margin-block-start: 0;
+  }
+
+  .tds-flex-small-gutters > :last-child {
+    margin-block-end: 0;
+  }
+}
+
+@media (--tds-tablet-portrait-up) {
+  .tds-flex-small-gutters > * {
+    margin-inline-start: var(--tds-size--1x);
+    margin-inline-end: var(--tds-size--1x);
+  }
+
+  .tds-flex-small-gutters > :first-child {
+    margin-inline-start: 0;
+  }
+
+  .tds-flex-small-gutters > :last-child {
+    margin-inline-end: 0;
+  }
+}
+
+.tds-flex--nowrap {
+  flex-wrap: nowrap;
+}
+
+.tds-flex-item {
+  flex: 1;
+}
+
+.tds-grid--show_grid .tds-flex-item {
+  overflow: hidden;
+  position: relative;
+}
+
+.tds-grid--show_grid .tds-flex-item::before {
+  background-color: rgba(149, 236, 255, 0.1);
+  block-size: 100%;
+  border-inline-end: 1px solid rgba(149, 236, 255, 0.3);
+  border-inline-start: 1px solid rgba(149, 236, 255, 0.3);
+  content: '';
+  display: block;
+  inline-size: calc(100% - 2px);
+  left: 1px;
+  position: absolute;
+  top: 0;
+}
+
+.tds-grid--show_grid.tds-flex-gutters .tds-flex-item::before,
+.tds-grid--show_grid .tds-flex-gutters .tds-flex-item::before {
+  inline-size: calc(100% - 26px);
+  left: var(--tds-size--3x);
+  top: var(--tds-size--3x);
+}
+
+.tds-flex-gutters .tds-flex-item {
+  padding-block-start: var(--tds-size--3x);
+  padding-inline-start: var(--tds-size--3x);
+}
+
+.tds-flex--flex_cells > .tds-flex-item {
+  display: flex;
+}
+
+.tds-flex-item--no_gutter {
+  padding-block-start: 0;
+  padding-inline-start: 0;
+}
+
+.tds-flex-gutters .tds-flex-gutters {
+  margin-block-end: 0;
+}
+
+/* Columns spanning multiples
+--------------------------------------------------------------------------- */
+[class*='tds-flex--col_'] {
+  flex: none;
+  transition: width 250ms ease-in-out;
+}
+
+@media (--tds-tablet-portrait-up) {
+  .tds-flex--col_1of2 {
+    inline-size: 50%;
+  }
+
+  .tds-flex--col_1of3 {
+    inline-size: 33.3333%;
+  }
+
+  .tds-flex--col_2of3 {
+    inline-size: 66.6667%;
+  }
+
+  .tds-flex--col_1of4 {
+    inline-size: 25%;
+  }
+
+  .tds-flex--col_3of4 {
+    inline-size: 75%;
+  }
+
+  .tds-flex--col_1of1 {
+    inline-size: 100%;
+  }
+}
+
+/* Vertical Alignment per row
+--------------------------------------------------------------------------- */
+.tds-flex--top {
+  align-items: flex-start;
+}
+
+.tds-flex--bottom {
+  align-items: flex-end;
+}
+
+.tds-flex--center {
+  align-items: center;
+}
+
+/* Horizontal Alignment per row
+--------------------------------------------------------------------------- */
+.tds-flex--align-inline-start {
+  justify-content: flex-start;
+}
+
+.tds-flex--align-inline-center {
+  justify-content: center;
+}
+
+.tds-flex--align-inline-end {
+  justify-content: flex-end;
+}
+
+/* In order for justify-content to work properly, child elements must have their flex unset */
+.tds-flex--align-inline-start > .tds-flex-item,
+.tds-flex--align-inline-center > .tds-flex-item,
+.tds-flex--align-inline-end > .tds-flex-item {
+  flex: unset;
+}
+
+/* Alignment per cell
+--------------------------------------------------------------------------- */
+.tds-flex-item--top {
+  align-self: flex-start;
+}
+
+.tds-flex-item--bottom {
+  align-self: flex-end;
+}
+
+.tds-flex-item--center {
+  align-self: center;
+}
+
+/* Base classes for all media
+--------------------------------------------------------------------------- */
+.tds-flex--fit > .tds-flex-item {
+  flex: 1;
+}
+
+@media (--tds-tablet-portrait-up) {
+  .tds-flex--full > .tds-flex-item {
+    flex: 0 0 100%;
+  }
+
+  .tds-flex--halfs > .tds-flex-item {
+    flex: 0 0 50%;
+  }
+
+  .tds-flex--thirds > .tds-flex-item {
+    flex: 0 0 33.3333%;
+  }
+
+  .tds-flex--quarters > .tds-flex-item {
+    flex: 0 0 25%;
+  }
+
+  /* Large screens
+  --------------------------------------------------------------------------- */
+  .tds-flex--large_fit > .tds-flex-item {
+    flex: 1;
+  }
+
+  .tds-flex--large_full > .tds-flex-item {
+    flex: 0 0 100%;
+  }
+
+  .tds-flex--large_halfs > .tds-flex-item {
+    flex: 0 0 50%;
+  }
+
+  .tds-flex--large_thirds > .tds-flex-item {
+    flex: 0 0 33.3333%;
+  }
+
+  .tds-flex--large_quarters > .tds-flex-item {
+    flex: 0 0 25%;
+  }
+}
+
+/* --- Custom Layouts
+--------------------------------------------------------------------------- */
+.tds-flex--as_columns {
+  flex-flow: column wrap;
+}
+
+/* TODO: I'm annoyed this isn't underscored to match with the utility class above */
+.tds-flex--as-rows {
+  display: flex;
+  flex-flow: row wrap;
+}
