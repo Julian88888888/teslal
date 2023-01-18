@@ -138,6 +138,10 @@ class SiteController extends Controller
     {
         return $this->render('compare.html');
     }
+    public function actionCar()
+    {
+        return $this->render('car.html');
+    }
 
     public function actionGetcars()
     {
