@@ -6,8 +6,15 @@
 /** Header Alignment --
   * ---------------------------------------------------------- */
 .tds-site-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row wrap;
   flex-flow: row wrap;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
   position: relative;
   z-index: 10;
@@ -18,48 +25,62 @@
   top: 0;
 }
 .tds-site-header .tds-align--start {
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
   -webkit-padding-start: 8px;
   -webkit-padding-start: var(--tds-size--1x);
-          padding-inline-start: 8px;
-          padding-inline-start: var(--tds-size--1x);
+  padding-inline-start: 8px;
+  padding-inline-start: var(--tds-size--1x);
 }
 .tds-site-header .tds-align--center {
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
   flex-grow: 1;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   -webkit-padding-end: 8px;
   -webkit-padding-end: var(--tds-size--1x);
-          padding-inline-end: 8px;
-          padding-inline-end: var(--tds-size--1x);
+  padding-inline-end: 8px;
+  padding-inline-end: var(--tds-size--1x);
   -webkit-padding-start: 8px;
   -webkit-padding-start: var(--tds-size--1x);
-          padding-inline-start: 8px;
-          padding-inline-start: var(--tds-size--1x);
+  padding-inline-start: 8px;
+  padding-inline-start: var(--tds-size--1x);
 }
 .tds-site-header .tds-align--end {
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
   justify-content: flex-end;
   -webkit-padding-end: 8px;
   -webkit-padding-end: var(--tds-size--1x);
-          padding-inline-end: 8px;
-          padding-inline-end: var(--tds-size--1x);
+  padding-inline-end: 8px;
+  padding-inline-end: var(--tds-size--1x);
 }
 @media (min-width: 600px) {
   /* Combines with logo and nav item padding to match 36px in the content container */
   .tds-site-header .tds-align--start {
     -webkit-padding-start: 20px;
-            padding-inline-start: 20px;
+    padding-inline-start: 20px;
   }
 
   .tds-site-header .tds-align--end {
     -webkit-padding-end: 20px;
-            padding-inline-end: 20px;
+    padding-inline-end: 20px;
   }
 }
 /* TODO: For MVP Site Header skips tablet layout */
 @media (min-width: 1200px) {
   .tds-site-nav--flyout {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
     justify-content: flex-end;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
     flex-grow: 1;
   }
 
@@ -75,24 +96,24 @@
     min-inline-size: 270px;
     -webkit-padding-start: 32px;
     -webkit-padding-start: var(--tds-size--4x);
-            padding-inline-start: 32px;
-            padding-inline-start: var(--tds-size--4x);
+    padding-inline-start: 32px;
+    padding-inline-start: var(--tds-size--4x);
   }
 
   .tds-site-header .tds-align--end {
     min-inline-size: 270px;
     -webkit-padding-end: 32px;
     -webkit-padding-end: var(--tds-size--4x);
-            padding-inline-end: 32px;
-            padding-inline-end: var(--tds-size--4x);
+    padding-inline-end: 32px;
+    padding-inline-end: var(--tds-size--4x);
   }
 }
 /* Specific spacing for SHL */
 .tds-site-header-modal {
   -webkit-padding-after: 48px;
   -webkit-padding-after: var(--tds-size--6x);
-          padding-block-end: 48px;
-          padding-block-end: var(--tds-size--6x);
+  padding-block-end: 48px;
+  padding-block-end: var(--tds-size--6x);
 }
 .tds-site-header-modal .tds-modal-header {
   padding: 20px;
@@ -105,7 +126,7 @@
   --tds-site-nav--flyout-width: 312px;
 }
 .tds-site-nav--flyout:focus-within,
-.tds-site-nav--flyout[aria-expanded='true'] {
+.tds-site-nav--flyout[aria-expanded="true"] {
   /* Resets the colors in case the header is using the dark colorscheme */
   --tds-color--primary: var(--tds-color--blue30);
   --tds-color--secondary: var(--tds-color--grey10);
@@ -116,7 +137,7 @@
 }
 .tds-site-nav--flyout-backdrop {
   -webkit-backdrop-filter: blur(0);
-          backdrop-filter: blur(0);
+  backdrop-filter: blur(0);
   background-color: transparent;
   bottom: 0;
   cursor: pointer;
@@ -125,6 +146,8 @@
   position: fixed;
   right: 0;
   top: 0;
+  -webkit-transition: 0.5s ease;
+  -o-transition: 0.5s ease;
   transition: 0.5s ease;
   z-index: -5;
 }
@@ -136,16 +159,19 @@
 .tds-site-header:focus-within .tds-site-nav--flyout-backdrop {
   will-change: transform, backdrop-filter;
 }
-.tds-site-nav--flyout-backdrop[aria-expanded='true'] {
+.tds-site-nav--flyout-backdrop[aria-expanded="true"] {
   -webkit-backdrop-filter: blur(4px);
-          backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
   background-color: rgba(128, 128, 128, 0.25);
   pointer-events: inherit;
   -webkit-transform: translateX(0);
-          transform: translateX(0);
+  -ms-transform: translateX(0);
+  transform: translateX(0);
 }
 /* Flyout Nav for Mobile TODO: For MVP Site Header skips tablet layout */
-@media (max-width: 599px), (min-width: 600px) and (max-width: 899px), (min-width: 900px) and (max-width: 1199px) {
+@media (max-width: 599px),
+  (min-width: 600px) and (max-width: 899px),
+  (min-width: 900px) and (max-width: 1199px) {
   :root,
   .tds-component-preview {
     --tds-nav-controls-height: 80px;
@@ -164,20 +190,27 @@
     overflow-y: auto;
     background-color: #fff;
     background-color: var(--tds-color--white);
+    -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    -webkit-box-shadow: var(--tds-box-shadow--off);
     box-shadow: var(--tds-box-shadow--off);
     max-width: calc(100vw - 40px);
     max-width: calc(100vw - var(--tds-size--5x));
     inline-size: 312px;
     inline-size: var(--tds-site-nav--flyout-width);
     -webkit-transform: translateX(312px);
-            transform: translateX(312px);
+    -ms-transform: translateX(312px);
+    transform: translateX(312px);
     -webkit-transform: translateX(var(--tds-site-nav--flyout-width));
-            transform: translateX(var(--tds-site-nav--flyout-width));
+    -ms-transform: translateX(var(--tds-site-nav--flyout-width));
+    transform: translateX(var(--tds-site-nav--flyout-width));
     visibility: hidden;
     transition: visibility 0.5s, -webkit-transform 0.5s ease;
+    -webkit-transition: visibility 0.5s, -webkit-transform 0.5s ease;
+    -o-transition: transform 0.5s ease, visibility 0.5s;
     transition: transform 0.5s ease, visibility 0.5s;
-    transition: transform 0.5s ease, visibility 0.5s, -webkit-transform 0.5s ease;
+    transition: transform 0.5s ease, visibility 0.5s,
+      -webkit-transform 0.5s ease;
     z-index: 110;
   }
 
@@ -207,25 +240,45 @@
   }
 
   /* Active State for the fly-out */
-  .tds-site-nav--flyout[aria-expanded='true'] {
+  .tds-site-nav--flyout[aria-expanded="true"] {
+    -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.16);
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.16);
+    -webkit-box-shadow: var(--tds-box-shadow--large);
     box-shadow: var(--tds-box-shadow--large);
     -webkit-transform: translateX(0);
-            transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
     visibility: inherit;
-    transition: visibility 0s, -webkit-transform 0.5s cubic-bezier(0.5, 0, 0, 0.75);
+    transition: visibility 0s,
+      -webkit-transform 0.5s cubic-bezier(0.5, 0, 0, 0.75);
+    -webkit-transition: visibility 0s,
+      -webkit-transform 0.5s cubic-bezier(0.5, 0, 0, 0.75);
+    -o-transition: transform 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s;
     transition: transform 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s;
-    transition: transform 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s, -webkit-transform 0.5s cubic-bezier(0.5, 0, 0, 0.75);
+    transition: transform 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s,
+      -webkit-transform 0.5s cubic-bezier(0.5, 0, 0, 0.75);
     transition: visibility 0s, -webkit-transform 0.5s var(--tds-bezier);
+    -webkit-transition: visibility 0s, -webkit-transform 0.5s var(--tds-bezier);
+    -o-transition: transform 0.5s var(--tds-bezier), visibility 0s;
     transition: transform 0.5s var(--tds-bezier), visibility 0s;
-    transition: transform 0.5s var(--tds-bezier), visibility 0s, -webkit-transform 0.5s var(--tds-bezier);
+    transition: transform 0.5s var(--tds-bezier), visibility 0s,
+      -webkit-transform 0.5s var(--tds-bezier);
   }
 
   /* Panel controls for contents */
   .tds-site-nav-controls {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -ms-flex-flow: row-reverse nowrap;
     flex-flow: row-reverse nowrap;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     padding: 16px;
     padding: var(--tds-size--2x);
@@ -254,353 +307,272 @@
   /* Override for the locale-selector since it would normally have a 2-col tablet layout */
   .tds-site-nav-content .tds-locale-selector-region {
     -webkit-column-count: 1;
-            column-count: 1;
+    -moz-column-count: 1;
+    column-count: 1;
   }
 
-  .tds-site-nav-content[data-tds-tier='1'] {
+  .tds-site-nav-content[data-tds-tier="1"] {
     overflow-y: auto;
   }
 
-  .tds-site-nav-item[aria-expanded='false'],
-  .tds-site-nav-content[aria-expanded='false'] {
+  .tds-site-nav-item[aria-expanded="false"],
+  .tds-site-nav-content[aria-expanded="false"] {
     opacity: 0;
     -webkit-transform: translateX(-24px);
-            transform: translateX(-24px);
+    -ms-transform: translateX(-24px);
+    transform: translateX(-24px);
     visibility: hidden;
     pointer-events: none;
-    transition:
-      color 0.33s ease,
-      background-color 0.33s ease,
+    transition: color 0.33s ease, background-color 0.33s ease,
       opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
-      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75),
-      visibility 0s 0.5s,
+      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0.5s,
       -webkit-backdrop-filter 0.33s ease;
-    transition:
-      color 0.33s ease,
-      background-color 0.33s ease,
-      opacity 0.5s var(--tds-bezier),
-      transform 0.5s var(--tds-bezier),
-      visibility 0s 0.5s,
-      -webkit-backdrop-filter 0.33s ease;
-    transition:
-      color 0.33s ease,
-      background-color 0.33s ease,
-      opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
-      visibility 0s 0.5s,
+    transition: color 0.33s ease, background-color 0.33s ease,
+      opacity 0.5s var(--tds-bezier), transform 0.5s var(--tds-bezier),
+      visibility 0s 0.5s, -webkit-backdrop-filter 0.33s ease;
+    transition: color 0.33s ease, background-color 0.33s ease,
+      opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0.5s,
       -webkit-backdrop-filter 0.33s ease,
       -webkit-transform 0.5s cubic-bezier(0.5, 0, 0, 0.75);
-    transition:
-      color 0.33s ease,
-      backdrop-filter 0.33s ease,
-      background-color 0.33s ease,
-      opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
-      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75),
-      visibility 0s 0.5s;
-    transition:
-      color 0.33s ease,
-      backdrop-filter 0.33s ease,
-      background-color 0.33s ease,
-      opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
-      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75),
-      visibility 0s 0.5s,
+    -webkit-transition: color 0.33s ease, background-color 0.33s ease,
+      opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0.5s,
       -webkit-backdrop-filter 0.33s ease,
       -webkit-transform 0.5s cubic-bezier(0.5, 0, 0, 0.75);
-    transition:
-      color 0.33s ease,
-      background-color 0.33s ease,
-      opacity 0.5s var(--tds-bezier),
-      visibility 0s 0.5s,
+    -o-transition: color 0.33s ease, backdrop-filter 0.33s ease,
+      background-color 0.33s ease, opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
+      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0.5s;
+    transition: color 0.33s ease, backdrop-filter 0.33s ease,
+      background-color 0.33s ease, opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
+      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0.5s;
+    transition: color 0.33s ease, backdrop-filter 0.33s ease,
+      background-color 0.33s ease, opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
+      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0.5s,
+      -webkit-backdrop-filter 0.33s ease,
+      -webkit-transform 0.5s cubic-bezier(0.5, 0, 0, 0.75);
+    transition: color 0.33s ease, background-color 0.33s ease,
+      opacity 0.5s var(--tds-bezier), visibility 0s 0.5s,
       -webkit-backdrop-filter 0.33s ease,
       -webkit-transform 0.5s var(--tds-bezier);
-    transition:
-      color 0.33s ease,
-      backdrop-filter 0.33s ease,
-      background-color 0.33s ease,
-      opacity 0.5s var(--tds-bezier),
-      transform 0.5s var(--tds-bezier),
-      visibility 0s 0.5s;
-    transition:
-      color 0.33s ease,
-      backdrop-filter 0.33s ease,
-      background-color 0.33s ease,
-      opacity 0.5s var(--tds-bezier),
-      transform 0.5s var(--tds-bezier),
-      visibility 0s 0.5s,
+    -webkit-transition: color 0.33s ease, background-color 0.33s ease,
+      opacity 0.5s var(--tds-bezier), visibility 0s 0.5s,
       -webkit-backdrop-filter 0.33s ease,
       -webkit-transform 0.5s var(--tds-bezier);
-    transition:
-      color 0.33s ease,
-      backdrop-filter 0.33s ease,
-      background-color 0.33s ease,
-      opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
-      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75),
-      visibility 0s 0.5s,
+    -o-transition: color 0.33s ease, backdrop-filter 0.33s ease,
+      background-color 0.33s ease, opacity 0.5s var(--tds-bezier),
+      transform 0.5s var(--tds-bezier), visibility 0s 0.5s;
+    transition: color 0.33s ease, backdrop-filter 0.33s ease,
+      background-color 0.33s ease, opacity 0.5s var(--tds-bezier),
+      transform 0.5s var(--tds-bezier), visibility 0s 0.5s;
+    transition: color 0.33s ease, backdrop-filter 0.33s ease,
+      background-color 0.33s ease, opacity 0.5s var(--tds-bezier),
+      transform 0.5s var(--tds-bezier), visibility 0s 0.5s,
+      -webkit-backdrop-filter 0.33s ease,
+      -webkit-transform 0.5s var(--tds-bezier);
+    transition: color 0.33s ease, backdrop-filter 0.33s ease,
+      background-color 0.33s ease, opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
+      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0.5s,
       -webkit-backdrop-filter 0.33s ease;
-    transition:
-      color 0.33s ease,
-      backdrop-filter 0.33s ease,
-      background-color 0.33s ease,
-      opacity 0.5s var(--tds-bezier),
-      transform 0.5s var(--tds-bezier),
-      visibility 0s 0.5s,
+    transition: color 0.33s ease, backdrop-filter 0.33s ease,
+      background-color 0.33s ease, opacity 0.5s var(--tds-bezier),
+      transform 0.5s var(--tds-bezier), visibility 0s 0.5s,
       -webkit-backdrop-filter 0.33s ease;
   }
 
-  [data-tds-breadcrumb][aria-expanded='false'],
-  .tds-site-nav-content[aria-expanded='true'] ~ .tds-site-nav-content[aria-expanded='false'] {
+  [data-tds-breadcrumb][aria-expanded="false"],
+  .tds-site-nav-content[aria-expanded="true"]
+    ~ .tds-site-nav-content[aria-expanded="false"] {
     -webkit-transform: translateX(24px);
-            transform: translateX(24px);
+    -ms-transform: translateX(24px);
+    transform: translateX(24px);
     -webkit-transform: translateX(var(--tds-size--3x));
-            transform: translateX(var(--tds-size--3x));
+    -ms-transform: translateX(var(--tds-size--3x));
+    transform: translateX(var(--tds-size--3x));
   }
 
-  .tds-site-nav-item[data-tds-breadcrumb][aria-expanded='false'] {
-    transition:
-      color 0.33s ease,
-      background-color 0.33s ease,
+  .tds-site-nav-item[data-tds-breadcrumb][aria-expanded="false"] {
+    transition: color 0.33s ease, background-color 0.33s ease,
       opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
-      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75) 0.125s,
-      visibility 0s 0.5s,
+      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75) 0.125s, visibility 0s 0.5s,
       -webkit-backdrop-filter 0.33s ease;
-    transition:
-      color 0.33s ease,
-      background-color 0.33s ease,
-      opacity 0.5s var(--tds-bezier),
-      transform 0.5s var(--tds-bezier) 0.125s,
-      visibility 0s 0.5s,
-      -webkit-backdrop-filter 0.33s ease;
-    transition:
-      color 0.33s ease,
-      background-color 0.33s ease,
-      opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
-      visibility 0s 0.5s,
+    transition: color 0.33s ease, background-color 0.33s ease,
+      opacity 0.5s var(--tds-bezier), transform 0.5s var(--tds-bezier) 0.125s,
+      visibility 0s 0.5s, -webkit-backdrop-filter 0.33s ease;
+    transition: color 0.33s ease, background-color 0.33s ease,
+      opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0.5s,
       -webkit-backdrop-filter 0.33s ease,
       -webkit-transform 0.5s cubic-bezier(0.5, 0, 0, 0.75) 0.125s;
-    transition:
-      color 0.33s ease,
-      backdrop-filter 0.33s ease,
-      background-color 0.33s ease,
-      opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
-      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75) 0.125s,
-      visibility 0s 0.5s;
-    transition:
-      color 0.33s ease,
-      backdrop-filter 0.33s ease,
-      background-color 0.33s ease,
-      opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
-      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75) 0.125s,
-      visibility 0s 0.5s,
+    -webkit-transition: color 0.33s ease, background-color 0.33s ease,
+      opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0.5s,
       -webkit-backdrop-filter 0.33s ease,
       -webkit-transform 0.5s cubic-bezier(0.5, 0, 0, 0.75) 0.125s;
-    transition:
-      color 0.33s ease,
-      background-color 0.33s ease,
-      opacity 0.5s var(--tds-bezier),
-      visibility 0s 0.5s,
+    -o-transition: color 0.33s ease, backdrop-filter 0.33s ease,
+      background-color 0.33s ease, opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
+      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75) 0.125s, visibility 0s 0.5s;
+    transition: color 0.33s ease, backdrop-filter 0.33s ease,
+      background-color 0.33s ease, opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
+      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75) 0.125s, visibility 0s 0.5s;
+    transition: color 0.33s ease, backdrop-filter 0.33s ease,
+      background-color 0.33s ease, opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
+      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75) 0.125s, visibility 0s 0.5s,
+      -webkit-backdrop-filter 0.33s ease,
+      -webkit-transform 0.5s cubic-bezier(0.5, 0, 0, 0.75) 0.125s;
+    transition: color 0.33s ease, background-color 0.33s ease,
+      opacity 0.5s var(--tds-bezier), visibility 0s 0.5s,
       -webkit-backdrop-filter 0.33s ease,
       -webkit-transform 0.5s var(--tds-bezier) 0.125s;
-    transition:
-      color 0.33s ease,
-      backdrop-filter 0.33s ease,
-      background-color 0.33s ease,
-      opacity 0.5s var(--tds-bezier),
-      transform 0.5s var(--tds-bezier) 0.125s,
-      visibility 0s 0.5s;
-    transition:
-      color 0.33s ease,
-      backdrop-filter 0.33s ease,
-      background-color 0.33s ease,
-      opacity 0.5s var(--tds-bezier),
-      transform 0.5s var(--tds-bezier) 0.125s,
-      visibility 0s 0.5s,
+    -webkit-transition: color 0.33s ease, background-color 0.33s ease,
+      opacity 0.5s var(--tds-bezier), visibility 0s 0.5s,
       -webkit-backdrop-filter 0.33s ease,
       -webkit-transform 0.5s var(--tds-bezier) 0.125s;
-    transition:
-      color 0.33s ease,
-      backdrop-filter 0.33s ease,
-      background-color 0.33s ease,
-      opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
-      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75) 0.125s,
-      visibility 0s 0.5s,
+    -o-transition: color 0.33s ease, backdrop-filter 0.33s ease,
+      background-color 0.33s ease, opacity 0.5s var(--tds-bezier),
+      transform 0.5s var(--tds-bezier) 0.125s, visibility 0s 0.5s;
+    transition: color 0.33s ease, backdrop-filter 0.33s ease,
+      background-color 0.33s ease, opacity 0.5s var(--tds-bezier),
+      transform 0.5s var(--tds-bezier) 0.125s, visibility 0s 0.5s;
+    transition: color 0.33s ease, backdrop-filter 0.33s ease,
+      background-color 0.33s ease, opacity 0.5s var(--tds-bezier),
+      transform 0.5s var(--tds-bezier) 0.125s, visibility 0s 0.5s,
+      -webkit-backdrop-filter 0.33s ease,
+      -webkit-transform 0.5s var(--tds-bezier) 0.125s;
+    transition: color 0.33s ease, backdrop-filter 0.33s ease,
+      background-color 0.33s ease, opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
+      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75) 0.125s, visibility 0s 0.5s,
       -webkit-backdrop-filter 0.33s ease;
-    transition:
-      color 0.33s ease,
-      backdrop-filter 0.33s ease,
-      background-color 0.33s ease,
-      opacity 0.5s var(--tds-bezier),
-      transform 0.5s var(--tds-bezier) 0.125s,
-      visibility 0s 0.5s,
+    transition: color 0.33s ease, backdrop-filter 0.33s ease,
+      background-color 0.33s ease, opacity 0.5s var(--tds-bezier),
+      transform 0.5s var(--tds-bezier) 0.125s, visibility 0s 0.5s,
       -webkit-backdrop-filter 0.33s ease;
   }
 
-  .tds-site-nav-item[aria-expanded='true'],
-  .tds-site-nav-content[aria-expanded='true'] {
+  .tds-site-nav-item[aria-expanded="true"],
+  .tds-site-nav-content[aria-expanded="true"] {
     opacity: 1;
     -webkit-transform: translateX(0);
-            transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
     visibility: inherit;
-    transition:
-      color 0.33s ease,
-      background-color 0.33s ease,
+    transition: color 0.33s ease, background-color 0.33s ease,
       opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
-      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75),
-      visibility 0s 0s,
+      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0s,
       -webkit-backdrop-filter 0.33s ease;
-    transition:
-      color 0.33s ease,
-      background-color 0.33s ease,
-      opacity 0.5s var(--tds-bezier),
-      transform 0.5s var(--tds-bezier),
-      visibility 0s 0s,
-      -webkit-backdrop-filter 0.33s ease;
-    transition:
-      color 0.33s ease,
-      background-color 0.33s ease,
-      opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
-      visibility 0s 0s,
+    transition: color 0.33s ease, background-color 0.33s ease,
+      opacity 0.5s var(--tds-bezier), transform 0.5s var(--tds-bezier),
+      visibility 0s 0s, -webkit-backdrop-filter 0.33s ease;
+    transition: color 0.33s ease, background-color 0.33s ease,
+      opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0s,
       -webkit-backdrop-filter 0.33s ease,
       -webkit-transform 0.5s cubic-bezier(0.5, 0, 0, 0.75);
-    transition:
-      color 0.33s ease,
-      backdrop-filter 0.33s ease,
-      background-color 0.33s ease,
-      opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
-      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75),
-      visibility 0s 0s;
-    transition:
-      color 0.33s ease,
-      backdrop-filter 0.33s ease,
-      background-color 0.33s ease,
-      opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
-      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75),
-      visibility 0s 0s,
+    -webkit-transition: color 0.33s ease, background-color 0.33s ease,
+      opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0s,
       -webkit-backdrop-filter 0.33s ease,
       -webkit-transform 0.5s cubic-bezier(0.5, 0, 0, 0.75);
-    transition:
-      color 0.33s ease,
-      background-color 0.33s ease,
-      opacity 0.5s var(--tds-bezier),
-      visibility 0s 0s,
+    -o-transition: color 0.33s ease, backdrop-filter 0.33s ease,
+      background-color 0.33s ease, opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
+      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0s;
+    transition: color 0.33s ease, backdrop-filter 0.33s ease,
+      background-color 0.33s ease, opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
+      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0s;
+    transition: color 0.33s ease, backdrop-filter 0.33s ease,
+      background-color 0.33s ease, opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
+      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0s,
+      -webkit-backdrop-filter 0.33s ease,
+      -webkit-transform 0.5s cubic-bezier(0.5, 0, 0, 0.75);
+    transition: color 0.33s ease, background-color 0.33s ease,
+      opacity 0.5s var(--tds-bezier), visibility 0s 0s,
       -webkit-backdrop-filter 0.33s ease,
       -webkit-transform 0.5s var(--tds-bezier);
-    transition:
-      color 0.33s ease,
-      backdrop-filter 0.33s ease,
-      background-color 0.33s ease,
-      opacity 0.5s var(--tds-bezier),
-      transform 0.5s var(--tds-bezier),
-      visibility 0s 0s;
-    transition:
-      color 0.33s ease,
-      backdrop-filter 0.33s ease,
-      background-color 0.33s ease,
-      opacity 0.5s var(--tds-bezier),
-      transform 0.5s var(--tds-bezier),
-      visibility 0s 0s,
+    -webkit-transition: color 0.33s ease, background-color 0.33s ease,
+      opacity 0.5s var(--tds-bezier), visibility 0s 0s,
       -webkit-backdrop-filter 0.33s ease,
       -webkit-transform 0.5s var(--tds-bezier);
-    transition:
-      color 0.33s ease,
-      backdrop-filter 0.33s ease,
-      background-color 0.33s ease,
-      opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
-      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75),
-      visibility 0s 0s,
+    -o-transition: color 0.33s ease, backdrop-filter 0.33s ease,
+      background-color 0.33s ease, opacity 0.5s var(--tds-bezier),
+      transform 0.5s var(--tds-bezier), visibility 0s 0s;
+    transition: color 0.33s ease, backdrop-filter 0.33s ease,
+      background-color 0.33s ease, opacity 0.5s var(--tds-bezier),
+      transform 0.5s var(--tds-bezier), visibility 0s 0s;
+    transition: color 0.33s ease, backdrop-filter 0.33s ease,
+      background-color 0.33s ease, opacity 0.5s var(--tds-bezier),
+      transform 0.5s var(--tds-bezier), visibility 0s 0s,
+      -webkit-backdrop-filter 0.33s ease,
+      -webkit-transform 0.5s var(--tds-bezier);
+    transition: color 0.33s ease, backdrop-filter 0.33s ease,
+      background-color 0.33s ease, opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
+      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0s,
       -webkit-backdrop-filter 0.33s ease;
-    transition:
-      color 0.33s ease,
-      backdrop-filter 0.33s ease,
-      background-color 0.33s ease,
-      opacity 0.5s var(--tds-bezier),
-      transform 0.5s var(--tds-bezier),
-      visibility 0s 0s,
+    transition: color 0.33s ease, backdrop-filter 0.33s ease,
+      background-color 0.33s ease, opacity 0.5s var(--tds-bezier),
+      transform 0.5s var(--tds-bezier), visibility 0s 0s,
       -webkit-backdrop-filter 0.33s ease;
   }
 
-  .tds-site-nav-item[data-tds-breadcrumb][aria-expanded='true'] {
-    transition:
-      color 0.33s ease,
-      background-color 0.33s ease,
+  .tds-site-nav-item[data-tds-breadcrumb][aria-expanded="true"] {
+    transition: color 0.33s ease, background-color 0.33s ease,
       opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75) 0.125s,
-      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75) 0.125s,
-      visibility 0s 0s,
+      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75) 0.125s, visibility 0s 0s,
       -webkit-backdrop-filter 0.33s ease;
-    transition:
-      color 0.33s ease,
-      background-color 0.33s ease,
+    transition: color 0.33s ease, background-color 0.33s ease,
       opacity 0.5s var(--tds-bezier) 0.125s,
-      transform 0.5s var(--tds-bezier) 0.125s,
-      visibility 0s 0s,
+      transform 0.5s var(--tds-bezier) 0.125s, visibility 0s 0s,
       -webkit-backdrop-filter 0.33s ease;
-    transition:
-      color 0.33s ease,
-      background-color 0.33s ease,
-      opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75) 0.125s,
-      visibility 0s 0s,
+    transition: color 0.33s ease, background-color 0.33s ease,
+      opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75) 0.125s, visibility 0s 0s,
       -webkit-backdrop-filter 0.33s ease,
       -webkit-transform 0.5s cubic-bezier(0.5, 0, 0, 0.75) 0.125s;
-    transition:
-      color 0.33s ease,
-      backdrop-filter 0.33s ease,
-      background-color 0.33s ease,
-      opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75) 0.125s,
-      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75) 0.125s,
-      visibility 0s 0s;
-    transition:
-      color 0.33s ease,
-      backdrop-filter 0.33s ease,
-      background-color 0.33s ease,
-      opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75) 0.125s,
-      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75) 0.125s,
-      visibility 0s 0s,
+    -webkit-transition: color 0.33s ease, background-color 0.33s ease,
+      opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75) 0.125s, visibility 0s 0s,
       -webkit-backdrop-filter 0.33s ease,
       -webkit-transform 0.5s cubic-bezier(0.5, 0, 0, 0.75) 0.125s;
-    transition:
-      color 0.33s ease,
-      background-color 0.33s ease,
-      opacity 0.5s var(--tds-bezier) 0.125s,
-      visibility 0s 0s,
-      -webkit-backdrop-filter 0.33s ease,
-      -webkit-transform 0.5s var(--tds-bezier) 0.125s;
-    transition:
-      color 0.33s ease,
-      backdrop-filter 0.33s ease,
-      background-color 0.33s ease,
-      opacity 0.5s var(--tds-bezier) 0.125s,
-      transform 0.5s var(--tds-bezier) 0.125s,
-      visibility 0s 0s;
-    transition:
-      color 0.33s ease,
-      backdrop-filter 0.33s ease,
-      background-color 0.33s ease,
-      opacity 0.5s var(--tds-bezier) 0.125s,
-      transform 0.5s var(--tds-bezier) 0.125s,
-      visibility 0s 0s,
-      -webkit-backdrop-filter 0.33s ease,
-      -webkit-transform 0.5s var(--tds-bezier) 0.125s;
-    transition:
-      color 0.33s ease,
-      backdrop-filter 0.33s ease,
+    -o-transition: color 0.33s ease, backdrop-filter 0.33s ease,
       background-color 0.33s ease,
       opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75) 0.125s,
-      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75) 0.125s,
-      visibility 0s 0s,
-      -webkit-backdrop-filter 0.33s ease;
-    transition:
-      color 0.33s ease,
-      backdrop-filter 0.33s ease,
+      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75) 0.125s, visibility 0s 0s;
+    transition: color 0.33s ease, backdrop-filter 0.33s ease,
       background-color 0.33s ease,
-      opacity 0.5s var(--tds-bezier) 0.125s,
-      transform 0.5s var(--tds-bezier) 0.125s,
-      visibility 0s 0s,
+      opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75) 0.125s,
+      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75) 0.125s, visibility 0s 0s;
+    transition: color 0.33s ease, backdrop-filter 0.33s ease,
+      background-color 0.33s ease,
+      opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75) 0.125s,
+      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75) 0.125s, visibility 0s 0s,
+      -webkit-backdrop-filter 0.33s ease,
+      -webkit-transform 0.5s cubic-bezier(0.5, 0, 0, 0.75) 0.125s;
+    transition: color 0.33s ease, background-color 0.33s ease,
+      opacity 0.5s var(--tds-bezier) 0.125s, visibility 0s 0s,
+      -webkit-backdrop-filter 0.33s ease,
+      -webkit-transform 0.5s var(--tds-bezier) 0.125s;
+    -webkit-transition: color 0.33s ease, background-color 0.33s ease,
+      opacity 0.5s var(--tds-bezier) 0.125s, visibility 0s 0s,
+      -webkit-backdrop-filter 0.33s ease,
+      -webkit-transform 0.5s var(--tds-bezier) 0.125s;
+    -o-transition: color 0.33s ease, backdrop-filter 0.33s ease,
+      background-color 0.33s ease, opacity 0.5s var(--tds-bezier) 0.125s,
+      transform 0.5s var(--tds-bezier) 0.125s, visibility 0s 0s;
+    transition: color 0.33s ease, backdrop-filter 0.33s ease,
+      background-color 0.33s ease, opacity 0.5s var(--tds-bezier) 0.125s,
+      transform 0.5s var(--tds-bezier) 0.125s, visibility 0s 0s;
+    transition: color 0.33s ease, backdrop-filter 0.33s ease,
+      background-color 0.33s ease, opacity 0.5s var(--tds-bezier) 0.125s,
+      transform 0.5s var(--tds-bezier) 0.125s, visibility 0s 0s,
+      -webkit-backdrop-filter 0.33s ease,
+      -webkit-transform 0.5s var(--tds-bezier) 0.125s;
+    transition: color 0.33s ease, backdrop-filter 0.33s ease,
+      background-color 0.33s ease,
+      opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75) 0.125s,
+      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75) 0.125s, visibility 0s 0s,
+      -webkit-backdrop-filter 0.33s ease;
+    transition: color 0.33s ease, backdrop-filter 0.33s ease,
+      background-color 0.33s ease, opacity 0.5s var(--tds-bezier) 0.125s,
+      transform 0.5s var(--tds-bezier) 0.125s, visibility 0s 0s,
       -webkit-backdrop-filter 0.33s ease;
   }
 
-  .tds-site-nav-content-block[aria-expanded='false'] {
+  .tds-site-nav-content-block[aria-expanded="false"] {
     visibility: hidden;
   }
 
-  .tds-site-nav-content-block[aria-expanded='true'] {
+  .tds-site-nav-content-block[aria-expanded="true"] {
     visibility: inherit;
   }
 
@@ -614,7 +586,12 @@
   }
 
   .tds-site-nav--flyout .tds-site-nav-items {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: column;
     flex-flow: column;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
     align-items: stretch;
     padding: 0 16px;
     padding: 0 var(--tds-size--2x);
@@ -624,8 +601,8 @@
   .tds-site-nav--flyout .tds-site-nav-items:last-child {
     -webkit-margin-after: 64px;
     -webkit-margin-after: var(--tds-size--8x);
-            margin-block-end: 64px;
-            margin-block-end: var(--tds-size--8x);
+    margin-block-end: 64px;
+    margin-block-end: var(--tds-size--8x);
   }
 
   .tds-site-nav-content .tds-site-nav-item {
@@ -647,6 +624,8 @@
   .tds-site-nav--flyout {
     padding: 0;
     position: static;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
     justify-content: flex-end;
 
     /* AWSM-3500 - Resolves a stacking context bug in Safari */
@@ -654,6 +633,9 @@
   }
 
   .tds-site-nav--flyout .tds-site-nav-items {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row nowrap;
     flex-flow: row nowrap;
   }
 
@@ -665,32 +647,47 @@
     left: var(--tds-size--1x);
   }
 
-  .tds-site-nav--flyout[aria-expanded='false'] .tds-site-nav-controls {
+  .tds-site-nav--flyout[aria-expanded="false"] .tds-site-nav-controls {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
+    -webkit-transition: opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
+      visibility 0s 0.5s;
+    -o-transition: opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
+      visibility 0s 0.5s;
     transition: opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0.5s;
+    -webkit-transition: opacity 0.5s var(--tds-bezier), visibility 0s 0.5s;
+    -o-transition: opacity 0.5s var(--tds-bezier), visibility 0s 0.5s;
     transition: opacity 0.5s var(--tds-bezier), visibility 0s 0.5s;
   }
 
-  .tds-site-nav--flyout[aria-expanded='true'] .tds-site-nav-controls {
+  .tds-site-nav--flyout[aria-expanded="true"] .tds-site-nav-controls {
     opacity: 1;
     visibility: inherit;
     pointer-events: inherit;
+    -webkit-transition: opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
+      visibility 0s 0s;
+    -o-transition: opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0s;
     transition: opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0s;
+    -webkit-transition: opacity 0.5s var(--tds-bezier), visibility 0s 0s;
+    -o-transition: opacity 0.5s var(--tds-bezier), visibility 0s 0s;
     transition: opacity 0.5s var(--tds-bezier), visibility 0s 0s;
   }
 
   .tds-site-nav-content {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
     flex-grow: 1;
   }
 
-  .tds-site-nav-content[data-tds-tier='1'] {
+  .tds-site-nav-content[data-tds-tier="1"] {
     inline-size: 100%;
   }
 
-  .tds-site-nav-content[data-tds-tier]:not([data-tds-tier='1']) {
+  .tds-site-nav-content[data-tds-tier]:not([data-tds-tier="1"]) {
     position: absolute;
     top: 0;
     left: 0;
@@ -698,89 +695,91 @@
     max-height: calc(85vh - 54px);
     max-height: calc(85vh - var(--tds-site-header--height));
     block-size: calc(0 + 54px);
-    block-size: calc(var(--tds-site-nav--flyout-height) + var(--tds-site-header--height));
+    block-size: calc(
+      var(--tds-site-nav--flyout-height) + var(--tds-site-header--height)
+    );
     background-color: #fff;
     background-color: var(--tds-color--white);
+    -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.16);
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.16);
+    -webkit-box-shadow: var(--tds-box-shadow--large);
     box-shadow: var(--tds-box-shadow--large);
     z-index: -2;
     opacity: 0;
     overflow: hidden;
     -webkit-transform: translateY(-24px);
-            transform: translateY(-24px);
+    -ms-transform: translateY(-24px);
+    transform: translateY(-24px);
     visibility: hidden;
-    transition:
-      opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
-      visibility 0s 0.5s,
+    transition: opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0.5s,
       height 0.5s cubic-bezier(0.5, 0, 0, 0.75),
       -webkit-transform 0.5s cubic-bezier(0.5, 0, 0, 0.75);
-    transition:
-      opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
-      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75),
-      visibility 0s 0.5s,
+    -webkit-transition: opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
+      visibility 0s 0.5s, height 0.5s cubic-bezier(0.5, 0, 0, 0.75),
+      -webkit-transform 0.5s cubic-bezier(0.5, 0, 0, 0.75);
+    -o-transition: opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
+      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0.5s,
       height 0.5s cubic-bezier(0.5, 0, 0, 0.75);
-    transition:
-      opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
-      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75),
-      visibility 0s 0.5s,
+    transition: opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
+      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0.5s,
+      height 0.5s cubic-bezier(0.5, 0, 0, 0.75);
+    transition: opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
+      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0.5s,
       height 0.5s cubic-bezier(0.5, 0, 0, 0.75),
       -webkit-transform 0.5s cubic-bezier(0.5, 0, 0, 0.75);
-    transition:
-      opacity 0.5s var(--tds-bezier),
-      visibility 0s 0.5s,
-      height 0.5s var(--tds-bezier),
-      -webkit-transform 0.5s var(--tds-bezier);
-    transition:
-      opacity 0.5s var(--tds-bezier),
-      transform 0.5s var(--tds-bezier),
-      visibility 0s 0.5s,
+    transition: opacity 0.5s var(--tds-bezier), visibility 0s 0.5s,
+      height 0.5s var(--tds-bezier), -webkit-transform 0.5s var(--tds-bezier);
+    -webkit-transition: opacity 0.5s var(--tds-bezier), visibility 0s 0.5s,
+      height 0.5s var(--tds-bezier), -webkit-transform 0.5s var(--tds-bezier);
+    -o-transition: opacity 0.5s var(--tds-bezier),
+      transform 0.5s var(--tds-bezier), visibility 0s 0.5s,
       height 0.5s var(--tds-bezier);
-    transition:
-      opacity 0.5s var(--tds-bezier),
-      transform 0.5s var(--tds-bezier),
-      visibility 0s 0.5s,
-      height 0.5s var(--tds-bezier),
+    transition: opacity 0.5s var(--tds-bezier), transform 0.5s var(--tds-bezier),
+      visibility 0s 0.5s, height 0.5s var(--tds-bezier);
+    transition: opacity 0.5s var(--tds-bezier), transform 0.5s var(--tds-bezier),
+      visibility 0s 0.5s, height 0.5s var(--tds-bezier),
       -webkit-transform 0.5s var(--tds-bezier);
   }
 
-  [data-tds-tier='1']:hover + .tds-site-nav-content[data-tds-tier]:not([data-tds-tier='1']),
-  [data-tds-tier='1']:focus-within + .tds-site-nav-content[data-tds-tier]:not([data-tds-tier='1']),
-  .tds-site-nav-content[data-tds-tier]:not([data-tds-tier='1'])[aria-expanded='true'] {
+  [data-tds-tier="1"]:hover
+    + .tds-site-nav-content[data-tds-tier]:not([data-tds-tier="1"]),
+  [data-tds-tier="1"]:focus-within
+    + .tds-site-nav-content[data-tds-tier]:not([data-tds-tier="1"]),
+  .tds-site-nav-content[data-tds-tier]:not(
+      [data-tds-tier="1"]
+    )[aria-expanded="true"] {
     opacity: 1;
     -webkit-transform: translateY(0);
-            transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
     visibility: inherit;
-    transition:
-      opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
-      visibility 0s 0s,
+    transition: opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0s,
       height 0.5s cubic-bezier(0.5, 0, 0, 0.75),
       -webkit-transform 0.5s cubic-bezier(0.5, 0, 0, 0.75);
-    transition:
-      opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
-      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75),
-      visibility 0s 0s,
+    -webkit-transition: opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
+      visibility 0s 0s, height 0.5s cubic-bezier(0.5, 0, 0, 0.75),
+      -webkit-transform 0.5s cubic-bezier(0.5, 0, 0, 0.75);
+    -o-transition: opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
+      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0s,
       height 0.5s cubic-bezier(0.5, 0, 0, 0.75);
-    transition:
-      opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
-      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75),
-      visibility 0s 0s,
+    transition: opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
+      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0s,
+      height 0.5s cubic-bezier(0.5, 0, 0, 0.75);
+    transition: opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
+      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0s,
       height 0.5s cubic-bezier(0.5, 0, 0, 0.75),
       -webkit-transform 0.5s cubic-bezier(0.5, 0, 0, 0.75);
-    transition:
-      opacity 0.5s var(--tds-bezier),
-      visibility 0s 0s,
-      height 0.5s var(--tds-bezier),
-      -webkit-transform 0.5s var(--tds-bezier);
-    transition:
-      opacity 0.5s var(--tds-bezier),
-      transform 0.5s var(--tds-bezier),
-      visibility 0s 0s,
+    transition: opacity 0.5s var(--tds-bezier), visibility 0s 0s,
+      height 0.5s var(--tds-bezier), -webkit-transform 0.5s var(--tds-bezier);
+    -webkit-transition: opacity 0.5s var(--tds-bezier), visibility 0s 0s,
+      height 0.5s var(--tds-bezier), -webkit-transform 0.5s var(--tds-bezier);
+    -o-transition: opacity 0.5s var(--tds-bezier),
+      transform 0.5s var(--tds-bezier), visibility 0s 0s,
       height 0.5s var(--tds-bezier);
-    transition:
-      opacity 0.5s var(--tds-bezier),
-      transform 0.5s var(--tds-bezier),
-      visibility 0s 0s,
-      height 0.5s var(--tds-bezier),
+    transition: opacity 0.5s var(--tds-bezier), transform 0.5s var(--tds-bezier),
+      visibility 0s 0s, height 0.5s var(--tds-bezier);
+    transition: opacity 0.5s var(--tds-bezier), transform 0.5s var(--tds-bezier),
+      visibility 0s 0s, height 0.5s var(--tds-bezier),
       -webkit-transform 0.5s var(--tds-bezier);
   }
 
@@ -794,194 +793,160 @@
     padding: 0 var(--tds-size--2x);
     overflow-y: auto;
     max-height: calc(85vh - 54px - 54px);
-    max-height: calc(85vh - var(--tds-site-header--height) - var(--tds-site-header--height, 0));
+    max-height: calc(
+      85vh - var(--tds-site-header--height) - var(--tds-site-header--height, 0)
+    );
   }
 
-  [data-tds-breadcrumb][aria-expanded='false'],
-  .tds-site-nav-content-block[aria-expanded='false'] {
+  [data-tds-breadcrumb][aria-expanded="false"],
+  .tds-site-nav-content-block[aria-expanded="false"] {
     opacity: 0;
     -webkit-transform: translateX(-24px);
-            transform: translateX(-24px);
+    -ms-transform: translateX(-24px);
+    transform: translateX(-24px);
     visibility: hidden;
-    transition:
-      color 0.33s ease,
-      background-color 0.33s ease,
+    transition: color 0.33s ease, background-color 0.33s ease,
       opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
-      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75),
-      visibility 0s 0.5s,
+      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0.5s,
       -webkit-backdrop-filter 0.33s ease;
-    transition:
-      color 0.33s ease,
-      background-color 0.33s ease,
-      opacity 0.5s var(--tds-bezier),
-      transform 0.5s var(--tds-bezier),
-      visibility 0s 0.5s,
-      -webkit-backdrop-filter 0.33s ease;
-    transition:
-      color 0.33s ease,
-      background-color 0.33s ease,
-      opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
-      visibility 0s 0.5s,
+    transition: color 0.33s ease, background-color 0.33s ease,
+      opacity 0.5s var(--tds-bezier), transform 0.5s var(--tds-bezier),
+      visibility 0s 0.5s, -webkit-backdrop-filter 0.33s ease;
+    transition: color 0.33s ease, background-color 0.33s ease,
+      opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0.5s,
       -webkit-backdrop-filter 0.33s ease,
       -webkit-transform 0.5s cubic-bezier(0.5, 0, 0, 0.75);
-    transition:
-      color 0.33s ease,
-      backdrop-filter 0.33s ease,
-      background-color 0.33s ease,
-      opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
-      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75),
-      visibility 0s 0.5s;
-    transition:
-      color 0.33s ease,
-      backdrop-filter 0.33s ease,
-      background-color 0.33s ease,
-      opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
-      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75),
-      visibility 0s 0.5s,
+    -webkit-transition: color 0.33s ease, background-color 0.33s ease,
+      opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0.5s,
       -webkit-backdrop-filter 0.33s ease,
       -webkit-transform 0.5s cubic-bezier(0.5, 0, 0, 0.75);
-    transition:
-      color 0.33s ease,
-      background-color 0.33s ease,
-      opacity 0.5s var(--tds-bezier),
-      visibility 0s 0.5s,
+    -o-transition: color 0.33s ease, backdrop-filter 0.33s ease,
+      background-color 0.33s ease, opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
+      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0.5s;
+    transition: color 0.33s ease, backdrop-filter 0.33s ease,
+      background-color 0.33s ease, opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
+      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0.5s;
+    transition: color 0.33s ease, backdrop-filter 0.33s ease,
+      background-color 0.33s ease, opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
+      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0.5s,
+      -webkit-backdrop-filter 0.33s ease,
+      -webkit-transform 0.5s cubic-bezier(0.5, 0, 0, 0.75);
+    transition: color 0.33s ease, background-color 0.33s ease,
+      opacity 0.5s var(--tds-bezier), visibility 0s 0.5s,
       -webkit-backdrop-filter 0.33s ease,
       -webkit-transform 0.5s var(--tds-bezier);
-    transition:
-      color 0.33s ease,
-      backdrop-filter 0.33s ease,
-      background-color 0.33s ease,
-      opacity 0.5s var(--tds-bezier),
-      transform 0.5s var(--tds-bezier),
-      visibility 0s 0.5s;
-    transition:
-      color 0.33s ease,
-      backdrop-filter 0.33s ease,
-      background-color 0.33s ease,
-      opacity 0.5s var(--tds-bezier),
-      transform 0.5s var(--tds-bezier),
-      visibility 0s 0.5s,
+    -webkit-transition: color 0.33s ease, background-color 0.33s ease,
+      opacity 0.5s var(--tds-bezier), visibility 0s 0.5s,
       -webkit-backdrop-filter 0.33s ease,
       -webkit-transform 0.5s var(--tds-bezier);
-    transition:
-      color 0.33s ease,
-      backdrop-filter 0.33s ease,
-      background-color 0.33s ease,
-      opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
-      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75),
-      visibility 0s 0.5s,
+    -o-transition: color 0.33s ease, backdrop-filter 0.33s ease,
+      background-color 0.33s ease, opacity 0.5s var(--tds-bezier),
+      transform 0.5s var(--tds-bezier), visibility 0s 0.5s;
+    transition: color 0.33s ease, backdrop-filter 0.33s ease,
+      background-color 0.33s ease, opacity 0.5s var(--tds-bezier),
+      transform 0.5s var(--tds-bezier), visibility 0s 0.5s;
+    transition: color 0.33s ease, backdrop-filter 0.33s ease,
+      background-color 0.33s ease, opacity 0.5s var(--tds-bezier),
+      transform 0.5s var(--tds-bezier), visibility 0s 0.5s,
+      -webkit-backdrop-filter 0.33s ease,
+      -webkit-transform 0.5s var(--tds-bezier);
+    transition: color 0.33s ease, backdrop-filter 0.33s ease,
+      background-color 0.33s ease, opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
+      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0.5s,
       -webkit-backdrop-filter 0.33s ease;
-    transition:
-      color 0.33s ease,
-      backdrop-filter 0.33s ease,
-      background-color 0.33s ease,
-      opacity 0.5s var(--tds-bezier),
-      transform 0.5s var(--tds-bezier),
-      visibility 0s 0.5s,
+    transition: color 0.33s ease, backdrop-filter 0.33s ease,
+      background-color 0.33s ease, opacity 0.5s var(--tds-bezier),
+      transform 0.5s var(--tds-bezier), visibility 0s 0.5s,
       -webkit-backdrop-filter 0.33s ease;
   }
 
-  [data-tds-breadcrumb][aria-expanded='false'],
-  .tds-site-nav-content-block[aria-expanded='true'] ~ .tds-site-nav-content-block[aria-expanded='false'] {
+  [data-tds-breadcrumb][aria-expanded="false"],
+  .tds-site-nav-content-block[aria-expanded="true"]
+    ~ .tds-site-nav-content-block[aria-expanded="false"] {
     -webkit-transform: translateX(24px);
-            transform: translateX(24px);
+    -ms-transform: translateX(24px);
+    transform: translateX(24px);
     -webkit-transform: translateX(var(--tds-size--3x));
-            transform: translateX(var(--tds-size--3x));
+    -ms-transform: translateX(var(--tds-size--3x));
+    transform: translateX(var(--tds-size--3x));
   }
 
-  .tds-site-nav-content[aria-expanded='false'] > .tds-site-nav-content-block {
+  .tds-site-nav-content[aria-expanded="false"] > .tds-site-nav-content-block {
     -webkit-transform: translateX(0);
-            transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
   }
 
-  [data-tds-breadcrumb][aria-expanded='true'],
-  .tds-site-nav-content-block[aria-expanded='true'] {
+  [data-tds-breadcrumb][aria-expanded="true"],
+  .tds-site-nav-content-block[aria-expanded="true"] {
     opacity: 1;
     -webkit-transform: translateX(0);
-            transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
     visibility: inherit;
-    transition:
-      color 0.33s ease,
-      background-color 0.33s ease,
+    transition: color 0.33s ease, background-color 0.33s ease,
       opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
-      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75),
-      visibility 0s 0s,
+      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0s,
       -webkit-backdrop-filter 0.33s ease;
-    transition:
-      color 0.33s ease,
-      background-color 0.33s ease,
-      opacity 0.5s var(--tds-bezier),
-      transform 0.5s var(--tds-bezier),
-      visibility 0s 0s,
-      -webkit-backdrop-filter 0.33s ease;
-    transition:
-      color 0.33s ease,
-      background-color 0.33s ease,
-      opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
-      visibility 0s 0s,
+    transition: color 0.33s ease, background-color 0.33s ease,
+      opacity 0.5s var(--tds-bezier), transform 0.5s var(--tds-bezier),
+      visibility 0s 0s, -webkit-backdrop-filter 0.33s ease;
+    transition: color 0.33s ease, background-color 0.33s ease,
+      opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0s,
       -webkit-backdrop-filter 0.33s ease,
       -webkit-transform 0.5s cubic-bezier(0.5, 0, 0, 0.75);
-    transition:
-      color 0.33s ease,
-      backdrop-filter 0.33s ease,
-      background-color 0.33s ease,
-      opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
-      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75),
-      visibility 0s 0s;
-    transition:
-      color 0.33s ease,
-      backdrop-filter 0.33s ease,
-      background-color 0.33s ease,
-      opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
-      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75),
-      visibility 0s 0s,
+    -webkit-transition: color 0.33s ease, background-color 0.33s ease,
+      opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0s,
       -webkit-backdrop-filter 0.33s ease,
       -webkit-transform 0.5s cubic-bezier(0.5, 0, 0, 0.75);
-    transition:
-      color 0.33s ease,
-      background-color 0.33s ease,
-      opacity 0.5s var(--tds-bezier),
-      visibility 0s 0s,
+    -o-transition: color 0.33s ease, backdrop-filter 0.33s ease,
+      background-color 0.33s ease, opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
+      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0s;
+    transition: color 0.33s ease, backdrop-filter 0.33s ease,
+      background-color 0.33s ease, opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
+      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0s;
+    transition: color 0.33s ease, backdrop-filter 0.33s ease,
+      background-color 0.33s ease, opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
+      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0s,
+      -webkit-backdrop-filter 0.33s ease,
+      -webkit-transform 0.5s cubic-bezier(0.5, 0, 0, 0.75);
+    transition: color 0.33s ease, background-color 0.33s ease,
+      opacity 0.5s var(--tds-bezier), visibility 0s 0s,
       -webkit-backdrop-filter 0.33s ease,
       -webkit-transform 0.5s var(--tds-bezier);
-    transition:
-      color 0.33s ease,
-      backdrop-filter 0.33s ease,
-      background-color 0.33s ease,
-      opacity 0.5s var(--tds-bezier),
-      transform 0.5s var(--tds-bezier),
-      visibility 0s 0s;
-    transition:
-      color 0.33s ease,
-      backdrop-filter 0.33s ease,
-      background-color 0.33s ease,
-      opacity 0.5s var(--tds-bezier),
-      transform 0.5s var(--tds-bezier),
-      visibility 0s 0s,
+    -webkit-transition: color 0.33s ease, background-color 0.33s ease,
+      opacity 0.5s var(--tds-bezier), visibility 0s 0s,
       -webkit-backdrop-filter 0.33s ease,
       -webkit-transform 0.5s var(--tds-bezier);
-    transition:
-      color 0.33s ease,
-      backdrop-filter 0.33s ease,
-      background-color 0.33s ease,
-      opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
-      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75),
-      visibility 0s 0s,
+    -o-transition: color 0.33s ease, backdrop-filter 0.33s ease,
+      background-color 0.33s ease, opacity 0.5s var(--tds-bezier),
+      transform 0.5s var(--tds-bezier), visibility 0s 0s;
+    transition: color 0.33s ease, backdrop-filter 0.33s ease,
+      background-color 0.33s ease, opacity 0.5s var(--tds-bezier),
+      transform 0.5s var(--tds-bezier), visibility 0s 0s;
+    transition: color 0.33s ease, backdrop-filter 0.33s ease,
+      background-color 0.33s ease, opacity 0.5s var(--tds-bezier),
+      transform 0.5s var(--tds-bezier), visibility 0s 0s,
+      -webkit-backdrop-filter 0.33s ease,
+      -webkit-transform 0.5s var(--tds-bezier);
+    transition: color 0.33s ease, backdrop-filter 0.33s ease,
+      background-color 0.33s ease, opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
+      transform 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0s,
       -webkit-backdrop-filter 0.33s ease;
-    transition:
-      color 0.33s ease,
-      backdrop-filter 0.33s ease,
-      background-color 0.33s ease,
-      opacity 0.5s var(--tds-bezier),
-      transform 0.5s var(--tds-bezier),
-      visibility 0s 0s,
+    transition: color 0.33s ease, backdrop-filter 0.33s ease,
+      background-color 0.33s ease, opacity 0.5s var(--tds-bezier),
+      transform 0.5s var(--tds-bezier), visibility 0s 0s,
       -webkit-backdrop-filter 0.33s ease;
   }
 }
 /** Header Logo + App Title --
   * ---------------------------------------------------------- */
 .tds-site-logo {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 h1.tds-site-logo {
@@ -989,6 +954,8 @@ h1.tds-site-logo {
 }
 /* TODO: Remove after stable icons are complete */
 .tds-icon.tds-site-logo-icon path {
+  -webkit-transition: fill 0.33s ease;
+  -o-transition: fill 0.33s ease;
   transition: fill 0.33s ease;
 }
 .tds-site-header > .tds-site-logo {
@@ -996,7 +963,10 @@ h1.tds-site-logo {
   min-block-size: var(--tds-site-header--height);
 }
 .tds-site-logo-link {
+  -webkit-box-shadow: none;
   box-shadow: none;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
   display: inline-flex;
   padding: 0 8px;
   padding: 0 var(--tds-size--1x);
@@ -1004,13 +974,13 @@ h1.tds-site-logo {
 .tds-site-header .tds-align--start .tds-site-logo-link {
   -webkit-padding-start: 16px;
   -webkit-padding-start: var(--tds-size--2x);
-          padding-inline-start: 16px;
-          padding-inline-start: var(--tds-size--2x);
+  padding-inline-start: 16px;
+  padding-inline-start: var(--tds-size--2x);
 }
 /* App Title */
 .tds-site-logo-link + .tds-site-app-title {
   -webkit-border-start: 1px solid var(--tds-color--secondary-highlight);
-          border-inline-start: 1px solid var(--tds-color--secondary-highlight);
+  border-inline-start: 1px solid var(--tds-color--secondary-highlight);
   font-size: 12px;
   font-size: var(--tds-font-size--20);
   letter-spacing: 0;
@@ -1021,12 +991,12 @@ h1.tds-site-logo {
   /* added px to account for visual weight of logo */
   -webkit-margin-start: calc(8px + 3px);
   -webkit-margin-start: calc(var(--tds-size--1x) + 3px);
-          margin-inline-start: calc(8px + 3px);
-          margin-inline-start: calc(var(--tds-size--1x) + 3px);
+  margin-inline-start: calc(8px + 3px);
+  margin-inline-start: calc(var(--tds-size--1x) + 3px);
   -webkit-padding-start: 16px;
   -webkit-padding-start: var(--tds-size--2x);
-          padding-inline-start: 16px;
-          padding-inline-start: var(--tds-size--2x);
+  padding-inline-start: 16px;
+  padding-inline-start: var(--tds-size--2x);
 }
 @media (min-width: 600px) {
   .tds-site-logo-link + .tds-site-app-title {
@@ -1061,9 +1031,15 @@ h1.tds-site-logo {
   --tds-nav-item--padding: var(--tds-size--1x);
   --tds-nav-item--width: auto;
 
+  -webkit-box-align: center;
+
+  -ms-flex-align: center;
+
   align-items: center;
   border-radius: 12px;
   color: var(--tds-nav-item--color);
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
   display: inline-flex;
   font-weight: 500;
   font-weight: var(--tds-font-weight--medium);
@@ -1072,6 +1048,8 @@ h1.tds-site-logo {
   min-block-size: var(--tds-size--4x);
   padding: 4px 8px;
   padding: var(--tds-size--half) var(--tds-size--1x);
+  -webkit-transition: color 0.33s ease, background-color 0.33s ease;
+  -o-transition: color 0.33s ease, background-color 0.33s ease;
   transition: color 0.33s ease, background-color 0.33s ease;
 }
 .tds-site-nav-items--vertical .tds-site-nav-item {
@@ -1084,9 +1062,9 @@ h1.tds-site-logo {
 
   -webkit-backdrop-filter: blur(var(--tds-blur--button));
 
-          backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
 
-          backdrop-filter: blur(var(--tds-blur--button));
+  backdrop-filter: blur(var(--tds-blur--button));
   background-color: hsla(0, 0%, 0%, 0.05);
   background-color: var(--tds-pill--blur-color);
 }
@@ -1098,9 +1076,9 @@ h1.tds-site-logo {
 
     -webkit-backdrop-filter: blur(var(--tds-blur--button));
 
-            backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
 
-            backdrop-filter: blur(var(--tds-blur--button));
+    backdrop-filter: blur(var(--tds-blur--button));
     background-color: hsla(0, 0%, 0%, 0.05);
     background-color: var(--tds-pill--blur-color);
   }
@@ -1135,15 +1113,15 @@ h1.tds-site-logo {
 /* Animated */
 .tds-site-nav-item.tds-animate--backdrop {
   -webkit-backdrop-filter: unset;
-          backdrop-filter: unset;
+  backdrop-filter: unset;
   background-color: transparent;
 }
 /* Properties to be set via js */
 .tds-animate--backdrop-backdrop {
   -webkit-backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(var(--tds-blur--button));
-          backdrop-filter: blur(16px);
-          backdrop-filter: blur(var(--tds-blur--button));
+  backdrop-filter: blur(16px);
+  backdrop-filter: blur(var(--tds-blur--button));
   background-color: hsla(0, 0%, 0%, 0.05);
   background-color: var(--tds-pill--blur-color);
   border-radius: 12px;
@@ -1173,16 +1151,36 @@ h1.tds-site-logo {
   opacity: 0;
   opacity: var(--tds-animate-backdrop-opacity, 0);
   z-index: -1;
+  -webkit-transition: opacity 0.5s ease, visibility 0s 0s;
+  -o-transition: opacity 0.5s ease, visibility 0s 0s;
   transition: opacity 0.5s ease, visibility 0s 0s;
-  transition: var(--tds-animate-backdrop-transition, opacity 0.5s ease, visibility 0s 0s);
+  -webkit-transition: var(
+    --tds-animate-backdrop-transition,
+    opacity 0.5s ease,
+    visibility 0s 0s
+  );
+  -o-transition: var(
+    --tds-animate-backdrop-transition,
+    opacity 0.5s ease,
+    visibility 0s 0s
+  );
+  transition: var(
+    --tds-animate-backdrop-transition,
+    opacity 0.5s ease,
+    visibility 0s 0s
+  );
 }
 .tds-site-nav-item-text {
   color: var(--tds-nav-item--color);
   margin: 0 8px;
   margin: 0 var(--tds-size--1x);
+  -webkit-transition: color 0.33s ease;
+  -o-transition: color 0.33s ease;
   transition: color 0.33s ease;
 }
 .tds-site-nav-items--vertical .tds-site-nav-item-text {
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
   flex-grow: 1;
   margin: 0 4px;
   margin: 0 var(--tds-size--half);
@@ -1194,17 +1192,23 @@ h1.tds-site-logo {
 /* If there's only an icon, tighten up the space to create a square pill */
 .tds-site-nav-item .tds-icon:only-child {
   -webkit-margin-end: -4px;
-          margin-inline-end: -4px;
+  margin-inline-end: -4px;
   -webkit-margin-start: -4px;
-          margin-inline-start: -4px;
+  margin-inline-start: -4px;
 }
 /** Nav Items --
   * ---------------------------------------------------------- */
 .tds-site-nav-items {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin: 0;
   transition: -webkit-transform 0.5s ease;
+  -webkit-transition: -webkit-transform 0.5s ease;
+  -o-transition: transform 0.5s ease;
   transition: transform 0.5s ease;
   transition: transform 0.5s ease, -webkit-transform 0.5s ease;
 
@@ -1218,18 +1222,27 @@ h1.tds-site-logo {
   position: static;
 }
 .tds-site-nav-items--vertical {
+  -webkit-box-align: initial;
+  -ms-flex-align: initial;
   align-items: initial;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
 }
 .tds-site-nav-items--vertical > li:not(:last-child) {
   -webkit-margin-after: 8px;
   -webkit-margin-after: var(--tds-size--1x);
-          margin-block-end: 8px;
-          margin-block-end: var(--tds-size--1x);
+  margin-block-end: 8px;
+  margin-block-end: var(--tds-size--1x);
 }
 .tds-locale-selector {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   inline-size: 100%;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   margin: auto;
   max-inline-size: 1260px;
@@ -1237,14 +1250,23 @@ h1.tds-site-logo {
   padding: 0 var(--tds-size--2x);
 }
 .tds-locale-selector--narrow {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
   padding: 0;
 }
 .tds-locale-selector-trigger {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   cursor: pointer;
   background-color: transparent;
+  -webkit-transition: background-color 0.33s ease;
+  -o-transition: background-color 0.33s ease;
   transition: background-color 0.33s ease;
 }
 .tds-locale-selector-column {
@@ -1258,53 +1280,66 @@ h1.tds-site-logo {
 }
 .tds-locale-selector-region {
   -webkit-column-count: 2;
-          column-count: 2;
+  -moz-column-count: 2;
+  column-count: 2;
   -webkit-column-gap: 16px;
-          column-gap: 16px;
-       -webkit-column-gap: var(--tds-size--2x);
-               column-gap: var(--tds-size--2x);
+  -moz-column-gap: 16px;
+  column-gap: 16px;
+  -webkit-column-gap: var(--tds-size--2x);
+  -moz-column-gap: var(--tds-size--2x);
+  column-gap: var(--tds-size--2x);
   -webkit-margin-end: -12px;
-          margin-inline-end: -12px;
+  margin-inline-end: -12px;
   -webkit-margin-start: -12px;
-          margin-inline-start: -12px;
+  margin-inline-start: -12px;
 }
 .tds-locale-selector-region h3 {
   -webkit-padding-after: 12px;
-          padding-block-end: 12px;
+  padding-block-end: 12px;
   -webkit-padding-before: 16px;
   -webkit-padding-before: var(--tds-size--2x);
-          padding-block-start: 16px;
-          padding-block-start: var(--tds-size--2x);
+  padding-block-start: 16px;
+  padding-block-start: var(--tds-size--2x);
 }
 /* Narrow variant (always-mobile/single-column layout) */
 .tds-locale-selector--narrow .tds-locale-selector-region {
   -webkit-column-count: 1;
-          column-count: 1;
+  -moz-column-count: 1;
+  column-count: 1;
 }
 /* Match header bottom padding to card padding */
 .tds-site-header-modal .tds-locale-selector h3 {
   -webkit-padding-after: 12px;
-          padding-block-end: 12px;
+  padding-block-end: 12px;
   -webkit-padding-before: 16px;
   -webkit-padding-before: var(--tds-size--2x);
-          padding-block-start: 16px;
-          padding-block-start: var(--tds-size--2x);
+  padding-block-start: 16px;
+  padding-block-start: var(--tds-size--2x);
 }
-.tds-locale-selector--narrow .tds-locale-selector-column:first-child .tds-locale-selector-superregion:first-child > h3 {
+.tds-locale-selector--narrow
+  .tds-locale-selector-column:first-child
+  .tds-locale-selector-superregion:first-child
+  > h3 {
   -webkit-padding-before: 0;
-          padding-block-start: 0;
+  padding-block-start: 0;
 }
 .tds-locale-selector-country {
   -webkit-column-break-inside: avoid;
-          break-inside: avoid;
+  -moz-column-break-inside: avoid;
+  break-inside: avoid;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row wrap;
   flex-flow: row wrap;
+  -webkit-transition: background-color 0.33s ease;
+  -o-transition: background-color 0.33s ease;
   transition: background-color 0.33s ease;
 }
 .tds-locale-selector-country:not(:last-child) {
   -webkit-margin-after: 4px;
   -webkit-margin-after: var(--tds-size--half);
-          margin-block-end: 4px;
-          margin-block-end: var(--tds-size--half);
+  margin-block-end: 4px;
+  margin-block-end: var(--tds-size--half);
 }
 /* Override default card background */
 .tds-card.tds-locale-selector-trigger,
@@ -1320,16 +1355,16 @@ h1.tds-site-logo {
 .tds-card.tds-locale-selector-trigger .tds-card-body {
   -webkit-padding-start: 8px;
   -webkit-padding-start: var(--tds-size--1x);
-          padding-inline-start: 8px;
-          padding-inline-start: var(--tds-size--1x);
+  padding-inline-start: 8px;
+  padding-inline-start: var(--tds-size--1x);
 }
 .tds-card.tds-locale-selector-trigger .tds-icon {
   -webkit-margin-before: calc(8px - 2px);
   -webkit-margin-before: calc(var(--tds-size--1x) - 2px);
-          margin-block-start: calc(8px - 2px);
-          margin-block-start: calc(var(--tds-size--1x) - 2px);
+  margin-block-start: calc(8px - 2px);
+  margin-block-start: calc(var(--tds-size--1x) - 2px);
   -webkit-margin-start: 12px;
-          margin-inline-start: 12px;
+  margin-inline-start: 12px;
 }
 .tds-locale-selector-trigger:focus {
   outline: none;
@@ -1350,13 +1385,13 @@ h1.tds-site-logo {
 .tds-locale-selector-language {
   font-size: 12px;
   -webkit-margin-before: 2px;
-          margin-block-start: 2px;
+  margin-block-start: 2px;
 }
 .tds-locale-selector-language:not(:last-child) {
   -webkit-margin-end: 16px;
   -webkit-margin-end: var(--tds-size--2x);
-          margin-inline-end: 16px;
-          margin-inline-end: var(--tds-size--2x);
+  margin-inline-end: 16px;
+  margin-inline-end: var(--tds-size--2x);
 }
 .tds-locale-selector-language--selected {
   color: var(--tds-color--secondary);
@@ -1365,19 +1400,27 @@ h1.tds-site-logo {
 /* Custom breakpoint based on columns */
 @media (max-width: 1240px) {
   .tds-locale-selector {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
     justify-content: flex-start;
   }
 }
 @media (max-width: 599px) {
   .tds-locale-selector-region {
     -webkit-column-count: 1;
-            column-count: 1;
+    -moz-column-count: 1;
+    column-count: 1;
   }
 
-  .tds-locale-selector-column:first-child .tds-locale-selector-superregion:first-child > h3 {
+  .tds-locale-selector-column:first-child
+    .tds-locale-selector-superregion:first-child
+    > h3 {
     -webkit-padding-before: 0;
-            padding-block-start: 0;
+    padding-block-start: 0;
   }
 }
 .tds-lang--ja,
@@ -1406,7 +1449,12 @@ h1.tds-site-logo {
 .tds-modal {
   block-size: var(--tds-modal--height);
   bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   inline-size: var(--tds-modal--width);
   left: 0;
@@ -1417,8 +1465,11 @@ h1.tds-site-logo {
   background-color: var(--tds-dialog--background-color);
   border: none;
   border-radius: 8px 8px 0 0;
-  border-radius: var(--tds-border-radius--card--dense) var(--tds-border-radius--card--dense) 0 0;
+  border-radius: var(--tds-border-radius--card--dense)
+    var(--tds-border-radius--card--dense) 0 0;
+  -webkit-box-shadow: 0 -8px 16px 0 rgba(0, 0, 0, 0.16);
   box-shadow: 0 -8px 16px 0 rgba(0, 0, 0, 0.16);
+  -webkit-box-shadow: var(--tds-box-shadow--large-reverse);
   box-shadow: var(--tds-box-shadow--large-reverse);
   color: var(--tds-text--color);
   max-block-size: calc(100% - 24px);
@@ -1429,7 +1480,7 @@ h1.tds-site-logo {
 
   /* Only works in some cases, kept for future-proofing: AWSM-4162 */
   -ms-scroll-chaining: none;
-      overscroll-behavior: contain;
+  overscroll-behavior: contain;
 }
 /* Variants */
 .tds-modal--fullscreen,
@@ -1468,12 +1519,12 @@ h1.tds-site-logo {
 }
 /* stylelint-disable no-descending-specificity */
 .tds-modal--sheet-left,
-[dir='rtl'] .tds-modal--sheet-right {
+[dir="rtl"] .tds-modal--sheet-right {
   left: 0;
   right: auto;
 }
 .tds-modal--sheet-right,
-[dir='rtl'] .tds-modal--sheet-left {
+[dir="rtl"] .tds-modal--sheet-left {
   left: auto;
   right: 0;
 }
@@ -1482,45 +1533,80 @@ h1.tds-site-logo {
 .tds-modal:not([open]) {
   opacity: 0;
   -webkit-transform: translateX(0) translateY(50%);
-          transform: translateX(0) translateY(50%);
+  -ms-transform: translateX(0) translateY(50%);
+  transform: translateX(0) translateY(50%);
   pointer-events: none;
   visibility: hidden;
-  transition: opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0.5s, -webkit-transform 0.5s cubic-bezier(0.5, 0, 0, 0.75);
-  transition: opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75), transform 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0.5s;
-  transition: opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75), transform 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0.5s, -webkit-transform 0.5s cubic-bezier(0.5, 0, 0, 0.75);
-  transition: opacity 0.5s var(--tds-bezier), visibility 0s 0.5s, -webkit-transform 0.5s var(--tds-bezier);
-  transition: opacity 0.5s var(--tds-bezier), transform 0.5s var(--tds-bezier), visibility 0s 0.5s;
-  transition: opacity 0.5s var(--tds-bezier), transform 0.5s var(--tds-bezier), visibility 0s 0.5s, -webkit-transform 0.5s var(--tds-bezier);
+  transition: opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0.5s,
+    -webkit-transform 0.5s cubic-bezier(0.5, 0, 0, 0.75);
+  -webkit-transition: opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
+    visibility 0s 0.5s, -webkit-transform 0.5s cubic-bezier(0.5, 0, 0, 0.75);
+  -o-transition: opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
+    transform 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0.5s;
+  transition: opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
+    transform 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0.5s;
+  transition: opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
+    transform 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0.5s,
+    -webkit-transform 0.5s cubic-bezier(0.5, 0, 0, 0.75);
+  transition: opacity 0.5s var(--tds-bezier), visibility 0s 0.5s,
+    -webkit-transform 0.5s var(--tds-bezier);
+  -webkit-transition: opacity 0.5s var(--tds-bezier), visibility 0s 0.5s,
+    -webkit-transform 0.5s var(--tds-bezier);
+  -o-transition: opacity 0.5s var(--tds-bezier),
+    transform 0.5s var(--tds-bezier), visibility 0s 0.5s;
+  transition: opacity 0.5s var(--tds-bezier), transform 0.5s var(--tds-bezier),
+    visibility 0s 0.5s;
+  transition: opacity 0.5s var(--tds-bezier), transform 0.5s var(--tds-bezier),
+    visibility 0s 0.5s, -webkit-transform 0.5s var(--tds-bezier);
 }
 .tds-modal--fullscreen:not([open]) {
   -webkit-transform: translateX(0) translateY(50%);
-          transform: translateX(0) translateY(50%);
+  -ms-transform: translateX(0) translateY(50%);
+  transform: translateX(0) translateY(50%);
 }
 /* stylelint-disable no-descending-specificity */
 .tds-modal--sheet-left:not([open]),
-[dir='rtl'] .tds-modal--sheet-right:not([open]) {
+[dir="rtl"] .tds-modal--sheet-right:not([open]) {
   -webkit-transform: translateX(-50%) translateY(0);
-          transform: translateX(-50%) translateY(0);
+  -ms-transform: translateX(-50%) translateY(0);
+  transform: translateX(-50%) translateY(0);
 }
 .tds-modal--sheet-right:not([open]),
-[dir='rtl'] .tds-modal--sheet-left:not([open]) {
+[dir="rtl"] .tds-modal--sheet-left:not([open]) {
   -webkit-transform: translateX(50%) translateY(0);
-          transform: translateX(50%) translateY(0);
+  -ms-transform: translateX(50%) translateY(0);
+  transform: translateX(50%) translateY(0);
 }
 /* stylelint-enable no-descending-specificity */
 /* Open State */
 .tds-modal[open] {
   opacity: 1;
   -webkit-transform: translateX(0) translateY(0);
-          transform: translateX(0) translateY(0);
+  -ms-transform: translateX(0) translateY(0);
+  transform: translateX(0) translateY(0);
   pointer-events: inherit;
   visibility: inherit;
-  transition: opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0s, -webkit-transform 0.5s cubic-bezier(0.5, 0, 0, 0.75);
-  transition: opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75), transform 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0s;
-  transition: opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75), transform 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0s, -webkit-transform 0.5s cubic-bezier(0.5, 0, 0, 0.75);
-  transition: opacity 0.5s var(--tds-bezier), visibility 0s 0s, -webkit-transform 0.5s var(--tds-bezier);
-  transition: opacity 0.5s var(--tds-bezier), transform 0.5s var(--tds-bezier), visibility 0s 0s;
-  transition: opacity 0.5s var(--tds-bezier), transform 0.5s var(--tds-bezier), visibility 0s 0s, -webkit-transform 0.5s var(--tds-bezier);
+  transition: opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0s,
+    -webkit-transform 0.5s cubic-bezier(0.5, 0, 0, 0.75);
+  -webkit-transition: opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
+    visibility 0s 0s, -webkit-transform 0.5s cubic-bezier(0.5, 0, 0, 0.75);
+  -o-transition: opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
+    transform 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0s;
+  transition: opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
+    transform 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0s;
+  transition: opacity 0.5s cubic-bezier(0.5, 0, 0, 0.75),
+    transform 0.5s cubic-bezier(0.5, 0, 0, 0.75), visibility 0s 0s,
+    -webkit-transform 0.5s cubic-bezier(0.5, 0, 0, 0.75);
+  transition: opacity 0.5s var(--tds-bezier), visibility 0s 0s,
+    -webkit-transform 0.5s var(--tds-bezier);
+  -webkit-transition: opacity 0.5s var(--tds-bezier), visibility 0s 0s,
+    -webkit-transform 0.5s var(--tds-bezier);
+  -o-transition: opacity 0.5s var(--tds-bezier),
+    transform 0.5s var(--tds-bezier), visibility 0s 0s;
+  transition: opacity 0.5s var(--tds-bezier), transform 0.5s var(--tds-bezier),
+    visibility 0s 0s;
+  transition: opacity 0.5s var(--tds-bezier), transform 0.5s var(--tds-bezier),
+    visibility 0s 0s, -webkit-transform 0.5s var(--tds-bezier);
 }
 @media (max-width: 599px) {
   :root,
@@ -1551,7 +1637,9 @@ h1.tds-site-logo {
     max-block-size: calc(100% - var(--tds-size--12x));
     border-radius: 16px;
     border-radius: var(--tds-border-radius--card);
+    -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.16);
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.16);
+    -webkit-box-shadow: var(--tds-box-shadow--large);
     box-shadow: var(--tds-box-shadow--large);
   }
 
@@ -1569,34 +1657,39 @@ h1.tds-site-logo {
 
   .tds-modal:not([open]) {
     -webkit-transform: translateX(0) translateY(100%);
-            transform: translateX(0) translateY(100%);
+    -ms-transform: translateX(0) translateY(100%);
+    transform: translateX(0) translateY(100%);
   }
 
   /* stylelint-disable no-descending-specificity */
   .tds-modal--sheet-left:not([open]),
-  [dir='rtl'] .tds-modal--sheet-right:not([open]) {
+  [dir="rtl"] .tds-modal--sheet-right:not([open]) {
     -webkit-transform: translateX(-50%) translateY(0);
-            transform: translateX(-50%) translateY(0);
+    -ms-transform: translateX(-50%) translateY(0);
+    transform: translateX(-50%) translateY(0);
   }
 
   .tds-modal--sheet-right:not([open]),
-  [dir='rtl'] .tds-modal--sheet-left:not([open]) {
+  [dir="rtl"] .tds-modal--sheet-left:not([open]) {
     -webkit-transform: translateX(50%) translateY(0);
-            transform: translateX(50%) translateY(0);
+    -ms-transform: translateX(50%) translateY(0);
+    transform: translateX(50%) translateY(0);
   }
 
   /* stylelint-enable no-descending-specificity */
 
   .tds-modal[open] {
     -webkit-transform: translateX(0) translateY(50%);
-            transform: translateX(0) translateY(50%);
+    -ms-transform: translateX(0) translateY(50%);
+    transform: translateX(0) translateY(50%);
   }
 
   .tds-modal--fullscreen[open],
   .tds-modal--sheet-left[open],
   .tds-modal--sheet-right[open] {
     -webkit-transform: translateX(0) translateY(0);
-            transform: translateX(0) translateY(0);
+    -ms-transform: translateX(0) translateY(0);
+    transform: translateX(0) translateY(0);
   }
 }
 /* Modal Backdrop */
@@ -1615,22 +1708,30 @@ dialog.tds-modal::backdrop {
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   inline-size: 120vw;
   block-size: 120vh;
   background-color: rgba(0, 0, 0, var(--tds-modal-backdrop--opacity));
-  background-color: rgba(var(--tds-modal-backdrop--rgb), var(--tds-modal-backdrop--opacity));
+  background-color: rgba(
+    var(--tds-modal-backdrop--rgb),
+    var(--tds-modal-backdrop--opacity)
+  );
   z-index: 999;
   transition: background-color 0.5s ease, -webkit-backdrop-filter 0.5s ease;
+  -webkit-transition: background-color 0.5s ease,
+    -webkit-backdrop-filter 0.5s ease;
+  -o-transition: background-color 0.5s ease, backdrop-filter 0.5s ease;
   transition: background-color 0.5s ease, backdrop-filter 0.5s ease;
-  transition: background-color 0.5s ease, backdrop-filter 0.5s ease, -webkit-backdrop-filter 0.5s ease;
+  transition: background-color 0.5s ease, backdrop-filter 0.5s ease,
+    -webkit-backdrop-filter 0.5s ease;
 }
 .tds-modal:not([open]) + .tds-modal-backdrop {
   --tds-modal-backdrop--opacity: 0;
 
   -webkit-backdrop-filter: blur(0);
 
-          backdrop-filter: blur(0);
+  backdrop-filter: blur(0);
   pointer-events: none;
 }
 .tds-modal[open] + .tds-modal-backdrop {
@@ -1638,22 +1739,31 @@ dialog.tds-modal::backdrop {
 
   -webkit-backdrop-filter: blur(4px);
 
-          backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
   pointer-events: inherit;
 }
 /* Modal Actions */
 .tds-modal-header {
+  -webkit-box-align: start;
+  -ms-flex-align: start;
   align-items: flex-start;
   background-color: var(--tds-dialog--background-color);
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+  -ms-flex-direction: row-reverse;
   flex-direction: row-reverse;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
   padding: 16px;
   padding: var(--tds-size--2x);
   -webkit-padding-start: 24px;
   -webkit-padding-start: var(--tds-size--3x);
-          padding-inline-start: 24px;
-          padding-inline-start: var(--tds-size--3x);
+  padding-inline-start: 24px;
+  padding-inline-start: var(--tds-size--3x);
   position: -webkit-sticky;
   position: sticky;
   top: 0;
@@ -1663,7 +1773,8 @@ dialog.tds-modal::backdrop {
   padding: 8px;
   padding: var(--tds-size--1x);
   -webkit-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   border: none;
   background-color: transparent;
   cursor: pointer;
@@ -1672,10 +1783,12 @@ dialog.tds-modal::backdrop {
   border-radius: 48px;
   border-radius: var(--tds-size--6x);
   -webkit-backdrop-filter: blur(4px);
-          backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  -webkit-transition: background-color 0.33s ease;
+  -o-transition: background-color 0.33s ease;
   transition: background-color 0.33s ease;
 }
-[dir='rtl'] .tds-modal-close {
+[dir="rtl"] .tds-modal-close {
   left: 0;
   right: auto;
 }
@@ -1703,9 +1816,22 @@ dialog.tds-modal::backdrop {
 /* Header & Footer */
 .tds-modal-header > :is(h1, h2, h3) {
   -webkit-padding-after: 0;
-          padding-block-end: 0;
-  transition: padding 0.33s cubic-bezier(0.5, 0, 0, 0.75), font-size 0.33s cubic-bezier(0.5, 0, 0, 0.75), line-height 0.33s cubic-bezier(0.5, 0, 0, 0.75);
-  transition: padding 0.33s var(--tds-bezier), font-size 0.33s var(--tds-bezier), line-height 0.33s var(--tds-bezier);
+  padding-block-end: 0;
+  -webkit-transition: padding 0.33s cubic-bezier(0.5, 0, 0, 0.75),
+    font-size 0.33s cubic-bezier(0.5, 0, 0, 0.75),
+    line-height 0.33s cubic-bezier(0.5, 0, 0, 0.75);
+  -o-transition: padding 0.33s cubic-bezier(0.5, 0, 0, 0.75),
+    font-size 0.33s cubic-bezier(0.5, 0, 0, 0.75),
+    line-height 0.33s cubic-bezier(0.5, 0, 0, 0.75);
+  transition: padding 0.33s cubic-bezier(0.5, 0, 0, 0.75),
+    font-size 0.33s cubic-bezier(0.5, 0, 0, 0.75),
+    line-height 0.33s cubic-bezier(0.5, 0, 0, 0.75);
+  -webkit-transition: padding 0.33s var(--tds-bezier),
+    font-size 0.33s var(--tds-bezier), line-height 0.33s var(--tds-bezier);
+  -o-transition: padding 0.33s var(--tds-bezier),
+    font-size 0.33s var(--tds-bezier), line-height 0.33s var(--tds-bezier);
+  transition: padding 0.33s var(--tds-bezier), font-size 0.33s var(--tds-bezier),
+    line-height 0.33s var(--tds-bezier);
 }
 .tds-modal-footer {
   position: -webkit-sticky;
@@ -1715,7 +1841,11 @@ dialog.tds-modal::backdrop {
   padding: 24px 24px 48px;
   padding: var(--tds-size--3x) var(--tds-size--3x) var(--tds-size--6x);
   background-color: var(--tds-dialog--background-color);
+  -webkit-transition: padding 0.33s cubic-bezier(0.5, 0, 0, 0.75);
+  -o-transition: padding 0.33s cubic-bezier(0.5, 0, 0, 0.75);
   transition: padding 0.33s cubic-bezier(0.5, 0, 0, 0.75);
+  -webkit-transition: padding 0.33s var(--tds-bezier);
+  -o-transition: padding 0.33s var(--tds-bezier);
   transition: padding 0.33s var(--tds-bezier);
 }
 /* Shrink the header/footer when internally scrolling */
@@ -1726,8 +1856,8 @@ dialog.tds-modal::backdrop {
   line-height: var(--tds-line-height--50);
   -webkit-padding-before: 8px;
   -webkit-padding-before: var(--tds-size--1x);
-          padding-block-start: 8px;
-          padding-block-start: var(--tds-size--1x);
+  padding-block-start: 8px;
+  padding-block-start: var(--tds-size--1x);
 }
 /* Content */
 .tds-modal-content {
@@ -1737,43 +1867,43 @@ dialog.tds-modal::backdrop {
 .tds-modal--sheet-small .tds-modal-content {
   -webkit-padding-before: 8px;
   -webkit-padding-before: var(--tds-size--1x);
-          padding-block-start: 8px;
-          padding-block-start: var(--tds-size--1x);
+  padding-block-start: 8px;
+  padding-block-start: var(--tds-size--1x);
 }
 .tds-modal-content:not(:last-child) {
   -webkit-padding-after: 0;
-          padding-block-end: 0;
+  padding-block-end: 0;
 }
 @media (min-width: 600px) {
   .tds-modal-header {
     -webkit-padding-start: 48px;
     -webkit-padding-start: var(--tds-size--6x);
-            padding-inline-start: 48px;
-            padding-inline-start: var(--tds-size--6x);
+    padding-inline-start: 48px;
+    padding-inline-start: var(--tds-size--6x);
   }
 
   .tds-modal-content,
   .tds-modal-footer {
     -webkit-padding-start: 48px;
     -webkit-padding-start: var(--tds-size--6x);
-            padding-inline-start: 48px;
-            padding-inline-start: var(--tds-size--6x);
+    padding-inline-start: 48px;
+    padding-inline-start: var(--tds-size--6x);
     -webkit-padding-end: 48px;
     -webkit-padding-end: var(--tds-size--6x);
-            padding-inline-end: 48px;
-            padding-inline-end: var(--tds-size--6x);
+    padding-inline-end: 48px;
+    padding-inline-end: var(--tds-size--6x);
   }
 
   .tds-modal--sheet-small .tds-modal-content,
   .tds-modal--sheet-small .tds-modal-footer {
     -webkit-padding-start: 32px;
     -webkit-padding-start: var(--tds-size--4x);
-            padding-inline-start: 32px;
-            padding-inline-start: var(--tds-size--4x);
+    padding-inline-start: 32px;
+    padding-inline-start: var(--tds-size--4x);
     -webkit-padding-end: 32px;
     -webkit-padding-end: var(--tds-size--4x);
-            padding-inline-end: 32px;
-            padding-inline-end: var(--tds-size--4x);
+    padding-inline-end: 32px;
+    padding-inline-end: var(--tds-size--4x);
   }
 }
 :root,
@@ -1791,17 +1921,19 @@ dialog.tds-modal::backdrop {
   width: 100vw;
 }
 .tds-locale-selector-language {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
   display: inline-flex;
 }
 .tds-site-header-modal .tds-card.tds-locale-selector-trigger .tds-icon {
   -webkit-margin-before: 8px;
-          margin-block-start: 8px;
+  margin-block-start: 8px;
   -webkit-margin-before: var(--tds-size--1x);
-          margin-block-start: var(--tds-size--1x);
+  margin-block-start: var(--tds-size--1x);
   -webkit-margin-start: 8px;
-          margin-inline-start: 8px;
+  margin-inline-start: 8px;
   -webkit-margin-start: var(--tds-size--1x);
-          margin-inline-start: var(--tds-size--1x);
+  margin-inline-start: var(--tds-size--1x);
   padding: 1px;
 }
 .tds-site-header--stuck #tds-site-header-wrapper {
@@ -1835,7 +1967,7 @@ dialog.tds-modal::backdrop {
   .i18n-pt_pt .tds-site-header .tds-align--start {
     min-inline-size: 175px;
     -webkit-margin-start: -20px;
-            margin-inline-start: -20px;
+    margin-inline-start: -20px;
   }
 }
 @media (min-width: 1399px) {
@@ -1843,7 +1975,7 @@ dialog.tds-modal::backdrop {
   .i18n-pt_pt .tds-site-header .tds-align--start {
     min-inline-size: 230px;
     -webkit-margin-start: inherit;
-            margin-inline-start: inherit;
+    margin-inline-start: inherit;
   }
 }
 /* CYBERTRUCK OVERRIDES */
@@ -1855,31 +1987,31 @@ dialog.tds-modal::backdrop {
 
   .page-cybertruck .tds-site-logo .tds-icon {
     -webkit-filter: invert(1);
-            filter: invert(1);
+    filter: invert(1);
   }
 }
 /* tweaks to delete */
 .tds-site-header-modal * {
   -webkit-backdrop-filter: none;
-          backdrop-filter: none;
+  backdrop-filter: none;
 }
 /* tweaks to delete END */
 /* careers */
-.tds-site-logo-link+.tds-site-app-title {
+.tds-site-logo-link + .tds-site-app-title {
   color: var(--tds-text--color);
   text-transform: capitalize;
   -webkit-margin-start: 10px;
-          margin-inline-start: 10px;
+  margin-inline-start: 10px;
 }
 /* TWEAKS */
-.tds-modal.tds-site-header-modal  {
+.tds-modal.tds-site-header-modal {
   z-index: 1000000;
   will-change: scroll-position;
 }
 @media (max-width: 1199px) {
-  .tds-modal.tds-site-header-modal  {
+  .tds-modal.tds-site-header-modal {
     -webkit-padding-after: 0;
-            padding-block-end: 0;
+    padding-block-end: 0;
   }
 }
 .tds-modal--is-open .trc-main-container-wrapper,
@@ -1924,7 +2056,8 @@ dialog.tds-modal::backdrop {
   --tds-pill--blur-color: hsla(0, 0%, 100%, 0.2);
 }
 @media (max-width: 639px) {
-  .tds-o-header--invert-on-mobile.tds-site-header--dark .tds-site-header-wrapper {
+  .tds-o-header--invert-on-mobile.tds-site-header--dark
+    .tds-site-header-wrapper {
     --tds-nav-item--color: var(--tds-color--grey10);
     --tds-nav-item--color-highlighted: var(--tds-color--grey10);
     --tds-icon-fill-secondary: var(--tds-color--grey10);
@@ -1934,7 +2067,8 @@ dialog.tds-modal::backdrop {
     --tds-pill--blur-color: hsla(0, 0%, 100%, 0.2);
   }
 
-  .tds-o-header--invert-on-mobile.tds-site-header--light .tds-site-header-wrapper {
+  .tds-o-header--invert-on-mobile.tds-site-header--light
+    .tds-site-header-wrapper {
     --tds-nav-item--color: var(--tds-color--grey70);
     --tds-nav-item--color-highlighted: var(--tds-color--white);
     --tds-icon-fill-secondary: var(--tds-color--white);
@@ -1946,15 +2080,16 @@ dialog.tds-modal::backdrop {
 }
 .page-cybertruck .tds-site-logo .tds-icon {
   -webkit-filter: inherit;
-          filter: inherit;
+  filter: inherit;
 }
 .tcl-sticky-navigation .tcl-sticky-navigation__icon {
   height: 48px;
   height: var(--tds-size--6x);
 }
-[dir='rtl'] .tds-nav-back .tds-icon-chevron-small--90 {
+[dir="rtl"] .tds-nav-back .tds-icon-chevron-small--90 {
   -webkit-transform: none;
-          transform: none;
+  -ms-transform: none;
+  transform: none;
 }
 /* TDS 5 fixes */
 .tds-site-header-modal .tds-modal-header {
@@ -1971,7 +2106,8 @@ dialog.tds-modal::backdrop {
   padding: 0 !important;
 }
 
-aside.inventory-sidebar-wrapper.tds-scrim--light.mobile-none {
+.inventory-sidebar-wrapper.tds-scrim--light.mobile-none {
+  position: -webkit-sticky;
   position: sticky;
   height: 100%;
   top: 40px;
@@ -1981,7 +2117,6 @@ aside.inventory-sidebar-wrapper.tds-scrim--light.mobile-none {
   font-weight: bold;
 }
 
-
 .tds-component-preview {
   --tds-gutter: var(--tds-size--3x);
   --tds-gutter--half: calc(var(--tds-size--3x) / 2);
@@ -1990,7 +2125,12 @@ aside.inventory-sidebar-wrapper.tds-scrim--light.mobile-none {
 }
 
 .tds-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column wrap;
   flex-flow: column wrap;
   list-style: none;
   margin: 0;
@@ -1999,51 +2139,68 @@ aside.inventory-sidebar-wrapper.tds-scrim--light.mobile-none {
 
 @media (--tds-tablet-portrait-up) {
   .tds-flex {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row wrap;
     flex-flow: row wrap;
   }
 }
 
 .tds-flex-gutters {
+  -webkit-margin-after: var(--tds-size--3x);
   margin-block-end: var(--tds-size--3x);
+  -webkit-margin-before: var(--tds-gutter--negative);
   margin-block-start: var(--tds-gutter--negative);
+  -webkit-margin-start: var(--tds-gutter--negative);
   margin-inline-start: var(--tds-gutter--negative);
 }
 
 @media (--tds-phone-only) {
   .tds-flex-small-gutters > * {
+    -webkit-margin-before: var(--tds-size--1x);
     margin-block-start: var(--tds-size--1x);
+    -webkit-margin-after: var(--tds-size--1x);
     margin-block-end: var(--tds-size--1x);
   }
 
   .tds-flex-small-gutters > :first-child {
+    -webkit-margin-before: 0;
     margin-block-start: 0;
   }
 
   .tds-flex-small-gutters > :last-child {
+    -webkit-margin-after: 0;
     margin-block-end: 0;
   }
 }
 
 @media (--tds-tablet-portrait-up) {
   .tds-flex-small-gutters > * {
+    -webkit-margin-start: var(--tds-size--1x);
     margin-inline-start: var(--tds-size--1x);
+    -webkit-margin-end: var(--tds-size--1x);
     margin-inline-end: var(--tds-size--1x);
   }
 
   .tds-flex-small-gutters > :first-child {
+    -webkit-margin-start: 0;
     margin-inline-start: 0;
   }
 
   .tds-flex-small-gutters > :last-child {
+    -webkit-margin-end: 0;
     margin-inline-end: 0;
   }
 }
 
 .tds-flex--nowrap {
+  -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
 }
 
 .tds-flex-item {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
   flex: 1;
 }
 
@@ -2055,9 +2212,11 @@ aside.inventory-sidebar-wrapper.tds-scrim--light.mobile-none {
 .tds-grid--show_grid .tds-flex-item::before {
   background-color: rgba(149, 236, 255, 0.1);
   block-size: 100%;
+  -webkit-border-end: 1px solid rgba(149, 236, 255, 0.3);
   border-inline-end: 1px solid rgba(149, 236, 255, 0.3);
+  -webkit-border-start: 1px solid rgba(149, 236, 255, 0.3);
   border-inline-start: 1px solid rgba(149, 236, 255, 0.3);
-  content: '';
+  content: "";
   display: block;
   inline-size: calc(100% - 2px);
   left: 1px;
@@ -2073,27 +2232,38 @@ aside.inventory-sidebar-wrapper.tds-scrim--light.mobile-none {
 }
 
 .tds-flex-gutters .tds-flex-item {
+  -webkit-padding-before: var(--tds-size--3x);
   padding-block-start: var(--tds-size--3x);
+  -webkit-padding-start: var(--tds-size--3x);
   padding-inline-start: var(--tds-size--3x);
 }
 
 .tds-flex--flex_cells > .tds-flex-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
 .tds-flex-item--no_gutter {
+  -webkit-padding-before: 0;
   padding-block-start: 0;
+  -webkit-padding-start: 0;
   padding-inline-start: 0;
 }
 
 .tds-flex-gutters .tds-flex-gutters {
+  -webkit-margin-after: 0;
   margin-block-end: 0;
 }
 
 /* Columns spanning multiples
 --------------------------------------------------------------------------- */
-[class*='tds-flex--col_'] {
+[class*="tds-flex--col_"] {
+  -webkit-box-flex: 0;
+  -ms-flex: none;
   flex: none;
+  -webkit-transition: width 250ms ease-in-out;
+  -o-transition: width 250ms ease-in-out;
   transition: width 250ms ease-in-out;
 }
 
@@ -2126,28 +2296,40 @@ aside.inventory-sidebar-wrapper.tds-scrim--light.mobile-none {
 /* Vertical Alignment per row
 --------------------------------------------------------------------------- */
 .tds-flex--top {
+  -webkit-box-align: start;
+  -ms-flex-align: start;
   align-items: flex-start;
 }
 
 .tds-flex--bottom {
+  -webkit-box-align: end;
+  -ms-flex-align: end;
   align-items: flex-end;
 }
 
 .tds-flex--center {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
 /* Horizontal Alignment per row
 --------------------------------------------------------------------------- */
 .tds-flex--align-inline-start {
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
 }
 
 .tds-flex--align-inline-center {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
 }
 
 .tds-flex--align-inline-end {
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
   justify-content: flex-end;
 }
 
@@ -2155,65 +2337,90 @@ aside.inventory-sidebar-wrapper.tds-scrim--light.mobile-none {
 .tds-flex--align-inline-start > .tds-flex-item,
 .tds-flex--align-inline-center > .tds-flex-item,
 .tds-flex--align-inline-end > .tds-flex-item {
+  -webkit-box-flex: unset;
+  -ms-flex: unset;
   flex: unset;
 }
 
 /* Alignment per cell
 --------------------------------------------------------------------------- */
 .tds-flex-item--top {
+  -ms-flex-item-align: start;
   align-self: flex-start;
 }
 
 .tds-flex-item--bottom {
+  -ms-flex-item-align: end;
   align-self: flex-end;
 }
 
 .tds-flex-item--center {
+  -ms-flex-item-align: center;
   align-self: center;
 }
 
 /* Base classes for all media
 --------------------------------------------------------------------------- */
 .tds-flex--fit > .tds-flex-item {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
   flex: 1;
 }
 
 @media (--tds-tablet-portrait-up) {
   .tds-flex--full > .tds-flex-item {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 100%;
     flex: 0 0 100%;
   }
 
   .tds-flex--halfs > .tds-flex-item {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 50%;
     flex: 0 0 50%;
   }
 
   .tds-flex--thirds > .tds-flex-item {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 33.3333%;
     flex: 0 0 33.3333%;
   }
 
   .tds-flex--quarters > .tds-flex-item {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 25%;
     flex: 0 0 25%;
   }
 
   /* Large screens
   --------------------------------------------------------------------------- */
   .tds-flex--large_fit > .tds-flex-item {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
     flex: 1;
   }
 
   .tds-flex--large_full > .tds-flex-item {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 100%;
     flex: 0 0 100%;
   }
 
   .tds-flex--large_halfs > .tds-flex-item {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 50%;
     flex: 0 0 50%;
   }
 
   .tds-flex--large_thirds > .tds-flex-item {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 33.3333%;
     flex: 0 0 33.3333%;
   }
 
   .tds-flex--large_quarters > .tds-flex-item {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 25%;
     flex: 0 0 25%;
   }
 }
@@ -2221,11 +2428,19 @@ aside.inventory-sidebar-wrapper.tds-scrim--light.mobile-none {
 /* --- Custom Layouts
 --------------------------------------------------------------------------- */
 .tds-flex--as_columns {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column wrap;
   flex-flow: column wrap;
 }
 
 /* TODO: I'm annoyed this isn't underscored to match with the utility class above */
 .tds-flex--as-rows {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row wrap;
   flex-flow: row wrap;
 }
