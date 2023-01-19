@@ -43,10 +43,23 @@ class CarController extends Controller
     }
 
     /**
+     * @inheritdoc
+     */
+    public function beforeAction($action)
+    {            
+        if (in_array($action->id, ['upload-image', 'delete-image'])) {
+            $this->enableCsrfValidation = false;
+        }
+
+        return parent::beforeAction($action);
+    }
+
+    /**
      * Lists all Car models.
      *
      * @return string
      */
+
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
@@ -89,39 +102,43 @@ class CarController extends Controller
     public function actionCreate()
     {
         $model = new Car();
-        $upload = new UploadForm();
-        $option = Options::findOne(['option_name' => 'usd_course']);
-        $usd_course = $option->option_value;
+        $model->save(); 
 
-        if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
+        $this->redirect(['update', 'id' => $model->id]);
 
-                $upload->image = UploadedFile::getInstances($upload, 'image');
+        // $upload = new UploadForm();
+        // $option = Options::findOne(['option_name' => 'usd_course']);
+        // $usd_course = $option->option_value;
 
-                if(!empty($upload->image) && $upload->validate()) {
-                    foreach ($upload->image as $file) {
-                        $filename = sha1_file($file->tempName) . '.' . $file->extension;
-                        $path = str_replace('/admin', '', \Yii::getAlias('@webroot')) . '/uploads/' . $filename;
-                        $file->saveAs($path);
-                        $image = new CarImage();
+        // if ($this->request->isPost) {
+        //     if ($model->load($this->request->post()) && $model->save()) {
 
-                        $image->car_id = $model->id;
-                        $image->filename = $filename;
-                        $image->save();
-                    }
-                }
+        //         $upload->image = UploadedFile::getInstances($upload, 'image');
 
-                return $this->redirect(['view', 'id' => $model->id]);
-            }
-        } else {
-            $model->loadDefaultValues();
-        }
+        //         if(!empty($upload->image) && $upload->validate()) {
+        //             foreach ($upload->image as $file) {
+        //                 $filename = sha1_file($file->tempName) . '.' . $file->extension;
+        //                 $path = str_replace('/admin', '', \Yii::getAlias('@webroot')) . '/uploads/' . $filename;
+        //                 $file->saveAs($path);
+        //                 $image = new CarImage();
 
-        return $this->render('create', [
-            'model' => $model,
-            'upload' => $upload,
-            'usd_course' => $usd_course
-        ]);
+        //                 $image->car_id = $model->id;
+        //                 $image->filename = $filename;
+        //                 $image->save();
+        //             }
+        //         }
+
+        //         return $this->redirect(['view', 'id' => $model->id]);
+        //     }
+        // } else {
+        //     $model->loadDefaultValues();
+        // }
+
+        // return $this->render('create', [
+        //     'model' => $model,
+        //     'upload' => $upload,
+        //     'usd_course' => $usd_course
+        // ]);
     }
 
     /**
@@ -170,7 +187,7 @@ class CarController extends Controller
             'model' => $model,
             'upload' => $upload,
             'images' => $images,
-            'usd_course' => $usd_course
+            'usd_course' => $usd_course,
         ]);
     }
 
@@ -186,6 +203,55 @@ class CarController extends Controller
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
+    }
+
+    public function actionUploadImage() {
+        // var_dump($_FILES);die;
+        
+        echo '{
+           "error":null,
+           "errorkeys":[
+           ],
+           "filenames":[
+              "d09591c7ab284e49b4698d323e594edd__2016 GFF Booth Space Application 1.pdf",
+              "fc16e07771eb4078a5ed3b69655a5780__Screenshot_1.png",
+              "793cd3b3d0ae47e0ac3ce726cb68061c__Screenshot_2.png"
+           ],
+           "initialPreview":[
+              "<span class=\"file-other-icon\"><i class=\"fa fa-file-pdf-o text-danger\" aria-hidden=\"true\"></i></span>",
+              "<span class=\"file-other-icon\"><i class=\"fa fa-file-image-o text-info\" aria-hidden=\"true\"></i></span>",
+              "<span class=\"file-other-icon\"><i class=\"fa fa-file-image-o text-info\" aria-hidden=\"true\"></i></span>"
+           ],
+           "initialPreviewConfig":[
+              {
+                 "caption":"2016 GFF Booth Space Application 1.pdf",
+                 "width":"120px",
+                 "size":312292,
+                 "url":"/Attachments/Delete/d09591c7ab284e49b4698d323e594edd",
+                 "key":0
+              },
+              {
+                 "caption":"Screenshot_1.png",
+                 "width":"120px",
+                 "size":16715,
+                 "url":"/Attachments/Delete/fc16e07771eb4078a5ed3b69655a5780",
+                 "key":1
+              },
+              {
+                 "caption":"Screenshot_2.png",
+                 "width":"120px",
+                 "size":46802,
+                 "url":"/Attachments/Delete/793cd3b3d0ae47e0ac3ce726cb68061c",
+                 "key":2
+              }
+           ],
+           "append": true
+        }';
+    }
+
+    public function actionDeleteImage() {
+        // var_dump($_FILES);die;
+        echo 'true';
     }
 
     /**

@@ -20,7 +20,7 @@ $this->params['breadcrumbs'][] = Yii::t('app', 'Update');
         'model' => $model,
         'upload' => $upload,
         'images' => $images,
-        'usd_course' => $usd_course
+        'usd_course' => $usd_course,
     ]) ?>
 
 </div>

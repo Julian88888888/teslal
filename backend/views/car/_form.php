@@ -9,6 +9,9 @@ use yii\widgets\ActiveForm;
 ?>
 
 
+<!-- the jQuery Library -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+
 <!-- bootstrap 5.x or 4.x is supported. You can also use the bootstrap css 3.3.x versions -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" crossorigin="anonymous">
  
@@ -23,9 +26,7 @@ use yii\widgets\ActiveForm;
  
 <!-- if using RTL (Right-To-Left) orientation, load the RTL CSS file after fileinput.css by uncommenting below -->
 <!-- link href="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.0/css/fileinput-rtl.min.css" media="all" rel="stylesheet" type="text/css" /-->
- 
-<!-- the jQuery Library -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+
  
 <!-- buffer.min.js and filetype.min.js are necessary in the order listed for advanced mime type parsing and more correct
      preview. This is a feature available since v5.5.0 and is needed if you want to ensure file mime type is parsed 
@@ -55,7 +56,7 @@ use yii\widgets\ActiveForm;
 <!-- script src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.0/themes/fa5/theme.min.js"></script -->
  
 <!-- optionally if you need translation for your language then include the locale file as mentioned below (replace LANG.js with your language locale) -->
-<script src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.0/js/locales/LANG.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.0/js/locales/ru.js"></script>
 
 
 
@@ -202,21 +203,44 @@ use yii\widgets\ActiveForm;
 
 
 <script>
-    $("#uploadform-image").fileinput({'showUpload':false, 'previewFileType':'any', initialPreview: [
-    <?php 
-    if(isset($images)) {
-        foreach ($images as $image) {
-            echo "\"<img src='/uploads/".$image->filename."' class='file-preview-image'>\",";
+    $("#uploadform-image").fileinput(
+        {
+            // 'showUpload':false, 
+            language: 'ru',
+            previewFileType:'any', 
+            initialPreview: [
+                <?php 
+                if(isset($images)) {
+                    foreach ($images as $image) {
+                        echo "\"<img src='/uploads/".$image->filename."' class='file-preview-image'>\",";
+                    }
+                }
+                ?>
+            ],
+            initialPreviewConfig: [
+                <?php 
+                if(isset($images)) {
+                    foreach ($images as $image) {
+                        echo "{ 
+                            key:".$image->id.
+                        "},";
+                    }
+                }
+                ?>
+            ],
+            overwriteInitial: false,
+            uploadUrl: '/admin/car/upload-image',
+            uploadExtraData: {
+            },
+            deleteUrl: '/admin/car/delete-image',
+            fileActionSettings: {
+                showDrag: false,
+                // showDelete: false,
+                showZoom: false,
+                showRotate: false
+            },
+            // initialPreviewShowDelete: false,
+            // showRemove: false
         }
-    }
-    ?>
-    ],
-    fileActionSettings: {
-        showDrag: false,
-        showDelete: false,
-        showZoom: false,
-    },
-    initialPreviewShowDelete: false,
-    showRemove: false
-    });
+    );
 </script>
