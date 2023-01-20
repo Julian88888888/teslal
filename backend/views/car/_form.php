@@ -206,6 +206,9 @@ use yii\widgets\ActiveForm;
     $("#uploadform-image").fileinput(
         {
             // 'showUpload':false, 
+            maxFileCount: 15,
+            validateInitialCount: true,
+            allowedFileExtensions: ["jpg", "png"],
             language: 'ru',
             previewFileType:'any', 
             initialPreview: [
