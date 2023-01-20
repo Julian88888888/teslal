@@ -2,6 +2,8 @@
 
 namespace backend\controllers;
 
+include(__DIR__.'/../../common/components/iloveimg/init.php');
+use Iloveimg\Iloveimg;
 use common\models\Car;
 use common\models\Options;
 use common\models\CarImage;
@@ -208,7 +210,6 @@ class CarController extends Controller
     }
 
     public function actionUploadImage($id) {
-        // var_dump($_FILES);die;
         
         $upload = new UploadForm();
 
@@ -225,27 +226,46 @@ class CarController extends Controller
 
             while(file_exists($filepath)) {
                 $filename = $pathinfo['filename'].'_'.$counter.'.'.$pathinfo['extension'];
-                $filepath = str_replace('/admin', '', \Yii::getAlias('@webroot')) . '/uploads/' . $filename;
+                $filepath = str_replace('/admin', '', \Yii::getAlias('@webroot')) . 'uploads/' . $filename;
                 $counter++;
             }
 
-            $path = str_replace('/admin', '', \Yii::getAlias('@webroot')) . '/uploads/' . $filename;
-            $file->saveAs($path);
+            $file->saveAs($filepath);
             $image = new CarImage();
 
             $image->car_id = $id;
             $image->filename = $filename;
             $image->save();
-        }
 
-        $result = [
-            "error" => null,
-            "errorkeys" => [],
-            "filenames" => [$image->filename],
-            "initialPreview" => ["<img src='/uploads/".$image->filename."' class='file-preview-image'>"],
-            "initialPreviewConfig" => [["key" => $image->id, "url" => "/admin/car/delete-image?id=".$image->id, "caption" => $image->filename]],
-            "append" => true 
-        ];
+            try {
+                $download_path = str_replace('/admin', '', \Yii::getAlias('@webroot')) . 'uploads/';
+
+                $iloveimg = new Iloveimg('project_public_ecd830b717848611c64a34b18b3fed2e_6qIWLbc732890a83809655734220a805ab8f5','secret_key_ed1cde588a1e85f93feeda948a1e57ba_5etMaaf5d1074997c1632eb96fd277a7bed5c');
+                $myTask = $iloveimg->newTask('compress');
+                $file1 = $myTask->addFile($filepath);
+                $myTask->execute();
+                $myTask->download($download_path);
+
+                $image->is_compressed = 1;
+                $image->save();
+            } catch (Exception $e) {  
+            
+            }
+
+            $result = [
+                "error" => null,
+                "errorkeys" => [],
+                "filenames" => [$image->filename],
+                "initialPreview" => ["<img src='/uploads/".$image->filename."' class='file-preview-image'>"],
+                "initialPreviewConfig" => [["key" => $image->id, "url" => "/admin/car/delete-image?id=".$image->id, "caption" => $image->filename]],
+                "append" => true 
+            ];
+        } else {
+            $result = [
+                "error" => 'file is empty',
+                "errorkeys" => [], 
+            ];            
+        }
 
         echo json_encode($result);
     }
