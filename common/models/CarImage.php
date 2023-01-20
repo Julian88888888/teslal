@@ -28,7 +28,7 @@ class CarImage extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['car_id'], 'integer'],
+            [['car_id', 'is_compressed'], 'integer'],
             [['filename'], 'string'],
             [['car_id'], 'exist', 'skipOnError' => true, 'targetClass' => Car::class, 'targetAttribute' => ['car_id' => 'id']],
         ];
@@ -43,6 +43,7 @@ class CarImage extends \yii\db\ActiveRecord
             'id' => Yii::t('app', 'ID'),
             'car_id' => Yii::t('app', 'Car ID'),
             'filename' => Yii::t('app', 'Filename'),
+            'is_compressed' => Yii::t('app', 'Is Compressed'),
         ];
     }
 
@@ -64,7 +65,6 @@ class CarImage extends \yii\db\ActiveRecord
         }
 
         unlink(str_replace('/admin', '', \Yii::getAlias('@webroot')) . '/uploads/' . $this->filename);
-        var_dump(str_replace('/admin', '', \Yii::getAlias('@webroot')) . '/uploads/' . $this->filename);
 
         return true;
     }

@@ -2,6 +2,8 @@
 
 namespace backend\controllers;
 
+include(__DIR__.'/../../common/components/iloveimg/init.php');
+use Iloveimg\Iloveimg;
 use common\models\Car;
 use common\models\Options;
 use common\models\CarImage;
@@ -43,10 +45,23 @@ class CarController extends Controller
     }
 
     /**
+     * @inheritdoc
+     */
+    public function beforeAction($action)
+    {            
+        if (in_array($action->id, ['upload-image', 'delete-image'])) {
+            $this->enableCsrfValidation = false;
+        }
+
+        return parent::beforeAction($action);
+    }
+
+    /**
      * Lists all Car models.
      *
      * @return string
      */
+
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
@@ -89,39 +104,43 @@ class CarController extends Controller
     public function actionCreate()
     {
         $model = new Car();
-        $upload = new UploadForm();
-        $option = Options::findOne(['option_name' => 'usd_course']);
-        $usd_course = $option->option_value;
+        $model->save(); 
 
-        if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
+        $this->redirect(['update', 'id' => $model->id]);
 
-                $upload->image = UploadedFile::getInstances($upload, 'image');
+        // $upload = new UploadForm();
+        // $option = Options::findOne(['option_name' => 'usd_course']);
+        // $usd_course = $option->option_value;
 
-                if(!empty($upload->image) && $upload->validate()) {
-                    foreach ($upload->image as $file) {
-                        $filename = sha1_file($file->tempName) . '.' . $file->extension;
-                        $path = str_replace('/admin', '', \Yii::getAlias('@webroot')) . '/uploads/' . $filename;
-                        $file->saveAs($path);
-                        $image = new CarImage();
+        // if ($this->request->isPost) {
+        //     if ($model->load($this->request->post()) && $model->save()) {
 
-                        $image->car_id = $model->id;
-                        $image->filename = $filename;
-                        $image->save();
-                    }
-                }
+        //         $upload->image = UploadedFile::getInstances($upload, 'image');
 
-                return $this->redirect(['view', 'id' => $model->id]);
-            }
-        } else {
-            $model->loadDefaultValues();
-        }
+        //         if(!empty($upload->image) && $upload->validate()) {
+        //             foreach ($upload->image as $file) {
+        //                 $filename = sha1_file($file->tempName) . '.' . $file->extension;
+        //                 $path = str_replace('/admin', '', \Yii::getAlias('@webroot')) . '/uploads/' . $filename;
+        //                 $file->saveAs($path);
+        //                 $image = new CarImage();
 
-        return $this->render('create', [
-            'model' => $model,
-            'upload' => $upload,
-            'usd_course' => $usd_course
-        ]);
+        //                 $image->car_id = $model->id;
+        //                 $image->filename = $filename;
+        //                 $image->save();
+        //             }
+        //         }
+
+        //         return $this->redirect(['view', 'id' => $model->id]);
+        //     }
+        // } else {
+        //     $model->loadDefaultValues();
+        // }
+
+        // return $this->render('create', [
+        //     'model' => $model,
+        //     'upload' => $upload,
+        //     'usd_course' => $usd_course
+        // ]);
     }
 
     /**
@@ -135,33 +154,33 @@ class CarController extends Controller
     {
 
         $model = $this->findModel($id);
-        $upload = new UploadForm();
         $option = Options::findOne(['option_name' => 'usd_course']);
         $usd_course = $option->option_value;
+        $upload = new UploadForm();
         $images = CarImage::find()->where(['car_id' => $model->id])->all();
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            $upload->image = UploadedFile::getInstances($upload, 'image');
+            // $upload->image = UploadedFile::getInstances($upload, 'image');
 
-            if(!empty($upload->image) && $upload->validate()) {
+            // if(!empty($upload->image) && $upload->validate()) {
 
-                $images_to_delete = CarImage::findAll(['car_id' => $model->id]);
+            //     $images_to_delete = CarImage::findAll(['car_id' => $model->id]);
 
-                foreach ($images_to_delete as $deleted) {
-                    $deleted->delete();
-                }
+            //     foreach ($images_to_delete as $deleted) {
+            //         $deleted->delete();
+            //     }
                 
-                foreach ($upload->image as $file) {
-                    $filename = sha1_file($file->tempName) . '.' . $file->extension;
-                    $path = str_replace('/admin', '', \Yii::getAlias('@webroot')) . '/uploads/' . $filename;
-                    $file->saveAs($path);
-                    $image = new CarImage();
+            //     foreach ($upload->image as $file) {
+            //         $filename = sha1_file($file->tempName) . '.' . $file->extension;
+            //         $path = str_replace('/admin', '', \Yii::getAlias('@webroot')) . '/uploads/' . $filename;
+            //         $file->saveAs($path);
+            //         $image = new CarImage();
 
-                    $image->car_id = $model->id;
-                    $image->filename = $filename;
-                    $image->save();
-                }
-            }
+            //         $image->car_id = $model->id;
+            //         $image->filename = $filename;
+            //         $image->save();
+            //     }
+            // }
 
             return $this->redirect(['view', 'id' => $model->id]);
         }
@@ -170,7 +189,7 @@ class CarController extends Controller
             'model' => $model,
             'upload' => $upload,
             'images' => $images,
-            'usd_course' => $usd_course
+            'usd_course' => $usd_course,
         ]);
     }
 
@@ -185,7 +204,77 @@ class CarController extends Controller
     {
         $this->findModel($id)->delete();
 
+
+
         return $this->redirect(['index']);
+    }
+
+    public function actionUploadImage($id) {
+        
+        $upload = new UploadForm();
+
+        $upload->image = UploadedFile::getInstances($upload, 'image');
+
+        if(!empty($upload->image) && $upload->validate()) {
+            $file = $upload->image[0];
+            
+            $pathinfo = pathinfo($file->name);
+            
+            $filepath = str_replace('/admin', '', \Yii::getAlias('@webroot')) . '/uploads/' . $file->name;
+            $filename = $file->name;
+            $counter = 1;
+
+            while(file_exists($filepath)) {
+                $filename = $pathinfo['filename'].'_'.$counter.'.'.$pathinfo['extension'];
+                $filepath = str_replace('/admin', '', \Yii::getAlias('@webroot')) . '/uploads/' . $filename;
+                $counter++;
+            }
+
+            $file->saveAs($filepath);
+            $image = new CarImage();
+
+            $image->car_id = $id;
+            $image->filename = $filename;
+            $image->save();
+
+            try {
+                $download_path = str_replace('/admin', '', \Yii::getAlias('@webroot')) . '/uploads/';
+
+                $iloveimg = new Iloveimg('project_public_1467f0dad8aebe6b67110802708d1a9a_cbO2a8a4334e6bc8cc44a18ea1b3d56f8353b','secret_key_838a431e68108298451c49d7b761091f_JidLp6fd3effad00fb76ce8b8d9d7efc27e31');
+                $myTask = $iloveimg->newTask('compress');
+                $file1 = $myTask->addFile($filepath);
+                $myTask->execute();
+                $myTask->download($download_path);
+
+                $image->is_compressed = 1;
+                $image->save();
+            } catch (Exception $e) {  
+            
+            }
+
+            $result = [
+                "error" => null,
+                "errorkeys" => [],
+                "filenames" => [$image->filename],
+                "initialPreview" => ["<img src='/uploads/".$image->filename."' class='file-preview-image'>"],
+                "initialPreviewConfig" => [["key" => $image->id, "url" => "/admin/car/delete-image?id=".$image->id, "caption" => $image->filename]],
+                "append" => true 
+            ];
+        } else {
+            $result = [
+                "error" => 'file is empty',
+                "errorkeys" => [], 
+            ];            
+        }
+
+        echo json_encode($result);
+    }
+
+    public function actionDeleteImage($id) {
+        $img = CarImage::findOne($id);
+        $img->delete();
+        
+        echo 'true';
     }
 
     /**

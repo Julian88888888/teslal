@@ -48,7 +48,7 @@ class Car extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['model'], 'required'],
+            // [['model'], 'required'],
             [['created_at', 'updated_at'], 'integer'],
             [['model', 'modification', 'distance', 'disks', 'year', 'price_usd', 'price_rub', 'cash_usd', 'cash_rub', 'leasing_usd', 'leasing_rub', 'seats', 'autopilot', 'drive', 'hundred_km', 'max_speed', 'milage', 'condition', 'body_color', 'interior_color', 'status'], 'string', 'max' => 255],
         ];
