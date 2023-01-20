@@ -178,7 +178,7 @@ class SiteController extends Controller
         //         'params' => $requestParams,
         //     ],
         // ]);
-        $cars = Car::find();
+        $cars = Car::find()->where('model is not NULL AND model <> ""');
         if(isset($requestParams['filter']))
             $cars->andWhere($requestParams['filter']);
 

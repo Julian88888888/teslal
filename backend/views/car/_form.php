@@ -184,7 +184,7 @@ use yii\widgets\ActiveForm;
     <hr>
     <h3>Дополнительные фото</h3>
 
-    <?= $form->field($upload, 'image[]')->fileInput(['multiple' => true, 'accept' => 'image/*'])->label('При загрузке новых фото галерея обновляется полностью') ?>
+    <?= $form->field($upload, 'image[]')->fileInput(['multiple' => true, 'accept' => 'image/*']) ?>
 
     <br>
     <br>
@@ -222,17 +222,17 @@ use yii\widgets\ActiveForm;
                 if(isset($images)) {
                     foreach ($images as $image) {
                         echo "{ 
-                            key:".$image->id.
+                            key:".$image->id.", url:'/admin/car/delete-image?id=".$image->id."', caption:'".$image->filename."'".
                         "},";
                     }
                 }
                 ?>
             ],
             overwriteInitial: false,
-            uploadUrl: '/admin/car/upload-image',
+            uploadUrl: '/admin/car/upload-image?id=<?= $model->id ?>',
             uploadExtraData: {
             },
-            deleteUrl: '/admin/car/delete-image',
+            // deleteUrl: '/admin/car/delete-image',
             fileActionSettings: {
                 showDrag: false,
                 // showDelete: false,
@@ -240,7 +240,7 @@ use yii\widgets\ActiveForm;
                 showRotate: false
             },
             // initialPreviewShowDelete: false,
-            // showRemove: false
+            showRemove: false
         }
     );
 </script>

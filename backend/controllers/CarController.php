@@ -152,33 +152,33 @@ class CarController extends Controller
     {
 
         $model = $this->findModel($id);
-        $upload = new UploadForm();
         $option = Options::findOne(['option_name' => 'usd_course']);
         $usd_course = $option->option_value;
+        $upload = new UploadForm();
         $images = CarImage::find()->where(['car_id' => $model->id])->all();
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            $upload->image = UploadedFile::getInstances($upload, 'image');
+            // $upload->image = UploadedFile::getInstances($upload, 'image');
 
-            if(!empty($upload->image) && $upload->validate()) {
+            // if(!empty($upload->image) && $upload->validate()) {
 
-                $images_to_delete = CarImage::findAll(['car_id' => $model->id]);
+            //     $images_to_delete = CarImage::findAll(['car_id' => $model->id]);
 
-                foreach ($images_to_delete as $deleted) {
-                    $deleted->delete();
-                }
+            //     foreach ($images_to_delete as $deleted) {
+            //         $deleted->delete();
+            //     }
                 
-                foreach ($upload->image as $file) {
-                    $filename = sha1_file($file->tempName) . '.' . $file->extension;
-                    $path = str_replace('/admin', '', \Yii::getAlias('@webroot')) . '/uploads/' . $filename;
-                    $file->saveAs($path);
-                    $image = new CarImage();
+            //     foreach ($upload->image as $file) {
+            //         $filename = sha1_file($file->tempName) . '.' . $file->extension;
+            //         $path = str_replace('/admin', '', \Yii::getAlias('@webroot')) . '/uploads/' . $filename;
+            //         $file->saveAs($path);
+            //         $image = new CarImage();
 
-                    $image->car_id = $model->id;
-                    $image->filename = $filename;
-                    $image->save();
-                }
-            }
+            //         $image->car_id = $model->id;
+            //         $image->filename = $filename;
+            //         $image->save();
+            //     }
+            // }
 
             return $this->redirect(['view', 'id' => $model->id]);
         }
@@ -202,55 +202,58 @@ class CarController extends Controller
     {
         $this->findModel($id)->delete();
 
+
+
         return $this->redirect(['index']);
     }
 
-    public function actionUploadImage() {
+    public function actionUploadImage($id) {
         // var_dump($_FILES);die;
         
-        echo '{
-           "error":null,
-           "errorkeys":[
-           ],
-           "filenames":[
-              "d09591c7ab284e49b4698d323e594edd__2016 GFF Booth Space Application 1.pdf",
-              "fc16e07771eb4078a5ed3b69655a5780__Screenshot_1.png",
-              "793cd3b3d0ae47e0ac3ce726cb68061c__Screenshot_2.png"
-           ],
-           "initialPreview":[
-              "<span class=\"file-other-icon\"><i class=\"fa fa-file-pdf-o text-danger\" aria-hidden=\"true\"></i></span>",
-              "<span class=\"file-other-icon\"><i class=\"fa fa-file-image-o text-info\" aria-hidden=\"true\"></i></span>",
-              "<span class=\"file-other-icon\"><i class=\"fa fa-file-image-o text-info\" aria-hidden=\"true\"></i></span>"
-           ],
-           "initialPreviewConfig":[
-              {
-                 "caption":"2016 GFF Booth Space Application 1.pdf",
-                 "width":"120px",
-                 "size":312292,
-                 "url":"/Attachments/Delete/d09591c7ab284e49b4698d323e594edd",
-                 "key":0
-              },
-              {
-                 "caption":"Screenshot_1.png",
-                 "width":"120px",
-                 "size":16715,
-                 "url":"/Attachments/Delete/fc16e07771eb4078a5ed3b69655a5780",
-                 "key":1
-              },
-              {
-                 "caption":"Screenshot_2.png",
-                 "width":"120px",
-                 "size":46802,
-                 "url":"/Attachments/Delete/793cd3b3d0ae47e0ac3ce726cb68061c",
-                 "key":2
-              }
-           ],
-           "append": true
-        }';
+        $upload = new UploadForm();
+
+        $upload->image = UploadedFile::getInstances($upload, 'image');
+
+        if(!empty($upload->image) && $upload->validate()) {
+            $file = $upload->image[0];
+            
+            $pathinfo = pathinfo($file->name);
+            
+            $filepath = str_replace('/admin', '', \Yii::getAlias('@webroot')) . '/uploads/' . $file->name;
+            $filename = $file->name;
+            $counter = 1;
+
+            while(file_exists($filepath)) {
+                $filename = $pathinfo['filename'].'_'.$counter.'.'.$pathinfo['extension'];
+                $filepath = str_replace('/admin', '', \Yii::getAlias('@webroot')) . '/uploads/' . $filename;
+                $counter++;
+            }
+
+            $path = str_replace('/admin', '', \Yii::getAlias('@webroot')) . '/uploads/' . $filename;
+            $file->saveAs($path);
+            $image = new CarImage();
+
+            $image->car_id = $id;
+            $image->filename = $filename;
+            $image->save();
+        }
+
+        $result = [
+            "error" => null,
+            "errorkeys" => [],
+            "filenames" => [$image->filename],
+            "initialPreview" => ["<img src='/uploads/".$image->filename."' class='file-preview-image'>"],
+            "initialPreviewConfig" => [["key" => $image->id, "url" => "/admin/car/delete-image?id=".$image->id, "caption" => $image->filename]],
+            "append" => true 
+        ];
+
+        echo json_encode($result);
     }
 
-    public function actionDeleteImage() {
-        // var_dump($_FILES);die;
+    public function actionDeleteImage($id) {
+        $img = CarImage::findOne($id);
+        $img->delete();
+        
         echo 'true';
     }
 

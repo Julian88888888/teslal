@@ -64,7 +64,6 @@ class CarImage extends \yii\db\ActiveRecord
         }
 
         unlink(str_replace('/admin', '', \Yii::getAlias('@webroot')) . '/uploads/' . $this->filename);
-        var_dump(str_replace('/admin', '', \Yii::getAlias('@webroot')) . '/uploads/' . $this->filename);
 
         return true;
     }
