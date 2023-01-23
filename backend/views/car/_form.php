@@ -208,7 +208,7 @@ use yii\widgets\ActiveForm;
             // 'showUpload':false, 
             maxFileCount: 15,
             validateInitialCount: true,
-            allowedFileExtensions: ["jpg", "png"],
+            allowedFileExtensions: ["jpg", "jpeg", "png"],
             language: 'ru',
             previewFileType:'any', 
             initialPreview: [
