@@ -143,6 +143,23 @@ class SiteController extends Controller
         return $this->render('car.html');
     }
 
+    public function actionDesigns()
+    {
+        return $this->render('designs.html');
+    }
+    public function actionDesignx()
+    {
+        return $this->render('designx.html');
+    }
+    public function actionDesigny()
+    {
+        return $this->render('designy.html');
+    }
+    public function actionDesign3()
+    {
+        return $this->render('design3.html');
+    }
+
     public function actionGetcars()
     {
         $requestParams = \Yii::$app->getRequest()->getBodyParams(); // [1]

@@ -5,12 +5,16 @@ document.addEventListener('DOMContentLoaded', function(){
   const popupCars = document.querySelector('.modal-cars');
   const modalCarsClose = document.querySelectorAll('.modalCars__close');
   const overlay = document.querySelector('.overlay');
-  const openGallery = document.querySelector('.openGallery');
+  const openGallery = document.querySelectorAll('[open-modal-gallery]');
 
-  openGallery?.addEventListener('click', ()=> {
-    overlay.style.display = 'block';
-    popupCars?.classList.add('active');
+  openGallery.forEach(popup => {
+    popup?.addEventListener('click', ()=> {
+      overlay.style.display = 'block';
+      popupCars?.classList.add('active');
+    });
   });
+
+  
 
   modalCarsClose?.forEach(btn => {
     btn.addEventListener('click', ()=> {
