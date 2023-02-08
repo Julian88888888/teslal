@@ -343,14 +343,12 @@
 @media screen and (max-width: 414px) {
   .tcl-homepage-hero.tcl-homepage-hero--footer .wra--middel {
     height: 100vh;
-    -webkit-box-pack: start;
-    -ms-flex-pack: start;
-    justify-content: flex-start;
-    -webkit-box-align: start;
-    -ms-flex-align: start;
-    align-items: flex-start;
-    padding: 20px 0;
     margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
   }
   .wra__text_btn {
     padding: 15px 30px;
@@ -474,7 +472,7 @@
   display: none;
 }
 
-.contact__inner {
+/* .contact__inner {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -486,10 +484,7 @@
   -ms-flex-pack: justify;
   justify-content: space-between;
   height: 100%;
-  -webkit-box-flex: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-}
+} */
 
 .contact p {
   text-align: center;
@@ -509,7 +504,6 @@
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  text-align: left;
 }
 
 .contact__tabs input {
@@ -574,9 +568,6 @@
   position: absolute;
   opacity: 0;
   visibility: hidden;
-  -webkit-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  transition: all 0.3s;
 }
 .contact__content-address {
   font-size: 18px;
@@ -595,8 +586,7 @@
   z-index: -1;
 }
 .contact__content-img img {
-  width: 100%;
-  height: 100%;
+  width: 85%;
 }
 
 #tab-1:checked + label,
@@ -704,15 +694,12 @@
   .wra__text_title--mobile {
     display: block;
     margin: 0 auto;
-    padding-bottom: 20px;
-    margin-bottom: 20px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
     position: relative;
   }
   .wra__text_title--mobile:before {
     width: 97px;
-  }
-  .wra__text_text {
-    font-size: 15px;
   }
   .wra__img {
     width: 100%;
@@ -781,7 +768,7 @@
 @media (max-width: 414px) {
   #tab-1:checked ~ .contact__content,
   #tab-2:checked ~ .contact__content {
-    min-height: 100%;
+    min-height: auto;
   }
   .wra__tetx {
     width: 100%;
@@ -802,15 +789,31 @@
     margin-right: 0;
   }
   .contact__title {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    font-size: 30px;
+    line-height: 36px;
+  }
+
+  .wra__text_title {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  .wra__img img {
+    width: 100%;
+    max-width: 200px;
+  }
+  .wra__text_text {
+    font-size: 14px;
+    line-height: 17px;
   }
   .contact {
-    padding: 30px;
-    height: 100%;
+    min-height: 100vh;
+    padding: 24px 30px;
+    /* -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between; */
   }
-  .ju-footer .block-inline-blockhero-parallax {
-    height: 100vh;
-  }
+
   .btn-get {
     padding: 15px;
     font-size: 14px;
@@ -818,11 +821,12 @@
   }
   .contact__content-img {
     right: -30px;
+    text-align: right;
   }
 
   .contact__content-phone {
     font-size: 15px;
-    margin-top: 15px;
+    margin-top: 10px;
   }
 }
 @media (max-width: 360px) {
@@ -914,6 +918,13 @@
   .car-selection a.models {
     margin-bottom: 10px;
   }
+}
+
+.wra--bottom__inner {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  margin-top: 20px;
 }
 
 .car-con {

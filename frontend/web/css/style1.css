@@ -15139,9 +15139,9 @@ html[dir="rtl"] .tcl-image--with-horizontal-gradient {
   --tcl-image-asset-block-size: var(--tcl-homepage-hero-block-size);
   --tcl-video-asset-block-size: var(--tcl-homepage-hero-block-size);
   height: 100vh;
-  height: var(--tcl-homepage-hero-block-size);
+  /* height: var(--tcl-homepage-hero-block-size); */
   width: 100%;
-  width: var(--tcl-homepage-hero-inline-size);
+  /* width: var(--tcl-homepage-hero-inline-size); */
 }
 
 .tcl-homepage-hero--overlay {

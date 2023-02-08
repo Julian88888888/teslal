@@ -4429,6 +4429,9 @@ button.tds-link {
   -webkit-animation: pulse 1.2s linear infinite!important;
   animation: pulse 1.2s linear infinite!important;
 }
+.tds-loader img {
+  max-width: 150px;
+}
 
 .tds-loader--show {
   opacity: 1;
