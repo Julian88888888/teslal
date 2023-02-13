@@ -7,6 +7,7 @@
             <?php if($car['modification']): ?>
                 <div class="tds-text_color--10">Модификация: <?= $car['modificationName'] ?></div>
             <?php endif; ?>
+            <div class="tds-text__status">Статус: В пути</div>
         </div> 
         <div class="result-pricing">
             <div class="result-price"><span class="result-purchase-price tds-text--h4"><?= number_format((int)$car['cash_rub'], 0, '.', ' ') ?> руб</span></div>
@@ -170,26 +171,24 @@
             </ul>
         </div>
     </section>
-    <section class="result-features  ">
+    <section class="result-features">
         <div class="result-features_wrap">
             <div class="result-features__item">
-                <div class="result-features__item_icon"><img src="img/inventory/icon-img1.svg" alt=""></div>
-                <div class="result-features__item_text">Цвет салона: <?= $car['interiorColorName'] ?></div>
+                <div class="result-features__item_text">Кузов</div>
+                <div class="result-features__item_icon"><img src="img/filter/filter/paint/black.png" alt="Кузов"></div>
+                <div class="result-features__item_text"><?= $car['bodyColorName'] ?></div>
             </div>
             <div class="result-features__item">
-                <div class="result-features__item_icon"><img src="img/inventory/icon-img1.svg" alt=""></div>
-                <div class="result-features__item_text">Цвет кузова: <?= $car['bodyColorName'] ?></div>
+                <div class="result-features__item_text">Интерьер</div>
+                <div class="result-features__item_icon"><img src="img/filter/filter/Interior/white.png" alt="Интерьер"></div>
+                <div class="result-features__item_text"><?= $car['interiorColorName'] ?></div>
             </div>
             <div class="result-features__item">
-                <div class="result-features__item_icon"><img src="img/inventory/icon-img2.svg" alt=""></div>
-                <div class="result-features__item_text">Состояние: <?= $car['conditionName'] ?></div>
-            </div>
-            <div class="result-features__item">
-                <div class="result-features__item_icon"><img src="img/inventory/icon-img3.svg" alt=""></div>
-                <div class="result-features__item_text">Привод: <?= $car['driveName'] ?></div>
+                <div class="result-features__item_text">Диски</div>
+                <div class="result-features__item_icon"><img src="img/filter/filter/wheels/tempest.png" alt="Диски"></div>
+                <div class="result-features__item_text">20”</div>
             </div>
         </div>
-        
     </section>
     <section class="result-mobile-cta">
 

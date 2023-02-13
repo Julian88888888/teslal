@@ -132,7 +132,7 @@ class Car extends \yii\db\ActiveRecord
             'white' => 'белый', 
             'black' => 'черный', 
             'dark_grey' => 'темно-серый', 
-            'light_grey' => 'светло-серый', 
+            'light_grey' => 'светло-серый',
             'red' => 'красный',
             'blue' => 'синий',
             'grey' => 'серый'
