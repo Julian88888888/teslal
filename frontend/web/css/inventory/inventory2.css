@@ -1180,6 +1180,8 @@ button.tds-btn {
     -webkit-box-shadow 0.5s cubic-bezier(0.5, 0, 0, 0.75);
   transition: box-shadow 0.5s cubic-bezier(0.5, 0, 0, 0.75),
     -webkit-box-shadow 0.5s cubic-bezier(0.5, 0, 0, 0.75);
+  transition: box-shadow 0.5s cubic-bezier(0.5, 0, 0, 0.75),
+    -webkit-box-shadow 0.5s cubic-bezier(0.5, 0, 0, 0.75);
 }
 
 @media (min-width: 600px) {
@@ -2653,6 +2655,9 @@ textarea.tds-form-input:hover {
   -webkit-transition: padding 0.25s ease-in-out,
     background-color 0.25s ease-in-out, border 0.25s ease-in-out,
     inline-size 0.25s ease-in-out;
+  -webkit-transition: padding 0.25s ease-in-out,
+    background-color 0.25s ease-in-out, border 0.25s ease-in-out,
+    inline-size 0.25s ease-in-out;
   transition: padding 0.25s ease-in-out, background-color 0.25s ease-in-out,
     border 0.25s ease-in-out, inline-size 0.25s ease-in-out;
 }
@@ -2888,7 +2893,15 @@ textarea.tds-form-input:hover {
     -webkit-box-shadow 0.3s ease;
   -o-transition: color 0.3s ease, background-color 0.3s ease,
     box-shadow 0.3s ease;
+  -webkit-transition: color 0.3s ease, background-color 0.3s ease,
+    -webkit-box-shadow 0.3s ease;
+  transition: color 0.3s ease, background-color 0.3s ease,
+    -webkit-box-shadow 0.3s ease;
+  -o-transition: color 0.3s ease, background-color 0.3s ease,
+    box-shadow 0.3s ease;
   transition: color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  transition: color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease,
+    -webkit-box-shadow 0.3s ease;
   transition: color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease,
     -webkit-box-shadow 0.3s ease;
   transition: color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease,
@@ -3884,6 +3897,10 @@ textarea.tds-form-input:hover {
         -webkit-min-content,
         318px
       );
+    grid-template: ". . main aside" 1fr/1fr 1fr 7fr minmax(
+        -webkit-min-content,
+        318px
+      );
     grid-template: ". . main aside" 1fr/1fr 1fr 7fr minmax(min-content, 318px);
   }
 
@@ -4150,7 +4167,11 @@ button.tds-link {
     -webkit-box-shadow 0.33s var(--tds-bezier);
   -webkit-transition: color 0.33s ease,
     -webkit-box-shadow 0.33s var(--tds-bezier);
+  -webkit-transition: color 0.33s ease,
+    -webkit-box-shadow 0.33s var(--tds-bezier);
   transition: box-shadow 0.33s var(--tds-bezier), color 0.33s ease;
+  transition: box-shadow 0.33s var(--tds-bezier), color 0.33s ease,
+    -webkit-box-shadow 0.33s var(--tds-bezier);
   transition: box-shadow 0.33s var(--tds-bezier), color 0.33s ease,
     -webkit-box-shadow 0.33s var(--tds-bezier);
   transition: box-shadow 0.33s var(--tds-bezier), color 0.33s ease,
@@ -4841,6 +4862,12 @@ button.tds-link {
     -webkit-transform 0.5s var(--tds-bezier);
   -o-transition: opacity 0.5s var(--tds-bezier),
     transform 0.5s var(--tds-bezier), visibility 0s 0.5s;
+  -webkit-transition: opacity 0.5s var(--tds-bezier), visibility 0s 0.5s,
+    -webkit-transform 0.5s var(--tds-bezier);
+  transition: opacity 0.5s var(--tds-bezier), visibility 0s 0.5s,
+    -webkit-transform 0.5s var(--tds-bezier);
+  -o-transition: opacity 0.5s var(--tds-bezier),
+    transform 0.5s var(--tds-bezier), visibility 0s 0.5s;
   transition: opacity 0.5s var(--tds-bezier), transform 0.5s var(--tds-bezier),
     visibility 0s 0.5s;
   transition: opacity 0.5s var(--tds-bezier), transform 0.5s var(--tds-bezier),
@@ -4875,6 +4902,12 @@ button.tds-link {
   -webkit-transform: translateX(0) translateY(0);
   -ms-transform: translateX(0) translateY(0);
   transform: translateX(0) translateY(0);
+  -webkit-transition: opacity 0.5s var(--tds-bezier), visibility 0s 0s,
+    -webkit-transform 0.5s var(--tds-bezier);
+  transition: opacity 0.5s var(--tds-bezier), visibility 0s 0s,
+    -webkit-transform 0.5s var(--tds-bezier);
+  -o-transition: opacity 0.5s var(--tds-bezier),
+    transform 0.5s var(--tds-bezier), visibility 0s 0s;
   -webkit-transition: opacity 0.5s var(--tds-bezier), visibility 0s 0s,
     -webkit-transform 0.5s var(--tds-bezier);
   transition: opacity 0.5s var(--tds-bezier), visibility 0s 0s,
@@ -5012,7 +5045,11 @@ dialog.tds-modal::backdrop {
     -webkit-backdrop-filter 0.5s ease;
   -webkit-transition: background-color 0.5s ease,
     -webkit-backdrop-filter 0.5s ease;
+  -webkit-transition: background-color 0.5s ease,
+    -webkit-backdrop-filter 0.5s ease;
   transition: background-color 0.5s ease, backdrop-filter 0.5s ease;
+  transition: background-color 0.5s ease, backdrop-filter 0.5s ease,
+    -webkit-backdrop-filter 0.5s ease;
   transition: background-color 0.5s ease, backdrop-filter 0.5s ease,
     -webkit-backdrop-filter 0.5s ease;
   transition: background-color 0.5s ease, backdrop-filter 0.5s ease,
@@ -5112,6 +5149,10 @@ dialog.tds-modal::backdrop {
 .tds-modal-header > :is(h1, h2, h3) {
   -webkit-padding-after: 0;
   padding-block-end: 0;
+  -webkit-transition: padding 0.33s var(--tds-bezier),
+    font-size 0.33s var(--tds-bezier), line-height 0.33s var(--tds-bezier);
+  -o-transition: padding 0.33s var(--tds-bezier),
+    font-size 0.33s var(--tds-bezier), line-height 0.33s var(--tds-bezier);
   -webkit-transition: padding 0.33s var(--tds-bezier),
     font-size 0.33s var(--tds-bezier), line-height 0.33s var(--tds-bezier);
   -o-transition: padding 0.33s var(--tds-bezier),
@@ -5452,6 +5493,8 @@ dialog.tds-modal::backdrop {
     opacity 0.3s ease;
   -webkit-transition: background-color 0.3s ease, color 0.3s ease,
     opacity 0.3s ease;
+  -webkit-transition: background-color 0.3s ease, color 0.3s ease,
+    opacity 0.3s ease;
   transition: background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -5753,6 +5796,8 @@ dialog.tds-modal::backdrop {
       -webkit-transform 0.5s ease;
     transition: transform 0.5s ease, visibility 0.5s,
       -webkit-transform 0.5s ease;
+    transition: transform 0.5s ease, visibility 0.5s,
+      -webkit-transform 0.5s ease;
     visibility: hidden;
     z-index: 110;
   }
@@ -5789,6 +5834,8 @@ dialog.tds-modal::backdrop {
     transition: visibility 0s, -webkit-transform 0.5s var(--tds-bezier);
     -o-transition: transform 0.5s var(--tds-bezier), visibility 0s;
     transition: transform 0.5s var(--tds-bezier), visibility 0s;
+    transition: transform 0.5s var(--tds-bezier), visibility 0s,
+      -webkit-transform 0.5s var(--tds-bezier);
     transition: transform 0.5s var(--tds-bezier), visibility 0s,
       -webkit-transform 0.5s var(--tds-bezier);
     transition: transform 0.5s var(--tds-bezier), visibility 0s,
@@ -5880,9 +5927,22 @@ dialog.tds-modal::backdrop {
       opacity 0.5s var(--tds-bezier), visibility 0s 0.5s,
       -webkit-backdrop-filter 0.33s ease,
       -webkit-transform 0.5s var(--tds-bezier);
+    -webkit-transition: color 0.33s ease, background-color 0.33s ease,
+      opacity 0.5s var(--tds-bezier), visibility 0s 0.5s,
+      -webkit-backdrop-filter 0.33s ease,
+      -webkit-transform 0.5s var(--tds-bezier);
+    transition: color 0.33s ease, background-color 0.33s ease,
+      opacity 0.5s var(--tds-bezier), visibility 0s 0.5s,
+      -webkit-backdrop-filter 0.33s ease,
+      -webkit-transform 0.5s var(--tds-bezier);
     transition: color 0.33s ease, backdrop-filter 0.33s ease,
       background-color 0.33s ease, opacity 0.5s var(--tds-bezier),
       transform 0.5s var(--tds-bezier), visibility 0s 0.5s;
+    transition: color 0.33s ease, backdrop-filter 0.33s ease,
+      background-color 0.33s ease, opacity 0.5s var(--tds-bezier),
+      transform 0.5s var(--tds-bezier), visibility 0s 0.5s,
+      -webkit-backdrop-filter 0.33s ease,
+      -webkit-transform 0.5s var(--tds-bezier);
     transition: color 0.33s ease, backdrop-filter 0.33s ease,
       background-color 0.33s ease, opacity 0.5s var(--tds-bezier),
       transform 0.5s var(--tds-bezier), visibility 0s 0.5s,
@@ -5944,9 +6004,22 @@ dialog.tds-modal::backdrop {
       opacity 0.5s var(--tds-bezier), visibility 0s 0.5s,
       -webkit-backdrop-filter 0.33s ease,
       -webkit-transform 0.5s var(--tds-bezier) 0.125s;
+    -webkit-transition: color 0.33s ease, background-color 0.33s ease,
+      opacity 0.5s var(--tds-bezier), visibility 0s 0.5s,
+      -webkit-backdrop-filter 0.33s ease,
+      -webkit-transform 0.5s var(--tds-bezier) 0.125s;
+    transition: color 0.33s ease, background-color 0.33s ease,
+      opacity 0.5s var(--tds-bezier), visibility 0s 0.5s,
+      -webkit-backdrop-filter 0.33s ease,
+      -webkit-transform 0.5s var(--tds-bezier) 0.125s;
     transition: color 0.33s ease, backdrop-filter 0.33s ease,
       background-color 0.33s ease, opacity 0.5s var(--tds-bezier),
       transform 0.5s var(--tds-bezier) 0.125s, visibility 0s 0.5s;
+    transition: color 0.33s ease, backdrop-filter 0.33s ease,
+      background-color 0.33s ease, opacity 0.5s var(--tds-bezier),
+      transform 0.5s var(--tds-bezier) 0.125s, visibility 0s 0.5s,
+      -webkit-backdrop-filter 0.33s ease,
+      -webkit-transform 0.5s var(--tds-bezier) 0.125s;
     transition: color 0.33s ease, backdrop-filter 0.33s ease,
       background-color 0.33s ease, opacity 0.5s var(--tds-bezier),
       transform 0.5s var(--tds-bezier) 0.125s, visibility 0s 0.5s,
@@ -6004,9 +6077,22 @@ dialog.tds-modal::backdrop {
       opacity 0.5s var(--tds-bezier), visibility 0s 0s,
       -webkit-backdrop-filter 0.33s ease,
       -webkit-transform 0.5s var(--tds-bezier);
+    -webkit-transition: color 0.33s ease, background-color 0.33s ease,
+      opacity 0.5s var(--tds-bezier), visibility 0s 0s,
+      -webkit-backdrop-filter 0.33s ease,
+      -webkit-transform 0.5s var(--tds-bezier);
+    transition: color 0.33s ease, background-color 0.33s ease,
+      opacity 0.5s var(--tds-bezier), visibility 0s 0s,
+      -webkit-backdrop-filter 0.33s ease,
+      -webkit-transform 0.5s var(--tds-bezier);
     transition: color 0.33s ease, backdrop-filter 0.33s ease,
       background-color 0.33s ease, opacity 0.5s var(--tds-bezier),
       transform 0.5s var(--tds-bezier), visibility 0s 0s;
+    transition: color 0.33s ease, backdrop-filter 0.33s ease,
+      background-color 0.33s ease, opacity 0.5s var(--tds-bezier),
+      transform 0.5s var(--tds-bezier), visibility 0s 0s,
+      -webkit-backdrop-filter 0.33s ease,
+      -webkit-transform 0.5s var(--tds-bezier);
     transition: color 0.33s ease, backdrop-filter 0.33s ease,
       background-color 0.33s ease, opacity 0.5s var(--tds-bezier),
       transform 0.5s var(--tds-bezier), visibility 0s 0s,
@@ -6061,9 +6147,22 @@ dialog.tds-modal::backdrop {
       opacity 0.5s var(--tds-bezier) 0.125s, visibility 0s 0s,
       -webkit-backdrop-filter 0.33s ease,
       -webkit-transform 0.5s var(--tds-bezier) 0.125s;
+    -webkit-transition: color 0.33s ease, background-color 0.33s ease,
+      opacity 0.5s var(--tds-bezier) 0.125s, visibility 0s 0s,
+      -webkit-backdrop-filter 0.33s ease,
+      -webkit-transform 0.5s var(--tds-bezier) 0.125s;
+    transition: color 0.33s ease, background-color 0.33s ease,
+      opacity 0.5s var(--tds-bezier) 0.125s, visibility 0s 0s,
+      -webkit-backdrop-filter 0.33s ease,
+      -webkit-transform 0.5s var(--tds-bezier) 0.125s;
     transition: color 0.33s ease, backdrop-filter 0.33s ease,
       background-color 0.33s ease, opacity 0.5s var(--tds-bezier) 0.125s,
       transform 0.5s var(--tds-bezier) 0.125s, visibility 0s 0s;
+    transition: color 0.33s ease, backdrop-filter 0.33s ease,
+      background-color 0.33s ease, opacity 0.5s var(--tds-bezier) 0.125s,
+      transform 0.5s var(--tds-bezier) 0.125s, visibility 0s 0s,
+      -webkit-backdrop-filter 0.33s ease,
+      -webkit-transform 0.5s var(--tds-bezier) 0.125s;
     transition: color 0.33s ease, backdrop-filter 0.33s ease,
       background-color 0.33s ease, opacity 0.5s var(--tds-bezier) 0.125s,
       transform 0.5s var(--tds-bezier) 0.125s, visibility 0s 0s,
@@ -6226,8 +6325,18 @@ dialog.tds-modal::backdrop {
     -o-transition: opacity 0.5s var(--tds-bezier),
       transform 0.5s var(--tds-bezier), visibility 0s 0.5s,
       height 0.5s var(--tds-bezier);
+    -webkit-transition: opacity 0.5s var(--tds-bezier), visibility 0s 0.5s,
+      height 0.5s var(--tds-bezier), -webkit-transform 0.5s var(--tds-bezier);
+    transition: opacity 0.5s var(--tds-bezier), visibility 0s 0.5s,
+      height 0.5s var(--tds-bezier), -webkit-transform 0.5s var(--tds-bezier);
+    -o-transition: opacity 0.5s var(--tds-bezier),
+      transform 0.5s var(--tds-bezier), visibility 0s 0.5s,
+      height 0.5s var(--tds-bezier);
     transition: opacity 0.5s var(--tds-bezier), transform 0.5s var(--tds-bezier),
       visibility 0s 0.5s, height 0.5s var(--tds-bezier);
+    transition: opacity 0.5s var(--tds-bezier), transform 0.5s var(--tds-bezier),
+      visibility 0s 0.5s, height 0.5s var(--tds-bezier),
+      -webkit-transform 0.5s var(--tds-bezier);
     transition: opacity 0.5s var(--tds-bezier), transform 0.5s var(--tds-bezier),
       visibility 0s 0.5s, height 0.5s var(--tds-bezier),
       -webkit-transform 0.5s var(--tds-bezier);
@@ -6273,8 +6382,18 @@ dialog.tds-modal::backdrop {
     -o-transition: opacity 0.5s var(--tds-bezier),
       transform 0.5s var(--tds-bezier), visibility 0s 0s,
       height 0.5s var(--tds-bezier);
+    -webkit-transition: opacity 0.5s var(--tds-bezier), visibility 0s 0s,
+      height 0.5s var(--tds-bezier), -webkit-transform 0.5s var(--tds-bezier);
+    transition: opacity 0.5s var(--tds-bezier), visibility 0s 0s,
+      height 0.5s var(--tds-bezier), -webkit-transform 0.5s var(--tds-bezier);
+    -o-transition: opacity 0.5s var(--tds-bezier),
+      transform 0.5s var(--tds-bezier), visibility 0s 0s,
+      height 0.5s var(--tds-bezier);
     transition: opacity 0.5s var(--tds-bezier), transform 0.5s var(--tds-bezier),
       visibility 0s 0s, height 0.5s var(--tds-bezier);
+    transition: opacity 0.5s var(--tds-bezier), transform 0.5s var(--tds-bezier),
+      visibility 0s 0s, height 0.5s var(--tds-bezier),
+      -webkit-transform 0.5s var(--tds-bezier);
     transition: opacity 0.5s var(--tds-bezier), transform 0.5s var(--tds-bezier),
       visibility 0s 0s, height 0.5s var(--tds-bezier),
       -webkit-transform 0.5s var(--tds-bezier);
@@ -6335,9 +6454,22 @@ dialog.tds-modal::backdrop {
       opacity 0.5s var(--tds-bezier), visibility 0s 0.5s,
       -webkit-backdrop-filter 0.33s ease,
       -webkit-transform 0.5s var(--tds-bezier);
+    -webkit-transition: color 0.33s ease, background-color 0.33s ease,
+      opacity 0.5s var(--tds-bezier), visibility 0s 0.5s,
+      -webkit-backdrop-filter 0.33s ease,
+      -webkit-transform 0.5s var(--tds-bezier);
+    transition: color 0.33s ease, background-color 0.33s ease,
+      opacity 0.5s var(--tds-bezier), visibility 0s 0.5s,
+      -webkit-backdrop-filter 0.33s ease,
+      -webkit-transform 0.5s var(--tds-bezier);
     transition: color 0.33s ease, backdrop-filter 0.33s ease,
       background-color 0.33s ease, opacity 0.5s var(--tds-bezier),
       transform 0.5s var(--tds-bezier), visibility 0s 0.5s;
+    transition: color 0.33s ease, backdrop-filter 0.33s ease,
+      background-color 0.33s ease, opacity 0.5s var(--tds-bezier),
+      transform 0.5s var(--tds-bezier), visibility 0s 0.5s,
+      -webkit-backdrop-filter 0.33s ease,
+      -webkit-transform 0.5s var(--tds-bezier);
     transition: color 0.33s ease, backdrop-filter 0.33s ease,
       background-color 0.33s ease, opacity 0.5s var(--tds-bezier),
       transform 0.5s var(--tds-bezier), visibility 0s 0.5s,
@@ -6410,9 +6542,22 @@ dialog.tds-modal::backdrop {
       opacity 0.5s var(--tds-bezier), visibility 0s 0s,
       -webkit-backdrop-filter 0.33s ease,
       -webkit-transform 0.5s var(--tds-bezier);
+    -webkit-transition: color 0.33s ease, background-color 0.33s ease,
+      opacity 0.5s var(--tds-bezier), visibility 0s 0s,
+      -webkit-backdrop-filter 0.33s ease,
+      -webkit-transform 0.5s var(--tds-bezier);
+    transition: color 0.33s ease, background-color 0.33s ease,
+      opacity 0.5s var(--tds-bezier), visibility 0s 0s,
+      -webkit-backdrop-filter 0.33s ease,
+      -webkit-transform 0.5s var(--tds-bezier);
     transition: color 0.33s ease, backdrop-filter 0.33s ease,
       background-color 0.33s ease, opacity 0.5s var(--tds-bezier),
       transform 0.5s var(--tds-bezier), visibility 0s 0s;
+    transition: color 0.33s ease, backdrop-filter 0.33s ease,
+      background-color 0.33s ease, opacity 0.5s var(--tds-bezier),
+      transform 0.5s var(--tds-bezier), visibility 0s 0s,
+      -webkit-backdrop-filter 0.33s ease,
+      -webkit-transform 0.5s var(--tds-bezier);
     transition: color 0.33s ease, backdrop-filter 0.33s ease,
       background-color 0.33s ease, opacity 0.5s var(--tds-bezier),
       transform 0.5s var(--tds-bezier), visibility 0s 0s,
@@ -6846,7 +6991,13 @@ h1.tds-site-logo {
     -webkit-transform 0.5s var(--tds-bezier);
   transition: color 0.5s var(--tds-bezier),
     -webkit-transform 0.5s var(--tds-bezier);
+  -webkit-transition: color 0.5s var(--tds-bezier),
+    -webkit-transform 0.5s var(--tds-bezier);
+  transition: color 0.5s var(--tds-bezier),
+    -webkit-transform 0.5s var(--tds-bezier);
   transition: transform 0.5s var(--tds-bezier), color 0.5s var(--tds-bezier);
+  transition: transform 0.5s var(--tds-bezier), color 0.5s var(--tds-bezier),
+    -webkit-transform 0.5s var(--tds-bezier);
   transition: transform 0.5s var(--tds-bezier), color 0.5s var(--tds-bezier),
     -webkit-transform 0.5s var(--tds-bezier);
   transition: transform 0.5s var(--tds-bezier), color 0.5s var(--tds-bezier),
@@ -7370,6 +7521,8 @@ h1.tds-site-logo {
     -webkit-transform 0.3s ease;
   transition: background-color 0.3s ease, transform 0.3s ease,
     -webkit-transform 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease,
+    -webkit-transform 0.3s ease;
   z-index: -1;
 }
 
@@ -7419,6 +7572,8 @@ h1.tds-site-logo {
   transition: opacity 0.3s ease, -webkit-transform 0.3s ease;
   -o-transition: opacity 0.3s ease, transform 0.3s ease;
   transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease,
+    -webkit-transform 0.3s ease;
   transition: opacity 0.3s ease, transform 0.3s ease,
     -webkit-transform 0.3s ease;
   transition: opacity 0.3s ease, transform 0.3s ease,
@@ -7741,7 +7896,15 @@ h1.tds-site-logo {
     -webkit-box-shadow 0.3s ease;
   -o-transition: background-color 0.3s ease, box-shadow 0.3s ease,
     color 0.3s ease;
+  -webkit-transition: background-color 0.3s ease, color 0.3s ease,
+    -webkit-box-shadow 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease,
+    -webkit-box-shadow 0.3s ease;
+  -o-transition: background-color 0.3s ease, box-shadow 0.3s ease,
+    color 0.3s ease;
   transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease,
+    -webkit-box-shadow 0.3s ease;
   transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease,
     -webkit-box-shadow 0.3s ease;
   transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease,
@@ -7858,6 +8021,12 @@ h1.tds-site-logo {
     -webkit-transform 0.5s var(--tds-bezier);
   -o-transition: opacity 0.5s var(--tds-bezier),
     transform 0.5s var(--tds-bezier), visibility 0s 0.5s;
+  -webkit-transition: opacity 0.5s var(--tds-bezier), visibility 0s 0.5s,
+    -webkit-transform 0.5s var(--tds-bezier);
+  transition: opacity 0.5s var(--tds-bezier), visibility 0s 0.5s,
+    -webkit-transform 0.5s var(--tds-bezier);
+  -o-transition: opacity 0.5s var(--tds-bezier),
+    transform 0.5s var(--tds-bezier), visibility 0s 0.5s;
   transition: opacity 0.5s var(--tds-bezier), transform 0.5s var(--tds-bezier),
     visibility 0s 0.5s;
   transition: opacity 0.5s var(--tds-bezier), transform 0.5s var(--tds-bezier),
@@ -7869,6 +8038,12 @@ h1.tds-site-logo {
   --tds-tooltip--translate-y: 0;
   opacity: 1;
   pointer-events: inherit;
+  -webkit-transition: opacity 0.5s var(--tds-bezier), visibility 0s 0s,
+    -webkit-transform 0.5s var(--tds-bezier);
+  transition: opacity 0.5s var(--tds-bezier), visibility 0s 0s,
+    -webkit-transform 0.5s var(--tds-bezier);
+  -o-transition: opacity 0.5s var(--tds-bezier),
+    transform 0.5s var(--tds-bezier), visibility 0s 0s;
   -webkit-transition: opacity 0.5s var(--tds-bezier), visibility 0s 0s,
     -webkit-transform 0.5s var(--tds-bezier);
   transition: opacity 0.5s var(--tds-bezier), visibility 0s 0s,
@@ -8455,6 +8630,8 @@ pre code {
   transition: -webkit-box-shadow 0.33s cubic-bezier(0.5, 0, 0, 0.75);
   -o-transition: box-shadow 0.33s cubic-bezier(0.5, 0, 0, 0.75);
   transition: box-shadow 0.33s cubic-bezier(0.5, 0, 0, 0.75);
+  transition: box-shadow 0.33s cubic-bezier(0.5, 0, 0, 0.75),
+    -webkit-box-shadow 0.33s cubic-bezier(0.5, 0, 0, 0.75);
   transition: box-shadow 0.33s cubic-bezier(0.5, 0, 0, 0.75),
     -webkit-box-shadow 0.33s cubic-bezier(0.5, 0, 0, 0.75);
   transition: box-shadow 0.33s cubic-bezier(0.5, 0, 0, 0.75),
@@ -9106,6 +9283,8 @@ pre code {
     -webkit-box-shadow 0.33s ease;
   transition: color 0.33s ease, box-shadow 0.33s ease,
     -webkit-box-shadow 0.33s ease;
+  transition: color 0.33s ease, box-shadow 0.33s ease,
+    -webkit-box-shadow 0.33s ease;
 }
 
 .tds-theme--replicant
@@ -9117,6 +9296,8 @@ pre code {
   transition: color 0.33s ease, -webkit-box-shadow 0.33s ease;
   -o-transition: color 0.33s ease, box-shadow 0.33s ease;
   transition: color 0.33s ease, box-shadow 0.33s ease;
+  transition: color 0.33s ease, box-shadow 0.33s ease,
+    -webkit-box-shadow 0.33s ease;
   transition: color 0.33s ease, box-shadow 0.33s ease,
     -webkit-box-shadow 0.33s ease;
   transition: color 0.33s ease, box-shadow 0.33s ease,
@@ -10245,10 +10426,21 @@ pre code {
   transition: opacity var(--tds-animate-transition-duration--short)
       var(--tds-animate-transition-function--mktg),
     -webkit-transform var(--tds-animate-transition-duration--short) var(--tds-animate-transition-function--mktg);
+  -webkit-transition: opacity var(--tds-animate-transition-duration--short)
+      var(--tds-animate-transition-function--mktg),
+    -webkit-transform var(--tds-animate-transition-duration--short) var(--tds-animate-transition-function--mktg);
+  transition: opacity var(--tds-animate-transition-duration--short)
+      var(--tds-animate-transition-function--mktg),
+    -webkit-transform var(--tds-animate-transition-duration--short) var(--tds-animate-transition-function--mktg);
   transition: transform var(--tds-animate-transition-duration--short)
       var(--tds-animate-transition-function--mktg),
     opacity var(--tds-animate-transition-duration--short)
       var(--tds-animate-transition-function--mktg);
+  transition: transform var(--tds-animate-transition-duration--short)
+      var(--tds-animate-transition-function--mktg),
+    opacity var(--tds-animate-transition-duration--short)
+      var(--tds-animate-transition-function--mktg),
+    -webkit-transform var(--tds-animate-transition-duration--short) var(--tds-animate-transition-function--mktg);
   transition: transform var(--tds-animate-transition-duration--short)
       var(--tds-animate-transition-function--mktg),
     opacity var(--tds-animate-transition-duration--short)
@@ -10307,10 +10499,21 @@ pre code {
   transition: opacity var(--tds-animate-transition_duration--long)
       var(--tds-animate-transition-function--mktg),
     -webkit-transform var(--tds-animate-transition_duration--long) var(--tds-animate-transition-function--mktg);
+  -webkit-transition: opacity var(--tds-animate-transition_duration--long)
+      var(--tds-animate-transition-function--mktg),
+    -webkit-transform var(--tds-animate-transition_duration--long) var(--tds-animate-transition-function--mktg);
+  transition: opacity var(--tds-animate-transition_duration--long)
+      var(--tds-animate-transition-function--mktg),
+    -webkit-transform var(--tds-animate-transition_duration--long) var(--tds-animate-transition-function--mktg);
   transition: transform var(--tds-animate-transition_duration--long)
       var(--tds-animate-transition-function--mktg),
     opacity var(--tds-animate-transition_duration--long)
       var(--tds-animate-transition-function--mktg);
+  transition: transform var(--tds-animate-transition_duration--long)
+      var(--tds-animate-transition-function--mktg),
+    opacity var(--tds-animate-transition_duration--long)
+      var(--tds-animate-transition-function--mktg),
+    -webkit-transform var(--tds-animate-transition_duration--long) var(--tds-animate-transition-function--mktg);
   transition: transform var(--tds-animate-transition_duration--long)
       var(--tds-animate-transition-function--mktg),
     opacity var(--tds-animate-transition_duration--long)
@@ -11391,6 +11594,12 @@ strong {
   padding: var(--tds-size--3x) var(--tds-size--3x) var(--tds-size--12x);
 }
 
+@media screen and (max-width: 414px) {
+  .inventory-content-wrapper {
+    padding: var(--tds-size--1x) var(--tds-size--1x) var(--tds-size--6x);
+  }
+}
+
 .zh_CN-i18n .inventory-content-wrapper {
   -webkit-padding-before: var(--tds-size--12x);
   padding-block-start: var(--tds-size--12x);
@@ -12167,6 +12376,8 @@ body:not(.using-mouse) .result-clickable-overlay:focus {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
@@ -12208,6 +12419,15 @@ body:not(.using-mouse) .result-clickable-overlay:focus {
   -webkit-margin-after: var(--tds-size--1x);
   margin-block-end: var(--tds-size--1x);
   text-align: end;
+}
+@media screen and (max-width: 414px) {
+  .result-pricing {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: var(--tds-size--1x);
+  }
 }
 
 .result-pricing .result-price {
@@ -12263,6 +12483,13 @@ body:not(.using-mouse) .result-clickable-overlay:focus {
 .result-highlights-cta {
   padding: 0 var(--tds-size--6x) var(--tds-size--6x);
   position: relative;
+}
+
+@media screen and (max-width: 414px) {
+  .result-highlights-cta {
+    padding: 0 12px 12px;
+    margin-bottom: 20px;
+  }
 }
 
 .result-highlights-cta .result-cta-btns {
@@ -12321,6 +12548,12 @@ body:not(.using-mouse) .result-clickable-overlay:focus {
   border-radius: 5px;
   text-transform: unset;
   font-size: 16px;
+}
+
+@media screen and (max-width: 414px) {
+  .result-cta-btns .tds-btn {
+    width: calc(100% - 32px);
+  }
 }
 
 .result-cta-btns .tds-btn:not(:first-child) {
@@ -12385,6 +12618,22 @@ body:not(.using-mouse) .result-clickable-overlay:focus {
 
 .result-mobile-cta {
   padding-bottom: 10px;
+}
+
+@media screen and (max-width: 414px) {
+  .result-mobile-cta {
+    padding: 0 var(--tds-size--2x) var(--tds-size--2x);
+  }
+  .result-highlights-cta .result-cta-btns {
+    position: static;
+    opacity: 1;
+    pointer-events: all;
+    padding-top: 0;
+    margin-bottom: 32px;
+  }
+  .result-features {
+    padding: 0;
+  }
 }
 
 .result-details {
@@ -12708,9 +12957,19 @@ body:not(.using-mouse) .result-clickable-overlay:focus {
   transition: max-height 0.5s cubic-bezier(0.57, 0, 0, 1), opacity 0.5s ease,
     -webkit-transform 0.5s cubic-bezier(0.57, 0, 0, 1),
     -webkit-box-shadow 1s ease;
+  -webkit-transition: max-height 0.5s cubic-bezier(0.57, 0, 0, 1),
+    opacity 0.5s ease, -webkit-transform 0.5s cubic-bezier(0.57, 0, 0, 1),
+    -webkit-box-shadow 1s ease;
+  transition: max-height 0.5s cubic-bezier(0.57, 0, 0, 1), opacity 0.5s ease,
+    -webkit-transform 0.5s cubic-bezier(0.57, 0, 0, 1),
+    -webkit-box-shadow 1s ease;
   transition: max-height 0.5s cubic-bezier(0.57, 0, 0, 1),
     transform 0.5s cubic-bezier(0.57, 0, 0, 1), box-shadow 1s ease,
     opacity 0.5s ease;
+  transition: max-height 0.5s cubic-bezier(0.57, 0, 0, 1),
+    transform 0.5s cubic-bezier(0.57, 0, 0, 1), box-shadow 1s ease,
+    opacity 0.5s ease, -webkit-transform 0.5s cubic-bezier(0.57, 0, 0, 1),
+    -webkit-box-shadow 1s ease;
   transition: max-height 0.5s cubic-bezier(0.57, 0, 0, 1),
     transform 0.5s cubic-bezier(0.57, 0, 0, 1), box-shadow 1s ease,
     opacity 0.5s ease, -webkit-transform 0.5s cubic-bezier(0.57, 0, 0, 1),
@@ -12801,9 +13060,17 @@ body:not(.using-mouse) .result-clickable-overlay:focus {
     -webkit-transform 1s cubic-bezier(0.57, 0, 0, 1), -webkit-box-shadow 1s ease;
   transition: max-height 1s cubic-bezier(0.57, 0, 0, 1), opacity 1s ease,
     -webkit-transform 1s cubic-bezier(0.57, 0, 0, 1), -webkit-box-shadow 1s ease;
+  -webkit-transition: max-height 1s cubic-bezier(0.57, 0, 0, 1), opacity 1s ease,
+    -webkit-transform 1s cubic-bezier(0.57, 0, 0, 1), -webkit-box-shadow 1s ease;
+  transition: max-height 1s cubic-bezier(0.57, 0, 0, 1), opacity 1s ease,
+    -webkit-transform 1s cubic-bezier(0.57, 0, 0, 1), -webkit-box-shadow 1s ease;
   transition: max-height 1s cubic-bezier(0.57, 0, 0, 1),
     transform 1s cubic-bezier(0.57, 0, 0, 1), box-shadow 1s ease,
     opacity 1s ease;
+  transition: max-height 1s cubic-bezier(0.57, 0, 0, 1),
+    transform 1s cubic-bezier(0.57, 0, 0, 1), box-shadow 1s ease,
+    opacity 1s ease, -webkit-transform 1s cubic-bezier(0.57, 0, 0, 1),
+    -webkit-box-shadow 1s ease;
   transition: max-height 1s cubic-bezier(0.57, 0, 0, 1),
     transform 1s cubic-bezier(0.57, 0, 0, 1), box-shadow 1s ease,
     opacity 1s ease, -webkit-transform 1s cubic-bezier(0.57, 0, 0, 1),
@@ -12958,6 +13225,8 @@ body:not(.using-mouse) .result-clickable-overlay:focus {
       -webkit-transform 0.8s cubic-bezier(0.75, 0, 0, 1);
     transition: transform 0.8s cubic-bezier(0.75, 0, 0, 1),
       -webkit-transform 0.8s cubic-bezier(0.75, 0, 0, 1);
+    transition: transform 0.8s cubic-bezier(0.75, 0, 0, 1),
+      -webkit-transform 0.8s cubic-bezier(0.75, 0, 0, 1);
     width: calc(100% - var(--thumbnailWidth));
   }
 
@@ -13061,7 +13330,13 @@ body:not(.using-mouse) .result-clickable-overlay:focus {
       -webkit-transform 0.8s cubic-bezier(0.75, 0, 0, 1);
     transition: opacity 0.4s ease,
       -webkit-transform 0.8s cubic-bezier(0.75, 0, 0, 1);
+    -webkit-transition: opacity 0.4s ease,
+      -webkit-transform 0.8s cubic-bezier(0.75, 0, 0, 1);
+    transition: opacity 0.4s ease,
+      -webkit-transform 0.8s cubic-bezier(0.75, 0, 0, 1);
     transition: transform 0.8s cubic-bezier(0.75, 0, 0, 1), opacity 0.4s ease;
+    transition: transform 0.8s cubic-bezier(0.75, 0, 0, 1), opacity 0.4s ease,
+      -webkit-transform 0.8s cubic-bezier(0.75, 0, 0, 1);
     transition: transform 0.8s cubic-bezier(0.75, 0, 0, 1), opacity 0.4s ease,
       -webkit-transform 0.8s cubic-bezier(0.75, 0, 0, 1);
     transition: transform 0.8s cubic-bezier(0.75, 0, 0, 1), opacity 0.4s ease,
@@ -13078,6 +13353,8 @@ body:not(.using-mouse) .result-clickable-overlay:focus {
     transition: -webkit-transform 0.8s cubic-bezier(0.75, 0, 0, 1) 0.1s;
     -o-transition: transform 0.8s cubic-bezier(0.75, 0, 0, 1) 0.1s;
     transition: transform 0.8s cubic-bezier(0.75, 0, 0, 1) 0.1s;
+    transition: transform 0.8s cubic-bezier(0.75, 0, 0, 1) 0.1s,
+      -webkit-transform 0.8s cubic-bezier(0.75, 0, 0, 1) 0.1s;
     transition: transform 0.8s cubic-bezier(0.75, 0, 0, 1) 0.1s,
       -webkit-transform 0.8s cubic-bezier(0.75, 0, 0, 1) 0.1s;
     transition: transform 0.8s cubic-bezier(0.75, 0, 0, 1) 0.1s,
@@ -14567,6 +14844,8 @@ label[for="filter_lbl"] {
     -webkit-transform 1s cubic-bezier(0.75, 0, 0, 1);
   transition: transform 1s cubic-bezier(0.75, 0, 0, 1),
     -webkit-transform 1s cubic-bezier(0.75, 0, 0, 1);
+  transition: transform 1s cubic-bezier(0.75, 0, 0, 1),
+    -webkit-transform 1s cubic-bezier(0.75, 0, 0, 1);
   width: calc(100% - 10px);
   z-index: 20;
 }
@@ -14619,6 +14898,8 @@ label[for="filter_lbl"] {
   transition: opacity 0.25s ease 0.75s, -webkit-box-shadow 0.25s ease;
   -o-transition: opacity 0.25s ease 0.75s, box-shadow 0.25s ease;
   transition: opacity 0.25s ease 0.75s, box-shadow 0.25s ease;
+  transition: opacity 0.25s ease 0.75s, box-shadow 0.25s ease,
+    -webkit-box-shadow 0.25s ease;
   transition: opacity 0.25s ease 0.75s, box-shadow 0.25s ease,
     -webkit-box-shadow 0.25s ease;
   transition: opacity 0.25s ease 0.75s, box-shadow 0.25s ease,
