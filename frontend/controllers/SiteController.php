@@ -159,6 +159,10 @@ class SiteController extends Controller
     {
         return $this->render('design3.html');
     }
+    public function actionFeature()
+    {
+        return $this->render('feature.html');
+    }
 
     public function actionGetcars()
     {
