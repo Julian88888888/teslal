@@ -101,21 +101,25 @@ class Car extends \yii\db\ActiveRecord
     }
 
     public function getModificationName() {
-        $models = [
-            'model_s' => 'Long Range',
-            'model_x' => 'Long Range', 
-            'plaid' => 'Plaid',
-            'real_wheel_drive' => 'Rear-Wheel drive',
-            'long_range' => 'Long Range',
-            'long_range_awd' => 'Long Range AWD', 
-            'performance' => 'Performance',
-            'single_motor' => 'Single motor', 
-            'dual_motor' => 'Dual motor',
-            'tri_motor' => 'Tri motor',
-            'four_motor' => 'Four motor'
-        ];
+        if($this->modification) {
+            $models = [
+                'model_s' => 'Long Range',
+                'model_x' => 'Long Range', 
+                'plaid' => 'Plaid',
+                'real_wheel_drive' => 'Rear-Wheel drive',
+                'long_range' => 'Long Range',
+                'long_range_awd' => 'Long Range AWD', 
+                'performance' => 'Performance',
+                'single_motor' => 'Single motor', 
+                'dual_motor' => 'Dual motor',
+                'tri_motor' => 'Tri motor',
+                'four_motor' => 'Four motor'
+            ];
 
-        return $models[$this->modification];
+            return $models[$this->modification];
+        } else {
+            return '';
+        }
     }
 
     public function getConditionName() {

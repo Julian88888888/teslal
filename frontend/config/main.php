@@ -43,6 +43,7 @@ return [
             'rules' => [
                 '/' => 'site/index',
                 '<action:\w+>' => 'site/<action>',
+                '<action:\w+>/<id:\d+>' => 'site/<action>',
             ],
         ],
         

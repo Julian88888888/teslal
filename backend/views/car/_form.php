@@ -141,7 +141,7 @@ use yii\widgets\ActiveForm;
     <h3>Характеристики</h3>
 
     <?= $form->field($model, 'disks')->dropDownList([
-        16, 17, 18, 19, 20, 21, 22, 23, 24
+        16 => 16, 17 => 17, 18 => 18, 19 => 19, 20 => 20, 21 => 21, 22 => 22, 23 => 23, 24 => 24
     ], [
         'class' => 'form-select', 
         'disabled' => false,

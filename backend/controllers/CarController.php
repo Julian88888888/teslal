@@ -152,7 +152,6 @@ class CarController extends Controller
      */
     public function actionUpdate($id)
     {
-
         $model = $this->findModel($id);
         $option = Options::findOne(['option_name' => 'usd_course']);
         $usd_course = $option->option_value;

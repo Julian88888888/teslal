@@ -159,9 +159,21 @@ class SiteController extends Controller
     {
         return $this->render('design3.html');
     }
-    public function actionFeature()
+    public function actionFeaturedefault()
     {
-        return $this->render('feature.html');
+        return $this->render('feature_default.html');
+    }
+
+    public function actionFeature($id)
+    {
+        $car = Car::findOne($id);
+        if($car) {
+            return $this->render('feature', [
+                'car' => $car
+            ]);
+        } else {
+            $this->redirect('/404');
+        }
     }
 
     public function actionGetcars()

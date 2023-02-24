@@ -153,7 +153,7 @@
     </section>
     <section class="result-features"></section>
     <section class="result-highlights-cta">
-        <div class="result-cta-btns"><button type="button" tabindex="" class="result-view-details-btn tds-btn tds-btn--secondary">Подробнее</button></div>
+        <div class="result-cta-btns"><a href="/feature/<?= $car->id ?>"type="button" tabindex="" class="result-view-details-btn tds-btn tds-btn--secondary">Подробнее</a></div>
         <div class="result-highlights">
             <ul class="highlights-list">
                 <li>
