@@ -7252,18 +7252,18 @@ h1.tds-site-logo {
 }
 
 @media (hover: hover) {
-  .tds-site-nav-item:where(:not(.tds-site-nav-item--read-only)):hover {
+  /* .tds-site-nav-item:where(:not(.tds-site-nav-item--read-only)):hover {
     --tds-nav-item--color: var(--tds-theme-foreground-high-contrast);
     -webkit-backdrop-filter: blur(var(--tds-blur--button));
     backdrop-filter: blur(var(--tds-blur--button));
     background-color: var(--tds-theme-background-container-alt);
-  }
+  } */
 
-  .tds-site-nav-item.tds--highlighted:where(
+  /* .tds-site-nav-item.tds--highlighted:where(
       :not(.tds-site-nav-item--read-only):not(.tds-animate--backdrop)
     ):hover {
     background-color: var(--tds-theme-background-container-alt-highlight);
-  }
+  } */
 }
 
 .tds-site-nav-item:focus {

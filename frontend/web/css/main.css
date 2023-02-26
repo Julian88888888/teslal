@@ -118,60 +118,103 @@
 
 .phone-header {
   position: relative;
-}
-.phone-header .wr {
-  position: absolute;
-  left: 0;
-  top: 32px;
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  width: 164px;
-
-  -webkit-box-orient: vertical;
-
-  -webkit-box-direction: normal;
-
-  -ms-flex-direction: column;
-
-  flex-direction: column;
-  background: #f2f1e9;
-  border-radius: 5px;
-  padding: 0px 0px;
-  display: none;
-}
-
-.phone-header:hover .wr {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.phone-header:hover .wr .item img {
-  width: 20px;
-}
-
-.phone-header .wr .item {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  font-size: 10px;
-  color: #3a3a3a;
-  padding: 5px 5px;
   cursor: pointer;
 }
-.phone-header .wr .item:hover {
-  background: rgba(0, 0, 0, 0.1);
+
+.phone-header:hover {
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  background-color: var(--tds-theme-background-container-alt);
+  border-radius: var(--tds-border-radius--pill);
 }
-.wr .item.color {
-  color: rgba(0, 0, 0, 0.5);
+
+.modal-phone__icon {
+  width: 18px;
+  height: 18px;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+.modal-phone {
+  position: absolute;
+  width: calc(100% + 25px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  left: 0;
+  top: calc(100% + 10px);
+  -webkit-transform: translateY(20px);
+  -ms-transform: translateY(20px);
+  transform: translateY(20px);
+  -webkit-transition: all 0.3s !important;
+  -o-transition: all 0.3s !important;
+  transition: all 0.3s !important;
+  padding: 0 12px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background-color: rgb(242, 242, 237);
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
+  border-radius: 4px;
+}
+
+.modal-phone::before {
+  content: "";
+  width: 100%;
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  height: 10px;
+}
+
+.phone-header:hover .modal-phone {
+  visibility: visible;
+  pointer-events: all;
+  opacity: 1;
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+}
+
+.modal-phone__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 10px;
+  font-size: 12px;
+  margin: 0 -12px;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.modal-phone__wrapper:first-child .modal-phone__item {
+  border-radius: 4px 4px 0 0;
+}
+.modal-phone__wrapper:last-child .modal-phone__item {
+  border-radius: 0 0 4px 4px;
+}
+
+.modal-phone__wrapper:not(:last-child) {
+  border-bottom: 1px solid #000;
+}
+
+.modal-phone__item:hover {
+  color: #3a3a3a;
+  background-color: #d4d4d4;
 }
 
 .tcl-homepage-hero.tcl-homepage-hero--footer {
