@@ -30,12 +30,10 @@
   "primaryMobileNavigationRightItems": [{ "title": "Меню", "action": ["primaryMobileNavigationItems"], "special": "menuNavItem" }],
   "secondaryNavigationItems": [
       { "title": "Авто в наличии", "href": "/katalogavto" },
-      { "title": "Конфигуратор", "href": "#" },
       { "title": "Зарядные устройства", "href": "/zaryadki" },
       { "title": "Тест-драйв", "href": "/testdrive" },
       { "title": "Сравнение моделей", "href": "/sravnenie" },
       { "title": "Новости Tesla", "href": "#" },
-      { "title": "Tesla Semi", "href": "/semi" },
       { "title": "О нас", "href": "#" }
   ],
   "secondaryMobileNavigationItems": [

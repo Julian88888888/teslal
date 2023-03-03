@@ -18698,13 +18698,8 @@
       })();
 
       window.onload = function() {  
-        setTimeout(function() {
-            let nanMenu  = document.querySelector(".ju-item");
-            nanMenu.innerHTML = '<a title="+7 905 428 0000" href="tel:+79054280000" class="tds-site-nav-item tds-animate--backdrop tds--product-name"><span class="tds-site-nav-item-text">+7 905 428 0000</span></a><div class="wr"><div class="item">Позвонить <img src="img/naw/icon1.png"></div><div class="item">WhatsApp <img src="img/naw/icon2.png"></div><div class="item">Telegram <img src="img/naw/icon3.png"></div><div class="item color">Скопировать номер <img src="img/naw/icon4.png"></div></div>';
-            nanMenu.classList.add("phone-header");
-            let nanLogo = document.getElementsByClassName("tds-site-logo-link")[0];
-            nanLogo.innerHTML = '<img src="img/logo.svg">';
-        }, 1000);
+        let nanLogo = document.getElementsByClassName("tds-site-logo-link")[0];
+        nanLogo.innerHTML = '<img src="img/logo.svg">';
       };
 })();
 

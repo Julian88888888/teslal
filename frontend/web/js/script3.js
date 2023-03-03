@@ -22881,9 +22881,8 @@
                   className: "tds-animate--backdrop-backdrop",
                 }),
               a.Children.map(i, function (e) {
-                return (
-                  e && a.createElement("li", { className: `ju-item` }, null, e)
-                );
+                console.log(i[6]);
+                return (e && a.createElement("li", { className: `ju-item` }, null, e));
               })
             )
           );
@@ -24767,10 +24766,7 @@
               person: a.createElement(I, { data: m }),
               settings: a.createElement(I, { data: g }),
             },
-            me = fe
-              ? null == j
-                ? void 0
-                : j.primaryNavigationRightItems
+            me = fe ? null == j ? void 0 : j.primaryNavigationRightItems
               : null == j
               ? void 0
               : j.primaryMobileNavigationRightItems,
@@ -25164,19 +25160,68 @@
             Ae
           );
     })();
+    
 })();
 
-window.onload = function () {
-  const mediaQuery = window.matchMedia('(max-width: 1800px)')
+
+window.addEventListener('load', function() {
   let nanMenu = document.getElementsByClassName("ju-item")[6];
-
-  nanMenu.innerHTML =
-    '<a title="+7 905 428 0000" href="tel:+79054280000" class="tds-site-nav-item tds-animate--backdrop tds--product-name"><span class="tds-site-nav-item-text">+7 905 428 0000</span></a><div class="wr"><div class="item">Позвонить <img src="img/naw/phone-svgrepo-com.svg"></div><div class="item">WhatsApp <img src="img/naw/icon2.png"></div><div class="item">Telegram <img src="img/naw/icon3.png"></div><div class="item">Скопировать номер <img src="img/naw/copy-svgrepo-com.svg"></div></div>';
   nanMenu.classList.add("phone-header");
-  if (mediaQuery.matches) {
+  nanMenu.innerHTML = `
+    <div class="tds-site-nav-item tds-animate--backdrop tds--product-name">
+      <span class="tds-site-nav-item-text">+7 905 428 0000</span>
+    </div>
+    <div class="modal-phone">
+      <div class="modal-phone__wrapper">
+        <a href="tel:+79054280000" class="modal-phone__item">
+          <span>Позвонить</span>
+          <svg class="svg-sprite-icon  icon-phone modal-phone__icon">
+            <use xlink:href="img/svg/sprite.svg#phone"></use>
+          </svg>
+        </a>
+      </div>
+      <div class="modal-phone__wrapper">
+        <div class="modal-phone__item">
+          <span>WhatsApp</span>
+          <svg class="svg-sprite-icon  icon-whatsapp modal-phone__icon modal-phone--whatsapp">
+            <use xlink:href="img/svg/sprite.svg#whatsapp"></use>
+          </svg>
+        </div>
+      </div>
+      <div class="modal-phone__wrapper">
+        <div class="modal-phone__item">
+          <span>Telegram</span> 
+          <svg class="svg-sprite-icon  icon-telegram modal-phone__icon modal-phone--telegram">
+            <use xlink:href="img/svg/sprite.svg#telegram"></use>
+          </svg>
+        </div>
+      </div>
+      <div class="modal-phone__wrapper">
+        <div class="modal-phone__item modal-phone__copy">
+          <span>Скопировать номер</span>
+          <svg class="svg-sprite-icon  icon-copy modal-phone__icon">
+            <use xlink:href="img/svg/sprite.svg#copy"></use>
+          </svg>
+        </div>
+      </div>
+    </div>`;
 
-    nanMenu.insertAdjacentHTML("beforeend",`<div class="wr"><div class="item">Позвонить <img src="img/naw/phone-svgrepo-com.svg"></div><div class="item">WhatsApp <img src="img/naw/icon2.png"></div><div class="item">Telegram <img src="img/naw/icon3.png"></div><div class="item">Скопировать номер <img src="img/naw/copy-svgrepo-com.svg"></div></div>`)
-    
-  }
+  document.querySelector('.modal-phone__copy').addEventListener('click', function(){
+    let copyNumber = nanMenu.querySelector('.tds-site-nav-item-text').textContent.replace(/\s/g, "");
+    const copyContent = async () => {
+      try {
+        await navigator.clipboard.writeText(copyNumber);
+        nanMenu.querySelector('.modal-phone__copy span').textContent = 'Скопирован!';
+        setTimeout(() => {
+          nanMenu.querySelector('.modal-phone__copy span').textContent = 'Скопировать номер';
+        }, 1500);
+      } catch (err) {
+        nanMenu.querySelector('.modal-phone__copy span').textContent = 'Не скопирован!';
+        console.error('Failed to copy: ', err);
+      }
+    }
+    copyContent();
+  });
+});
 
-};
+
