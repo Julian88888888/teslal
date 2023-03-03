@@ -1,10 +1,183 @@
 <?php
+  $model_name = str_replace('_', '-',$car->model);
+  $car_map = [
+    'model_s' => [
+      'plaid' => [
+        'drive' => 'Полный',
+        'power' => '1034',
+        'spin' => '1428',
+        'max_speed' => '322',
+        'acceleration' => '1.9',
+        'distance' => '628',
+        'battery' => '100',
+        'autopilot' => 'Есть'
+      ],
+
+      'long_range' => [
+        'drive' => 'Полный',
+        'power' => '670',
+        'spin' => '720',
+        'max_speed' => '238',
+        'acceleration' => '3.1',
+        'distance' => '648',
+        'battery' => '100',
+        'autopilot' => 'Есть'
+      ]
+    ],
+
+    'model_3' => [
+      'real_wheel_drive' => [
+        'drive' => 'Задний',
+        'power' => '430',
+        'spin' => '389',
+        'max_speed' => '230',
+        'acceleration' => '5.8',
+        'distance' => '435',
+        'battery' => '90',
+        'autopilot' => 'Есть'
+      ],
+
+      'performance' => [
+        'drive' => 'Полный',
+        'power' => '513',
+        'spin' => '639',
+        'max_speed' => '261',
+        'acceleration' => '3.1',
+        'distance' => '504',
+        'battery' => '90',
+        'autopilot' => 'Есть'
+      ],
+
+      'long_range' => [
+        'drive' => 'Полный',
+        'power' => '498',
+        'spin' => '430',
+        'max_speed' => '233',
+        'acceleration' => '4,2',
+        'distance' => '572',
+        'battery' => '90',
+        'autopilot' => 'Есть'
+      ]
+    ],
+
+    'model_x' => [
+      'plaid' => [
+        'drive' => 'Полный',
+        'power' => '1020',
+        'spin' => '1034',
+        'max_speed' => '262',
+        'acceleration' => '2.5',
+        'distance' => '547',
+        'battery' => '100',
+        'autopilot' => 'Есть'
+      ],
+
+      'long_range' => [
+        'drive' => 'Полный',
+        'power' => '670',
+        'spin' => '660',
+        'max_speed' => '248',
+        'acceleration' => '3.8',
+        'distance' => '556',
+        'battery' => '100',
+        'autopilot' => 'Есть'
+      ]
+    ],
+
+    'model_y' => [
+      'performance' => [
+        'drive' => 'Полный',
+        'power' => '571',
+        'spin' => '639',
+        'max_speed' => '248',
+        'acceleration' => '3.5',
+        'distance' => '514',
+        'battery' => '82',
+        'autopilot' => 'Есть'
+      ],
+
+      'long_range' => [
+        'drive' => 'Полный',
+        'power' => '514',
+        'spin' => '527',
+        'max_speed' => '217',
+        'acceleration' => '4.8',
+        'distance' => '528',
+        'battery' => '90',
+        'autopilot' => 'Есть'
+      ]
+    ],
+
+    'cybertruck' => [
+      'single_motor' => [
+        'drive' => 'Задний',
+        'power' => '500',
+        'spin' => '-',
+        'max_speed' => '177',
+        'acceleration' => '6.6',
+        'distance' => '402',
+        'battery' => '100',
+        'autopilot' => 'Есть'
+      ],
+
+      'dual_motor' => [
+        'drive' => 'Полный',
+        'power' => '690',
+        'spin' => '-',
+        'max_speed' => '193',
+        'acceleration' => '4.5',
+        'distance' => '483',
+        'battery' => '120',
+        'autopilot' => 'Есть'
+      ],
+      
+      'tri_motor' => [
+        'drive' => 'Полный',
+        'power' => '800',
+        'spin' => '-',
+        'max_speed' => '209',
+        'acceleration' => '2.9',
+        'distance' => '750',
+        'battery' => '200',
+        'autopilot' => 'Есть'
+      ],
+
+      'four_motor' => [
+        'drive' => '',
+        'power' => '',
+        'spin' => '',
+        'max_speed' => '',
+        'acceleration' => '',
+        'distance' => '',
+        'battery' => '',
+        'autopilot' => 'Есть'
+      ]
+    ],
+
+    'roadster' => [
+      'drive' => 'Полный',
+      'power' => '1088',
+      'spin' => '10000',
+      'max_speed' => '400',
+      'acceleration' => '1.9',
+      'distance' => '1000',
+      'battery' => '200',
+      'autopilot' => 'Есть'
+    ]
+  ];
+
+  if($car->model == 'roadster') {
+    $car_data = $car_map['roadster'];
+  } else {
+    $car_data = $car_map[$car->model][$car->modification];
+  }
+   
 ?>
 <!DOCTYPE html>
 <html lang="ru-RU">
   <head>
     <meta charset="utf-8">
-    <title>Model S</title><!--[if IE]>
+    <title><?= $car->modelName ?></title><!--[if IE]>
     <meta http-equiv="X-UA-Compatible" content="IE = edge"><![endif]-->
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="keywords" content="">
@@ -16,7 +189,7 @@
   </head>
   <body class="model">
     <div class="wrapper">
-      <header class="header"><a class="header__logo logo" href="#"> <img src="/img/logo.svg" alt="Tesla by Autotraider"></a>
+      <header class="header"><a class="header__logo logo" href="/"> <img src="/img/logo.svg" alt="Tesla by Autotraider"></a>
         <div class="sandwich">  
           <svg class="svg-sprite-icon  icon-burger sandwich__icon">
             <use xlink:href="/img/svg/sprite.svg#burger"></use>
@@ -29,46 +202,10 @@
             <div class="detailsCar__slider">
               <div class="swiper swiperModel">
                 <div class="swiper-wrapper swiperModel__inner">
-                  <?php 
-                      $files = [];
-                      $path = './../web/img/katalog/'.$car['model'].'/body/'.$car['body_color'].'/';
-                      $img_path = '/img/katalog/'.$car['model'].'/body/'.$car['body_color'].'/';
-                      $total_body_photos = 0;
-
-                      if(is_dir($path)) {
-                          $files_body = array_diff(scandir($path), array('.', '..'));
-                          if(!empty($files_body)) {
-                              foreach ($files_body as $fbody) {
-                                  $files[] = $img_path.$fbody;
-                              }
-                          }
-
-                          $total_body_photos = count($files_body);
-                      }
-
-                      $path = './../web/img/katalog/'.$car['model'].'/interior/'.$car['interior_color'].'/';
-                      $img_path = '/img/katalog/'.$car['model'].'/interior/'.$car['interior_color'].'/';
-                      if(is_dir($path)) {
-                          $files_interior = array_diff(scandir($path), array('.', '..'));
-                          if(!empty($files_body)) {
-                              foreach ($files_interior as $fint) {
-                                  $files[] = $img_path.$fint;
-                              }
-                          }                                        ;
-                      }
-                      
-                      $i = 1;
-                      foreach($files as $file):
-                  ?>
-                  <div class="swiper-slide swiperModel__slide"><img src="<?= $file ?>" alt="Slide"></div>
-                  <?php endforeach; ?>
-
-                  <?php 
-                      if(!empty($car->carImages)): 
-                          foreach ($car->carImages as $image):
-                  ?>
-                  <div class="swiper-slide swiperModel__slide"><img src="/uploads/<?= $image->filename ?>" alt="Slide"></div>
-                  <?php endforeach; endif; ?>
+                  <?php for($i=1; $i<=4; $i++): ?>
+                    <div class="swiper-slide swiperModel__slide"><img src="/img/filter/<?= $model_name ?>/wheels/type1/Interior/<?= $car->interior_color ?>/<?= $car->body_color ?>/<?= $i ?>.jpg" alt="Slide"></div>
+                  <?php endfor; ?>
+                  <div class="swiper-slide swiperModel__slide"><img src="/img/filter/<?= $model_name ?>/Interior/<?= $car->interior_color ?>/<?= $car->body_color ?>/5.jpg" alt="Slide"></div>
 
                 </div>
                 <div class="swiperDetails__arrows">
@@ -87,18 +224,10 @@
               <div class="swiperModel__dots"></div>
               <div class="thumbSwiper">
                 <div class="thumbSwiper__inner">
-                  <?php
-                    foreach($files as $file):
-                  ?>
-                    <div class="thumbSwiper__item"><img src="<?= $file ?>" alt="Белый"></div>
-                  <?php endforeach; ?>
-
-                  <?php 
-                      if(!empty($car->carImages)): 
-                          foreach ($car->carImages as $image):
-                  ?>
-                    <div class="thumbSwiper__item"><img src="/uploads/<?= $image->filename ?>" alt="Белый"></div>
-                  <?php endforeach; endif; ?>
+                  <?php for($i=1; $i<=4; $i++): ?>
+                    <div class="thumbSwiper__item"><img src="/img/filter/<?= $model_name ?>/wheels/type1/Interior/<?= $car->interior_color ?>/<?= $car->body_color ?>/<?= $i ?>.jpg" alt="Slide"></div>
+                  <?php endfor; ?>
+                  <div class="thumbSwiper__item"><img src="/img/filter/<?= $model_name ?>/Interior/<?= $car->interior_color ?>/<?= $car->body_color ?>/5.jpg" alt="Slide"></div>
                 </div>
               </div>
               <div class="openGallery" open-modal-gallery>
@@ -121,6 +250,9 @@
 
                     <?php if($car->price_usd): ?>
                       <div class="modelPrices__col">Безнал без НДС</div>
+                    <?php endif; ?>
+
+                    <?php if($car->price_nds_usd): ?>
                       <div class="modelPrices__col">Безнал с НДС</div>
                     <?php endif; ?>
 
@@ -136,7 +268,10 @@
 
                     <?php if($car->price_rub): ?>
                       <div class="modelPrices__col"><?= number_format($car->price_rub, 0, '.', ' ') ?> ₽</div>
-                      <div class="modelPrices__col"><?= number_format($car->price_rub*1.2, 0, '.', ' ') ?> ₽</div>
+                    <?php endif; ?>
+
+                    <?php if($car->price_nds_rub): ?>
+                      <div class="modelPrices__col"><?= number_format($car->price_nds_rub, 0, '.', ' ') ?> ₽</div>
                     <?php endif; ?>
 
                     <?php if($car->leasing_rub): ?>
@@ -150,7 +285,10 @@
 
                     <?php if($car->price_usd): ?>
                       <div class="modelPrices__col"><?= number_format($car->price_usd, 0, '.', ' ') ?> $</div>
-                      <div class="modelPrices__col"><?= number_format($car->price_usd*1.2, 0, '.', ' ') ?> $</div>
+                    <?php endif; ?>
+
+                    <?php if($car->price_nds_usd): ?>  
+                      <div class="modelPrices__col"><?= number_format($car->price_nds_usd, 0, '.', ' ') ?> $</div>
                     <?php endif; ?>
 
                     <?php if($car->leasing_usd): ?>
@@ -171,35 +309,35 @@
                 </li>
                 <li class="modelOption__item">
                   <div class="modelOption__name">Привод</div>
-                  <div class="modelOption__value">Полный</div>
+                  <div class="modelOption__value"><?= $car_data['drive'] ?></div>
                 </li>
                 <li class="modelOption__item">
                   <div class="modelOption__name">Мощность</div>
-                  <div class="modelOption__value">1034 л.с.</div>
+                  <div class="modelOption__value"><?= $car_data['power'] ?> л.с.</div>
                 </li>
                 <li class="modelOption__item">
                   <div class="modelOption__name">Крутящий момент</div>
-                  <div class="modelOption__value">1020 Нм</div>
+                  <div class="modelOption__value"><?= $car_data['spin'] ?> Нм</div>
                 </li>
                 <li class="modelOption__item">
                   <div class="modelOption__name">Макс. скорость</div>
-                  <div class="modelOption__value">262 км/ч</div>
+                  <div class="modelOption__value"><?= $car_data['max_speed'] ?> км/ч</div>
                 </li>
                 <li class="modelOption__item">
                   <div class="modelOption__name">Разгон до 100 км/ч</div>
-                  <div class="modelOption__value">2,6 сек</div>
+                  <div class="modelOption__value"><?= $car_data['acceleration'] ?> сек</div>
                 </li>
                 <li class="modelOption__item">
                   <div class="modelOption__name">Запас хода</div>
-                  <div class="modelOption__value">528 км</div>
+                  <div class="modelOption__value"><?= $car_data['distance'] ?> км</div>
                 </li>
                 <li class="modelOption__item">
                   <div class="modelOption__name">Батарея</div>
-                  <div class="modelOption__value">100 кВт * ч</div>
+                  <div class="modelOption__value"><?= $car_data['battery'] ?> кВт * ч</div>
                 </li>
                 <li class="modelOption__item">
                   <div class="modelOption__name">Автопилот</div>
-                  <div class="modelOption__value">Есть</div>
+                  <div class="modelOption__value"><?= $car_data['autopilot'] ?></div>
                 </li>
                 <li class="modelOption__item">
                   <div class="modelOption__name">Состояние</div>
@@ -213,17 +351,17 @@
                 <?php endif; ?>
               </ul>
               <div class="modelDetail" data-model="corps">
-                <div class="modelDetail__caption"><img src="/img/feature/<?= $car->body_color ?>.png" alt="Slide"></div>
+                <div class="modelDetail__caption"><img src="/img/filter/filter/paint/<?= $car->body_color ?>.png" alt="Slide"></div>
                 <div class="modelDetail__title">Кузов</div>
                 <div class="modelDetail__type">
-                  <div class="modelDetail__img"><img src="/img/feature/<?= $car->body_color ?>.png" alt="Белый"></div><span><?= $car->bodyColorName ?></span>
+                  <div class="modelDetail__img"><img src="/img/filter/filter/paint/<?= $car->body_color ?>.png" alt="Белый"></div><span><?= $car->bodyColorName ?></span>
                 </div>
               </div>
               <div class="modelDetail" data-model="interior">
-                <div class="modelDetail__caption"><img src="/img/feature/<?= $car->interior_color ?>.png" alt="Slide"></div>
+                <div class="modelDetail__caption"><img src="/img/filter/filter/Interior/<?= $car->interior_color ?>.png" alt="Slide"></div>
                 <div class="modelDetail__title">Интерьер</div>
                 <div class="modelDetail__type">
-                  <div class="modelDetail__img"><img src="/img/feature/<?= $car->interior_color ?>.png" alt="Черный"></div><span><?= $car->interiorColorName ?></span>
+                  <div class="modelDetail__img"><img src="/img/filter/filter/Interior/<?= $car->interior_color ?>.png" alt="Черный"></div><span><?= $car->interiorColorName ?></span>
                 </div>
               </div>
               <div class="modelDetail" data-model="wheels">
@@ -271,34 +409,18 @@
       <div class="modal-cars__inner"> 
         <div class="swiper modalCars">
           <div class="swiper-wrapper modalCars__inner">
-            <div class="swiper-slide modalCars__slide"><img src="/img/card/1.jpg" alt="">
-              <button class="modalCars__close" type="button" aria-label="close modal">
-                <svg class="svg-sprite-icon  icon-close modalCars__icon">
-                  <use xlink:href="/img/svg/sprite.svg#close"></use>
-                </svg>
-              </button>
-            </div>
-            <div class="swiper-slide modalCars__slide"><img src="/img/card/2.jpg" alt="">
-              <button class="modalCars__close" type="button" aria-label="close modal">
-                <svg class="svg-sprite-icon  icon-close modalCars__icon">
-                  <use xlink:href="/img/svg/sprite.svg#close"></use>
-                </svg>
-              </button>
-            </div>
-            <div class="swiper-slide modalCars__slide"><img src="/img/card/1.jpg" alt="">
-              <button class="modalCars__close" type="button" aria-label="close modal">
-                <svg class="svg-sprite-icon  icon-close modalCars__icon">
-                  <use xlink:href="/img/svg/sprite.svg#close"></use>
-                </svg>
-              </button>
-            </div>
-            <div class="swiper-slide modalCars__slide"><img src="/img/card/2.jpg" alt="">
-              <button class="modalCars__close" type="button" aria-label="close modal">
-                <svg class="svg-sprite-icon  icon-close modalCars__icon">
-                  <use xlink:href="/img/svg/sprite.svg#close"></use>
-                </svg>
-              </button>
-            </div>
+            <?php 
+                if(!empty($car->carImages)): 
+                    foreach ($car->carImages as $image):
+            ?>
+              <div class="swiper-slide modalCars__slide"><img src="/uploads/<?= $image->filename ?>" alt="">
+                <button class="modalCars__close" type="button" aria-label="close modal">
+                  <svg class="svg-sprite-icon  icon-close modalCars__icon">
+                    <use xlink:href="/img/svg/sprite.svg#close"></use>
+                  </svg>
+                </button>
+              </div>
+            <?php endforeach; endif; ?>
           </div>
           <div class="modalCars__dots"></div>
           <div class="modalCars__arrows">

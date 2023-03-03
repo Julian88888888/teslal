@@ -19,6 +19,8 @@ use Yii;
  * @property string|null $year
  * @property string|null $price_usd
  * @property string|null $price_rub
+ * @property string|null $price_nds_usd
+ * @property string|null $price_nds_rub
  * @property string|null $cash_usd
  * @property string|null $cash_rub
  * @property string|null $leasing_usd
@@ -50,7 +52,7 @@ class Car extends \yii\db\ActiveRecord
         return [
             // [['model'], 'required'],
             [['created_at', 'updated_at'], 'integer'],
-            [['model', 'modification', 'distance', 'disks', 'year', 'price_usd', 'price_rub', 'cash_usd', 'cash_rub', 'leasing_usd', 'leasing_rub', 'seats', 'autopilot', 'drive', 'hundred_km', 'max_speed', 'milage', 'condition', 'body_color', 'interior_color', 'status'], 'string', 'max' => 255],
+            [['model', 'modification', 'distance', 'disks', 'year', 'price_usd', 'price_rub', 'price_nds_usd', 'price_nds_rub', 'cash_usd', 'cash_rub', 'leasing_usd', 'leasing_rub', 'seats', 'autopilot', 'drive', 'hundred_km', 'max_speed', 'milage', 'condition', 'body_color', 'interior_color', 'status'], 'string', 'max' => 255],
         ];
     }
 
@@ -72,6 +74,8 @@ class Car extends \yii\db\ActiveRecord
             'year' => Yii::t('app', 'Year'),
             'price_usd' => Yii::t('app', 'Price Usd'),
             'price_rub' => Yii::t('app', 'Price Rub'),
+            'price_nds_usd' => Yii::t('app', 'Price NDS Usd'),
+            'price_nds_rub' => Yii::t('app', 'Price NDS Rub'),
             'cash_usd' => Yii::t('app', 'Cash Usd'),
             'cash_rub' => Yii::t('app', 'Cash Rub'),
             'leasing_usd' => Yii::t('app', 'Leasing Usd'),
@@ -134,24 +138,20 @@ class Car extends \yii\db\ActiveRecord
     public function getBodyColorName() {
         $models = [
             'white' => 'белый', 
-            'black' => 'черный', 
-            'dark_grey' => 'темно-серый', 
-            'light_grey' => 'светло-серый',
+            'black' => 'черный',
             'red' => 'красный',
             'blue' => 'синий',
-            'grey' => 'серый'
+            'silver' => 'серый'
         ];
 
         return $models[$this->body_color];
     }
 
     public function getInteriorColorName() {
-        $models = [
-            'grey' => 'серый', 
+        $models = [ 
             'black' => 'черный', 
-            'white' => 'белый', 
-            'brown' => 'бежевый',
-            'tan' => 'коричневый'
+            'white' => 'белый',
+            'cream' => 'кремовый'
         ];
 
         return $models[$this->interior_color];

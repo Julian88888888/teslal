@@ -1,4 +1,180 @@
-<?php foreach($cars as $car): ?>
+<?php
+  
+  $car_map = [
+    'model_s' => [
+      'plaid' => [
+        'drive' => 'Полный',
+        'power' => '1034',
+        'spin' => '1428',
+        'max_speed' => '322',
+        'acceleration' => '1.9',
+        'distance' => '628',
+        'battery' => '100',
+        'autopilot' => 'Есть'
+      ],
+
+      'long_range' => [
+        'drive' => 'Полный',
+        'power' => '670',
+        'spin' => '720',
+        'max_speed' => '238',
+        'acceleration' => '3.1',
+        'distance' => '648',
+        'battery' => '100',
+        'autopilot' => 'Есть'
+      ]
+    ],
+
+    'model_3' => [
+      'real_wheel_drive' => [
+        'drive' => 'Задний',
+        'power' => '430',
+        'spin' => '389',
+        'max_speed' => '230',
+        'acceleration' => '5.8',
+        'distance' => '435',
+        'battery' => '90',
+        'autopilot' => 'Есть'
+      ],
+
+      'performance' => [
+        'drive' => 'Полный',
+        'power' => '513',
+        'spin' => '639',
+        'max_speed' => '261',
+        'acceleration' => '3.1',
+        'distance' => '504',
+        'battery' => '90',
+        'autopilot' => 'Есть'
+      ],
+
+      'long_range' => [
+        'drive' => 'Полный',
+        'power' => '498',
+        'spin' => '430',
+        'max_speed' => '233',
+        'acceleration' => '4,2',
+        'distance' => '572',
+        'battery' => '90',
+        'autopilot' => 'Есть'
+      ]
+    ],
+
+    'model_x' => [
+      'plaid' => [
+        'drive' => 'Полный',
+        'power' => '1020',
+        'spin' => '1034',
+        'max_speed' => '262',
+        'acceleration' => '2.5',
+        'distance' => '547',
+        'battery' => '100',
+        'autopilot' => 'Есть'
+      ],
+
+      'long_range' => [
+        'drive' => 'Полный',
+        'power' => '670',
+        'spin' => '660',
+        'max_speed' => '248',
+        'acceleration' => '3.8',
+        'distance' => '556',
+        'battery' => '100',
+        'autopilot' => 'Есть'
+      ]
+    ],
+
+    'model_y' => [
+      'performance' => [
+        'drive' => 'Полный',
+        'power' => '571',
+        'spin' => '639',
+        'max_speed' => '248',
+        'acceleration' => '3.5',
+        'distance' => '514',
+        'battery' => '82',
+        'autopilot' => 'Есть'
+      ],
+
+      'long_range' => [
+        'drive' => 'Полный',
+        'power' => '514',
+        'spin' => '527',
+        'max_speed' => '217',
+        'acceleration' => '4.8',
+        'distance' => '528',
+        'battery' => '90',
+        'autopilot' => 'Есть'
+      ]
+    ],
+
+    'cybertruck' => [
+      'single_motor' => [
+        'drive' => 'Задний',
+        'power' => '500',
+        'spin' => '-',
+        'max_speed' => '177',
+        'acceleration' => '6.6',
+        'distance' => '402',
+        'battery' => '100',
+        'autopilot' => 'Есть'
+      ],
+
+      'dual_motor' => [
+        'drive' => 'Полный',
+        'power' => '690',
+        'spin' => '-',
+        'max_speed' => '193',
+        'acceleration' => '4.5',
+        'distance' => '483',
+        'battery' => '120',
+        'autopilot' => 'Есть'
+      ],
+      
+      'tri_motor' => [
+        'drive' => 'Полный',
+        'power' => '800',
+        'spin' => '-',
+        'max_speed' => '209',
+        'acceleration' => '2.9',
+        'distance' => '750',
+        'battery' => '200',
+        'autopilot' => 'Есть'
+      ],
+
+      'four_motor' => [
+        'drive' => '',
+        'power' => '',
+        'spin' => '',
+        'max_speed' => '',
+        'acceleration' => '',
+        'distance' => '',
+        'battery' => '',
+        'autopilot' => 'Есть'
+      ]
+    ],
+
+    'roadster' => [
+      'drive' => 'Полный',
+      'power' => '1088',
+      'spin' => '10000',
+      'max_speed' => '400',
+      'acceleration' => '1.9',
+      'distance' => '1000',
+      'battery' => '200',
+      'autopilot' => 'Есть'
+    ]
+  ];
+   
+?>
+<?php foreach($cars as $car): 
+    if($car->model == 'roadster') {
+        $car_data = $car_map['roadster'];
+    } else {
+        $car_data = $car_map[$car->model][$car->modification];
+    }
+
+?>
 
 <article class="result card">
     <section class="result-header">
@@ -157,15 +333,15 @@
         <div class="result-highlights">
             <ul class="highlights-list">
                 <li>
-                    <div><span class="tds-text--h4"><?= $car['hundred_km'] ?></span> <span>сек</span></div>
+                    <div><span class="tds-text--h4"><?= $car_data['acceleration'] ?></span> <span>сек</span></div>
                     <div class="tds-text--caption"><span>0-100 км/ч</span></div>
                 </li>
                 <li>
-                    <div><span class="tds-text--h4"><?= $car['max_speed'] ?></span> <span>км/ч</span></div>
+                    <div><span class="tds-text--h4"><?= $car_data['max_speed'] ?></span> <span>км/ч</span></div>
                     <div class="tds-text--caption"><span>Макс. скорость</span></div>
                 </li>
                 <li>
-                    <div><span class="tds-text--h4"><?= $car['distance'] ?> </span> <span>км</span></div>
+                    <div><span class="tds-text--h4"><?= $car_data['distance'] ?> </span> <span>км</span></div>
                     <div class="tds-text--caption"><span>Запас хода</span></div>
                 </li>
             </ul>
@@ -175,12 +351,12 @@
         <div class="result-features_wrap">
             <div class="result-features__item">
                 <div class="result-features__item_text">Кузов</div>
-                <div class="result-features__item_icon"><img src="img/filter/filter/paint/black.png" alt="Кузов"></div>
+                <div class="result-features__item_icon"><img src="/img/filter/filter/paint/<?= $car['body_color'] ?>.png" alt="Кузов"></div>
                 <div class="result-features__item_text"><?= $car['bodyColorName'] ?></div>
             </div>
             <div class="result-features__item">
                 <div class="result-features__item_text">Интерьер</div>
-                <div class="result-features__item_icon"><img src="img/filter/filter/Interior/white.png" alt="Интерьер"></div>
+                <div class="result-features__item_icon"><img src="/img/filter/filter/Interior/<?= $car['interior_color'] ?>.png" alt="Интерьер"></div>
                 <div class="result-features__item_text"><?= $car['interiorColorName'] ?></div>
             </div>
             <div class="result-features__item">
