@@ -14,7 +14,6 @@
   ],
   "primaryMobileNavigationItems": [
       { "title": "Авто в наличии", "href": "/katalogavto" },
-      { "title": "Конфигуратор", "href": "/katalogavto" },
       { "title": "Model S", "href": "/models" },
       { "title": "Model 3", "href": "/model3" },
       { "title": "Model X", "href": "/modelx" },
