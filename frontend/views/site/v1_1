@@ -24,7 +24,7 @@
       { "title": "Тест-драйв", "href": "/testdrive" },
       { "title": "Сравнение моделей", "href": "/sravnenie" }, 
       { "title": "О нас", "href": "#" },
-      { "title": "Новости Tesla", "href": "#" }
+      { "title": "Новости Tesla", "href": "/blog" }
   ],
   "primaryMobileNavigationRightItems": [{ "title": "Меню", "action": ["primaryMobileNavigationItems"], "special": "menuNavItem" }],
   "secondaryNavigationItems": [
@@ -32,7 +32,7 @@
       { "title": "Зарядные устройства", "href": "/zaryadki" },
       { "title": "Тест-драйв", "href": "/testdrive" },
       { "title": "Сравнение моделей", "href": "/sravnenie" },
-      { "title": "Новости Tesla", "href": "#" },
+      { "title": "Новости Tesla", "href": "/blog" },
       { "title": "О нас", "href": "#" }
   ],
   "secondaryMobileNavigationItems": [
