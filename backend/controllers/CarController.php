@@ -219,12 +219,12 @@ class CarController extends Controller
             
             $pathinfo = pathinfo($file->name);
             
-            $filepath = str_replace('/admin', '', \Yii::getAlias('@webroot')) . '/uploads/' . $file->name;
-            $filename = $file->name;
+            $filepath = str_replace('/admin', '', \Yii::getAlias('@webroot')) . '/uploads/' . $pathinfo['filename'].'.'.strtolower($pathinfo['extension']);
+            $filename = $pathinfo['filename'].'.'.strtolower($pathinfo['extension']);
             $counter = 1;
 
             while(file_exists($filepath)) {
-                $filename = $pathinfo['filename'].'_'.$counter.'.'.$pathinfo['extension'];
+                $filename = $pathinfo['filename'].'_'.$counter.'.'.strtolower($pathinfo['extension']);
                 $filepath = str_replace('/admin', '', \Yii::getAlias('@webroot')) . '/uploads/' . $filename;
                 $counter++;
             }

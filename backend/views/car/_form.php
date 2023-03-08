@@ -328,7 +328,7 @@ $interior_color_vals = $model->model ? $car_data[$model->model]['fields']['inter
         'prompt'=>''
     ]) ?>
 
-    <?= $form->field($model, 'autopilot')->dropDownList([
+  <!--   <?= $form->field($model, 'autopilot')->dropDownList([
         'basic' => 'Базовый',
         'advanced' => 'Продвинутый',
         'complete' => 'Полный'
@@ -351,7 +351,7 @@ $interior_color_vals = $model->model ? $car_data[$model->model]['fields']['inter
     <?= $form->field($model, 'max_speed')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'distance')->textInput(['maxlength' => true])->label('Запас хода (км)')  ?>
-
+ -->
     <?= $form->field($model, 'milage')->textInput(['maxlength' => true])->label('Пробег (км)')  ?>
 
     <hr>

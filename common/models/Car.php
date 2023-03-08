@@ -91,6 +91,20 @@ class Car extends \yii\db\ActiveRecord
         ];
     }
 
+    public function beforeDelete()
+    {
+
+        if (!parent::beforeDelete()) {
+            return false;
+        }
+
+        foreach ($this->carImages as $image) {
+            $image->delete();
+        }
+
+        return true;
+    }
+
     public function getModelName() {
         $models = [
             'model_s' => 'Model S',
