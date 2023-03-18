@@ -12,6 +12,7 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
 use common\models\Car;
+use common\models\Presentation;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
@@ -170,6 +171,38 @@ class SiteController extends Controller
         if($car) {
             return $this->render('feature', [
                 'car' => $car
+            ]);
+        } else {
+            $this->redirect('/404');
+        }
+    }
+
+    public function actionPresentation($id)
+    {
+        $car = Car::findOne($id);
+        
+        if($car) {
+            $presentation = new Presentation();
+            
+            $presentation->model = $car->model;
+            $presentation->modification = $car->modification;
+            $presentation->body_color = $car->body_color;
+            $presentation->interior_color = $car->interior_color;
+            $presentation->disks = $car->disks;
+            $presentation->year = $car->year;
+
+            $presentation->price_usd = $car->price_usd;
+            $presentation->price_nds_usd = $car->price_nds_usd;
+            $presentation->cash_usd = $car->cash_usd;
+            $presentation->leasing_usd = $car->leasing_usd;
+
+            $presentation->car_id = $car->id;
+
+            $presentation->save();
+
+            echo $this->render('presentation', [
+                'car' => $car,
+                'presentation' => $presentation
             ]);
         } else {
             $this->redirect('/404');

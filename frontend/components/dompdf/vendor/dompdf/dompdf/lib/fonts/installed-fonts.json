@@ -1,0 +1,8 @@
+{
+    "montserrat": {
+        "normal": "\/var\/www\/tesla\/frontend\/components\/dompdf\/vendor\/dompdf\/dompdf\/lib\/fonts\/Montserrat-Bold",
+        "bold": "\/var\/www\/tesla\/frontend\/components\/dompdf\/vendor\/dompdf\/dompdf\/lib\/fonts\/Montserrat-Regular",
+        "italic": "\/var\/www\/tesla\/frontend\/components\/dompdf\/vendor\/dompdf\/dompdf\/lib\/fonts\/Montserrat-Bold",
+        "bold_italic": "\/var\/www\/tesla\/frontend\/components\/dompdf\/vendor\/dompdf\/dompdf\/lib\/fonts\/Montserrat-Bold"
+    }
+}

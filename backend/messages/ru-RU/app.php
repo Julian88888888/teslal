@@ -33,4 +33,11 @@ return [
 	'Max Speed' => 'Макс. скорость',
 	'Distance' => 'Запас хода',
 	'Milage' => 'Пробег',
+
+	'Car ID' => 'Авто',
+	'Is Constructor' => 'Конструктор',
+
+	'Created At' => 'Дата Создания',
+
+	'Presentations' => 'Презентации',
 ];
