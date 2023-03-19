@@ -196,6 +196,11 @@ class SiteController extends Controller
             $presentation->cash_usd = $car->cash_usd;
             $presentation->leasing_usd = $car->leasing_usd;
 
+            $presentation->price_rub = $car->price_rub;
+            $presentation->price_nds_rub = $car->price_nds_rub;
+            $presentation->cash_rub = $car->cash_rub;
+            $presentation->leasing_rub = $car->leasing_rub;
+
             $presentation->car_id = $car->id;
 
             $presentation->save();
@@ -206,6 +211,23 @@ class SiteController extends Controller
             ]);
         } else {
             $this->redirect('/404');
+        }
+    }
+
+    public function actionPresentationdesign()
+    {
+        $presentation = new Presentation();
+        
+        $presentation->load(Yii::$app->request->get(), '');
+        $presentation->is_constructor = 1;
+
+        if($presentation->validate() && $presentation->save()) {
+            echo $this->render('presentation', [
+                'car' => $presentation,
+                'presentation' => $presentation
+            ]);
+        } else {
+            $this->redirect('/404');   
         }
     }
 

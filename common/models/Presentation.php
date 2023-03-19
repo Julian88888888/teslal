@@ -26,7 +26,8 @@ use yii\behaviors\TimestampBehavior;
  *
  * @property Car $car
  */
-class Presentation extends \yii\db\ActiveRecord
+//TODO: добавить абстрактный класс для Car и Presentation
+class Presentation extends Car // \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
@@ -50,7 +51,7 @@ class Presentation extends \yii\db\ActiveRecord
     {
         return [
             [['car_id', 'is_constructor', 'created_at', 'updated_at'], 'integer'],
-            [['model', 'modification', 'body_color', 'interior_color', 'disks', 'year', 'price_usd', 'price_nds_usd', 'cash_usd', 'leasing_usd'], 'string', 'max' => 255],
+            [['model', 'modification', 'body_color', 'interior_color', 'disks', 'year', 'price_usd', 'price_nds_usd', 'cash_usd', 'leasing_usd', 'price_rub', 'price_nds_rub', 'cash_rub', 'leasing_rub'], 'string', 'max' => 255],
             [['car_id'], 'exist', 'skipOnError' => true, 'targetClass' => Car::class, 'targetAttribute' => ['car_id' => 'id']],
         ];
     }
@@ -74,6 +75,10 @@ class Presentation extends \yii\db\ActiveRecord
             'price_nds_usd' => Yii::t('app', 'Price Nds Usd'),
             'cash_usd' => Yii::t('app', 'Cash Usd'),
             'leasing_usd' => Yii::t('app', 'Leasing Usd'),
+            'price_rub' => Yii::t('app', 'Price Rub'),
+            'price_nds_rub' => Yii::t('app', 'Price Nds Rub'),
+            'cash_rub' => Yii::t('app', 'Cash Rub'),
+            'leasing_rub' => Yii::t('app', 'Leasing Rub'),
             'created_at' => Yii::t('app', 'Created At'),
             'updated_at' => Yii::t('app', 'Updated At'),
         ];
@@ -88,4 +93,5 @@ class Presentation extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Car::class, ['id' => 'car_id']);
     }
+
 }

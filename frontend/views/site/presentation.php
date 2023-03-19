@@ -13,8 +13,8 @@ $dompdf = new Dompdf(['isRemoteEnabled' => true, 'chroot' => __DIR__.'/../../web
 'dpi' => 72
 ]);
 
-$car_data = $car->params;
-$model_name = str_replace('_', '-',$car->model);
+$presentation_data = $presentation->params;
+$model_name = str_replace('_', '-',$presentation->model);
 
 $footer = 
 '<footer class="footer">
@@ -32,61 +32,61 @@ $footer =
 </footer>';
 
 $pricing = '';
-if($car->cash_usd)
+if($presentation->cash_usd)
 $pricing .= 
 '<tr>
 	<td class="table__bold">
 		Наличный расчет
 	</td>
 	<td>
-		'.number_format($car->cash_rub, 0, '.', ' ').' ₽
+		'.number_format($presentation->cash_rub, 0, '.', ' ').' ₽
 	</td>
 	<td>
-		'.number_format($car->cash_usd, 0, '.', ' ').' $
+		'.number_format($presentation->cash_usd, 0, '.', ' ').' $
 	</td>
 </tr>';
 
-if($car->price_usd)
+if($presentation->price_usd)
 $pricing .= '<tr>
 	<td class="table__bold">
 		Безнал без НДС
 	</td>
 	<td>
-		'.number_format($car->price_rub, 0, '.', ' ').' ₽
+		'.number_format($presentation->price_rub, 0, '.', ' ').' ₽
 	</td>
 	<td>
-		'.number_format($car->price_usd, 0, '.', ' ').' $
+		'.number_format($presentation->price_usd, 0, '.', ' ').' $
 	</td>
 </tr>';
 
-if($car->price_nds_usd)
+if($presentation->price_nds_usd)
 $pricing .= '<tr>
 	<td class="table__bold">
 		Безнал с НДС
 	</td>
 	<td>
-		'.number_format($car->price_nds_rub, 0, '.', ' ').' ₽
+		'.number_format($presentation->price_nds_rub, 0, '.', ' ').' ₽
 	</td>
 	<td>
-		'.number_format($car->price_nds_usd, 0, '.', ' ').' $
+		'.number_format($presentation->price_nds_usd, 0, '.', ' ').' $
 	</td>
 </tr>';
 
-if($car->leasing_usd)
+if($presentation->leasing_usd)
 $pricing .= '<tr>
 	<td class="table__bold">
 		Лизинг
 	</td>
 	<td>
-		'.number_format($car->leasing_rub, 0, '.', ' ').' ₽
+		'.number_format($presentation->leasing_rub, 0, '.', ' ').' ₽
 	</td>
 	<td>
-		'.number_format($car->leasing_usd, 0, '.', ' ').' $ / мес
+		'.number_format($presentation->leasing_usd, 0, '.', ' ').' $ / мес
 	</td>
 </tr>';
 
 $options = '';
-foreach ($car_data['options'] as $option) {
+foreach ($presentation_data['options'] as $option) {
 	$options .= '
 	<tr>
 		<td>
@@ -146,7 +146,7 @@ $dompdf->loadHtml('
 		<main class="page">
 			<div class="page__container">
 				<h1 class="page__title title">
-					<span>Tesla '.$car->modelName.'</span> '.$car->modificationName.' '.$car->year.'
+					<span>Tesla '.$presentation->modelName.'</span> '.$presentation->modificationName.' '.$presentation->year.'
 				</h1>
 				<div class="page__flex-half">
 					<div class="page__flex-left">
@@ -156,7 +156,7 @@ $dompdf->loadHtml('
 									Модель
 								</td>
 								<td>
-									'.$car->modelName.' '.$car->modificationName.'
+									'.$presentation->modelName.' '.$presentation->modificationName.'
 								</td>
 							</tr>
 							<tr>
@@ -164,7 +164,7 @@ $dompdf->loadHtml('
 									Год выпуска
 								</td>
 								<td>
-									'.$car->year.'
+									'.($presentation->year ? $presentation->year : '-').'
 								</td>
 							</tr>
 							<tr>
@@ -172,7 +172,7 @@ $dompdf->loadHtml('
 									Привод
 								</td>
 								<td>
-									'.$car_data['drive'].'
+									'.$presentation_data['drive'].'
 								</td>
 							</tr>
 							<tr>
@@ -180,7 +180,7 @@ $dompdf->loadHtml('
 									Мощность
 								</td>
 								<td>
-									'.$car_data['power'].' л.с.
+									'.$presentation_data['power'].' л.с.
 								</td>
 							</tr>
 							<tr>
@@ -188,7 +188,7 @@ $dompdf->loadHtml('
 									Крутящий момент
 								</td>
 								<td>
-									'.$car_data['spin'].' Нм
+									'.$presentation_data['spin'].' Нм
 								</td>
 							</tr>
 							<tr>
@@ -196,7 +196,7 @@ $dompdf->loadHtml('
 									Макс. скорость
 								</td>
 								<td>
-									'.$car_data['max_speed'].' км/ч
+									'.$presentation_data['max_speed'].' км/ч
 								</td>
 							</tr>
 							<tr>
@@ -204,7 +204,7 @@ $dompdf->loadHtml('
 									Разгон до 100 км/ч
 								</td>
 								<td>
-									'.$car_data['acceleration'].' сек
+									'.$presentation_data['acceleration'].' сек
 								</td>
 							</tr>
 							<tr>
@@ -212,7 +212,7 @@ $dompdf->loadHtml('
 									Запас хода
 								</td>
 								<td>
-									'.$car_data['distance'].' км
+									'.$presentation_data['distance'].' км
 								</td>
 							</tr>
 							<tr>
@@ -220,7 +220,7 @@ $dompdf->loadHtml('
 									Батарея
 								</td>
 								<td>
-									'.$car_data['battery'].' кВт * ч
+									'.$presentation_data['battery'].' кВт * ч
 								</td>
 							</tr>
 							<tr>
@@ -228,7 +228,7 @@ $dompdf->loadHtml('
 									Автопилот
 								</td>
 								<td>
-									'.$car_data['autopilot'].'
+									'.$presentation_data['autopilot'].'
 								</td>
 							</tr>
 						</table>
@@ -248,11 +248,11 @@ $dompdf->loadHtml('
 									</p>
 									<div class="page__options-img">
 										<picture>
-											<img src="img/filter/filter/paint/'. $car->body_color.'.png" alt="Black">
+											<img src="img/filter/filter/paint/'. $presentation->body_color.'.png" alt="Black">
 										</picture>
 									</div>
 									<p>
-										'.mb_strtoupper(mb_substr($car->bodyColorName, 0, 1)).mb_substr($car->bodyColorName, 1).'
+										'.mb_strtoupper(mb_substr($presentation->bodyColorName, 0, 1)).mb_substr($presentation->bodyColorName, 1).'
 									</p>
 								</div>
 								<div class="page__options-block">
@@ -261,11 +261,11 @@ $dompdf->loadHtml('
 									</p>
 									<div class="page__options-img">
 										<picture>	
-											<img src="img/filter/filter/Interior/'.$car->interior_color.'.png" alt="Black">
+											<img src="img/filter/filter/Interior/'.$presentation->interior_color.'.png" alt="Black">
 										</picture>
 									</div>
 									<p>
-										'.mb_strtoupper(mb_substr($car->interiorColorName, 0, 1)).mb_substr($car->interiorColorName, 1).'
+										'.mb_strtoupper(mb_substr($presentation->interiorColorName, 0, 1)).mb_substr($presentation->interiorColorName, 1).'
 									</p>
 								</div>
 								<div class="page__options-block">
@@ -276,7 +276,7 @@ $dompdf->loadHtml('
 										<picture><source srcset="pdf_static/img/options/wheel.webp" type="image/webp"><img src="pdf_static/img/options/wheel.png" alt="Black"></picture>
 									</div>
 									<p>
-										'.$car->disks.'”
+										'.$presentation->disks.'”
 									</p>
 								</div>
 							</div>
@@ -286,12 +286,12 @@ $dompdf->loadHtml('
 				<div class="page__model-images">
 					<div class="page__model-img" style="height: 220px; overflow: hidden; position: relative;">
 						<div class="page__model-img__inner" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0;">
-							<picture><img style="max-width: 200%; height: 220%; transform: translate(-20%, -25%);" src="img/filter/'.$model_name.'/wheels/type1/Interior/'.$car->interior_color.'/'.$car->body_color.'/1.jpg" alt="Tesla"></picture>
+							<picture><img style="max-width: 200%; height: 220%; transform: translate(-20%, -25%);" src="img/filter/'.$model_name.'/wheels/type1/Interior/'.$presentation->interior_color.'/'.$presentation->body_color.'/1.jpg" alt="Tesla"></picture>
 						</div>
 					</div>
 					<div class="page__model-img" style="height: 220px; overflow: hidden; position: relative;">
 						<div class="page__model-img__inner" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0;">
-							<picture><img style="width: 100%; position: static; object-fit: fit;" src="img/filter/'.$model_name.'/Interior/'.$car->interior_color.'/'.$car->body_color.'/5.jpg" alt="Inside"></picture>
+							<picture><img style="width: 100%; position: static; object-fit: fit;" src="img/filter/'.$model_name.'/Interior/'.$presentation->interior_color.'/'.$presentation->body_color.'/5.jpg" alt="Inside"></picture>
 						</div>
 					</div>
 				</div>
