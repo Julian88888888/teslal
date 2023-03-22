@@ -237,13 +237,25 @@ class CarController extends Controller
             $image->save();
 
             try {
+                // $exif = exif_read_data($filepath);
+
                 $download_path = str_replace('/admin', '', \Yii::getAlias('@webroot')) . '/uploads/';
 
                 $iloveimg = new Iloveimg('project_public_1467f0dad8aebe6b67110802708d1a9a_cbO2a8a4334e6bc8cc44a18ea1b3d56f8353b','secret_key_838a431e68108298451c49d7b761091f_JidLp6fd3effad00fb76ce8b8d9d7efc27e31');
+
                 $myTask = $iloveimg->newTask('compress');
                 $file1 = $myTask->addFile($filepath);
                 $myTask->execute();
                 $myTask->download($download_path);
+
+
+                // if(in_array($exif['Orientation'], [3,6,8])) {
+                //     var_dump($filepath);die;
+                //     $myTask = $iloveimg->newTask('rotate');
+                //     $file1 = $myTask->addFile($filepath);
+                //     $myTask->execute();
+                //     $myTask->download($download_path);
+                // }
 
                 $image->is_compressed = 1;
                 $image->save();
