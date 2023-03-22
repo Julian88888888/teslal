@@ -17,6 +17,7 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use frontend\models\LeadForm;
 
 /**
  * Site controller
@@ -182,6 +183,40 @@ class SiteController extends Controller
             ]);
         } else {
             $this->redirect('/404');
+        }
+    }
+
+    public function actionLead()
+    {        
+        $model = new LeadForm();
+        $model->load(Yii::$app->request->post(), '');
+
+        if($model->validate()) {
+            $website="https://api.telegram.org/bot".Yii::$app->params['telegram_bot_token'];
+     
+            $params=[
+              'chat_id' => Yii::$app->params['telegram_chat_id'], 
+              'text' => 
+              "Новый лид\n"
+              .($model->name ? $model->name."\n" : '')
+              .$model->email."\n"
+              .$model->phone,
+            ];
+
+            $ch = curl_init($website . '/sendMessage');
+            curl_setopt($ch, CURLOPT_HEADER, false);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, ($params));
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            $result = curl_exec($ch);
+            curl_close($ch);
+
+            Yii::$app->response->statusCode = 200;
+            echo json_encode(['success' => true, 'error' => '']);
+        } else {
+            Yii::$app->response->statusCode = 400;
+            echo json_encode(['success' => false, 'error' => 'Bad Request']);
         }
     }
 

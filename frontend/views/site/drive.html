@@ -214,20 +214,20 @@
               <div class="content-container forms-container show" style="position: relative; display: block;">
                   <div class="header-container"><h2>Оставьте свои контакты</h2></div>
                   <div class="forms-inner-container">
-                      <form novalidate="">
+                      <form id="lead-form">
                           <div class="form-container en-us">
                               <div class="input-flex-group">
                                   <div class="tds-form-item">
                                       <label class="tds-form-label" for="edit-firstname-td">Имя</label>
-                                      <div class="tds-form-input tds-form-input--default"><input class="tds-form-input-text" id="edit-firstname-td" name="firstName" required="" aria-invalid="false" value="" /></div>
+                                      <div class="tds-form-input tds-form-input--default"><input class="tds-form-input-text" id="edit-firstname-td" name="name" required="1" aria-invalid="false" value="" /></div>
                                   </div>
                                   <div class="tds-form-item">
                                       <label class="tds-form-label" for="edit-lastname-td">Телефон</label>
-                                      <div class="tds-form-input tds-form-input--default"><input class="tds-form-input-text" id="edit-lastname-td" name="lastName" required="" aria-invalid="false" value="" /></div>
+                                      <div class="tds-form-input tds-form-input--default"><input class="tds-form-input-text" id="edit-lastname-td" name="phone" required="1" aria-invalid="false" value="" /></div>
                                   </div>
                                   <div class="tds-form-item">
                                     <label class="tds-form-label" for="edit-usermail-td">e-mail</label>
-                                    <div class="tds-form-input tds-form-input--default"><input class="tds-form-input-text" id="edit-usermail-td" name="email" required="" aria-invalid="false" value="" /></div>
+                                    <div class="tds-form-input tds-form-input--default"><input class="tds-form-input-text" id="edit-usermail-td" type="email" name="email" required="1" aria-invalid="false" value="" /></div>
                                 </div>
                               </div>
                               
@@ -236,6 +236,8 @@
                                
                           </div>
                           
+                          <input type="hidden" name="<?= Yii::$app->request->csrfParam; ?>" value="<?= Yii::$app->request->csrfToken; ?>" />
+
                           <div class="btn-container-left"><button class="tds-btn" data-section="formsSection" id="edit-submit-td-ajax0" type="submit">Записаться на тест драйв</button></div>
                           <p class="disclaimer-txt">
                             Оставляя свои контактные данные вы соглашаетесь с политикой конфиденциальности
@@ -477,7 +479,8 @@
 
             var connectTabs = new Tabs();
     </script>
-    
+    <script type="text/javascript" src="js/jquery-3.6.4.min.js"></script>
+    <script type="text/javascript" src="js/leadform.js"></script>
 </body>
 
 </html>
