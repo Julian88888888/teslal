@@ -123,6 +123,48 @@ var data = {
 	}
 };
 
+let selectItems = document.querySelectorAll('.tds-form-item');
+let btnLinkModels = document.querySelectorAll('.tcl-compare-models__buttons');
+function setButtonLink(id, href) {
+	btnLinkModels.forEach(function(btn, index) {
+		let links = btn.querySelectorAll('a.tds-btn');
+		if(index === +id) {
+			for(let j = 0; j < links.length; j++) {
+				links[j].setAttribute('href', href);
+			}
+		}
+	});
+}
+
+selectItems.forEach(item => {
+	let selects = item.querySelector('.tds-form-input-select');
+	selects.addEventListener('click', function(){
+		let ids = this.getAttribute('data-id');
+		let selected = [...selects.options].filter(option => option.selected);
+		for (let i = 0; i < selected.length; i++) {
+			let value = selected[i].textContent;
+			switch (value) {
+				case 'Model S Long Range':
+				case 'Model S Plaid':
+					setButtonLink(ids, '/designs');
+					break;
+				case 'Model 3 Performance':
+				case 'Model 3 Long Range':
+					setButtonLink(ids, '/design3');
+					break;
+				case 'Model X Long Range':
+				case 'Model X Plaid':
+					setButtonLink(ids, '/designx');
+					break;
+				case 'Model Y Long Range':
+				case 'Model Y Performance':
+					setButtonLink(ids, '/designy');
+					break;
+			}
+		};
+	});
+});
+
 $('.model-selector__input').on('change', function() {
 	var car = data['car-data'][$(this).val()];
 	var id = $(this).data('id');

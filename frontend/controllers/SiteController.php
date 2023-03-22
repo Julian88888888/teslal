@@ -163,6 +163,14 @@ class SiteController extends Controller
     {
         return $this->render('feature_default.html');
     }
+    public function actionBlog()
+    {
+        return $this->render('blog.html');
+    }
+    public function actionDelivery()
+    {
+        return $this->render('delivery.html');
+    }
 
     public function actionFeature($id)
     {

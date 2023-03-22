@@ -25181,20 +25181,20 @@ window.addEventListener('load', function() {
         </a>
       </div>
       <div class="modal-phone__wrapper">
-        <div class="modal-phone__item">
+        <a href="https://api.whatsapp.com/send/?phone=79054280000&text=Меня_интересует_покупка_Tesla_у_вас_на_сайте&type=phone_number&app_absent=0" target="_blank" class="modal-phone__item">
           <span>WhatsApp</span>
           <svg class="svg-sprite-icon  icon-whatsapp modal-phone__icon modal-phone--whatsapp">
             <use xlink:href="img/svg/sprite.svg#whatsapp"></use>
           </svg>
-        </div>
+        </a>
       </div>
       <div class="modal-phone__wrapper">
-        <div class="modal-phone__item">
+        <a href="https://t.me/Khatskevich7" target="_blank" class="modal-phone__item">
           <span>Telegram</span> 
           <svg class="svg-sprite-icon  icon-telegram modal-phone__icon modal-phone--telegram">
             <use xlink:href="img/svg/sprite.svg#telegram"></use>
           </svg>
-        </div>
+        </a>
       </div>
       <div class="modal-phone__wrapper">
         <div class="modal-phone__item modal-phone__copy">
