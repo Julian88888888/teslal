@@ -12,7 +12,7 @@ class m230325_175556_add_column_image_sequence extends Migration
      */
     public function safeUp()
     {
-		$this->addColumn('{{%car_image}}', 'sequence', $this->boolean()->defaultValue(0));
+		$this->addColumn('{{%car_image}}', 'sequence', $this->integer()->defaultValue(0));
     }
 
     /**
