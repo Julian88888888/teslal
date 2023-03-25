@@ -69,8 +69,8 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(); ?>
 	
 	<!-- pavel -->
-	<?= $form->field($model, 'images_sequence')->hiddenInput(['value'=> '123'])->label(false); ?>
-	<!-- <<< pavel -->
+	<?= $form->field($model, 'images_sequence')->hiddenInput(['value'=> ''])->label(false); ?>
+	<!-- <<<Б pavel -->
 
     <?= $form->field($model, 'condition')->dropDownList([
         'new' => 'Новая',
@@ -245,7 +245,7 @@ use yii\widgets\ActiveForm;
             },
             // deleteUrl: '/admin/car/delete-image',
             fileActionSettings: {
-                showDrag: true, // <<<< pavel
+                showDrag: true, // <<< pavel
                 // showDelete: false,
                 showZoom: false,
                 showRotate: false
