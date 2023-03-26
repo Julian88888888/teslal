@@ -146,7 +146,7 @@ $dompdf->loadHtml('
 		<main class="page">
 			<div class="page__container">
 				<h1 class="page__title title">
-					<span>Tesla '.$presentation->modelName.'</span> '.$presentation->modificationName.' '.$presentation->year.'
+					<span>Tesla '.$presentation->modelName.'</span> '.$presentation->modificationName.' '.($presentation->year ? $presentation->year : date("Y")).'
 				</h1>
 				<div class="page__flex-half">
 					<div class="page__flex-left">
@@ -164,7 +164,7 @@ $dompdf->loadHtml('
 									Год выпуска
 								</td>
 								<td>
-									'.($presentation->year ? $presentation->year : '-').'
+									'.($presentation->year ? $presentation->year : date("Y")).'
 								</td>
 							</tr>
 							<tr>
@@ -286,7 +286,8 @@ $dompdf->loadHtml('
 				<div class="page__model-images">
 					<div class="page__model-img" style="height: 220px; overflow: hidden; position: relative;">
 						<div class="page__model-img__inner" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0;">
-							<picture><img style="max-width: 200%; height: 220%; transform: translate(-20%, -25%);" src="img/filter/'.$model_name.'/wheels/type1/Interior/'.$presentation->interior_color.'/'.$presentation->body_color.'/1.jpg" alt="Tesla"></picture>
+							<picture><img style="max-width: 200%; height: 220%; transform: translate(-20%, -25%);" src="img/filter/'.$model_name.'/wheels/'
+							.$presentation->type.'/Interior/'.$presentation->interior_color.'/'.$presentation->body_color.'/1.jpg" alt="Tesla"></picture>
 						</div>
 					</div>
 					<div class="page__model-img" style="height: 220px; overflow: hidden; position: relative;">

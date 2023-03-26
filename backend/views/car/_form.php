@@ -131,7 +131,8 @@ $car_data = [
     'model_y' => [
         'fields' => [
             'modification' => [
-                'long_range' => 'Long Range', 
+                'long_range_rwd' => 'Long Range RWD',
+                'long_range_awd' => 'Long Range AWD', 
                 'performance' => 'Performance'
             ],
             'body_color' => [
