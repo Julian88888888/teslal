@@ -116,6 +116,14 @@ class PresentationController extends Controller
         return $this->redirect(['index']);
     }
 
+    public function actionPdf($id)
+    {
+        $this->layout = false;
+        $model = $this->findModel($id);
+
+        $this->redirect('/presentationview?id='.$id);
+    }
+
     /**
      * Finds the Presentation model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.

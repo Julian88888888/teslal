@@ -92,3 +92,7 @@ a.desc:after {
 .form-group {
     margin-bottom: 20px;
 }
+
+.pagination li {
+    margin-left: 3px;
+}

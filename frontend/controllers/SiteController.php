@@ -274,6 +274,20 @@ class SiteController extends Controller
         }
     }
 
+    public function actionPresentationview($id)
+    {
+        $presentation = Presentation::findOne(['id' => $id]);
+        
+        if($presentation) {
+            echo $this->render('presentation', [
+                'car' => $presentation,
+                'presentation' => $presentation
+            ]);
+        } else {
+            $this->redirect('/404');   
+        }
+    }
+
     public function actionGetcars()
     {
         $requestParams = \Yii::$app->getRequest()->getBodyParams(); // [1]
