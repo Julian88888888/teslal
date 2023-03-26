@@ -60,7 +60,184 @@ use yii\widgets\ActiveForm;
 <!-- optionally if you need translation for your language then include the locale file as mentioned below (replace LANG.js with your language locale) -->
 <script src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.0/js/locales/ru.js"></script>
 
+<?php
+$car_data = [
+    'model_s' => [
+        'fields' => [
+            'modification' => [
+                'long_range' => 'Long Range', 
+                'plaid' => 'Plaid'
+            ],
+            'body_color' => [
+                'white' => 'Белый', 
+                'black' => 'Черный', 
+                'silver' => 'Серый',  
+                'red' => 'Красный',
+                'blue' => 'Синий'
+            ],
+            'interior_color' => [ 
+                'black' => 'Черный', 
+                'white' => 'Белый', 
+                'cream' => 'Кремовый'
+            ],
+            'year' => [
+                '2016' => 2016,
+                '2017' => 2017,
+                '2018' => 2018,
+                '2019' => 2019,
+                '2020' => 2020,
+                '2021' => 2021,
+                '2022' => 2022,
+                '2023' => 2023
+            ],
+            'seats' => 'disabled'
+        ]
+    ],
+    'model_x' => [
+        'fields' => [
+            'modification' => [
+                'model_x' => 'Long Range', 
+                'plaid' => 'Plaid'
+            ],
+            'body_color' => [
+                'white' => 'Белый', 
+                'black' => 'Черный', 
+                'silver' => 'Серый',  
+                'red' => 'Красный',
+                'blue' => 'Синий'
+            ],
+            'interior_color' => [ 
+                'black' => 'Черный', 
+                'white' => 'Белый', 
+                'cream' => 'Кремовый'
+            ],
+            'year' => [
+                '2016' => 2016,
+                '2017' => 2017,
+                '2018' => 2018,
+                '2019' => 2019,
+                '2020' => 2020,
+                '2021' => 2021,
+                '2022' => 2022,
+                '2023' => 2023
+            ],
+            'seats' => [
+                5 => 5,
+                6 => 6,
+                7 => 7
+            ]
+        ]
+    ],
+    'model_y' => [
+        'fields' => [
+            'modification' => [
+                'long_range' => 'Long Range', 
+                'performance' => 'Performance'
+            ],
+            'body_color' => [
+                'white' => 'Белый', 
+                'black' => 'Черный', 
+                'silver' => 'Серый',  
+                'red' => 'Красный',
+                'blue' => 'Синий'
+            ],
+            'interior_color' => [ 
+                'black' => 'Черный', 
+                'white' => 'Белый', 
+            ],
+            'year' => [
+                '2020' => 2020,
+                '2021' => 2021,
+                '2022' => 2022,
+                '2023' => 2023
+            ],
+            'seats' => 'disabled'
+        ]
+    ],
+    'model_3' => [
+        'fields' => [
+            'modification' => [
+                'real_wheel_drive' => 'Rear-Wheel drive',
+                'long_range_awd' => 'Long Range AWD', 
+                'performance' => 'Performance'
+            ],
+            'body_color' => [
+                'white' => 'Белый', 
+                'black' => 'Черный', 
+                'silver' => 'Серый',  
+                'red' => 'Красный',
+                'blue' => 'Синий'
+            ],
+            'interior_color' => [ 
+                'black' => 'Черный', 
+                'white' => 'Белый', 
+            ],
+            'year' => [
+                '2017' => 2017,
+                '2018' => 2018,
+                '2019' => 2019,
+                '2020' => 2020,
+                '2021' => 2021,
+                '2022' => 2022,
+                '2023' => 2023
+            ],
+            'seats' => 'disabled'
+        ]
+    ],
+    'cybertruck' => [
+        'fields' => [
+            'modification' => [
+                'single_motor' => 'Single motor', 
+                'dual_motor' => 'Dual motor',
+                'tri_motor' => 'Tri motor',
+                'four_motor' => 'Four motor'
+            ],
+            'body_color' => [
+                'silver' => 'Серый',
+            ],
+            'interior_color' => [
+                'black' => 'Черный', 
+            ],
+            'year' => [
+                '2022' => 2022,
+                '2023' => 2023
+            ],
+            'drive' => [
+                'full' => 'Полный',
+                'backward' => 'Задний'
+            ],
+            'seats' => [6 => 6]
+        ]
+    ],
+    'roadster' => [
+        'fields' => [
+            'modification' => "disabled",
+            'body_color' => [
+                'red' => 'Красный',
+            ],
+            'interior_color' => [
+                'white' => 'Белый'
+            ],
+            'year' => [
+                '2022' => 2022,
+                '2023' => 2023
+            ],
+            'drive' => [
+                'full' => 'Полный',
+            ],
+            'seats' => [
+                2 => 2,
+                4 => 4
+            ]
+        ]
+    ]
+];
 
+$modification_vals = $model->model ? $car_data[$model->model]['fields']['modification'] : [];
+$year_vals = $model->model ? $car_data[$model->model]['fields']['year'] : [];
+$body_color_vals = $model->model ? $car_data[$model->model]['fields']['body_color'] : [];
+$interior_color_vals = $model->model ? $car_data[$model->model]['fields']['interior_color'] : [];
+?>
 
 
 
@@ -99,32 +276,24 @@ use yii\widgets\ActiveForm;
         'prompt' => '' 
     ]) ?>
 
-    <?= $form->field($model, 'modification')->dropDownList([
-        
-    ], [
+    <?= $form->field($model, 'modification')->dropDownList($modification_vals, [
         'class' => 'form-select', 
-        'disabled' => true,
+        'disabled' => empty($model->model),
     ]) ?>
 
-    <?= $form->field($model, 'body_color')->dropDownList([
-        
-    ], [
+    <?= $form->field($model, 'body_color')->dropDownList($body_color_vals, [
         'class' => 'form-select', 
-        'disabled' => true,
+        'disabled' => empty($model->model),
     ]) ?>
 
-    <?= $form->field($model, 'interior_color')->dropDownList([
-        
-    ], [
+    <?= $form->field($model, 'interior_color')->dropDownList($interior_color_vals, [
         'class' => 'form-select', 
-        'disabled' => true,
+        'disabled' => empty($model->model),
     ]) ?>
 
-    <?= $form->field($model, 'year')->dropDownList([
-        
-    ], [
+    <?= $form->field($model, 'year')->dropDownList($year_vals, [
         'class' => 'form-select', 
-        'disabled' => true,
+        'disabled' => empty($model->model),
     ]) ?>
 
 	
@@ -141,6 +310,10 @@ use yii\widgets\ActiveForm;
     
     <br>
 
+    <?= $form->field($model, 'price_nds_usd')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'price_nds_rub')->textInput(['maxlength' => true]) ?>
+
+    <br>
     <?= $form->field($model, 'leasing_usd')->textInput(['maxlength' => true]) ?>
     <?= $form->field($model, 'leasing_rub')->textInput(['maxlength' => true]) ?>
 
@@ -162,16 +335,16 @@ use yii\widgets\ActiveForm;
         'prompt'=>''
     ]) ?>
 
-    <?= $form->field($model, 'autopilot')->dropDownList([
+<!--     <?= $form->field($model, 'autopilot')->dropDownList([
         'basic' => 'Базовый',
         'advanced' => 'Продвинутый',
         'complete' => 'Полный'
     ], [
         'class' => 'form-select', 
         'disabled' => false,
-    ]) ?>
+    ]) ?> -->
 
-    <?= $form->field($model, 'drive')->dropDownList([
+<!--     <?= $form->field($model, 'drive')->dropDownList([
         'full' => 'Полный',
         'forward' => 'Передний',
         'backward' => 'Задний'
@@ -184,7 +357,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'max_speed')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'distance')->textInput(['maxlength' => true])->label('Запас хода (км)')  ?>
+    <?= $form->field($model, 'distance')->textInput(['maxlength' => true])->label('Запас хода (км)')  ?> -->
 
     <?= $form->field($model, 'milage')->textInput(['maxlength' => true])->label('Пробег (км)')  ?>
 
@@ -204,6 +377,7 @@ use yii\widgets\ActiveForm;
 
 
     <?php
+        Yii::$app->view->registerJs('var data = '. json_encode($car_data),  \yii\web\View::POS_HEAD);
         Yii::$app->view->registerJs('var usd_course = "'. $usd_course.'"',  \yii\web\View::POS_HEAD);
     ?>
 </div>
@@ -255,7 +429,7 @@ use yii\widgets\ActiveForm;
         }
     );
 
-// pavel
+
 $( document ).ready(function() {
 	$(".file-preview-image").each(function( i ) {
 		$( this ).attr("draggable", "false");
@@ -269,6 +443,6 @@ $( document ).ready(function() {
 		$("#car-images_sequence").val(car_images_sequence);
 	});
 });
-// << pavel
+
 
 </script>
