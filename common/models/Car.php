@@ -184,7 +184,8 @@ class Car extends \yii\db\ActiveRecord
 
     public function getCarImages()
     {
-        return $this->hasMany(CarImage::class, ['car_id' => 'id']);
+        return $this->hasMany(CarImage::class, ['car_id' => 'id'])->
+        orderBy(['sequence' => SORT_ASC]);
     }
 
     public function getParams()
