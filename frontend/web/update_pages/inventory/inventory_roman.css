@@ -62,4 +62,9 @@
 .inventory-burst-app.inventory-search.tds-header-alternate.tesla-header-alternate.using-mouse.tds-site-header--stuck.hidden {
   display: block;
 }
+
+.filter-checkbox.tds-checkbox input:checked + label {
+  -webkit-box-shadow: 0 0 0 3px var(--tds-color--grey70), 0 0 0 6px #007fff;
+  box-shadow: 0 0 0 3px var(--tds-color--grey70), 0 0 0 6px #007fff;
+}
 /*# sourceMappingURL=inventory_roman.css.map */
