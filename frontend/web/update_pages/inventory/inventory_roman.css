@@ -51,11 +51,20 @@
   height: auto;
 }
 
-.results-container--grid.results-container--has-results {
+.inventory-content-wrapper.tds-scrim--light {
   min-height: 100vh;
 }
 
 .headerNav__phone:hover .modal-phone {
   z-index: 50;
+}
+
+.inventory-burst-app.inventory-search.tds-header-alternate.tesla-header-alternate.using-mouse.tds-site-header--stuck.hidden {
+  display: block;
+}
+
+.filter-checkbox.tds-checkbox input:checked + label {
+  -webkit-box-shadow: 0 0 0 3px var(--tds-color--grey70), 0 0 0 6px #007fff;
+  box-shadow: 0 0 0 3px var(--tds-color--grey70), 0 0 0 6px #007fff;
 }
 /*# sourceMappingURL=inventory_roman.css.map */
