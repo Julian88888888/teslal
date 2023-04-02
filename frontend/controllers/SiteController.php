@@ -331,6 +331,10 @@ class SiteController extends Controller
 
         $cars = $cars->all();
         
+        if(empty($cars)) {
+            return '<p>Автомобилей не найдено.</p>';
+        }
+
         return $this->render('partials/catalogue', ['cars' => $cars]);
     }
 }
