@@ -65,11 +65,17 @@ $this->params['breadcrumbs'][] = $this->title;
                 'class' => 'yii\grid\ActionColumn',
                 'contentOptions' => [],
                 'header'=>'',
-                'template' => '{delete}',
-                'visibleButtons'=>[
+                'template' => '{delete} {getPresentation}',
+                'visibleButtons'=> [
                     'view'=> function($model){
                           return $model->status!=1;
                      },
+                     'getPresentation' => true
+                ],
+                'buttons' => [
+                    'getPresentation' => function($url, $model, $key) {     // render your custom button
+                        return '<a href="/admin/presentation/pdf?id='.$model->id.'" target="_blank">Презентация</a>';
+                    }
                 ]
             ],
         ],

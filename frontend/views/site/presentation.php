@@ -95,6 +95,90 @@ foreach ($presentation_data['options'] as $option) {
 	</tr>';
 }
 
+$image_pages = '';
+
+if($presentation->car_id) {
+	$images = $presentation->car->carImages;
+	if(count($images) > 0) {
+		$chunks = array_chunk($images, 2);
+		
+		foreach ($chunks as $chunk) {
+			$picture_tags = '';
+			foreach ($chunk as $picture) {
+				$picture_tags .=
+'<div class="page__model-img" style="height: 320px; overflow: hidden; position: relative;">
+	<div class="page__model-img__inner" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0;">
+		<img style="max-width: 100%; margin: 0; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);" src="uploads/'.$picture->filename.'" alt="Tesla">
+	</div>
+</div>';
+			}
+			$image_pages .= 
+'<html lang="ru">
+
+<head>
+	<title>Главная</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta name="format-detection" content="telephone=no">
+	<style>
+		@font-face {
+		  font-family: Montserrat;
+		  font-display: swap;
+		  src: url("pdf_static/fonts/Montserrat-Bold.ttf");
+		  font-weight: 700;
+		  font-style: normal;
+		}
+		@font-face {
+		  font-family: Montserrat;
+		  font-display: swap;
+		  src: url("pdf_static/fonts/Montserrat-Regular.ttf");
+		  font-weight: 400;
+		  font-style: normal;
+		}
+		html, body {
+			width: 595px !important;
+			height: 841px !important;
+			margin: 0 !important;
+			padding: 0 !important;
+		}
+	</style>
+	<link rel="stylesheet" href="pdf_static/css/style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+				<div class="header__logo">
+					<img src="pdf_static/img/logo.png" alt="Logo">
+				</div>
+				<div class="header__title" style="height: 1.7rem !important;">
+					<a href="atr.ru" class="header__link" style="line-height: 1rem !important;">
+						www.atr.ru
+					</a>
+				</div>
+			</div>
+		</header>
+		<main class="page">
+			<div class="page__container">
+				<h1 class="page__title title">
+					<span>Tesla '.$presentation->modelName.'</span> '.$presentation->modificationName.' '.($presentation->year ? $presentation->year : date("Y")).'
+				</h1>
+				<div class="page__model-images">
+					'.$picture_tags.'
+				</div>
+			</div>
+		</main>
+		'.$footer.'
+	</div>
+</body>
+
+</html>';
+		}
+	}
+}
+
+
 $dompdf->loadHtml('
 <!DOCTYPE html>
 <html lang="ru">
@@ -146,7 +230,7 @@ $dompdf->loadHtml('
 		<main class="page">
 			<div class="page__container">
 				<h1 class="page__title title">
-					<span>Tesla '.$presentation->modelName.'</span> '.$presentation->modificationName.' '.$presentation->year.'
+					<span>Tesla '.$presentation->modelName.'</span> '.$presentation->modificationName.' '.($presentation->year ? $presentation->year : date("Y")).'
 				</h1>
 				<div class="page__flex-half">
 					<div class="page__flex-left">
@@ -164,7 +248,7 @@ $dompdf->loadHtml('
 									Год выпуска
 								</td>
 								<td>
-									'.($presentation->year ? $presentation->year : '-').'
+									'.($presentation->year ? $presentation->year : date("Y")).'
 								</td>
 							</tr>
 							<tr>
@@ -286,7 +370,8 @@ $dompdf->loadHtml('
 				<div class="page__model-images">
 					<div class="page__model-img" style="height: 220px; overflow: hidden; position: relative;">
 						<div class="page__model-img__inner" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0;">
-							<picture><img style="max-width: 200%; height: 220%; transform: translate(-20%, -25%);" src="img/filter/'.$model_name.'/wheels/type1/Interior/'.$presentation->interior_color.'/'.$presentation->body_color.'/1.jpg" alt="Tesla"></picture>
+							<picture><img style="max-width: 200%; height: 220%; transform: translate(-20%, -25%);" src="img/filter/'.$model_name.'/wheels/'
+							.$presentation->type.'/Interior/'.$presentation->interior_color.'/'.$presentation->body_color.'/1.jpg" alt="Tesla"></picture>
 						</div>
 					</div>
 					<div class="page__model-img" style="height: 220px; overflow: hidden; position: relative;">
@@ -303,7 +388,7 @@ $dompdf->loadHtml('
 
 </html>
 
-
+'.$image_pages.'
 
 <html lang="ru">
 <head>

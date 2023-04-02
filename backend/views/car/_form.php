@@ -1,4 +1,5 @@
 <?php
+//var_dump($_GET); exit;
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
@@ -6,6 +7,7 @@ use yii\widgets\ActiveForm;
 /** @var yii\web\View $this */
 /** @var common\models\Car $model */
 /** @var yii\widgets\ActiveForm $form */
+
 ?>
 
 
@@ -57,7 +59,6 @@ use yii\widgets\ActiveForm;
  
 <!-- optionally if you need translation for your language then include the locale file as mentioned below (replace LANG.js with your language locale) -->
 <script src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.0/js/locales/ru.js"></script>
-
 
 <?php
 $car_data = [
@@ -130,7 +131,8 @@ $car_data = [
     'model_y' => [
         'fields' => [
             'modification' => [
-                'long_range' => 'Long Range', 
+                'long_range_rwd' => 'Long Range RWD',
+                'long_range_awd' => 'Long Range AWD', 
                 'performance' => 'Performance'
             ],
             'body_color' => [
@@ -238,9 +240,15 @@ $body_color_vals = $model->model ? $car_data[$model->model]['fields']['body_colo
 $interior_color_vals = $model->model ? $car_data[$model->model]['fields']['interior_color'] : [];
 ?>
 
+
+
 <div class="car-form">
 
     <?php $form = ActiveForm::begin(); ?>
+	
+	<!-- pavel -->
+	<?= $form->field($model, 'images_sequence')->hiddenInput(['value'=> ''])->label(false); ?>
+	<!-- <<<Б pavel -->
 
     <?= $form->field($model, 'condition')->dropDownList([
         'new' => 'Новая',
@@ -289,6 +297,7 @@ $interior_color_vals = $model->model ? $car_data[$model->model]['fields']['inter
         'disabled' => empty($model->model),
     ]) ?>
 
+	
     <hr>
     <h3>Цены</h3>
 
@@ -304,9 +313,8 @@ $interior_color_vals = $model->model ? $car_data[$model->model]['fields']['inter
 
     <?= $form->field($model, 'price_nds_usd')->textInput(['maxlength' => true]) ?>
     <?= $form->field($model, 'price_nds_rub')->textInput(['maxlength' => true]) ?>
-    
-    <br>
 
+    <br>
     <?= $form->field($model, 'leasing_usd')->textInput(['maxlength' => true]) ?>
     <?= $form->field($model, 'leasing_rub')->textInput(['maxlength' => true]) ?>
 
@@ -328,16 +336,16 @@ $interior_color_vals = $model->model ? $car_data[$model->model]['fields']['inter
         'prompt'=>''
     ]) ?>
 
-  <!--   <?= $form->field($model, 'autopilot')->dropDownList([
+<!--     <?= $form->field($model, 'autopilot')->dropDownList([
         'basic' => 'Базовый',
         'advanced' => 'Продвинутый',
         'complete' => 'Полный'
     ], [
         'class' => 'form-select', 
         'disabled' => false,
-    ]) ?>
+    ]) ?> -->
 
-    <?= $form->field($model, 'drive')->dropDownList([
+<!--     <?= $form->field($model, 'drive')->dropDownList([
         'full' => 'Полный',
         'forward' => 'Передний',
         'backward' => 'Задний'
@@ -350,8 +358,8 @@ $interior_color_vals = $model->model ? $car_data[$model->model]['fields']['inter
 
     <?= $form->field($model, 'max_speed')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'distance')->textInput(['maxlength' => true])->label('Запас хода (км)')  ?>
- -->
+    <?= $form->field($model, 'distance')->textInput(['maxlength' => true])->label('Запас хода (км)')  ?> -->
+
     <?= $form->field($model, 'milage')->textInput(['maxlength' => true])->label('Пробег (км)')  ?>
 
     <hr>
@@ -377,6 +385,7 @@ $interior_color_vals = $model->model ? $car_data[$model->model]['fields']['inter
 
 
 <script>
+
     $("#uploadform-image").fileinput(
         {
             // 'showUpload':false, 
@@ -411,7 +420,7 @@ $interior_color_vals = $model->model ? $car_data[$model->model]['fields']['inter
             },
             // deleteUrl: '/admin/car/delete-image',
             fileActionSettings: {
-                showDrag: false,
+                showDrag: true, // <<< pavel
                 // showDelete: false,
                 showZoom: false,
                 showRotate: false
@@ -420,4 +429,21 @@ $interior_color_vals = $model->model ? $car_data[$model->model]['fields']['inter
             showRemove: false
         }
     );
+
+
+$( document ).ready(function() {
+	$(".file-preview-image").each(function( i ) {
+		$( this ).attr("draggable", "false");
+	});
+
+	$(".btn-success").click(function(){ 
+		var car_images_sequence = "";
+		$(".file-preview-frame").each(function( i ) {
+			car_images_sequence = car_images_sequence + (car_images_sequence.length > 0 ? "," : "") + $( this ).attr("data-filename");
+		});
+		$("#car-images_sequence").val(car_images_sequence);
+	});
+});
+
+
 </script>

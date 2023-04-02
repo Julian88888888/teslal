@@ -91,6 +91,7 @@ class CarController extends Controller
      */
     public function actionView($id)
     {
+		//return $this->goHome();
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
@@ -152,11 +153,30 @@ class CarController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
+		$model = $this->findModel($id);
         $option = Options::findOne(['option_name' => 'usd_course']);
         $usd_course = $option->option_value;
         $upload = new UploadForm();
-        $images = CarImage::find()->where(['car_id' => $model->id])->all();
+        $images = CarImage::find()->where(['car_id' => $model->id])->orderBy(['sequence' => SORT_ASC, 'filename' => SORT_DESC,])->all();
+		
+		// pavel >>>>>
+		if ( $this->request->isPost ) {
+			//var_dump($images); exit;
+			$images_sequence_arr = explode(',', $_POST['Car']['images_sequence']);
+			$sequence = 0;
+			foreach ($images_sequence_arr as $sequence_file) {
+				foreach ($images as $image) {
+					if ($image->filename == $sequence_file) {
+						//echo "{$image->id}  : {$image->filename} = $sequence<br>";
+						$carImage = CarImage::findOne($image->id);
+						$carImage->sequence = $sequence;
+						$carImage->save();
+					}
+				}
+				$sequence++;
+			}
+		}
+		// <<<< pavel
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
             // $upload->image = UploadedFile::getInstances($upload, 'image');
@@ -210,7 +230,7 @@ class CarController extends Controller
 
     public function actionUploadImage($id) {
         
-        $upload = new UploadForm();
+		$upload = new UploadForm();
 
         $upload->image = UploadedFile::getInstances($upload, 'image');
 
@@ -219,45 +239,54 @@ class CarController extends Controller
             
             $pathinfo = pathinfo($file->name);
             
-            $filepath = str_replace('/admin', '', \Yii::getAlias('@webroot')) . '/uploads/' . $pathinfo['filename'].'.'.strtolower($pathinfo['extension']);
-            $filename = $pathinfo['filename'].'.'.strtolower($pathinfo['extension']);
-            $counter = 1;
+			// pavel >>>>
 
-            while(file_exists($filepath)) {
-                $filename = $pathinfo['filename'].'_'.$counter.'.'.strtolower($pathinfo['extension']);
-                $filepath = str_replace('/admin', '', \Yii::getAlias('@webroot')) . '/uploads/' . $filename;
-                $counter++;
-            }
-
-            $file->saveAs($filepath);
-            $image = new CarImage();
-
+			$image = new CarImage();
             $image->car_id = $id;
-            $image->filename = $filename;
+            $image->filename = '';
             $image->save();
+			
+			$image_id = $image->getPrimaryKey();
+			
+			$filename = $id."_".$image_id.".".$pathinfo['extension'];
+			$filepath = str_replace('/admin', '', \Yii::getAlias('@webroot')) . '/uploads/' . $filename;
+
+            //$filepath = str_replace('/admin', '', \Yii::getAlias('@webroot')) . '/uploads/' . $file->name;
+            //$filename = $file->name;
+            //$counter = 1;
+			
+			
+			// if a file with such name already uploaded then add number ($counter) to the name of file
+			
+            //while(file_exists($filepath)) {
+                //$filename = $pathinfo['filename'].'_'.$counter.'.'.$pathinfo['extension'];
+                //$filepath = str_replace('/admin', '', \Yii::getAlias('@webroot')) . '/uploads/' . $filename;
+                //$counter++;
+            //}
+			
+			
+            $file->saveAs($filepath);
+
+            //$image = new CarImage();
+            //$image->car_id = $id;
+            //$image->filename = $filename;
+            //$image->save();
+			
+			// <<< pavel
 
             try {
-                // $exif = exif_read_data($filepath);
-
                 $download_path = str_replace('/admin', '', \Yii::getAlias('@webroot')) . '/uploads/';
 
                 $iloveimg = new Iloveimg('project_public_1467f0dad8aebe6b67110802708d1a9a_cbO2a8a4334e6bc8cc44a18ea1b3d56f8353b','secret_key_838a431e68108298451c49d7b761091f_JidLp6fd3effad00fb76ce8b8d9d7efc27e31');
-
                 $myTask = $iloveimg->newTask('compress');
                 $file1 = $myTask->addFile($filepath);
                 $myTask->execute();
                 $myTask->download($download_path);
 
-
-                // if(in_array($exif['Orientation'], [3,6,8])) {
-                //     var_dump($filepath);die;
-                //     $myTask = $iloveimg->newTask('rotate');
-                //     $file1 = $myTask->addFile($filepath);
-                //     $myTask->execute();
-                //     $myTask->download($download_path);
-                // }
-
                 $image->is_compressed = 1;
+				// pavel >>>>
+				$image->filename = $filename;
+				// <<< pavel
                 $image->save();
             } catch (Exception $e) {  
             
@@ -273,7 +302,9 @@ class CarController extends Controller
             ];
         } else {
             $result = [
-                "error" => 'file is empty',
+				// pavel >>>>
+				"error" => '<b>this file '.(empty($upload->image) ? 'is empty' : (!$upload->validate() ? 'is not valid' : '')).'</b>. Errors: '.print_r($upload->getErrors(), true),
+				// <<< pavel
                 "errorkeys" => [], 
             ];            
         }

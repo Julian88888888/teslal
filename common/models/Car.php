@@ -127,6 +127,7 @@ class Car extends \yii\db\ActiveRecord
                 'real_wheel_drive' => 'Rear-Wheel drive',
                 'long_range' => 'Long Range',
                 'long_range_awd' => 'Long Range AWD', 
+                'long_range_rwd' => 'Long Range RWD', 
                 'performance' => 'Performance',
                 'single_motor' => 'Single motor', 
                 'dual_motor' => 'Dual motor',
@@ -183,7 +184,8 @@ class Car extends \yii\db\ActiveRecord
 
     public function getCarImages()
     {
-        return $this->hasMany(CarImage::class, ['car_id' => 'id']);
+        return $this->hasMany(CarImage::class, ['car_id' => 'id'])->
+        orderBy(['sequence' => SORT_ASC]);
     }
 
     public function getParams()
@@ -376,7 +378,18 @@ class Car extends \yii\db\ActiveRecord
                     'autopilot' => 'Есть'
                 ],
 
-                'long_range' => [
+                'long_range_awd' => [
+                    'drive' => 'Полный',
+                    'power' => '514',
+                    'spin' => '527',
+                    'max_speed' => '217',
+                    'acceleration' => '4.8',
+                    'distance' => '528',
+                    'battery' => '90',
+                    'autopilot' => 'Есть'
+                ],
+
+                'long_range_rwd' => [
                     'drive' => 'Полный',
                     'power' => '514',
                     'spin' => '527',
