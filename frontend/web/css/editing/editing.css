@@ -1,0 +1,7 @@
+.homePages__img img {
+  height: 100vh;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+}
+/*# sourceMappingURL=editing.css.map */

@@ -14,7 +14,7 @@
     <meta name="description" content="">
     <meta name="color-theme" content="">
     <link type="image/x-icon" rel="shortcut icon" href="/img/fav/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="/css/filter.min.css"><!--[if lt IE 9]>
+    <link rel="stylesheet" type="text/css" href="/css/filter.min.css?=3"><!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script><![endif]-->
   </head>
   <body class="model">
