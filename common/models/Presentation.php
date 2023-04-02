@@ -21,6 +21,7 @@ use yii\behaviors\TimestampBehavior;
  * @property string|null $price_nds_usd
  * @property string|null $cash_usd
  * @property string|null $leasing_usd
+ * @property string|null $condition
  * @property int|null $created_at
  * @property int|null $updated_at
  *
@@ -51,7 +52,7 @@ class Presentation extends Car // \yii\db\ActiveRecord
     {
         return [
             [['car_id', 'is_constructor', 'created_at', 'updated_at'], 'integer'],
-            [['model', 'modification', 'body_color', 'interior_color', 'disks', 'year', 'price_usd', 'price_nds_usd', 'cash_usd', 'leasing_usd', 'price_rub', 'price_nds_rub', 'cash_rub', 'leasing_rub'], 'string', 'max' => 255],
+            [['model', 'modification', 'body_color', 'interior_color', 'disks', 'year', 'price_usd', 'price_nds_usd', 'cash_usd', 'leasing_usd', 'price_rub', 'price_nds_rub', 'cash_rub', 'leasing_rub', 'condition'], 'string', 'max' => 255],
             [['car_id'], 'exist', 'skipOnError' => true, 'targetClass' => Car::class, 'targetAttribute' => ['car_id' => 'id']],
         ];
     }
@@ -79,6 +80,7 @@ class Presentation extends Car // \yii\db\ActiveRecord
             'price_nds_rub' => Yii::t('app', 'Price Nds Rub'),
             'cash_rub' => Yii::t('app', 'Cash Rub'),
             'leasing_rub' => Yii::t('app', 'Leasing Rub'),
+            'condition' => Yii::t('app', 'Condition'),
             'created_at' => Yii::t('app', 'Created At'),
             'updated_at' => Yii::t('app', 'Updated At'),
         ];
@@ -92,63 +94,5 @@ class Presentation extends Car // \yii\db\ActiveRecord
     public function getCar()
     {
         return $this->hasOne(Car::class, ['id' => 'car_id']);
-    }
-
-    public function getType() {
-        $types_map = [
-            'model_y' => [
-                'long_range_rwd' => [
-                    '19' => 'type1',
-                    '20' => 'type2'
-                ],
-                'long_range_awd' => [
-                    '19' => 'type1',
-                    '20' => 'type2'
-                ],
-                'performance' => [
-                    '21' => 'type3'
-                ],
-            ],
-
-            'model_3' => [
-                'long_range' => [
-                    '18' => 'type1',
-                    '19' => 'type2'
-                ],
-                'performance' => [
-                    '20' => 'type3'
-                ]
-            ],
-
-            'model_s' => [
-                'long_range' => [
-                    '19' => 'type1',
-                    '21' => 'type2'
-                ],
-                'plaid' => [
-                    '19' => 'type3',
-                    '21' => 'type4'
-                ]
-            ],
-
-            'model_x' => [
-                'long_range' => [
-                    '20' => 'type1',
-                    '22' => 'type2'
-                ],
-                'plaid' => [
-                    '20' => 'type3',
-                    '22' => 'type4'
-                ]
-            ]
-        ];
-
-        if($this->car_id) {
-            return 'type1';
-        } elseif($this->model == 'cybertruck' || $this->model == 'roadster') {
-            return '';
-        }
-
-        return $types_map[$this->model][$this->modification][$this->disks];
     }
 }

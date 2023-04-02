@@ -95,6 +95,21 @@ foreach ($presentation_data['options'] as $option) {
 	</tr>';
 }
 
+$milage = '';
+$options_margin = '8';
+if($presentation->condition && $presentation->condition != 'new') {
+	$milage = '<tr>
+		<td class="table__bold">
+			Пробег
+		</td>
+		<td>
+			'.number_format($presentation->milage, 0, '.', ' ').' км
+		</td>
+	</tr>';
+
+	$options_margin = '9.5';
+}
+
 $image_pages = '';
 
 if($presentation->car_id) {
@@ -315,13 +330,22 @@ $dompdf->loadHtml('
 									'.$presentation_data['autopilot'].'
 								</td>
 							</tr>
+							<tr>
+								<td class="table__bold">
+									Состояние
+								</td>
+								<td>
+									'.($presentation->condition ? mb_strtoupper(mb_substr($presentation->conditionName, 0, 1)).mb_substr($presentation->conditionName, 1) : 'Новая').'
+								</td>
+							</tr>
+							'.$milage.'
 						</table>
 					</div>
 					<div class="page__flex-right page__flex-right--fdc">
 						<table class="page__table table">
 							'.$pricing.'
 						</table>
-						<div class="page__options" style="position: absolute; top: 6.5rem;">
+						<div class="page__options" style="position: absolute; top: '.$options_margin.'rem;">
 							<p class="page__options-title title">
 								<span>Выбранные опции</span>
 							</p>
@@ -368,13 +392,13 @@ $dompdf->loadHtml('
 					</div>
 				</div>
 				<div class="page__model-images">
-					<div class="page__model-img" style="height: 220px; overflow: hidden; position: relative;">
+					<div class="page__model-img" style="height: 210px; overflow: hidden; position: relative; margin-top: 0;">
 						<div class="page__model-img__inner" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0;">
 							<picture><img style="max-width: 200%; height: 220%; transform: translate(-20%, -25%);" src="img/filter/'.$model_name.'/wheels/'
 							.$presentation->type.'/Interior/'.$presentation->interior_color.'/'.$presentation->body_color.'/1.jpg" alt="Tesla"></picture>
 						</div>
 					</div>
-					<div class="page__model-img" style="height: 220px; overflow: hidden; position: relative;">
+					<div class="page__model-img" style="height: 210px; overflow: hidden; position: relative; margin-top: 0;">
 						<div class="page__model-img__inner" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0;">
 							<picture><img style="width: 100%; position: static; object-fit: fit;" src="img/filter/'.$model_name.'/Interior/'.$presentation->interior_color.'/'.$presentation->body_color.'/5.jpg" alt="Inside"></picture>
 						</div>

@@ -527,4 +527,62 @@ class Car extends \yii\db\ActiveRecord
 
         return $data;
     }
+
+    public function getType() {
+        $types_map = [
+            'model_y' => [
+                'long_range_rwd' => [
+                    '19' => 'type1',
+                    '20' => 'type2'
+                ],
+                'long_range_awd' => [
+                    '19' => 'type1',
+                    '20' => 'type2'
+                ],
+                'performance' => [
+                    '21' => 'type3'
+                ],
+            ],
+
+            'model_3' => [
+                'long_range' => [
+                    '18' => 'type1',
+                    '19' => 'type2'
+                ],
+                'performance' => [
+                    '20' => 'type3'
+                ]
+            ],
+
+            'model_s' => [
+                'long_range' => [
+                    '19' => 'type1',
+                    '21' => 'type2'
+                ],
+                'plaid' => [
+                    '19' => 'type3',
+                    '21' => 'type4'
+                ]
+            ],
+
+            'model_x' => [
+                'long_range' => [
+                    '20' => 'type1',
+                    '22' => 'type2'
+                ],
+                'plaid' => [
+                    '20' => 'type3',
+                    '22' => 'type4'
+                ]
+            ]
+        ];
+
+        // if($this->car_id) {
+        //     return 'type1';
+        // } elseif($this->model == 'cybertruck' || $this->model == 'roadster') {
+        //     return '';
+        // }
+
+        return $types_map[$this->model][$this->modification][$this->disks];
+    }
 }

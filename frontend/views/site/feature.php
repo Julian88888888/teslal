@@ -33,7 +33,7 @@
               <div class="swiper swiperModel">
                 <div class="swiper-wrapper swiperModel__inner">
                   <?php for($i=1; $i<=4; $i++): ?>
-                    <div class="swiper-slide swiperModel__slide"><img src="/img/filter/<?= $model_name ?>/wheels/type1/Interior/<?= $car->interior_color ?>/<?= $car->body_color ?>/<?= $i ?>.jpg" alt="Slide"></div>
+                    <div class="swiper-slide swiperModel__slide"><img src="/img/filter/<?= $model_name ?>/wheels/<?= $car->getType() ?>/Interior/<?= $car->interior_color ?>/<?= $car->body_color ?>/<?= $i ?>.jpg" alt="Slide"></div>
                   <?php endfor; ?>
                   <div class="swiper-slide swiperModel__slide"><img src="/img/filter/<?= $model_name ?>/Interior/<?= $car->interior_color ?>/<?= $car->body_color ?>/5.jpg" alt="Slide"></div>
 
@@ -198,7 +198,7 @@
                 <div class="modelDetail__caption"><img src="/img/filter/model-3/wheels/type1/Interior/black/white/4.jpg" alt="Slide"></div>
                 <div class="modelDetail__title">Диски</div>
                 <div class="modelDetail__type">
-                  <div class="modelDetail__img"><img src="/img/model/wheels/model3/wheels.png" alt="20”"></div><span><?= $car->disks ?>”</span>
+                  <div class="modelDetail__img"><img src="/img/filter/filter/wheels/<?= $car->model ?>/<?= $car->getType() ?>/wheel.png" alt="20”"></div><span><?= $car->disks ?>”</span>
                 </div>
               </div>
               <div class="modelMobile">

@@ -234,6 +234,8 @@ class CarController extends Controller
 
         $upload->image = UploadedFile::getInstances($upload, 'image');
 
+        // var_dump(UploadedFile::getInstances($upload, 'image'));die;
+
         if(!empty($upload->image) && $upload->validate()) {
             $file = $upload->image[0];
             
@@ -248,7 +250,7 @@ class CarController extends Controller
 			
 			$image_id = $image->getPrimaryKey();
 			
-			$filename = $id."_".$image_id.".".$pathinfo['extension'];
+			$filename = $id."_".$image_id.".".strtolower($pathinfo['extension']);
 			$filepath = str_replace('/admin', '', \Yii::getAlias('@webroot')) . '/uploads/' . $filename;
 
             //$filepath = str_replace('/admin', '', \Yii::getAlias('@webroot')) . '/uploads/' . $file->name;
@@ -297,7 +299,7 @@ class CarController extends Controller
                 "errorkeys" => [],
                 "filenames" => [$image->filename],
                 "initialPreview" => ["<img src='/uploads/".$image->filename."' class='file-preview-image'>"],
-                "initialPreviewConfig" => [["key" => $image->id, "url" => "/admin/car/delete-image?id=".$image->id, "caption" => $image->filename]],
+                "initialPreviewConfig" => [["key" => $image->id, "url" => "/admin/car/delete-image?id=".$image->id, "caption" => $image->filename, 'extra' => ['id' => $image->id]]],
                 "append" => true 
             ];
         } else {

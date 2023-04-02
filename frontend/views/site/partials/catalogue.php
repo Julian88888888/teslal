@@ -187,8 +187,8 @@
             </div>
             <div class="result-features__item">
                 <div class="result-features__item_text">Диски</div>
-                <div class="result-features__item_icon"><img src="img/filter/filter/wheels/tempest.png" alt="Диски"></div>
-                <div class="result-features__item_text">20”</div>
+                <div class="result-features__item_icon"><img src="/img/filter/filter/wheels/<?= $car['model'] ?>/<?= $car->getType() ?>/wheel.png" alt="Диски"></div>
+                <div class="result-features__item_text"><?= $car['disks'] ?>”</div>
             </div>
         </div>
     </section>

@@ -51,6 +51,9 @@ use yii\widgets\ActiveForm;
     dialog. bootstrap 5.x or 4.x is supported. You can also use the bootstrap js 3.3.x versions. -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
  
+<!-- hack for fileinput bug -->
+<script type="text/javascript">var altId = null;</script>
+
 <!-- the main fileinput plugin script JS file -->
 <script src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.0/js/fileinput.min.js"></script>
  
@@ -416,6 +419,7 @@ $interior_color_vals = $model->model ? $car_data[$model->model]['fields']['inter
             ],
             overwriteInitial: false,
             uploadUrl: '/admin/car/upload-image?id=<?= $model->id ?>',
+            maxAjaxThreads: 3,
             uploadExtraData: {
             },
             // deleteUrl: '/admin/car/delete-image',

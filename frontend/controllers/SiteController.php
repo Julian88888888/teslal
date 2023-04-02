@@ -233,6 +233,8 @@ class SiteController extends Controller
             $presentation->interior_color = $car->interior_color;
             $presentation->disks = $car->disks;
             $presentation->year = $car->year;
+            $presentation->condition = $car->condition;
+            $presentation->milage = $car->milage;
 
             $presentation->price_usd = $car->price_usd;
             $presentation->price_nds_usd = $car->price_nds_usd;
