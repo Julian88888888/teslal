@@ -35,7 +35,7 @@
                   <?php for($i=1; $i<=4; $i++): ?>
                     <div class="swiper-slide swiperModel__slide"><img src="/img/filter/<?= $model_name ?>/wheels/<?= $car->getType() ?>/Interior/<?= $car->interior_color ?>/<?= $car->body_color ?>/<?= $i ?>.jpg" alt="Slide"></div>
                   <?php endfor; ?>
-                  <div class="swiper-slide swiperModel__slide"><img src="/img/filter/<?= $model_name ?>/Interior/<?= $car->interior_color ?>/<?= $car->body_color ?>/5.jpg" alt="Slide"></div>
+                  <div class="swiper-slide swiperModel__slide"><img src="/img/filter/<?= $model_name ?>/Interior/<?= $car->modification ?>/<?= $car->interior_color ?>/<?= $car->body_color ?>/5.jpg" alt="Slide"></div>
 
                 </div>
                 <div class="swiperDetails__arrows">
@@ -55,9 +55,9 @@
               <div class="thumbSwiper">
                 <div class="thumbSwiper__inner">
                   <?php for($i=1; $i<=4; $i++): ?>
-                    <div class="thumbSwiper__item"><img src="/img/filter/<?= $model_name ?>/wheels/type1/Interior/<?= $car->interior_color ?>/<?= $car->body_color ?>/<?= $i ?>.jpg" alt="Slide"></div>
+                    <div class="thumbSwiper__item"><img src="/img/filter/<?= $model_name ?>/wheels/<?= $car->getType() ?>/Interior/<?= $car->interior_color ?>/<?= $car->body_color ?>/<?= $i ?>.jpg" alt="Slide"></div>
                   <?php endfor; ?>
-                  <div class="thumbSwiper__item"><img src="/img/filter/<?= $model_name ?>/Interior/<?= $car->interior_color ?>/<?= $car->body_color ?>/5.jpg" alt="Slide"></div>
+                  <div class="thumbSwiper__item"><img src="/img/filter/<?= $model_name ?>/Interior/<?= $car->modification ?>/<?= $car->interior_color ?>/<?= $car->body_color ?>/5.jpg" alt="Slide"></div>
                 </div>
               </div>
               <div class="openGallery" open-modal-gallery>
@@ -188,21 +188,21 @@
                 </div>
               </div>
               <div class="modelDetail" data-model="interior">
-                <div class="modelDetail__caption"><img src="/img/filter/filter/Interior/<?= $car->interior_color ?>.png" alt="Slide"></div>
+                <!-- <div class="modelDetail__caption"><img src="/img/filter/filter/Interior/<?= $car->interior_color ?>.png" alt="Slide"></div> -->
                 <div class="modelDetail__title">Интерьер</div>
                 <div class="modelDetail__type">
                   <div class="modelDetail__img"><img src="/img/filter/filter/Interior/<?= $car->interior_color ?>.png" alt="Черный"></div><span><?= $car->interiorColorName ?></span>
                 </div>
               </div>
               <div class="modelDetail" data-model="wheels">
-                <div class="modelDetail__caption"><img src="/img/filter/model-3/wheels/type1/Interior/black/white/4.jpg" alt="Slide"></div>
+                <div class="modelDetail__caption"><img src="/img/filter/<?= $model_name ?>/wheels/<?= $car->getType() ?>/Interior/<?= $car->interior_color ?>/<?= $car->body_color ?>/4.jpg" alt="Slide"></div>
                 <div class="modelDetail__title">Диски</div>
                 <div class="modelDetail__type">
                   <div class="modelDetail__img"><img src="/img/filter/filter/wheels/<?= $car->model ?>/<?= $car->getType() ?>/wheel.png" alt="20”"></div><span><?= $car->disks ?>”</span>
                 </div>
               </div>
               <div class="modelMobile">
-                <div class="modelMobile__caption"><img src="/img/filter/model-3/wheels/type1/Interior/black/white/1.jpg" alt="Slide"></div>
+                <div class="modelMobile__caption"><img src="/img/filter/<?= $model_name ?>/wheels/<?= $car->getType() ?>/Interior/<?= $car->interior_color ?>/<?= $car->body_color ?>/1.jpg" alt="Slide"></div>
               </div>
               <div class="modelForm" data-model="form">
                 <div class="modelForm__title">Заинтересовал автомобиль?</div>

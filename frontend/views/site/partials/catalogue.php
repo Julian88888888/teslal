@@ -1,5 +1,6 @@
 <?php foreach($cars as $car): 
     $car_data = $car->params;
+    $model_name = str_replace('_', '-',$car->model);
 ?>
 
 <article class="result card">
@@ -23,36 +24,29 @@
         <div class="result-photos-main">
             <ul class="result-photos-slides">
                 <?php 
-                    $files = [];
-                    $path = './../web/img/katalog/'.$car['model'].'/body/'.$car['body_color'].'/';
-                    $img_path = '/img/katalog/'.$car['model'].'/body/'.$car['body_color'].'/';
-                    $total_body_photos = 0;
-
-                    if(is_dir($path)) {
-                        $files_body = array_diff(scandir($path), array('.', '..'));
-                        if(!empty($files_body)) {
-                            foreach ($files_body as $fbody) {
-                                $files[] = $img_path.$fbody;
-                            }
-                        }
-
-                        $total_body_photos = count($files_body);
-                    }
-
-                    $path = './../web/img/katalog/'.$car['model'].'/interior/'.$car['interior_color'].'/';
-                    $img_path = '/img/katalog/'.$car['model'].'/interior/'.$car['interior_color'].'/';
-                    if(is_dir($path)) {
-                        $files_interior = array_diff(scandir($path), array('.', '..'));
-                        if(!empty($files_body)) {
-                            foreach ($files_interior as $fint) {
-                                $files[] = $img_path.$fint;
-                            }
-                        }                                        ;
-                    }
-                    
-                    $i = 1;
-                    foreach($files as $file):
+                    $total_body_photos = 5;
                 ?>
+                <?php for($i=1; $i<=4; $i++): ?>
+                    <li class="result-photos-slide idp--js-carousel_slide photo-<?= $i ?> result-photos-slide <?= $i == 1 ? 'result-photos-slide--active' : '' ?>" style="transition: all 300ms ease 0s; transform: translateX(0%);">
+                        <div class="result-image-container model-m3 view-frontView">
+                            <div class="fallback-image-container">
+                                <img
+                                    src="data:image/jpeg;base64,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"
+                                    class="result-image tiny fallback"
+                                    alt="Used Inventory Front View of Model 3 Standard Range Plus Rear-Wheel Drive Edition"
+                                />
+                            </div>
+                            <div class="LazyLoad is-visible lazy-load-container">
+                                <img
+                                    src="/img/filter/<?= $model_name ?>/wheels/<?= $car->getType() ?>/Interior/<?= $car->interior_color ?>/<?= $car->body_color ?>/<?= $i ?>.jpg"
+                                    class="result-image full <?= $i <= $total_body_photos ? 'image-full' : '' ?>"
+                                    alt="Used Inventory Front View of Model 3 Standard Range Plus Rear-Wheel Drive Edition"
+                                />
+                            </div>
+                        </div>
+                    </li>
+                <?php endfor; ?>
+
                 <li class="result-photos-slide idp--js-carousel_slide photo-<?= $i ?> result-photos-slide <?= $i == 1 ? 'result-photos-slide--active' : '' ?>" style="transition: all 300ms ease 0s; transform: translateX(0%);">
                     <div class="result-image-container model-m3 view-frontView">
                         <div class="fallback-image-container">
@@ -64,16 +58,17 @@
                         </div>
                         <div class="LazyLoad is-visible lazy-load-container">
                             <img
-                                src="<?= $file ?>"
-                                class="result-image full <?= $i <= $total_body_photos ? 'image-full' : '' ?>"
+                                src="/img/filter/<?= $model_name ?>/Interior/<?= $car->modification ?>/<?= $car->interior_color ?>/<?= $car->body_color ?>/5.jpg"
+                                class="result-image full <?= 5 <= $total_body_photos ? 'image-full' : '' ?>"
                                 alt="Used Inventory Front View of Model 3 Standard Range Plus Rear-Wheel Drive Edition"
                             />
                         </div>
                     </div>
                 </li>
+
+                
                 <?php
                     $i++; 
-                    endforeach;
                 ?>
                 <?php 
                     if(!empty($car->carImages)): 

@@ -381,7 +381,7 @@ $dompdf->loadHtml('
 										Диски
 									</p>
 									<div class="page__options-img">
-										<picture><source srcset="pdf_static/img/options/wheel.webp" type="image/webp"><img src="pdf_static/img/options/wheel.png" alt="Black"></picture>
+										<picture><source srcset="mg/filter/filter/wheels/'. $presentation->model .'/'. $presentation->getType() .'/wheel.png type="image/webp"><img src="img/filter/filter/wheels/'. $presentation->model .'/'. $presentation->getType() .'/wheel.png" alt="Black"></picture>
 									</div>
 									<p>
 										'.$presentation->disks.'”
@@ -400,7 +400,7 @@ $dompdf->loadHtml('
 					</div>
 					<div class="page__model-img" style="height: 210px; overflow: hidden; position: relative; margin-top: 0;">
 						<div class="page__model-img__inner" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0;">
-							<picture><img style="width: 100%; position: static; object-fit: fit;" src="img/filter/'.$model_name.'/Interior/'.$presentation->interior_color.'/'.$presentation->body_color.'/5.jpg" alt="Inside"></picture>
+							<picture><img style="width: 100%; " src="img/filter/'.$model_name.'/Interior/'.$presentation->modification.'/'.$presentation->interior_color.'/'.$presentation->body_color.'/5.jpg" alt="Inside"></picture>
 						</div>
 					</div>
 				</div>
