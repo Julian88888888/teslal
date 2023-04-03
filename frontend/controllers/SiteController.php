@@ -220,6 +220,19 @@ class SiteController extends Controller
         }
     }
 
+    public function actionMorephotos()
+    {
+        $result = Yii::$app->mailer->compose()
+        ->setFrom('info@autotrader.ru')
+        ->setTo('info@autotrader.ru')
+        ->setSubject('Тест отправки лида с сайта')
+        ->setTextBody('Plain text content')
+        ->setHtmlBody('<b>HTML content</b>')
+        ->send();
+
+        var_dump($result);
+    }
+
     public function actionPresentation($id)
     {
         $car = Car::findOne($id);
