@@ -207,12 +207,12 @@
               <div class="modelForm" data-model="form">
                 <div class="modelForm__title">Заинтересовал автомобиль?</div>
                 <div class="modelForm__text">Получите дополнительные фото и видео данного автомобиля</div>
-                <form class="modelForm__form" action="/">
-                  <input class="modelForm__input" type="text" name="name" aria-label="name" placeholder="Имя">
-                  <input class="modelForm__input" type="tel" name="phone" aria-label="phone" placeholder="+7 999 999 99 99">
-                  <input class="modelForm__input" type="text" name="email" aria-label="email" placeholder="e-mail">
+                <form class="modelForm__form" action="/morephotos?id=<?= $car->id ?>" id="lead-form">
+                  <input class="modelForm__input" type="text" name="name" aria-label="name" required placeholder="Имя">
+                  <input class="modelForm__input" type="tel" name="phone" aria-label="phone" required placeholder="+7 999 999 99 99">
+                  <input class="modelForm__input" type="email" name="email" aria-label="email" required placeholder="e-mail">
                   <div class="modelForm__check"> 
-                    <input type="checkbox" checked name="check" id="checkModel">
+                    <input type="checkbox" checked name="check" required id="checkModel">
                     <label for="checkModel">
                       <svg class="svg-sprite-icon  icon-check modelForm__check-icon">
                         <use xlink:href="/img/svg/sprite.svg#check"></use>
@@ -220,11 +220,12 @@
                     </label>
                   </div>
                   <button class="modelForm__btn" type="submit">Хочу ещё фото</button>
+                  <input type="hidden" name="<?= Yii::$app->request->csrfParam; ?>" value="<?= Yii::$app->request->csrfToken; ?>" />
                 </form>
-                <div class="socials"><a class="socials__item whatsapp" href="#">
+                <div class="socials"><a class="socials__item whatsapp" href="https://api.whatsapp.com/send/?phone=79054280000&amp;type=phone_number&amp;app_absent=0" target="_blank">
                     <svg class="svg-sprite-icon  icon-whatsapp socials__icon">
                       <use xlink:href="/img/svg/sprite.svg#whatsapp"></use>
-                    </svg><span>WhatsApp</span></a><a class="socials__item telegram" href="#">
+                    </svg><span>WhatsApp</span></a><a class="socials__item telegram" href="https://t.me/Khatskevich7" target="_blank">
                     <svg class="svg-sprite-icon  icon-telegram socials__icon">
                       <use xlink:href="/img/svg/sprite.svg#telegram"></use>
                     </svg><span>Telegram</span></a></div>
@@ -271,5 +272,8 @@
     <div class="overlay"></div>
     <script src="/js/libs.min.js"></script>
     <script src="/js/feature.js"></script>
+
+    <script type="text/javascript" src="/js/jquery-3.6.4.min.js"></script>
+    <script type="text/javascript" src="/js/leadform.js"></script>
   </body>
 </html>

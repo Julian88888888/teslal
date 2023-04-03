@@ -220,17 +220,34 @@ class SiteController extends Controller
         }
     }
 
-    public function actionMorephotos()
+    public function actionMorephotos($id)
     {
-        $result = Yii::$app->mailer->compose()
-        ->setFrom('info@autotrader.ru')
-        ->setTo('info@autotrader.ru')
-        ->setSubject('Тест отправки лида с сайта')
-        ->setTextBody('Plain text content')
-        ->setHtmlBody('<b>HTML content</b>')
-        ->send();
+        $car = Car::findOne($id);
 
-        var_dump($result);
+        $model = new LeadForm();
+
+        if($car && $model->load(Yii::$app->request->post(), '') && $model->validate()) {
+            $content = "Новая заявка с сайта. \r\n
+                ID авто: ".$car->id.", ".$car->modelName." ".$car->modificationName.", корпус ".$car->bodyColorName.", салон ".$car->interiorColorName."\r\n
+                Данные формы: имя - ".$model->name.", email - ".$model->email.", телефон - ".$model->phone;
+
+            $result = Yii::$app->mailer->compose()
+            ->setFrom('info@autotrader.ru')
+            ->setTo('info@autotrader.ru')
+            ->setSubject('Новая заявка "Хочу ещё фото"')
+            ->setTextBody($content)
+            // ->setHtmlBody('<b>HTML content</b>')
+            ->send();
+
+            if($result) {
+                Yii::$app->response->statusCode = 200;
+                echo json_encode(['success' => true, 'error' => '']);
+                die;
+            }
+        }
+
+        Yii::$app->response->statusCode = 400;
+        echo json_encode(['success' => false, 'error' => 'Bad Request']);
     }
 
     public function actionPresentation($id)

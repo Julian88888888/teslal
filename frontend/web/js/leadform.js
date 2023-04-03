@@ -8,13 +8,16 @@ $("#lead-form").submit(function (event) {
 
     $.ajax({
 		type: "POST",
-		url: "/lead",
+		url: $('#lead-form').attr('action'),
 		data: formData,
 		dataType: "json",
 		encode: true,
     }).done(function (data) {
-    	$('#lead-form')[0].reset();
+    	
     });
+
+    $('#lead-form button[type=submit]').text('Заявка отправлена!')
+    $('#lead-form')[0].reset();
 
     event.preventDefault();
 });
