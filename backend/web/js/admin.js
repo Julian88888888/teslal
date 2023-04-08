@@ -46,12 +46,11 @@ $('#car-leasing_usd').on('change', function() {
 function updateSelect(model_val) {
 	$.each(data[model_val]['fields'], function(key, val) {
 		var opts = '';
-		
 		if(data[model_val]['fields'][key] == "disabled") {
 			$('select#car-'+key).html('');
 			$('select#car-'+key).val('');
 			$('select#car-'+key).attr('disabled', true);
-		} else {			
+		} else {	
 			$.each(data[model_val]['fields'][key], function(key, val) {
 				opts += '<option value="'+key+'">'+val+'</option>';
 			});

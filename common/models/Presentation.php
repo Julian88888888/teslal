@@ -51,7 +51,7 @@ class Presentation extends Car // \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['car_id', 'is_constructor', 'created_at', 'updated_at'], 'integer'],
+            [['car_id', 'is_constructor', 'is_custom_handlebar', 'created_at', 'updated_at'], 'integer'],
             [['model', 'modification', 'body_color', 'interior_color', 'disks', 'year', 'price_usd', 'price_nds_usd', 'cash_usd', 'leasing_usd', 'price_rub', 'price_nds_rub', 'cash_rub', 'leasing_rub', 'condition'], 'string', 'max' => 255],
             [['car_id'], 'exist', 'skipOnError' => true, 'targetClass' => Car::class, 'targetAttribute' => ['car_id' => 'id']],
         ];
@@ -66,6 +66,7 @@ class Presentation extends Car // \yii\db\ActiveRecord
             'id' => Yii::t('app', 'ID'),
             'car_id' => Yii::t('app', 'Car ID'),
             'is_constructor' => Yii::t('app', 'Is Constructor'),
+            'is_custom_handlebar' => Yii::t('app', 'Is Custom Handlebar'),
             'model' => Yii::t('app', 'Model'),
             'modification' => Yii::t('app', 'Modification'),
             'body_color' => Yii::t('app', 'Body Color'),

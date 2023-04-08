@@ -110,6 +110,17 @@ if($presentation->condition && $presentation->condition != 'new') {
 	$options_margin = '9.5';
 }
 
+$interior_img = '';
+if(in_array($presentation->model, ['model_s', 'model_x']) && $presentation->is_custom_handlebar) {
+	if($presentation->modification == 'plaid') {
+		$interior_img = 'img/filter/'.$model_name.'/handlebar/type4/Interior/'.$presentation->interior_color.'/'.$presentation->body_color.'/1.jpg';
+	} else {
+		$interior_img = 'img/filter/'.$model_name.'/handlebar/type2/Interior/'.$presentation->interior_color.'/'.$presentation->body_color.'/1.jpg';
+	}
+} else {
+	$interior_img = 'img/filter/'.$model_name.'/Interior/'.$presentation->modification.'/'.$presentation->interior_color.'/'.$presentation->body_color.'/5.jpg';
+}
+
 $image_pages = '';
 
 if($presentation->car_id) {
@@ -400,7 +411,7 @@ $dompdf->loadHtml('
 					</div>
 					<div class="page__model-img" style="height: 210px; overflow: hidden; position: relative; margin-top: 0;">
 						<div class="page__model-img__inner" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0;">
-							<picture><img style="width: 100%; " src="img/filter/'.$model_name.'/Interior/'.$presentation->modification.'/'.$presentation->interior_color.'/'.$presentation->body_color.'/5.jpg" alt="Inside"></picture>
+							<picture><img style="width: 100%; " src="'.$interior_img.'" alt="Inside"></picture>
 						</div>
 					</div>
 				</div>

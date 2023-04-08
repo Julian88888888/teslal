@@ -83,6 +83,10 @@ $car_data = [
                 'white' => 'Белый', 
                 'cream' => 'Кремовый'
             ],
+            'is_custom_handlebar' => [ 
+                0 => 'Колесо', 
+                1 => 'Штурвал',
+            ],
             'year' => [
                 '2016' => 2016,
                 '2017' => 2017,
@@ -113,6 +117,10 @@ $car_data = [
                 'black' => 'Черный', 
                 'white' => 'Белый', 
                 'cream' => 'Кремовый'
+            ],
+            'is_custom_handlebar' => [ 
+                0 => 'Колесо', 
+                1 => 'Штурвал',
             ],
             'year' => [
                 '2016' => 2016,
@@ -149,6 +157,9 @@ $car_data = [
                 'black' => 'Черный', 
                 'white' => 'Белый', 
             ],
+            'is_custom_handlebar' => [ 
+                0 => 'Колесо', 
+            ],
             'year' => [
                 '2020' => 2020,
                 '2021' => 2021,
@@ -175,6 +186,9 @@ $car_data = [
             'interior_color' => [ 
                 'black' => 'Черный', 
                 'white' => 'Белый', 
+            ],
+            'is_custom_handlebar' => [ 
+                0 => 'Колесо',
             ],
             'year' => [
                 '2017' => 2017,
@@ -210,7 +224,10 @@ $car_data = [
                 'full' => 'Полный',
                 'backward' => 'Задний'
             ],
-            'seats' => [6 => 6]
+            'seats' => [6 => 6],
+            'is_custom_handlebar' => [ 
+                0 => 'Колесо', 
+            ],
         ]
     ],
     'roadster' => [
@@ -232,7 +249,10 @@ $car_data = [
             'seats' => [
                 2 => 2,
                 4 => 4
-            ]
+            ],
+            'is_custom_handlebar' => [ 
+                0 => 'Колесо', 
+            ],
         ]
     ]
 ];
@@ -241,6 +261,7 @@ $modification_vals = $model->model ? $car_data[$model->model]['fields']['modific
 $year_vals = $model->model ? $car_data[$model->model]['fields']['year'] : [];
 $body_color_vals = $model->model ? $car_data[$model->model]['fields']['body_color'] : [];
 $interior_color_vals = $model->model ? $car_data[$model->model]['fields']['interior_color'] : [];
+$handlebar_vals = $model->model ? $car_data[$model->model]['fields']['is_custom_handlebar'] : [];
 ?>
 
 
@@ -300,7 +321,10 @@ $interior_color_vals = $model->model ? $car_data[$model->model]['fields']['inter
         'disabled' => empty($model->model),
     ]) ?>
 
-	
+    <?= $form->field($model, 'is_custom_handlebar')->dropDownList($handlebar_vals, [
+        'class' => 'form-select',
+    ]) ?>
+
     <hr>
     <h3>Цены</h3>
 

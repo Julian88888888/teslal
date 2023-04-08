@@ -2,6 +2,16 @@
   $model_name = str_replace('_', '-',$car->model);
   
   $car_data = $car->params;
+
+  if($car->is_custom_handlebar && in_array($car->model, ['model_s', 'model_x'])) {
+    if($car->modification == 'plaid') {
+      $interior_src = '/img/filter/'.$model_name.'/handlebar/type4/Interior/'.$car->interior_color.'/'.$car->body_color.'/1.jpg';
+    } else {
+      $interior_src = '/img/filter/'.$model_name.'/handlebar/type2/Interior/'.$car->interior_color.'/'.$car->body_color.'/1.jpg';
+    }
+  } else {
+    $interior_src = '/img/filter/'.$model_name.'/Interior/'.$car->modification.'/'.$car->interior_color.'/'.$car->body_color.'/5.jpg';
+  }
 ?>
 <!DOCTYPE html>
 <html lang="ru-RU">
@@ -35,8 +45,8 @@
                   <?php for($i=1; $i<=4; $i++): ?>
                     <div class="swiper-slide swiperModel__slide"><img src="/img/filter/<?= $model_name ?>/wheels/<?= $car->getType() ?>/Interior/<?= $car->interior_color ?>/<?= $car->body_color ?>/<?= $i ?>.jpg" alt="Slide"></div>
                   <?php endfor; ?>
-                  <div class="swiper-slide swiperModel__slide"><img src="/img/filter/<?= $model_name ?>/Interior/<?= $car->modification ?>/<?= $car->interior_color ?>/<?= $car->body_color ?>/5.jpg" alt="Slide"></div>
-
+                  
+                    <div class="swiper-slide swiperModel__slide"><img src="<?= $interior_src ?>" alt="Slide"></div>
                 </div>
                 <div class="swiperDetails__arrows">
                   <div class="swiperDetails__arrow swiperDetails__next">

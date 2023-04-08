@@ -1,6 +1,16 @@
 <?php foreach($cars as $car): 
     $car_data = $car->params;
     $model_name = str_replace('_', '-',$car->model);
+
+    if($car->is_custom_handlebar && in_array($car->model, ['model_s', 'model_x'])) {
+        if($car->modification == 'plaid') {
+          $interior_src = '/img/filter/'.$model_name.'/handlebar/type4/Interior/'.$car->interior_color.'/'.$car->body_color.'/1.jpg';
+        } else {
+          $interior_src = '/img/filter/'.$model_name.'/handlebar/type2/Interior/'.$car->interior_color.'/'.$car->body_color.'/1.jpg';
+        }
+      } else {
+        $interior_src = '/img/filter/'.$model_name.'/Interior/'.$car->modification.'/'.$car->interior_color.'/'.$car->body_color.'/5.jpg';
+      }
 ?>
 
 <article class="result card">
@@ -58,7 +68,7 @@
                         </div>
                         <div class="LazyLoad is-visible lazy-load-container">
                             <img
-                                src="/img/filter/<?= $model_name ?>/Interior/<?= $car->modification ?>/<?= $car->interior_color ?>/<?= $car->body_color ?>/5.jpg"
+                                src="<?= $interior_src ?>"
                                 class="result-image full <?= 5 <= $total_body_photos ? 'image-full' : '' ?>"
                                 alt="Used Inventory Front View of Model 3 Standard Range Plus Rear-Wheel Drive Edition"
                             />

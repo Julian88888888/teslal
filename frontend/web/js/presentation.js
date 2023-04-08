@@ -2,6 +2,14 @@ $('.orderCar .getPresentation').click(function(e) {
 	var url_params = '?model='+$('input[name=price]:checked').data('model')+'&modification='+$('input[name=price]:checked').data('modification')+'&body_color='+$('input[name=paint]:checked').data('state')+'&interior_color='+$('input[name=Interior]:checked').data('state')+'&disks='+$('input[name=wheels]:checked').data('size');
 	url_params += '&cash_usd='+$('.tabPrices__currency.usd span').text().replace(/[^0-9]/gi, '');
 	url_params += '&cash_rub='+$('.tabPrices__currency.ruble span').text().replace(/[^0-9]/gi, '');
+
+	//Кастомный руль
+	if($('input[name=control]:checked').length && $('input[name=control]:checked').data('state') == 'yoke') {
+		url_params += '&is_custom_handlebar=1';
+	} else {
+		url_params += '&is_custom_handlebar=0';
+	}
+	
 	$('.orderCar .getPresentation').attr("href", '/presentationdesign'+url_params);
 	return true;
 })

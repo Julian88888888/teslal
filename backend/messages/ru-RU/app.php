@@ -14,6 +14,7 @@ return [
 	'Modification' => 'Модификация',
 	'Body Color' => 'Цвет корпуса',
 	'Interior Color' => 'Цвет интерьера',
+	'Is Custom Handlebar' => 'Тип руля',
 	'Year' => 'Год выпуска',
 	
 	'Price Usd' => 'Безналичный рассчет $',

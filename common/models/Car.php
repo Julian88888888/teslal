@@ -51,7 +51,7 @@ class Car extends \yii\db\ActiveRecord
     {
         return [
             // [['model'], 'required'],
-            [['created_at', 'updated_at'], 'integer'],
+            [['created_at', 'updated_at', 'is_custom_handlebar'], 'integer'],
             [['model', 'modification', 'distance', 'disks', 'year', 'price_usd', 'price_rub', 'price_nds_usd', 'price_nds_rub', 'cash_usd', 'cash_rub', 'leasing_usd', 'leasing_rub', 'seats', 'autopilot', 'drive', 'hundred_km', 'max_speed', 'milage', 'condition', 'body_color', 'interior_color', 'status'], 'string', 'max' => 255],
         ];
     }
@@ -86,6 +86,7 @@ class Car extends \yii\db\ActiveRecord
             'hundred_km' => Yii::t('app', 'Hundred Km'),
             'max_speed' => Yii::t('app', 'Max Speed'),
             'milage' => Yii::t('app', 'Milage'),
+            'is_custom_handlebar' => Yii::t('app', 'Is Custom Handlebar'),
             'created_at' => Yii::t('app', 'Created At'),
             'updated_at' => Yii::t('app', 'Updated At'),
         ];

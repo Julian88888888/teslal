@@ -265,6 +265,7 @@ class SiteController extends Controller
             $presentation->year = $car->year;
             $presentation->condition = $car->condition;
             $presentation->milage = $car->milage;
+            $presentation->is_custom_handlebar = $car->is_custom_handlebar;
 
             $presentation->price_usd = $car->price_usd;
             $presentation->price_nds_usd = $car->price_nds_usd;
