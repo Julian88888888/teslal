@@ -14,18 +14,60 @@
     <meta name="description" content="">
     <meta name="color-theme" content="">
     <link type="image/x-icon" rel="shortcut icon" href="/img/fav/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="/css/filter.min.css?=3"><!--[if lt IE 9]>
+    <link rel="stylesheet" type="text/css" href="./timehome/timehome.css">
+    <link rel="stylesheet" type="text/css" href="/css/filter.min.css?=5"><!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script><![endif]-->
   </head>
   <body class="model">
     <div class="wrapper">
-      <header class="header"><a class="header__logo logo" href="/"> <img src="/img/logo.svg" alt="Tesla by Autotraider"></a>
-        <div class="sandwich">  
-          <svg class="svg-sprite-icon  icon-burger sandwich__icon">
-            <use xlink:href="/img/svg/sprite.svg#burger"></use>
-          </svg>
+    <header class="header">
+      <div class="header__inner"><a class="header__logo logo" href="/"><img src="https://www.atr.ru/update_pages/models/img/logo.svg"
+            alt="Tesla by Autotraider"></a>
+        <div class="headerNav hidden">
+          <ul class="headerNav__list">
+            <li class="headerNav__item"><a class="headerNav__link" href="/models">Model S</a></li>
+            <li class="headerNav__item"><a class="headerNav__link" href="/model3">Model 3</a></li>
+            <li class="headerNav__item"><a class="headerNav__link" href="/modelx">Model X</a></li>
+            <li class="headerNav__item"><a class="headerNav__link" href="/modely">Model Y</a></li>
+            <li class="headerNav__item"><a class="headerNav__link" href="/cybertruck">Cybertruck</a></li>
+            <li class="headerNav__item"><a class="headerNav__link" href="/roadster">Roadster</a></li>
+          </ul>
         </div>
-      </header>
+        <div class="headerNav">
+          <ul class="headerNav__list">
+            <li class="headerNav__item headerNav__phone"><span>+7 905 428 0000</span>
+              <div class="modal-phone">
+                <div class="modal-phone__wrapper"><a class="modal-phone__item"
+                    href="tel:+79054280000"><span>Позвонить</span>
+                    <svg class="svg-sprite-icon  icon-phone modal-phone__icon">
+                      <use xlink:href="img/svg/sprite.svg#phone"></use>
+                    </svg></a></div>
+                <div class="modal-phone__wrapper"><a class="modal-phone__item"
+                    href="https://api.whatsapp.com/send/?phone=79054280000&amp;text=Меня_интересует_покупка_Tesla_у_вас_на_сайте&amp;type=phone_number&amp;app_absent=0"
+                    target="_blank"><span>WhatsApp</span>
+                    <svg class="svg-sprite-icon  icon-whatsapp modal-phone__icon">
+                      <use xlink:href="https://www.atr.ru/update_pages/models/img/sprite.svg#whatsapp"></use>
+                    </svg></a></div>
+                <div class="modal-phone__wrapper"><a class="modal-phone__item" href="https://t.me/Khatskevich7"
+                    target="_blank"><span>Telegram</span>
+                    <svg class="svg-sprite-icon  icon-telegram modal-phone__icon">
+                      <use xlink:href="img/svg/sprite.svg#telegram"></use>
+                    </svg></a></div>
+                <div class="modal-phone__wrapper">
+                  <div class="modal-phone__item modal-phone__copy"><span>Скопировать номер</span>
+                    <svg class="svg-sprite-icon  icon-copy modal-phone__icon">
+                      <use xlink:href="https://www.atr.ru/update_pages/models/img/sprite.svg#copy"></use>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="headerNav__item headerNav__menu">Меню</li>
+          </ul>
+        </div>
+        <div class="headerNav__backdrop"></div>
+      </div>
+    </header>
       <main class="content">
         <div class="detailsCar modelPrices">
           <div class="detailsCar__inner"> 
@@ -269,6 +311,29 @@
       </div>
     </div>
     <div class="overlay"></div>
+    <div class="modalMenu">
+    <div class="modalMenu__close">
+      <svg class="svg-sprite-icon  icon-close modalMenu__close-icon">
+        <use xlink:href="https://atr.ru/img/svg/sprite.svg#close"></use>
+      </svg>
+    </div>
+    <ul class="modalMenu__list">
+      <li class="modalMenu__item"><a class="modalMenu__link" href="/katalogavto">Авто в наличии</a></li>
+      <li class="modalMenu__item hidden"><a class="modalMenu__link" href="/models">Model S</a></li>
+      <li class="modalMenu__item hidden"><a class="modalMenu__link" href="/model3">Model 3</a></li>
+      <li class="modalMenu__item hidden"><a class="modalMenu__link" href="/modelx">Model X</a></li>
+      <li class="modalMenu__item hidden"><a class="modalMenu__link" href="/modely">Model Y</a></li>
+      <li class="modalMenu__item hidden"><a class="modalMenu__link" href="/cybertruck">Cybertruck</a></li>
+      <li class="modalMenu__item hidden"><a class="modalMenu__link" href="/roadster">Roadster</a></li>
+      <li class="modalMenu__item hidden"><a class="modalMenu__link" href="/zaryadki">Зарядные устройства</a></li>
+      <li class="modalMenu__item"><a class="modalMenu__link" href="/delivery">Доставка авто</a></li>
+      <li class="modalMenu__item"><a class="modalMenu__link" href="/testdrive">Тест-драйв</a></li>
+      <li class="modalMenu__item"><a class="modalMenu__link" href="/sravnenie">Сравнение моделей</a></li>
+      <li class="modalMenu__item"><a class="modalMenu__link" href="/blog">Новости Tesla</a></li>
+      <li class="modalMenu__item"><a class="modalMenu__link" href="/about">О нас</a></li>
+    </ul>
+  </div>
+  <script src="https://www.atr.ru/update_pages/models/js/menu.js"></script>
     <script src="/js/libs.min.js"></script>
     <script src="/js/feature.js"></script>
   </body>
