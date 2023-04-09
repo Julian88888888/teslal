@@ -2,7 +2,6 @@
   $model_name = str_replace('_', '-',$car->model);
   
   $car_data = $car->params;
-
   if($car->is_custom_handlebar && in_array($car->model, ['model_s', 'model_x'])) {
     if($car->modification == 'plaid') {
       $interior_src = '/img/filter/'.$model_name.'/handlebar/type4/Interior/'.$car->interior_color.'/'.$car->body_color.'/1.jpg';
@@ -24,18 +23,60 @@
     <meta name="description" content="">
     <meta name="color-theme" content="">
     <link type="image/x-icon" rel="shortcut icon" href="/img/fav/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="./timehome/timehome.css">
     <link rel="stylesheet" type="text/css" href="/css/filter.min.css?=3"><!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script><![endif]-->
   </head>
   <body class="model">
     <div class="wrapper">
-      <header class="header"><a class="header__logo logo" href="/"> <img src="/img/logo.svg" alt="Tesla by Autotraider"></a>
-        <div class="sandwich">  
-          <svg class="svg-sprite-icon  icon-burger sandwich__icon">
-            <use xlink:href="/img/svg/sprite.svg#burger"></use>
-          </svg>
+    <header class="header">
+      <div class="header__inner"><a class="header__logo logo" href="/"><img src="https://www.atr.ru/update_pages/models/img/logo.svg"
+            alt="Tesla by Autotraider"></a>
+        <div class="headerNav hidden">
+          <ul class="headerNav__list">
+            <li class="headerNav__item"><a class="headerNav__link" href="/models">Model S</a></li>
+            <li class="headerNav__item"><a class="headerNav__link" href="/model3">Model 3</a></li>
+            <li class="headerNav__item"><a class="headerNav__link" href="/modelx">Model X</a></li>
+            <li class="headerNav__item"><a class="headerNav__link" href="/modely">Model Y</a></li>
+            <li class="headerNav__item"><a class="headerNav__link" href="/cybertruck">Cybertruck</a></li>
+            <li class="headerNav__item"><a class="headerNav__link" href="/roadster">Roadster</a></li>
+          </ul>
         </div>
-      </header>
+        <div class="headerNav">
+          <ul class="headerNav__list">
+            <li class="headerNav__item headerNav__phone"><span>+7 905 428 0000</span>
+              <div class="modal-phone">
+                <div class="modal-phone__wrapper"><a class="modal-phone__item"
+                    href="tel:+79054280000"><span>Позвонить</span>
+                    <svg class="svg-sprite-icon  icon-phone modal-phone__icon">
+                      <use xlink:href="img/svg/sprite.svg#phone"></use>
+                    </svg></a></div>
+                <div class="modal-phone__wrapper"><a class="modal-phone__item"
+                    href="https://api.whatsapp.com/send/?phone=79054280000&amp;text=Меня_интересует_покупка_Tesla_у_вас_на_сайте&amp;type=phone_number&amp;app_absent=0"
+                    target="_blank"><span>WhatsApp</span>
+                    <svg class="svg-sprite-icon  icon-whatsapp modal-phone__icon">
+                      <use xlink:href="https://www.atr.ru/update_pages/models/img/sprite.svg#whatsapp"></use>
+                    </svg></a></div>
+                <div class="modal-phone__wrapper"><a class="modal-phone__item" href="https://t.me/Khatskevich7"
+                    target="_blank"><span>Telegram</span>
+                    <svg class="svg-sprite-icon  icon-telegram modal-phone__icon">
+                      <use xlink:href="img/svg/sprite.svg#telegram"></use>
+                    </svg></a></div>
+                <div class="modal-phone__wrapper">
+                  <div class="modal-phone__item modal-phone__copy"><span>Скопировать номер</span>
+                    <svg class="svg-sprite-icon  icon-copy modal-phone__icon">
+                      <use xlink:href="https://www.atr.ru/update_pages/models/img/sprite.svg#copy"></use>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="headerNav__item headerNav__menu">Меню</li>
+          </ul>
+        </div>
+        <div class="headerNav__backdrop"></div>
+      </div>
+    </header>
       <main class="content">
         <div class="detailsCar modelPrices">
           <div class="detailsCar__inner"> 
@@ -45,8 +86,8 @@
                   <?php for($i=1; $i<=4; $i++): ?>
                     <div class="swiper-slide swiperModel__slide"><img src="/img/filter/<?= $model_name ?>/wheels/<?= $car->getType() ?>/Interior/<?= $car->interior_color ?>/<?= $car->body_color ?>/<?= $i ?>.jpg" alt="Slide"></div>
                   <?php endfor; ?>
-                  
-                    <div class="swiper-slide swiperModel__slide"><img src="<?= $interior_src ?>" alt="Slide"></div>
+                  <div class="swiper-slide swiperModel__slide"><img src="<?= $interior_src ?>" alt="Slide"></div>
+
                 </div>
                 <div class="swiperDetails__arrows">
                   <div class="swiperDetails__arrow swiperDetails__next">
@@ -67,7 +108,7 @@
                   <?php for($i=1; $i<=4; $i++): ?>
                     <div class="thumbSwiper__item"><img src="/img/filter/<?= $model_name ?>/wheels/<?= $car->getType() ?>/Interior/<?= $car->interior_color ?>/<?= $car->body_color ?>/<?= $i ?>.jpg" alt="Slide"></div>
                   <?php endfor; ?>
-                  <div class="thumbSwiper__item"><img src="/img/filter/<?= $model_name ?>/Interior/<?= $car->modification ?>/<?= $car->interior_color ?>/<?= $car->body_color ?>/5.jpg" alt="Slide"></div>
+                  <div class="thumbSwiper__item"><img src="<?= $interior_src ?>" alt="Slide"></div>
                 </div>
               </div>
               <div class="openGallery" open-modal-gallery>
@@ -217,12 +258,12 @@
               <div class="modelForm" data-model="form">
                 <div class="modelForm__title">Заинтересовал автомобиль?</div>
                 <div class="modelForm__text">Получите дополнительные фото и видео данного автомобиля</div>
-                <form class="modelForm__form" action="/morephotos?id=<?= $car->id ?>" id="lead-form">
-                  <input class="modelForm__input" type="text" name="name" aria-label="name" required placeholder="Имя">
-                  <input class="modelForm__input" type="tel" name="phone" aria-label="phone" required placeholder="+7 999 999 99 99">
-                  <input class="modelForm__input" type="email" name="email" aria-label="email" required placeholder="e-mail">
+                <form class="modelForm__form" action="/">
+                  <input class="modelForm__input" type="text" name="name" aria-label="name" placeholder="Имя">
+                  <input class="modelForm__input" type="tel" name="phone" aria-label="phone" placeholder="+7 999 999 99 99">
+                  <input class="modelForm__input" type="text" name="email" aria-label="email" placeholder="e-mail">
                   <div class="modelForm__check"> 
-                    <input type="checkbox" checked name="check" required id="checkModel">
+                    <input type="checkbox" checked name="check" id="checkModel">
                     <label for="checkModel">
                       <svg class="svg-sprite-icon  icon-check modelForm__check-icon">
                         <use xlink:href="/img/svg/sprite.svg#check"></use>
@@ -230,12 +271,11 @@
                     </label>
                   </div>
                   <button class="modelForm__btn" type="submit">Хочу ещё фото</button>
-                  <input type="hidden" name="<?= Yii::$app->request->csrfParam; ?>" value="<?= Yii::$app->request->csrfToken; ?>" />
                 </form>
-                <div class="socials"><a class="socials__item whatsapp" href="https://api.whatsapp.com/send/?phone=79054280000&amp;type=phone_number&amp;app_absent=0" target="_blank">
+                <div class="socials"><a class="socials__item whatsapp" href="#">
                     <svg class="svg-sprite-icon  icon-whatsapp socials__icon">
                       <use xlink:href="/img/svg/sprite.svg#whatsapp"></use>
-                    </svg><span>WhatsApp</span></a><a class="socials__item telegram" href="https://t.me/Khatskevich7" target="_blank">
+                    </svg><span>WhatsApp</span></a><a class="socials__item telegram" href="#">
                     <svg class="svg-sprite-icon  icon-telegram socials__icon">
                       <use xlink:href="/img/svg/sprite.svg#telegram"></use>
                     </svg><span>Telegram</span></a></div>
@@ -280,10 +320,30 @@
       </div>
     </div>
     <div class="overlay"></div>
+    <div class="modalMenu">
+    <div class="modalMenu__close">
+      <svg class="svg-sprite-icon  icon-close modalMenu__close-icon">
+        <use xlink:href="https://atr.ru/img/svg/sprite.svg#close"></use>
+      </svg>
+    </div>
+    <ul class="modalMenu__list">
+      <li class="modalMenu__item"><a class="modalMenu__link" href="/katalogavto">Авто в наличии</a></li>
+      <li class="modalMenu__item hidden"><a class="modalMenu__link" href="/models">Model S</a></li>
+      <li class="modalMenu__item hidden"><a class="modalMenu__link" href="/model3">Model 3</a></li>
+      <li class="modalMenu__item hidden"><a class="modalMenu__link" href="/modelx">Model X</a></li>
+      <li class="modalMenu__item hidden"><a class="modalMenu__link" href="/modely">Model Y</a></li>
+      <li class="modalMenu__item hidden"><a class="modalMenu__link" href="/cybertruck">Cybertruck</a></li>
+      <li class="modalMenu__item hidden"><a class="modalMenu__link" href="/roadster">Roadster</a></li>
+      <li class="modalMenu__item hidden"><a class="modalMenu__link" href="/zaryadki">Зарядные устройства</a></li>
+      <li class="modalMenu__item"><a class="modalMenu__link" href="/delivery">Доставка авто</a></li>
+      <li class="modalMenu__item"><a class="modalMenu__link" href="/testdrive">Тест-драйв</a></li>
+      <li class="modalMenu__item"><a class="modalMenu__link" href="/sravnenie">Сравнение моделей</a></li>
+      <li class="modalMenu__item"><a class="modalMenu__link" href="/blog">Новости Tesla</a></li>
+      <li class="modalMenu__item"><a class="modalMenu__link" href="/about">О нас</a></li>
+    </ul>
+  </div>
+  <script src="https://www.atr.ru/update_pages/models/js/menu.js"></script>
     <script src="/js/libs.min.js"></script>
     <script src="/js/feature.js"></script>
-
-    <script type="text/javascript" src="/js/jquery-3.6.4.min.js"></script>
-    <script type="text/javascript" src="/js/leadform.js"></script>
   </body>
 </html>

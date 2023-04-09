@@ -356,6 +356,12 @@ class SiteController extends Controller
         //         'params' => $requestParams,
         //     ],
         // ]);
+        if(isset($requestParams['filter']) && $requestParams['filter']['model'] == 'all') {
+            unset($requestParams['filter']['model']);
+        }
+
+        // var_dump($requestParams);die;
+
         $cars = Car::find()->where('model is not NULL AND model <> "" AND (model = "roadster" OR (modification is not NULL AND modification <> ""))');
         if(isset($requestParams['filter']))
             $cars->andWhere($requestParams['filter']);
