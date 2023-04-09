@@ -1880,11 +1880,14 @@ footer {
     }
     .detailsCar.modelPrices .openGallery,
     .detailsCar.modelPrices .outputPrice {
-        position: relative;
+        position: static;
         width: 80%;
-        max-width: 550px;
+        max-width: 300px;
         padding: 12px;
+        margin: 0 auto;;
         text-align: center;
+        margin: 0 auto;
+        transform: translateX(0%);
         border-radius: 0 0 20px 20px;
         -webkit-box-pack: center;
         -ms-flex-pack: center;
@@ -2412,10 +2415,10 @@ footer {
 }
 .openGallery,
 .outputPrice {
-    position: absolute;
+    position: fixed;
     z-index: 100;
-    bottom: 0;
-    left: 50%;
+    bottom: 0vh;
+    left: calc(50% - 20vw);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -3388,13 +3391,14 @@ footer {
     }
 }
 .thumbSwiper__inner {
-    position: absolute;
+    position: fixed;
     z-index: 1;
-    bottom: 45px;
-    left: 50%;
+    bottom: 80px;
+    left: calc(50% - 20vw);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    height: 135px;
     padding: 35px 20px 50px;
     -webkit-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
@@ -3404,7 +3408,7 @@ footer {
 }
 @media screen and (max-width: 1367px) {
     .thumbSwiper__inner {
-        padding: 20px 20px 40px;
+        height: 115px;
     }
 }
 @media screen and (max-width: 1100px) {
@@ -3493,11 +3497,14 @@ footer {
     }
 }
 .swiperModel__dots.swiper-pagination-horizontal {
-    bottom: 270px;
+    bottom: 280px;
+    position: fixed;
+    width: 200px;
+    left: calc(50% - 26vw);
 }
 @media screen and (max-width: 1367px) {
     .swiperModel__dots.swiper-pagination-horizontal {
-        bottom: 220px;
+        bottom: 240px;
     }
 }
 @media screen and (max-width: 1100px) {
