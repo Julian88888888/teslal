@@ -173,6 +173,10 @@ class SiteController extends Controller
     {
         return $this->render('delivery.html');
     }
+    public function actionAbout()
+    {
+        return $this->render('about.html');
+    }
 
     public function actionFeature($id)
     {
