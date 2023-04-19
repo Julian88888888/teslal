@@ -2,435 +2,533 @@
 <html lang="ru">
 
 <head>
-	<title>Доставка</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="format-detection" content="telephone=no">
-	<link type="image/x-icon" rel="shortcut icon" href="img/fav/favicon.ico">
-	<link rel="stylesheet" href="css/header.css">
-	<link rel="stylesheet" href="css/app.min.css">
-	<script src="https://app.getreview.io/tags/ni2fvita3ZpqJCLO/sdk.js" async></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="image/x-icon" rel="shortcut icon" href="img/fav/favicon.ico">
+    <title>Доставка</title>
+    <link rel="stylesheet" type="text/css" href="./timehome/timehome.css">
+    <!-- <link rel="stylesheet" href="./update_pages/about//css/kargo.css?=15"> -->
+    <link rel="stylesheet" href="./update_pages/about/fonts/font/stylesheet.css">
+    <!-- <link rel="stylesheet" href="./update_pages/about/css/media.css?=15"> -->
+    <link type="image/x-icon" rel="shortcut icon" href="./update_pages/about/img/fav/favicon.ico">
+    <script>
+        function disableCssCache(cssFile) {
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+
+            // Добавляем уникальный параметр запроса (текущее время) для отключения кеширования
+            const noCacheUrl = cssFile + '?=' + new Date().getTime();
+            link.href = noCacheUrl;
+
+            document.head.appendChild(link);
+        }
+
+        // Используйте функцию для отключения кеширования конкретного CSS-файла
+        disableCssCache('./update_pages/about/css/kargo.css');
+        disableCssCache('./update_pages/about/css/media.css');
+
+    </script>
+
 </head>
 
 <body>
-	<div class="wrapper">
-		<header class="header absolute white">
-			<div class="header__inner"><a class="header__logo logo" href="#"><img src="img/logo.svg" alt="Tesla by Autotraider"></a>
-			  <div class="headerNav hidden">
-				<ul class="headerNav__list">
-				  <li class="headerNav__item"><a class="headerNav__link" href="/models">Model S</a></li>
-				  <li class="headerNav__item"><a class="headerNav__link" href="/model3">Model 3</a></li>
-				  <li class="headerNav__item"><a class="headerNav__link" href="/modelx">Model X</a></li>
-				  <li class="headerNav__item"><a class="headerNav__link" href="/modely">Model Y</a></li>
-				  <li class="headerNav__item"><a class="headerNav__link" href="/cybertruck">Cybertruck</a></li>
-				  <li class="headerNav__item"><a class="headerNav__link" href="/roadster">Roadster</a></li>
-				</ul>
-			  </div>
-			  <div class="headerNav">
-				<ul class="headerNav__list">
-				  <li class="headerNav__item headerNav__phone"><span>+7 905 428 0000</span>
-					<div class="modal-phone">
-					  <div class="modal-phone__wrapper"><a class="modal-phone__item" href="tel:+79054280000"><span>Позвонить</span>
-						  <svg class="svg-sprite-icon  icon-phone modal-phone__icon">
-							<use xlink:href="img/svg/sprite.svg#phone"></use>
-						  </svg></a></div>
-					  <div class="modal-phone__wrapper"><a class="modal-phone__item" href="https://api.whatsapp.com/send/?phone=79054280000&amp;text=Меня_интересует_покупка_Tesla_у_вас_на_сайте&amp;type=phone_number&amp;app_absent=0" target="_blank"><span>WhatsApp</span>
-						  <svg class="svg-sprite-icon  icon-whatsapp modal-phone__icon">
-							<use xlink:href="img/svg/sprite.svg#whatsapp"></use>
-						  </svg></a></div>
-					  <div class="modal-phone__wrapper"><a class="modal-phone__item" href="https://t.me/Khatskevich7" target="_blank"><span>Telegram</span>
-						  <svg class="svg-sprite-icon  icon-telegram modal-phone__icon">
-							<use xlink:href="img/svg/sprite.svg#telegram"></use>
-						  </svg></a></div>
-					  <div class="modal-phone__wrapper">
-						<div class="modal-phone__item modal-phone__copy"><span>Скопировать номер</span>
-						  <svg class="svg-sprite-icon  icon-copy modal-phone__icon">
-							<use xlink:href="img/svg/sprite.svg#copy"></use>
-						  </svg>
-						</div>
-					  </div>
-					</div>
-				  </li>
-				  <li class="headerNav__item headerNav__menu">Меню</li>
-				</ul>
-			  </div>
-			  <div class="headerNav__backdrop"></div>
-			</div>
-		</header>
-		<main class="page">
-			<section class="blog-main blog-main--delivery">
-				<div class="blog-main__wrapper">
-					<div class="blog-main__del-text-wrapper">
-						<h1 class="blog-main__title">
-							Доставка <br> Tesla <br> под заказ
-						</h1>
-						<p class="blog-main__subtitle">
-							Привезём новую <br> Tesla из Германии без <br> предоплаты за 30 дней
-						</p>
-						<a href="#" class="blog-main__link bd-btn">
-							Заказать авто
-						</a>
-					</div>
-					<button class="blog-main__arrow" data-goto=".video-block">
-						<svg width="34" height="17" viewBox="0 0 34 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<line x1="1" y1="-1" x2="21.2248" y2="-1" transform="matrix(0.764911 0.644136 -0.485887 0.874022 0 2)" stroke="white" stroke-width="2" stroke-linecap="round" />
-							<line x1="1" y1="-1" x2="21.2248" y2="-1" transform="matrix(-0.764911 0.644136 0.485887 0.874022 34 2)" stroke="white" stroke-width="2" stroke-linecap="round" />
-						</svg>
-					</button>
-				</div>
-			</section>
-			<section class="video-block">
-				<div class="video-block__container">
-					<div class="video-block__main">
-						<div class="video-block__tesla-img">
-							<img src="img/tesla-logo-dark.svg" alt="TESLA">
-						</div>
-						<video src="video/tesla.mp4" controls autoplay muted loop></video>
-					</div>
-				</div>
-			</section>
-			<section class="delivery-process">
-				<div class="delivery-process__container">
-					<h2 class="delivery-process__title title">
-						Как работает <br>
-						процесс доставки
-					</h2>
-					<div class="delivery-process__main">
-						<div class="delivery-process__block">
-							<div class="delivery-process__img">
-								<picture><source srcset="img/delivery/1.webp" type="image/webp"><img src="img/delivery/1.png" alt="Заключаем договор"></picture>
-							</div>
-							<div class="delivery-process__text">
-								<p class="delivery-process__block-title">
-									Заключаем договор
-								</p>
-								<p class="delivery-process__block-text">
-									Заключаем договор. Вы вносите предоплату. Чем больше сумму вы вносите, тем дешевле итоговая
-									стоимость автомобиля.
-								</p>
-							</div>
-						</div>
-						<div class="delivery-process__block">
-							<div class="delivery-process__img">
-								<picture><source srcset="img/delivery/2.webp" type="image/webp"><img src="img/delivery/2.png" alt="Заказ авто у дилера или на заводе Tesla"></picture>
-							</div>
-							<div class="delivery-process__text">
-								<p class="delivery-process__block-title">
-									Заказ авто у дилера или на заводе Tesla
-								</p>
-								<p class="delivery-process__block-text">
-									В зависимости от модели авто мы заказываем машину из США или Европы. Если нужного авто у
-									официальных дилеров нет, то мы
-									заказываем авто на заводе Tesla и ждем производства нового авто
-								</p>
-							</div>
-						</div>
-						<div class="delivery-process__block">
-							<div class="delivery-process__img">
-								<picture><source srcset="img/delivery/3.webp" type="image/webp"><img src="img/delivery/3.png" alt="Растамаживание и доставка в РФ"></picture>
-							</div>
-							<div class="delivery-process__text">
-								<p class="delivery-process__block-title">
-									Растамаживание и доставка в РФ
-								</p>
-								<p class="delivery-process__block-text">
-									Когда автомобиль есть в наличии у дилеров, то мы оформляем нужные документы и отправляем
-									машину в порт, где она
-									проходит таможню. Далее автомобиль грузят в контейнер и мы получаем трек номер, который
-									передаем своим клиентам чтобы вы
-									могли в реальном времени следить за ходом доставки авто.
-								</p>
-							</div>
-						</div>
-						<div class="delivery-process__block">
-							<div class="delivery-process__img">
-								<picture><source srcset="img/delivery/4.webp" type="image/webp"><img src="img/delivery/4.png" alt="Вручение автомобиля клиентам"></picture>
-							</div>
-							<div class="delivery-process__text">
-								<p class="delivery-process__block-title">
-									Вручение автомобиля клиентам
-								</p>
-								<p class="delivery-process__block-text">
-									Автомобили грузят на автовоз и везут в Москву к нашим клиентам.
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-			<section class="consultation">
-				<div class="consultation__top">
-					<div class="consultation__container">
-						<h2 class="consultation__title title">
-							Получите бесплатную <br>
-							консультацию
-						</h2>
-						<a href="#" class="consultation__top-link bd-btn bd-btn--dark">
-							Записаться
-						</a>
-					</div>
-				</div>
-				<div class="consultation__bottom">
+    <header class="header header--fixed">
+        <div class="header__inner"><a class="header__logo logo" href="/"><img src="img/logo.svg"
+                    alt="Tesla by Autotraider"></a>
+            <div class="headerNav hidden">
+                <ul class="headerNav__list">
+                    <li class="headerNav__item"><a class="headerNav__link" href="/models">Model S</a></li>
+                    <li class="headerNav__item"><a class="headerNav__link" href="/model3">Model 3</a></li>
+                    <li class="headerNav__item"><a class="headerNav__link" href="/modelx">Model X</a></li>
+                    <li class="headerNav__item"><a class="headerNav__link" href="/modely">Model Y</a></li>
+                    <li class="headerNav__item"><a class="headerNav__link" href="/cybertruck">Cybertruck</a></li>
+                    <li class="headerNav__item"><a class="headerNav__link" href="/roadster">Roadster</a></li>
+                </ul>
+            </div>
+            <div class="headerNav">
+                <ul class="headerNav__list">
+                    <li class="headerNav__item headerNav__phone"><span>+7 905 428 0000</span>
+                        <div class="modal-phone">
+                            <div class="modal-phone__wrapper"><a class="modal-phone__item"
+                                    href="tel:+79054280000"><span>Позвонить</span>
+                                    <svg class="svg-sprite-icon  icon-phone modal-phone__icon">
+                                        <use xlink:href="img/svg/sprite.svg#phone"></use>
+                                    </svg></a></div>
+                            <div class="modal-phone__wrapper"><a class="modal-phone__item"
+                                    href="https://api.whatsapp.com/send/?phone=79054280000&amp;text=Меня_интересует_покупка_Tesla_у_вас_на_сайте&amp;type=phone_number&amp;app_absent=0"
+                                    target="_blank"><span>WhatsApp</span>
+                                    <svg class="svg-sprite-icon  icon-whatsapp modal-phone__icon">
+                                        <use xlink:href="img/svg/sprite.svg#whatsapp"></use>
+                                    </svg></a></div>
+                            <div class="modal-phone__wrapper"><a class="modal-phone__item"
+                                    href="https://t.me/Khatskevich7" target="_blank"><span>Telegram</span>
+                                    <svg class="svg-sprite-icon  icon-telegram modal-phone__icon">
+                                        <use xlink:href="img/svg/sprite.svg#telegram"></use>
+                                    </svg></a></div>
+                            <div class="modal-phone__wrapper">
+                                <div class="modal-phone__item modal-phone__copy"><span>Скопировать номер</span>
+                                    <svg class="svg-sprite-icon  icon-copy modal-phone__icon">
+                                        <use xlink:href="img/svg/sprite.svg#copy"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="headerNav__item headerNav__menu">Меню</li>
+                </ul>
+            </div>
+            <div class="headerNav__backdrop"></div>
+        </div>
+    </header>
+    <div class="wrapper" id="wrapper">
+        <main class="main">
+            <section class="intro" id="intro">
+                <div class="shadow-full"></div>
+                <div class="align">
+                    <div class="intro__text">
+                        <h1>Доставка Tesla <br> под заказ</h1>
+                        <p>Привезём новую <br> Tesla из Германии без предоплаты за 30 дней</p>
+                        <a href="">Заказать авто</a>
+                    </div>
+                </div>
 
-					<div class="consultation__content">
-						<div class="consultation__container">
-							<div class="consultation__main">
-								<h2 class="consultation__bottom-title title">
-									Заказ авто
-								</h2>
-								<p class="consultation__text">
-									Доставка авто за 30 дней. <br>
-									Выберите модель и модификацию <br> и получите персональное предложение.
-								</p>
-								<table class="consultation__table">
-									<thead>
-										<tr>
-											<td>
-												Модель
-											</td>
-											<td>
-												Модификация
-											</td>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>
-												Model S
-											</td>
-											<td>
-												<a href="#">
-													Long Range
-												</a>
-												<a href="#">
-													Plaid
-												</a>
-											</td>
-										</tr>
-										<tr>
-											<td>
-												Model X
-											</td>
-											<td>
-												<a href="#">
-													Long Range
-												</a>
-												<a href="#">
-													Plaid
-												</a>
-											</td>
-										</tr>
-										<tr>
-											<td>
-												Model Y
-											</td>
-											<td>
-												<a href="#">
-													Long Range
-												</a>
-												<a href="#">
-													Perfomance
-												</a>
-											</td>
-										</tr>
-										<tr>
-											<td>
-												Model 3
-											</td>
-											<td>
-												<a href="#">
-													Long Range
-												</a>
-												<a href="#">
-													Perfomance
-												</a>
-											</td>
-										</tr>
-									</tbody>
-								</table>
-								<a href="#" class="consultation__bottom-link bd-btn">
-									Получить предложение
-								</a>
-							</div>
-						</div>
-					</div>
-					<div class="consultation__img">
-						<picture><source srcset="img/consultation.webp" type="image/webp"><img src="img/consultation.png" alt="Тесла"></picture>
-					</div>
-				</div>
-			</section>
-			<section class="test-drive">
-				<div class="test-drive__container">
-					<h2 class="test-drive__title test-drive__title--main title">
-						Тест-драйв в Москве
-					</h2>
-					<div class="test-drive__hidden-title">
-						<h2 class="test-drive__title title">
-							Остались вопросы? <br>
-							Свяжемся с вами <br>
-							за 25 секунд
-						</h2>
-						<p>
-							Оставить заявку
-						</p>
-					</div>
-					<div class="test-drive__info">
-						<div class="test-drive__info-block">
-							<p class="test-drive__info-title">
-								1.020 л.с.
-							</p>
-							<p class="test-drive__info-text">
-								Максимальная мощность
-							</p>
-						</div>
-						<div class="test-drive__info-block">
-							<p class="test-drive__info-title">
-								1000 км
-							</p>
-							<p class="test-drive__info-text">
-								Запас хода
-							</p>
-						</div>
-						<div class="test-drive__info-block">
-							<p class="test-drive__info-title">
-								2.5 сек
-							</p>
-							<p class="test-drive__info-text">
-								0-100 км/ч
-							</p>
-						</div>
-					</div>
-					<form action="#" class="test-drive__form">
-						<div class="test-drive__inputs">
-							<input autocomplete="off" type="text" name="form[]" data-required data-validate data-error placeholder="Имя" class="test-drive__input">
-							<input autocomplete="off" type="text" name="form[]" data-required data-validate data-error placeholder="+7 999 999 99 99" class="test-drive__input phone-input">
-							<input autocomplete="off" type="email" name="form[]" data-required="email" data-validate data-error placeholder="e-mail" class="test-drive__input">
-						</div>
-						<input class="test-drive__submit" type="submit" value="Записаться">
+            </section>
+            <section class="arrowarea">
+                <a class="anchor" href="#video"><img src="./update_pages/about/img/arrow.svg" alt=""></a>
+                <img class="brand" src="./update_pages/about/img/teslaText.svg" alt="">
+            </section>
+            <scetion class="presentationVideo" id="video">
 
-						<div class="checkbox test-drive__chk">
-							<label class="checkbox__label">
-								<input data-error="" class="checkbox__input" data-required type="checkbox" value="1" name="form[]">
-								<span class="checkbox__text">
-									Оставляя свои данные вы соглашаетесь <br> с политикой конфиденциальности
-								</span>
-							</label>
-						</div>
-					</form>
-				</div>
-			</section>
-			<section class="our-ig-contacts our-ig-contacts--dark">
-				<div class="our-ig-contacts__top">
-					<div class="our-ig-contacts__container">
-						<div class="our-ig-contacts__phone-img-block">
-							<picture><source srcset="img/phones.webp" type="image/webp"><img src="img/phones.png" alt="Мы в Инстаграме"></picture>
-						</div>
-					</div>
-					<div class="our-ig-contacts__text-block-top our-ig-contacts__text-block">
-						<div class="our-ig-contacts__container">
-							<p>
-								Наш
-							</p>
-							<p class="our-ig-contacts__ig-bold">
-								Instagram
-							</p>
-						</div>
-					</div>
-					<div class="our-ig-contacts__text-block-bottom our-ig-contacts__text-block">
-						<div class="our-ig-contacts__container">
-							<p class="our-ig-contacts__text-block-text">
-								Каждый день мы наполняем аккаунт интересным контентом для того, чтобы Вам нравилось
-							</p>
-							<div class="our-ig-contacts__link-wrapper">
-								<a href="https://instagram.com/autotrader_ru?igshid=MWI4MTIyMDE=" class="our-ig-contacts__ig-link bd-btn" target="_blank">
-									Перейти в instagram
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="our-ig-contacts__bottom">
-					<div class="our-ig-contacts__container">
-						<p class="our-ig-contacts__bottom-title">
-							Контакты
-						</p>
-						<div data-tabs class="our-ig-contacts__contacts">
-							<nav data-tabs-titles class="our-ig-contacts__tabs-nav">
-								<div class="our-ig-contacts__contact _tab-active">
-									<p class="our-ig-contacts__contact-subtitle">
-										Автосалон
-									</p>
-									<p class="our-ig-contacts__title">
-										Москва
-									</p>
-									<p class="our-ig-contacts__address">
-										Москва, ул. Антонова- <br>
-										Овсеенко, 15, стр. 4
-									</p>
-									<a href="tel:+79014280000" class="our-ig-contacts__phone">
-										+7 (901) 428-00-00
-									</a>
-									<a href="tel:+79054280000" class="our-ig-contacts__phone">
-										+7 (905) 428-00-00
-									</a>
-								</div>
-								<div class="our-ig-contacts__contact">
-									<p class="our-ig-contacts__contact-subtitle">
-										Автосалон
-									</p>
-									<p class="our-ig-contacts__title">
-										Минск
-									</p>
-									<p class="our-ig-contacts__address">
-										Минск, ул. Аранская,
-										8, офис 102
-									</p>
-									<a href="tel:+375333323469" class="our-ig-contacts__phone">
-										+375 (33) 332-34-69
-									</a>
-									<a href="tel:+375296550000" class="our-ig-contacts__phone">
-										+375 (29) 655-00-00
-									</a>
-								</div>
-							</nav>
-							<div data-tabs-body class="our-ig-contacts__bottom-right">
-								<div class="our-ig-contacts__map our-ig-contacts__map--moscow">
-									<picture><source srcset="img/map-moscow.webp" type="image/webp"><img src="img/map-moscow.png" alt="Карта Москвы"></picture>
-								</div>
-								<div class="our-ig-contacts__map our-ig-contacts__map--minsk">
-									<picture><source srcset="img/map-minsk.webp" type="image/webp"><img src="img/map-minsk.png" alt="Карта Минсква"></picture>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-		</main>
-	</div>
-	<div class="modalMenu">
-		<div class="modalMenu__close">
-		  <svg class="svg-sprite-icon  icon-close modalMenu__close-icon">
-			<use xlink:href="img/svg/sprite.svg#close"></use>
-		  </svg>
-		</div>
-		<ul class="modalMenu__list">
-		  <li class="modalMenu__item"><a class="modalMenu__link" href="/katalogavto">Авто в наличии</a></li>
-		  <li class="modalMenu__item hidden"><a class="modalMenu__link" href="/models">Model S</a></li>
-		  <li class="modalMenu__item hidden"><a class="modalMenu__link" href="/model3">Model 3</a></li>
-		  <li class="modalMenu__item hidden"><a class="modalMenu__link" href="/modelx">Model X</a></li>
-		  <li class="modalMenu__item hidden"><a class="modalMenu__link" href="/modely">Model Y</a></li>
-		  <li class="modalMenu__item hidden"><a class="modalMenu__link" href="/cybertruck">Cybertruck</a></li>
-		  <li class="modalMenu__item hidden"><a class="modalMenu__link" href="/roadster">Roadster</a></li>
-		  <li class="modalMenu__item hidden"><a class="modalMenu__link" href="/zaryadki">Зарядные устройства</a></li>
-		  <li class="modalMenu__item"><a class="modalMenu__link" href="/delivery">Доставка авто</a></li>
-		  <li class="modalMenu__item"><a class="modalMenu__link" href="/testdrive">Тест-драйв</a></li>
-		  <li class="modalMenu__item"><a class="modalMenu__link" href="/sravnenie">Сравнение моделей</a></li>
-		  <li class="modalMenu__item"><a class="modalMenu__link" href="/blog">Новости Tesla</a></li>
-		  <li class="modalMenu__item"><a class="modalMenu__link" href="/about">О нас</a></li>
-		</ul>
-	  </div>
-	<script src="js/app.min.js"></script>
-	<script src="js/main.js"></script>
+                <video id="video" poster="./update_pages/about/img/poster.webp" class="" preload="auto" playsinline=""
+                    data-autoplay-portrait="true" data-play-on-hover="false" loop="" data-object-fit="true"
+                    src="./update_pages/about/video/dostavka.mp4" data-loaded="true" controls></video>
+            </scetion>
+            <section class="cards">
+                <div class="cards-wrapper elder">
+                    <h2 class="cards__title">Как работает <br>
+                        процесс доставки</h2>
+                    <div class="cards__items">
+                        <div class="cards__item ">
+                            <img src="./update_pages/about/img/card1.webp" alt="">
+                            <div class="cards__text">
+                                <h3>Согласование условий</h3>
+                                <p class="one">Подбираем автомобиль, заключаем договор.<br> Работаем строго официально,
+                                    обеспечивая <br> максимальную безопасность сделки. </p>
+                            </div>
+                        </div>
+                        <div class="cards__item reverse">
+                            <img src="./update_pages/about/img/card3.webp" alt="">
+                            <div class="cards__text">
+                                <h3>Логистика</h3>
+                                <p class="three">В&nbsp;зависимости от&nbsp;модели и&nbsp;запроса, организуем доставку
+                                    тесла из
+                                    Европы,
+                                    США или Китая. Закрепляем за&nbsp;Вами персонального менеджера который информирует
+                                    о&nbsp;каждом из&nbsp;логистических этапов. </p>
+                            </div>
+                        </div>
+                        <div class="cards__item ">
+                            <img src="./update_pages/about/img/card2.webp" alt="">
+                            <div class="cards__text">
+                                <h3>Таможенная очистка</h3>
+                                <p class="two">Все автомобили проходят таможенную очистку в&nbsp;Республике Беларусь
+                                    согласно
+                                    регламенту таможенного союза по&nbsp;полной ставке.  Мы не&nbsp;используем
+                                    никакие
+                                    льготные
+                                    схемы, которые в&nbsp;будущем могут доставить неприятности. </p>
+                            </div>
+                        </div>
+
+                        <div class="cards__item reverse">
+                            <img src="./update_pages/about/img/card4.webp" alt="">
+                            <div class="cards__text">
+                                <h3>Выдача автомобиля</h3>
+                                <p>Для нас важно, чтобы клиент оставался довольным. Ведь&nbsp;счастливый клиент, это
+                                    счастливое будущее нашей <br> компании.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+            <div class="whiteBg">
+                <section class="whiteSpace">
+                    <h2 id="replace">Получите бесплатную <br>
+                        консультацию</h2>
+                    <a href="">Записаться</a>
+                </section>
+            </div>
+
+            <section class="buyCar">
+                <img class="buyCar__presentation" src="./update_pages/about/img/buyCar.webp" alt="">
+                <div class="buyCar__data">
+                    <h2>Заказ авто</h2>
+                    <p>Доставка авто за 30 дней. <br>
+                        Выберите модель и модификацию <br> и получите персональное предложение.</p>
+                    <div class="table">
+                        <div class="table__head line-width"><b>Модель</b>
+                            <div class="table__items"><span>Модификация</span></div>
+                        </div>
+                        <div class="table__body line-width"><b>Model S</b>
+                            <div class="table__items"><a href="">Long Range</a><a href="">Plaid</a></div>
+                        </div>
+                        <div class="table__body line-width"><b>Model X</b>
+                            <div class="table__items"><a href="">Long Range</a><a href="">Plaid</a></div>
+                        </div>
+                        <div class="table__body line-width"><b>Model Y</b>
+                            <div class="table__items"><a href="">Long Range</a><a href="">Perfomance</a></div>
+                        </div>
+                        <div class="table__body line-width"><b>Model 3</b>
+                            <div class="table__items"><a href="">Long Range</a><a href="">Perfomance</a></div>
+                        </div>
+                    </div>
+                    <a href="" class="btn adv">Получить предложение</a>
+                </div>
+            </section>
+            <section class="formSection mob">
+
+                <h2 class="hidden lol">Тест-драйв в Москве</h2>
+                <p class="subtitle lol">Model Y Perfomance</p>
+                <img class="formSection__bg mm" src="./update_pages/about/img/carbg.webp" alt="">
+                <div class="formSection__char-mob">
+                    <h2>Остались вопросы? <br>
+                        Свяжемся с вами <br>
+                        за 25 секунд</h2>
+                    <p>Оставить заявку</p>
+                </div>
+                <div class="formSection__char mm">
+                    <div class="formSection__char-item">
+                        <span>534 л.с.</span>
+                        <p>Максимальная мощность</p>
+                    </div>
+                    <div class="formSection__char-item">
+                        <span>514 км</span>
+                        <p>Запас хода</p>
+                    </div>
+                    <div class="formSection__char-item">
+                        <span>3.7 сек</span>
+                        <p>0-100 км/ч</p>
+                    </div>
+                </div>
+
+
+                <form class="help" action="">
+                    <input class="input" type="text" placeholder="Имя">
+                    <input type="tel" name="" class="input tel" placeholder="+7 999 999 99 99">
+                    <input class="input" type="email" name="" id="" placeholder="e-mail">
+                    <button type="submit">Записаться</button>
+                    <div class="check">
+                        <input type="checkbox" name="" id="check">
+                        <label for="check">Оставляя&nbsp;свои&nbsp;данные&nbsp;вы&nbsp;соглашаетесь <a href="">с&nbsp;политикой
+                                конфиденциальности</a></label>
+                    </div>
+
+                </form>
+            </section>
+            <scetion class="insta">
+                <img src="./update_pages/about/img/insta.png" alt="">
+                <div class="text">
+                    <h2>Instagram</h2>
+                    <p>Каждый день мы наполняем аккаунт интересным контентом для того, чтобы Вам нравилось</p>
+                    <a href="https://www.instagram.com/autotrader_ru/" target="_blank" class="btn">Перейти в
+                        instagram</a>
+                </div>
+
+            </scetion>
+            <section class="contacts">
+                <div class="contacts__left">
+                    <h2>Контакты</h2>
+                    <div class="contacts__places">
+                        <div id="s1" class="contacts__places-item" onclick="showMoscow()">
+                            <b>Автосалон</b>
+                            <span>Москва</span>
+                            <p>Москва, ул. Антонова-Овсеенко, 15, стр. 4</p>
+                            <div class="phones">
+                                <a href="tel:79014280000">+7 (901) 428-00-00 </a>
+                                <a href="tel:79054280000">+7 (905) 428-00-00</a>
+                            </div>
+                        </div>
+                        <div class="contacts__places-line"></div>
+                        <div id="s2" class="contacts__places-item opacity" onclick="showMinsk()">
+                            <b>Автосалон</b>
+                            <span>Минск</span>
+                            <p>Минск, ул. Аранская,
+                                8, офис 102</p>
+                            <div class="phones">
+                                <a href="tel:375333323469">+375 (33) 332-34-69 </a>
+                                <a href="tel:375296550000">+375 (29) 655-00-00</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contacts__right">
+                    <img id="v1" class="active" src="./update_pages/about/img/map.png" alt="">
+                    <img id="v2" src="./update_pages/about/img/minsk.png" alt="">
+                </div>
+
+            </section>
+        </main>
+        <footer class="footer">
+            <a href="/" class="logo">
+                <img src="./update_pages/about/img/logo.svg" alt="">
+            </a>
+            <ul>
+                <li><a href="/models">Model S</a></li>
+                <li><a href="/model3">Model 3</a></li>
+                <li><a href="/modelx">Model X</a></li>
+                <li><a href="/modely">Model Y</a></li>
+                <li><a href="/katalogavto">Каталог авто</a></li>
+                <li><a href="/about">О нас</a></li>
+
+            </ul>
+            <a class="anchor" href="#intro"><img src="./update_pages/about/img/arrow.svg" alt=""></a>
+        </footer>
+    </div>
+    <div class="modalMenu">
+        <div class="modalMenu__close">
+            <svg class="svg-sprite-icon  icon-close modalMenu__close-icon">
+                <use xlink:href="img/svg/sprite.svg#close"></use>
+            </svg>
+        </div>
+        <ul class="modalMenu__list">
+            <li class="modalMenu__item"><a class="modalMenu__link" href="/katalogavto">Авто в наличии</a></li>
+            <li class="modalMenu__item hidden"><a class="modalMenu__link" href="/models">Model S</a></li>
+            <li class="modalMenu__item hidden"><a class="modalMenu__link" href="/model3">Model 3</a></li>
+            <li class="modalMenu__item hidden"><a class="modalMenu__link" href="/modelx">Model X</a></li>
+            <li class="modalMenu__item hidden"><a class="modalMenu__link" href="/modely">Model Y</a></li>
+            <li class="modalMenu__item hidden"><a class="modalMenu__link" href="/cybertruck">Cybertruck</a></li>
+            <li class="modalMenu__item hidden"><a class="modalMenu__link" href="/roadster">Roadster</a></li>
+            <li class="modalMenu__item hidden"><a class="modalMenu__link" href="/zaryadki">Зарядные устройства</a></li>
+            <li class="modalMenu__item"><a class="modalMenu__link" href="/delivery">Доставка авто</a></li>
+            <li class="modalMenu__item"><a class="modalMenu__link" href="/testdrive">Тест-драйв</a></li>
+            <li class="modalMenu__item"><a class="modalMenu__link" href="/sravnenie">Сравнение моделей</a></li>
+            <li class="modalMenu__item"><a class="modalMenu__link" href="/blog">Новости Tesla</a></li>
+            <li class="modalMenu__item"><a class="modalMenu__link" href="/about">О нас</a></li>
+        </ul>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            function a() {
+                const a = this.offsetWidth
+                    , b = this.offsetHeight
+                    , c = this.getBoundingClientRect().left + l?.offsetLeft - 32
+                    , d = this.getBoundingClientRect().top + l?.offsetTop;
+                e.style.opacity = "1",
+                    e.style.width = `${a}px`,
+                    e.style.height = `${b}px`,
+                    e.style.left = `${c}px`,
+                    e.style.top = `${d}px`,
+                    e.style.transform = "none"
+            }
+            function b() {
+                e.style.opacity = "0"
+            }
+            const c = document.querySelector("body")
+                , d = document.querySelector(".headerNav__menu")
+                , e = document.querySelector(".headerNav__backdrop")
+                , f = document.querySelectorAll(".headerNav")
+                , g = document.querySelector(".modal-cars")
+                , h = document.querySelectorAll(".headerNav__item")
+                , i = document.querySelector(".modal-phone__copy")
+                , j = document.querySelector(".modalMenu")
+                , k = j.querySelector(".modalMenu__close")
+                , l = document.querySelector(".header__inner")
+                , m = document.createElement("div");
+            m?.classList.add("overlay"),
+                c.append(m);
+            const n = document.querySelector(".overlay");
+            k?.addEventListener("click", function () {
+                n?.classList.remove("open"),
+                    j?.classList.remove("open"),
+                    c.classList.remove("hidden")
+            }),
+                d?.addEventListener("click", function () {
+                    n?.classList.add("open"),
+                        j?.classList.add("open"),
+                        c.classList.add("hidden")
+                }),
+                n?.addEventListener("click", function () {
+                    this.classList.remove("open"),
+                        j?.classList.remove("open"),
+                        c.classList.remove("hidden"),
+                        g?.classList.remove("active")
+                });
+            for (let b = 0; b < h.length; b++)
+                h[b].addEventListener("mouseover", a);
+            for (let a = 0; a < f.length; a++)
+                f[a].addEventListener("mouseleave", b);
+            i?.addEventListener("click", function () {
+                let a = this.closest(".headerNav").querySelector(".headerNav__phone span").textContent.replace(/\s/g, "")
+                    , b = this.closest(".headerNav").querySelector(".modal-phone__copy span");
+                (async () => {
+                    try {
+                        await navigator.clipboard.writeText(a),
+                            b.textContent = "\u0421\u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u043D!",
+                            setTimeout(() => {
+                                b.textContent = "\u0421\u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u043D\u043E\u043C\u0435\u0440"
+                            }
+                                , 1500)
+                    } catch (a) {
+                        b.textContent = "\u041D\u0435 \u0441\u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u043D!",
+                            console.error("Failed to copy: ", a)
+                    }
+                }
+                )()
+            })
+        });
+
+    </script>
+    <script src="https://unpkg.com/intersection-observer@0.7.0/intersection-observer.js"></script>
+    <script>
+        const anchors = document.getElementsByClassName('anchor')
+        for (let anchor of anchors) {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault()
+
+                const blockID = anchor.getAttribute('href').substr(1)
+
+                document.getElementById(blockID).scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                })
+            })
+        }
+    </script>
+    <script>
+        // const observer = new IntersectionObserver((entries) => {
+        //     entries.forEach((entry) => {
+        //         const video = entry.target;
+        //         if (entry.isIntersecting) {
+        //             video.play();
+        //         } else {
+        //             video.currentTime = 0;
+        //             video.pause();
+        //         }
+        //     });
+        // });
+
+        // const videoElement = document.getElementById("video");
+        // observer.observe(videoElement);
+
+
+        function handleIntersection(entries, observer) {
+            entries.forEach(entry => {
+                // Если видео видимо на экране
+                if (entry.isIntersecting) {
+                    // Здесь можно вызвать функцию для плавного появления видео
+                    entry.target.classList.add('visible');
+                } else {
+                    // Здесь можно вызвать функцию для перезапуска видео
+                    entry.target.currentTime = 0;
+
+                    entry.target.classList.remove('visible');
+                }
+            });
+        }
+
+        // // Создаем новый экземпляр наблюдателя с функцией обратного вызова
+        // const observer = new IntersectionObserver(handleIntersection);
+
+        // // Получаем все видео на странице
+        // const videos = document.querySelectorAll('video');
+
+        // // Наблюдаем за каждым видео
+        // videos.forEach(video => {
+        //     observer.observe(video);
+        // });
+    </script>
+
+    <script>
+        window.addEventListener("DOMContentLoaded", function () {
+            [].forEach.call(document.querySelectorAll('.tel'), function (input) {
+                var keyCode;
+                function mask(event) {
+                    event.keyCode && (keyCode = event.keyCode);
+                    var pos = this.selectionStart;
+                    if (pos < 3) event.preventDefault();
+                    var matrix = "+7 (___) ___ __-__",
+                        i = 0,
+                        def = matrix.replace(/\D/g, ""),
+                        val = this.value.replace(/\D/g, ""),
+                        new_value = matrix.replace(/[_\d]/g, function (a) {
+                            return i < val.length ? val.charAt(i++) || def.charAt(i) : a
+                        });
+                    i = new_value.indexOf("_");
+                    if (i != -1) {
+                        i < 5 && (i = 3);
+                        new_value = new_value.slice(0, i)
+                    }
+                    var reg = matrix.substr(0, this.value.length).replace(/_+/g,
+                        function (a) {
+                            return "\\d{1," + a.length + "}"
+                        }).replace(/[+()]/g, "\\$&");
+                    reg = new RegExp("^" + reg + "$");
+                    if (!reg.test(this.value) || this.value.length < 5 || keyCode > 47 && keyCode < 58) this.value = new_value;
+                    if (event.type == "blur" && this.value.length < 5) this.value = ""
+                }
+
+                input.addEventListener("input", mask, false);
+                input.addEventListener("focus", mask, false);
+                input.addEventListener("blur", mask, false);
+                input.addEventListener("keydown", mask, false)
+
+            });
+
+        });
+
+    </script>
+    <script>
+        if (window.innerWidth < 800) {
+            document.getElementById("replace").innerHTML = "Запишитесь <br> на бесплатный <br> тест-драйв";
+        }
+    </script>
+    <script>
+        const wrapper = document.getElementById('wrapper');
+
+        // Получаем элемент input по его id
+        const input = document.getElementById('input');
+
+        // Добавляем обработчик события input на элемент input
+        input.addEventListener('input', () => {
+            // Получаем значение из input и преобразуем его в число
+            const value = parseFloat(input.value);
+
+            // Проверяем, что значение находится в диапазоне от 0 до 1
+            if (!isNaN(value) && value >= 0.5 && value <= 2) {
+                // Устанавливаем значение свойства zoom для элемента обертки
+                wrapper.style.zoom = value;
+            }
+        });
+    </script>
+    <script>
+        function showMoscow() {
+            document.getElementById('v1').classList.add('active');
+            document.getElementById('v2').classList.remove('active');
+            document.getElementById('s2').classList.add('opacity');
+            document.getElementById('s1').classList.remove('opacity');
+        }
+        function showMinsk() {
+            document.getElementById('v2').classList.add('active');
+            document.getElementById('v1').classList.remove('active');
+            document.getElementById('s1').classList.add('opacity');
+            document.getElementById('s2').classList.remove('opacity');
+        }
+
+    </script>
+    <script>
+        if (navigator.userAgent.indexOf("Mac OS X") !== -1) {
+            var cssFile = document.createElement("link");
+            cssFile.setAttribute("rel", "stylesheet");
+            cssFile.setAttribute("type", "text/css");
+            cssFile.setAttribute("href", "css/mac-os.css");
+            document.head.appendChild(cssFile);
+        }
+    </script>
 </body>
 
 </html>

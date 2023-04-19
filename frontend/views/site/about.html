@@ -203,7 +203,7 @@
                     <div class="swiper">
 
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide" data-swiper-autoplay="5000">
+                            <div class="swiper-slide" data-swiper-autoplay="3000">
                                 <h2 class="hidden lol">Tesla Model Y Performance
                                 </h2>
                                 <img class="formSection__bg" src="./update_pages/about/img/slide3.png" alt="">
@@ -228,7 +228,7 @@
                                 </div>
                                 <a href="/model3">Посмотреть страницу авто</a>
                             </div>
-                            <div class="swiper-slide" data-swiper-autoplay="5000">
+                            <div class="swiper-slide" data-swiper-autoplay="3000">
                                 <h2 class="hidden lol">Tesla Roadster</h2>
                                 <img class="formSection__bg" src="./update_pages/about/img/slide1.png" alt="">
                                 <div class="formSection__char-mob">
@@ -252,9 +252,9 @@
                                 </div>
                                 <a href="/roadster">Посмотреть страницу авто</a>
                             </div>
-                            <div class="swiper-slide" data-swiper-autoplay="5000">
+                            <div class="swiper-slide" data-swiper-autoplay="3000">
                                 <h2 class="hidden lol">Tesla Model X Plaid</h2>
-                                <img class="formSection__bg" src="./update_pages/about/img/slide2.webp" alt="">
+                                <img class="formSection__bg" src="./update_pages/about/img/slide2.png" alt="">
                                 <div class="formSection__char-mob">
                                     <h2>Остались вопросы?
                                         Свяжемся с вами
@@ -277,9 +277,9 @@
                                 <a href="/modelx">Посмотреть страницу авто</a>
                             </div>
 
-                            <div class="swiper-slide" data-swiper-autoplay="5000">
+                            <div class="swiper-slide" data-swiper-autoplay="3000">
                                 <h2 class="hidden lol">Tesla Model S Plaid</h2>
-                                <img class="formSection__bg" src="./update_pages/about/img/slide4.webp" alt="">
+                                <img class="formSection__bg" src="./update_pages/about/img/slide4.png" alt="">
                                 <div class="formSection__char-mob">
                                     <h2>Остались вопросы?
                                         Свяжемся с вами
@@ -301,9 +301,9 @@
                                 </div>
                                 <a href="/models">Посмотреть страницу авто</a>
                             </div>
-                            <div class="swiper-slide" data-swiper-autoplay="5000">
+                            <div class="swiper-slide" data-swiper-autoplay="3000">
                                 <h2 class="hidden lol">Tesla Model 3 Long Range</h2>
-                                <img class="formSection__bg" src="./update_pages/about/img/slide5.webp" alt="">
+                                <img class="formSection__bg" src="./update_pages/about/img/slide5.png" alt="">
                                 <div class="formSection__char-mob">
                                     <h2>Остались вопросы?
                                         Свяжемся с вами
@@ -413,9 +413,8 @@
                             <span>Отзыв</span>
                             <h2>Александр Козловский</h2>
                             <p>Заказал в Автотрейдер свой первый Тесла. Процессом и результатом работы остался доволен.
-                                Все четко и понятно, 24/7 были на связи. Ребята помогли еще справиться с задачей
-                                получения электродного ПТС. Рекомендую, было приятно работать ! Был на связи с
-                                менеджером Владимиром.</p>
+                                Все четко и понятно, 24/7 были на&nbsp;связи. Ребята помогли еще справиться с&nbsp;задачей
+                                получения электродного ПТС. Рекомендую, было приятно работать ! Был на&nbsp;связи с&nbsp;менеджером Владимиром.</p>
                             <div class="pagination">
                                 <div class="pagination__item active" onclick="
                                     document.getElementById('item1').classList.add('visible');
@@ -1023,16 +1022,15 @@
         // Optional parameters
         direction: 'horizontal',
         allowTouchMove: false,
-        init: true,
         // If we need pagination
         pagination: {
             el: '.swiper-pagination',
             clickable: true
         },
         autoplay: {
-            delay: 5000,
-            disableOnInteraction: true
-        }
+            delay: 3000,
+            disableOnInteraction: false
+        },
 
     });
 
@@ -1041,54 +1039,7 @@
 
 
 </script>
-<script>
-    // function handleIntersection(entries, observer) {
-    //     entries.forEach(entry => {
-    //         // Если видео видимо на экране
-    //         if (entry.isIntersecting) {
-    //             // Здесь можно вызвать функцию для плавного появления видео
-    //             entry.target.classList.add('visible');
-    //         } else {
-    //             // Здесь можно вызвать функцию для перезапуска видео
-    //             entry.target.currentTime = 0;
 
-    //             entry.target.classList.remove('visible');
-    //         }
-    //     });
-    // }
-
-    // // Создаем новый экземпляр наблюдателя с функцией обратного вызова
-    // const observer = new IntersectionObserver(handleIntersection);
-
-    // // Получаем все видео на странице
-    // const videos = document.querySelectorAll('video');
-
-    // // Наблюдаем за каждым видео
-    // videos.forEach(video => {
-    //     observer.observe(video);
-    // });
-    // function stopAndResetInactiveVideos() {
-    //     const inactiveSlides = [...swiper.slides].filter(slide => slide !== swiper.slides[swiper.activeIndex]);
-    //     inactiveSlides.forEach(slide => {
-    //         const inactiveVideo = slide.querySelector('video');
-    //         if (inactiveVideo) {
-    //             inactiveVideo.pause();
-    //             inactiveVideo.currentTime = 0;
-    //         }
-    //     });
-    // }
-
-    // function resetInactiveVideosOpacity() {
-    //     const inactiveSlides = [...swiper.slides].filter(slide => slide !== swiper.slides[swiper.activeIndex]);
-    //     inactiveSlides.forEach(slide => {
-    //         const inactiveVideo = slide.querySelector('video');
-    //         if (inactiveVideo) {
-    //             inactiveVideo.style.opacity = '0';
-    //         }
-    //     });
-    // }
-
-</script>
 <script>
     const anchors = document.getElementsByClassName('anchor')
     for (let anchor of anchors) {
