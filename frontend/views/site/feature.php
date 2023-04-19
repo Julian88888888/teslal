@@ -46,7 +46,7 @@
                     href="https://api.whatsapp.com/send/?phone=79054280000&amp;text=Меня_интересует_покупка_Tesla_у_вас_на_сайте&amp;type=phone_number&amp;app_absent=0"
                     target="_blank"><span>WhatsApp</span>
                     <svg class="svg-sprite-icon  icon-whatsapp modal-phone__icon">
-                      <use xlink:href="/img/sprite.svg#whatsapp"></use>
+                      <use xlink:href="/img/svg/sprite.svg#whatsapp"></use>
                     </svg></a></div>
                 <div class="modal-phone__wrapper"><a class="modal-phone__item" href="https://t.me/Khatskevich7"
                     target="_blank"><span>Telegram</span>
@@ -56,7 +56,7 @@
                 <div class="modal-phone__wrapper">
                   <div class="modal-phone__item modal-phone__copy"><span>Скопировать номер</span>
                     <svg class="svg-sprite-icon  icon-copy modal-phone__icon">
-                      <use xlink:href="/img/sprite.svg#copy"></use>
+                      <use xlink:href="/img/svg/sprite.svg#copy"></use>
                     </svg>
                   </div>
                 </div>
