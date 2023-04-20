@@ -126,10 +126,10 @@ class SiteController extends Controller
         return $this->render('charging.html');
     }
 
-    public function actionOverview()
-    {
-        return $this->render('overview.html');
-    }
+    // public function actionOverview()
+    // {
+    //     return $this->render('overview.html');
+    // }
 
     public function actionKatalogavto()
     {
@@ -140,10 +140,10 @@ class SiteController extends Controller
     {
         return $this->render('compare.html');
     }
-    public function actionCar()
-    {
-        return $this->render('car.html');
-    }
+    // public function actionCar()
+    // {
+    //     return $this->render('car.html');
+    // }
 
     public function actionDesigns()
     {
@@ -161,10 +161,10 @@ class SiteController extends Controller
     {
         return $this->render('design3.html');
     }
-    public function actionFeaturedefault()
-    {
-        return $this->render('feature_default.html');
-    }
+    // public function actionFeaturedefault()
+    // {
+    //     return $this->render('feature_default.html');
+    // }
     public function actionBlog()
     {
         return $this->render('blog.html');

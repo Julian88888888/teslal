@@ -1,9 +1,10 @@
 <?php
-
 namespace common\models;
 
-use Yii;
+include(__DIR__.'/../../common/components/sitemap/init.php');
 
+use Yii;
+use himiklab\sitemap\behaviors\SitemapBehavior;
 /**
  * This is the model class for table "car".
  *
@@ -44,6 +45,27 @@ class Car extends \yii\db\ActiveRecord
         return 'car';
     }
 
+    public function behaviors()
+    {
+        return [
+            'sitemap' => [
+                'class' => SitemapBehavior::class,
+                'scope' => function ($model) {
+                    /** @var \yii\db\ActiveQuery $model */
+                    $model->where('model is not NULL AND model <> "" AND (model = "roadster" OR (modification is not NULL AND modification <> ""))');
+                },
+                'dataClosure' => function ($model) {
+                    /** @var PostRecord $model */
+                    return [
+                        'loc' => \yii\helpers\Url::to('feature/'.$model->id, true),
+                        'lastmod' => $model->updated_at,
+                        'changefreq' => SitemapBehavior::CHANGEFREQ_DAILY,
+                        'priority' => 0.8
+                    ];
+                }
+            ],
+        ];
+    }
     /**
      * {@inheritdoc}
      */

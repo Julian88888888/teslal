@@ -14,18 +14,14 @@
     <meta name="description" content="">
     <meta name="color-theme" content="">
     <link type="image/x-icon" rel="shortcut icon" href="/img/fav/favicon.ico">
-<<<<<<< HEAD
     <link rel="stylesheet" type="text/css" href="/timehome/timehome.css">
-=======
-    <link rel="stylesheet" type="text/css" href="./timehome/timehome.css">
->>>>>>> dev
     <link rel="stylesheet" type="text/css" href="/css/filter.min.css?=5"><!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script><![endif]-->
   </head>
   <body class="model">
     <div class="wrapper">
     <header class="header">
-      <div class="header__inner"><a class="header__logo logo" href="/"><img src="/update_pages/models/img/logo.svg"
+      <div class="header__inner"><a class="header__logo logo" href="/"><img src="/img/logo.svg"
             alt="Tesla by Autotraider"></a>
         <div class="headerNav hidden">
           <ul class="headerNav__list">
