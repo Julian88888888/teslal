@@ -190,6 +190,62 @@ class SiteController extends Controller
         }
     }
 
+    public function actionLeadfull()
+    {
+        $model = new LeadForm();
+        $model->load(Yii::$app->request->post(), '');
+
+        if($model->validate()) {
+            switch ($model->type) {
+                case '/about':
+                    $type = 'О нас';
+                    break;
+                case '/delivery':
+                    $type = 'Доставка';
+                    break;
+                default:
+                    $type = '';
+                    break;
+            }
+
+            $website="https://api.telegram.org/bot".Yii::$app->params['telegram_bot_token'];
+     
+            $params=[
+              'chat_id' => Yii::$app->params['telegram_chat_id'], 
+              'text' => 
+              "Новый лид, форма ".$type."\n"
+              .($model->name ? $model->name."\n" : '')
+              .$model->email."\n"
+              .$model->phone,
+            ];
+
+            $ch = curl_init($website . '/sendMessage');
+            curl_setopt($ch, CURLOPT_HEADER, false);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, ($params));
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            $result = curl_exec($ch);
+            curl_close($ch);
+
+            $content = "Новая заявка с сайта. \r\n
+                Данные формы: имя - ".$model->name.", email - ".$model->email.", телефон - ".$model->phone;
+
+            $result = Yii::$app->mailer->compose()
+            ->setFrom('info@autotrader.ru')
+            ->setTo('info@autotrader.ru')
+            ->setSubject('Новая заявка "'.$type.'"')
+            ->setTextBody($content)
+            // ->setHtmlBody('<b>HTML content</b>')
+            ->send();
+
+            Yii::$app->response->statusCode = 200;
+            echo json_encode(['success' => true, 'error' => '']);
+        } else {
+            Yii::$app->response->statusCode = 400;
+            echo json_encode(['success' => false, 'error' => 'Bad Request']);
+        }
+    }
     public function actionLead()
     {        
         $model = new LeadForm();
