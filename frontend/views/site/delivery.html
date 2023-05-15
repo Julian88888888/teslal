@@ -216,10 +216,10 @@
                 </div>
 
 
-                <form class="help" action="">
-                    <input class="input" type="text" placeholder="Имя">
-                    <input type="tel" name="" class="input tel" placeholder="+7 999 999 99 99">
-                    <input class="input" type="email" name="" id="" placeholder="e-mail">
+                <form id="lead-form" class="help" action="/leadfull">
+                    <input name="name" class="input" type="text" placeholder="Имя">
+                    <input name="phone" type="tel" class="input tel" placeholder="+7 999 999 99 99">
+                    <input name="email" class="input" type="email" name="" id="" placeholder="e-mail">
                     <button type="submit">Записаться</button>
                     <div class="check">
                         <input type="checkbox" name="" id="check">
@@ -227,6 +227,7 @@
                                 конфиденциальности</a></label>
                     </div>
 
+                    <input type="hidden" name="<?= Yii::$app->request->csrfParam; ?>" value="<?= Yii::$app->request->csrfToken; ?>" />
                 </form>
             </section>
             <scetion class="insta">
@@ -529,6 +530,8 @@
             document.head.appendChild(cssFile);
         }
     </script>
+    <script type="text/javascript" src="js/jquery-3.6.4.min.js"></script>
+    <script type="text/javascript" src="js/leadform.js"></script>
 </body>
 
 </html>
