@@ -21,7 +21,11 @@
   <body class="model">
     <div class="wrapper">
     <header class="header">
+<<<<<<< HEAD
       <div class="header__inner"><a class="header__logo logo" href="/"><img src="/update_pages/models/img/logo.svg"
+=======
+      <div class="header__inner"><a class="header__logo logo" href="/"><img src="/img/logo.svg"
+>>>>>>> 25a2ef4401db84f8cb8e9dc8b4623672f35f7a97
             alt="Tesla by Autotraider"></a>
         <div class="headerNav hidden">
           <ul class="headerNav__list">

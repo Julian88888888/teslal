@@ -13,6 +13,7 @@ class LeadForm extends Model
     public $phone;
     public $email;
     public $name;
+    public $type;
 
     /**
      * {@inheritdoc}
@@ -24,7 +25,7 @@ class LeadForm extends Model
             [['phone', 'email'], 'required'],
             // email has to be a valid email address
             ['email', 'email'],
-            ['name', 'string'],
+            [['name', 'type'], 'string'],
         ];
     }
 

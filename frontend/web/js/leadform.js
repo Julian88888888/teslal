@@ -3,6 +3,7 @@ $("#lead-form").submit(function (event) {
       name: $("#lead-form input[name=name]").val(),
       email: $("#lead-form input[name=email]").val(),
       phone: $("#lead-form input[name=phone]").val(),
+      type: window.location.pathname,
       '_csrf-frontend': $("#lead-form input[name=_csrf-frontend]").val(),
     };
 
