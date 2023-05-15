@@ -90,7 +90,7 @@
                     <div class="intro__text">
                         <h1>Доставка Tesla <br> под заказ</h1>
                         <p>Привезём новую <br> Tesla из Германии без предоплаты за 30 дней</p>
-                        <a href="">Заказать авто</a>
+                        <a href="#lead-form">Заказать авто</a>
                     </div>
                 </div>
 
@@ -159,11 +159,11 @@
                 <section class="whiteSpace">
                     <h2 id="replace">Получите бесплатную <br>
                         консультацию</h2>
-                    <a href="">Записаться</a>
+                    <a href="#lead-form">Записаться</a>
                 </section>
             </div>
 
-            <section class="buyCar">
+             <!---<section class="buyCar">
                 <img class="buyCar__presentation" src="./update_pages/about/img/buyCar.webp" alt="">
                 <div class="buyCar__data">
                     <h2>Заказ авто</h2>
@@ -188,7 +188,7 @@
                     </div>
                     <a href="" class="btn adv">Получить предложение</a>
                 </div>
-            </section>
+            </section>-->
             <section class="formSection mob">
 
                 <h2 class="hidden lol">Тест-драйв в Москве</h2>
@@ -217,12 +217,12 @@
 
 
                 <form id="lead-form" class="help" action="/leadfull">
-                    <input name="name" class="input" type="text" placeholder="Имя">
-                    <input name="phone" type="tel" class="input tel" placeholder="+7 999 999 99 99">
-                    <input name="email" class="input" type="email" name="" id="" placeholder="e-mail">
+                    <input name="name" class="input" type="text" placeholder="Имя" required>
+                    <input name="phone" type="tel" class="input tel" placeholder="+7 999 999 99 99" required>
+                    <input name="email" class="input" type="email" name="" id="" placeholder="e-mail" required>
                     <button type="submit">Записаться</button>
                     <div class="check">
-                        <input type="checkbox" name="" id="check">
+                        <input type="checkbox" name="" id="check" required>
                         <label for="check">Оставляя&nbsp;свои&nbsp;данные&nbsp;вы&nbsp;соглашаетесь <a href="">с&nbsp;политикой
                                 конфиденциальности</a></label>
                     </div>
