@@ -197,7 +197,8 @@ if($presentation->car_id) {
 		</main>
 		'.$footer.'
 	</div>
-</body>
+<link rel="stylesheet" href="https://cdn.envybox.io/widget/cbk.css">
+<!-- chat --><script type="text/javascript" src="https://cdn.envybox.io/widget/cbk.js?wcb_code=25351228d9454c99bd342a7d919e0bea" charset="UTF-8" async></script><!--chat--></body>
 
 </html>';
 		}
@@ -419,7 +420,8 @@ $dompdf->loadHtml('
 		</main>
 		'.$footer.'
 	</div>
-</body>
+<link rel="stylesheet" href="https://cdn.envybox.io/widget/cbk.css">
+<!-- chat --><script type="text/javascript" src="https://cdn.envybox.io/widget/cbk.js?wcb_code=25351228d9454c99bd342a7d919e0bea" charset="UTF-8" async></script><!--chat--></body>
 
 </html>
 
@@ -460,7 +462,8 @@ $dompdf->loadHtml('
 		</main>
 		'.$footer.'
 	</div>
-</body>
+<link rel="stylesheet" href="https://cdn.envybox.io/widget/cbk.css">
+<!-- chat --><script type="text/javascript" src="https://cdn.envybox.io/widget/cbk.js?wcb_code=25351228d9454c99bd342a7d919e0bea" charset="UTF-8" async></script><!--chat--></body>
 
 </html>
 
@@ -624,7 +627,8 @@ $dompdf->loadHtml('
 		</main>
 		'.$footer.'
 	</div>
-</body>
+<link rel="stylesheet" href="https://cdn.envybox.io/widget/cbk.css">
+<!-- chat --><script type="text/javascript" src="https://cdn.envybox.io/widget/cbk.js?wcb_code=25351228d9454c99bd342a7d919e0bea" charset="UTF-8" async></script><!--chat--></body>
 
 </html>
 ', 'UTF-8');

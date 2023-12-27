@@ -233,7 +233,7 @@ class SiteController extends Controller
 
             $result = Yii::$app->mailer->compose()
             ->setFrom('info@autotrader.ru')
-            ->setTo('info@autotrader.ru')
+            ->setTo(['info@autotrader.ru', 'che.work91@gmail.com'])
             ->setSubject('Новая заявка "'.$type.'"')
             ->setTextBody($content)
             // ->setHtmlBody('<b>HTML content</b>')
@@ -293,7 +293,7 @@ class SiteController extends Controller
 
             $result = Yii::$app->mailer->compose()
             ->setFrom('info@autotrader.ru')
-            ->setTo('info@autotrader.ru')
+            ->setTo(['info@autotrader.ru', 'che.work91@gmail.com'])
             ->setSubject('Новая заявка "Хочу ещё фото"')
             ->setTextBody($content)
             // ->setHtmlBody('<b>HTML content</b>')

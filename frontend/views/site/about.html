@@ -788,7 +788,7 @@
             <section class="formNew">
                 <div class="formNew-wrapper">
 
-                    <div class="df">
+                    <div class="df" style="align-items: center;">
                         <section class="formSection">
                             <h2 class="black">У Вас есть вопрос? <br>
                                 С радостью ответим <br>
@@ -797,7 +797,7 @@
                             <form id="lead-form" action="/leadfull">
                                 <input name="name" class="input" type="text" placeholder="Имя">
                                 <input name="phone" type="tel" class="input tel" placeholder="+7 999 999 99 99">
-                                <input name="email"  class="input" type="email" id="" placeholder="e-mail">
+                                <input name="email" class="input" type="email" id="" placeholder="e-mail">
                                 <button class="new" type="submit">Отправить</button>
                                 <div class="check">
                                     <input type="checkbox" name="" id="check">
@@ -805,7 +805,8 @@
                                             конфиденциальности</a></label>
                                 </div>
 
-                                <input type="hidden" name="<?= Yii::$app->request->csrfParam; ?>" value="<?= Yii::$app->request->csrfToken; ?>" />
+                                <input type="hidden" name="<?= Yii::$app->request->csrfParam; ?>"
+                                    value="<?= Yii::$app->request->csrfToken; ?>" />
                             </form>
                         </section>
                         <img class="lazyloaded" data-src="./update_pages/about/img/mashina.webp" class="fullimg" alt="">
@@ -879,7 +880,8 @@
                     alt=""></a>
         </footer>
 
-</body>
+<link rel="stylesheet" href="https://cdn.envybox.io/widget/cbk.css">
+<!-- chat --><script type="text/javascript" src="https://cdn.envybox.io/widget/cbk.js?wcb_code=25351228d9454c99bd342a7d919e0bea" charset="UTF-8" async></script><!--chat--></body>
 <div class="modalMenu">
     <div class="modalMenu__close">
         <svg class="svg-sprite-icon  icon-close modalMenu__close-icon">
@@ -898,7 +900,7 @@
         <li class="modalMenu__item"><a class="modalMenu__link" href="/delivery">Доставка авто</a></li>
         <li class="modalMenu__item"><a class="modalMenu__link" href="/testdrive">Тест-драйв</a></li>
         <li class="modalMenu__item"><a class="modalMenu__link" href="/sravnenie">Сравнение моделей</a></li>
-        <li class="modalMenu__item"><a class="modalMenu__link" href="/blog">Новости Tesla</a></li>
+
         <li class="modalMenu__item"><a class="modalMenu__link" href="/about">О нас</a></li>
     </ul>
 </div>
@@ -1153,4 +1155,5 @@
 </script>
 <script type="text/javascript" src="js/jquery-3.6.4.min.js"></script>
 <script type="text/javascript" src="js/leadform.js"></script>
+
 </html>

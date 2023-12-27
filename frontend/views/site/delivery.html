@@ -90,7 +90,7 @@
                     <div class="intro__text">
                         <h1>Доставка Tesla <br> под заказ</h1>
                         <p>Привезём новую <br> Tesla из Германии без предоплаты за 30 дней</p>
-                        <a href="#lead-form">Заказать авто</a>
+                        <a class="anchor" href="#lead-form">Заказать авто</a>
                     </div>
                 </div>
 
@@ -135,7 +135,7 @@
                                 <h3>Таможенная очистка</h3>
                                 <p class="two">Все автомобили проходят таможенную очистку в&nbsp;Республике Беларусь
                                     согласно
-                                    регламенту таможенного союза по&nbsp;полной ставке.  Мы не&nbsp;используем
+                                    регламенту таможенного союза по&nbsp;полной ставке. Мы не&nbsp;используем
                                     никакие
                                     льготные
                                     схемы, которые в&nbsp;будущем могут доставить неприятности. </p>
@@ -159,11 +159,11 @@
                 <section class="whiteSpace">
                     <h2 id="replace">Получите бесплатную <br>
                         консультацию</h2>
-                    <a href="#lead-form">Записаться</a>
+                    <a class="anchor" href="#lead-form">Записаться</a>
                 </section>
             </div>
 
-             <!---<section class="buyCar">
+            <!---<section class="buyCar">
                 <img class="buyCar__presentation" src="./update_pages/about/img/buyCar.webp" alt="">
                 <div class="buyCar__data">
                     <h2>Заказ авто</h2>
@@ -200,7 +200,7 @@
                         за 25 секунд</h2>
                     <p>Оставить заявку</p>
                 </div>
-                <div class="formSection__char mm">
+                <div class="formSection__char mm" id="lead-form">
                     <div class="formSection__char-item">
                         <span>534 л.с.</span>
                         <p>Максимальная мощность</p>
@@ -223,11 +223,13 @@
                     <button type="submit">Записаться</button>
                     <div class="check">
                         <input type="checkbox" name="" id="check" required>
-                        <label for="check">Оставляя&nbsp;свои&nbsp;данные&nbsp;вы&nbsp;соглашаетесь <a href="">с&nbsp;политикой
+                        <label for="check">Оставляя&nbsp;свои&nbsp;данные&nbsp;вы&nbsp;соглашаетесь <a
+                                href="">с&nbsp;политикой
                                 конфиденциальности</a></label>
                     </div>
 
-                    <input type="hidden" name="<?= Yii::$app->request->csrfParam; ?>" value="<?= Yii::$app->request->csrfToken; ?>" />
+                    <input type="hidden" name="<?= Yii::$app->request->csrfParam; ?>"
+                        value="<?= Yii::$app->request->csrfToken; ?>" />
                 </form>
             </section>
             <scetion class="insta">
@@ -307,7 +309,7 @@
             <li class="modalMenu__item"><a class="modalMenu__link" href="/delivery">Доставка авто</a></li>
             <li class="modalMenu__item"><a class="modalMenu__link" href="/testdrive">Тест-драйв</a></li>
             <li class="modalMenu__item"><a class="modalMenu__link" href="/sravnenie">Сравнение моделей</a></li>
-            <li class="modalMenu__item"><a class="modalMenu__link" href="/blog">Новости Tesla</a></li>
+
             <li class="modalMenu__item"><a class="modalMenu__link" href="/about">О нас</a></li>
         </ul>
     </div>
@@ -494,17 +496,19 @@
         // Получаем элемент input по его id
         const input = document.getElementById('input');
 
-        // Добавляем обработчик события input на элемент input
-        input.addEventListener('input', () => {
-            // Получаем значение из input и преобразуем его в число
-            const value = parseFloat(input.value);
+        if(input) {
+            // Добавляем обработчик события input на элемент input
+            input.addEventListener('input', () => {
+                // Получаем значение из input и преобразуем его в число
+                const value = parseFloat(input.value);
 
-            // Проверяем, что значение находится в диапазоне от 0 до 1
-            if (!isNaN(value) && value >= 0.5 && value <= 2) {
-                // Устанавливаем значение свойства zoom для элемента обертки
-                wrapper.style.zoom = value;
-            }
-        });
+                // Проверяем, что значение находится в диапазоне от 0 до 1
+                if (!isNaN(value) && value >= 0.5 && value <= 2) {
+                    // Устанавливаем значение свойства zoom для элемента обертки
+                    wrapper.style.zoom = value;
+                }
+            });
+        }
     </script>
     <script>
         function showMoscow() {
@@ -532,6 +536,7 @@
     </script>
     <script type="text/javascript" src="js/jquery-3.6.4.min.js"></script>
     <script type="text/javascript" src="js/leadform.js"></script>
-</body>
+<link rel="stylesheet" href="https://cdn.envybox.io/widget/cbk.css">
+<!-- chat --><script type="text/javascript" src="https://cdn.envybox.io/widget/cbk.js?wcb_code=25351228d9454c99bd342a7d919e0bea" charset="UTF-8" async></script><!--chat--></body>
 
 </html>
